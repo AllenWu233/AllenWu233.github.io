@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Python on Allen_Wu233的博客</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/tags/python/</link>
+        <link>https://allenwu233.github.io/tags/python/</link>
         <description>Recent content in Python on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 11 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 11 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>C语言初学者的汉诺塔</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/</link>
+        <link>https://allenwu233.github.io/p/hanoi/</link>
         <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_cover.jpg" alt="Featured image of post C语言初学者的汉诺塔" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+        <guid>https://allenwu233.github.io/p/hanoi/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/hanoi/hanoi_cover.jpg" alt="Featured image of post C语言初学者的汉诺塔" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在印度，有这样一个古老的传说。在世界中心贝拿勒斯的圣庙里，一块黄铜板上插着3根宝石针。印度教的主神梵天在创造世界的时候，在其中一根针上从下到上地穿好了由大到小的64片金片，这就是所谓的汉诺塔(Tower of Hanoi)。不论白天黑夜，总有一个僧侣在按照下面的法则移动这些金片到另一根针上：一次只移动一片，而且小片必在大片上面。当所有的金片都从梵天穿好的那根针上移动到第三根针上时，世界就将在一声霹雳中消灭，梵塔、庙宇和众生都将同归于尽&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -40,10 +40,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;一个简单的例子&#34;&gt;一个简单的例子&lt;/h3&gt;
 &lt;p&gt;当 n = 3 时，用一张图来解决：
-&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3.jpg&#34;
+&lt;img src=&#34;https://allenwu233.github.io/p/hanoi/hanoi_3.jpg&#34;
 	width=&#34;850&#34;
 	height=&#34;637&#34;
-	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://allenwu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;三层汉诺塔&#34;
@@ -267,11 +267,11 @@
         </item>
         <item>
         <title>明日方舟寻访模拟器</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</link>
+        <link>https://allenwu233.github.io/p/ark_simulation/</link>
         <pubDate>Thu, 01 Sep 2022 09:20:59 +0800</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
+        <guid>https://allenwu233.github.io/p/ark_simulation/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
 仓库链接： &lt;a class=&#34;link&#34; href=&#34;https://github.com/AllenWu233/arknights_simulation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/AllenWu233/arknights_simulation&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;poolpy&#34;&gt;pool.py&lt;/h2&gt;
@@ -1023,11 +1023,11 @@
         </item>
         <item>
         <title>Sublime Text 3 Python环境配置教程（附pip安装教程）</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</link>
+        <link>https://allenwu233.github.io/p/st3-python/</link>
         <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
+        <guid>https://allenwu233.github.io/p/st3-python/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
 &lt;p&gt;然而对初学者来说，st3的配置还是有一点难度的，因此有了这篇教程（笑）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本机系统：windows 10&lt;br&gt;
