@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Sublime Text 3 on Allen_Wu233的博客</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/tags/sublime-text-3/</link>
+        <link>https://allenwu233.github.io/tags/sublime-text-3/</link>
         <description>Recent content in Sublime Text 3 on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 27 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/tags/sublime-text-3/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/sublime-text-3/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Sublime Text 3 Python环境配置教程（附pip安装教程）</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</link>
+        <link>https://allenwu233.github.io/p/st3-python/</link>
         <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
+        <guid>https://allenwu233.github.io/p/st3-python/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
 &lt;p&gt;然而对初学者来说，st3的配置还是有一点难度的，因此有了这篇教程（笑）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本机系统：windows 10&lt;br&gt;
