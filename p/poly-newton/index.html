@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff"><meta name='description' content='Python 与数学的碰撞'><title>Python生成多项式与牛顿法</title>
+
+<link rel='canonical' href='https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/'>
+
+<link rel="stylesheet" href="/AllenWu233/AllenWu233.github.io/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Python生成多项式与牛顿法'>
+<meta property='og:description' content='Python 与数学的碰撞'>
+<meta property='og:url' content='https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/'>
+<meta property='og:site_name' content='Allen_Wu233的博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='数学' /><meta property='article:tag' content='模拟' /><meta property='article:published_time' content='2022-10-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/cirno.jpg' />
+<meta name="twitter:title" content="Python生成多项式与牛顿法">
+<meta name="twitter:description" content="Python 与数学的碰撞"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/cirno.jpg' />
+    <link rel="shortcut icon" href="trees" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/AllenWu233/AllenWu233.github.io">
+                
+                    
+                    
+                    
+                        
+                        <img src="/AllenWu233/AllenWu233.github.io/img/avatar_hue25108dd572cccbeb0ac646e9eb54973_61279_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌌</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/AllenWu233/AllenWu233.github.io">Allen_Wu233的博客</a></h1>
+            <h2 class="site-description">天地与我并生，而万物与我为一。</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/313610599'
+                        target="_blank"
+                        title="bilibili"
+                    >
+                        
+                        
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="1024" width="1024" viewBox="0 0 1024 1024"><path d="M257.2 111.1c15.8-9.02 35.9-10.28 52.6-2.9 12.52 5.14 21.94 15.22 32.12 23.78 42 36.24 83.64 72.94 125.82 108.96 29.5 0.06 59.02 0.06 88.52 0 42.16-36 83.76-72.66 125.74-108.9 10.2-8.56 19.64-18.66 32.2-23.84 16.24-7.16 35.72-6.2 51.32 2.22 18.24 9.42 30.9 28.94 31.68 49.5 1.18 14.94-4.18 30.02-13.56 41.6-8.3 9.2-18.18 16.72-27.38 24.96-5.88 4.86-11.16 10.46-17.64 14.56 26.02 0 52.04-0.3 78.06 0.16 34.28 0.9 67.64 16.06 91.22 40.9 24.9 24.44 39.1 58.94 39.08 93.8 0.12 119.36 0.02 238.74 0.06 358.12-0.12 18.04 0.86 36.34-3.14 54.08-7.3 36.32-31.68 67.78-62.68 87.32-21.16 13.42-46.34 19.56-71.26 19.6-189.98 0.02-379.98 0-569.96 0-18.74-0.12-37.7 0.98-56.14-3.14-35.32-7.1-66.06-30.4-85.7-60.16-14.42-21.66-21.18-47.82-21.18-73.72-0.02-117.98 0-235.96 0-353.94 0.16-18.14-0.96-36.48 2.74-54.36 11.22-58.22 64.86-105.76 124.38-108.34 27.1-0.84 54.24-0.22 81.36-0.32-12.76-9.26-24.02-20.44-36.1-30.56-14.82-12.14-24.1-31.28-22.56-50.56 0.78-20.06 12.84-39.18 30.4-48.82m-14.32 244.14c-23.08 4.14-42.86 22.36-49.3 44.84-2.32 7.72-2.54 15.88-2.58 23.9 0.1 98.02-0.06 196.04 0.08 294.06-0.46 26.68 17.94 51.94 43.06 60.44 8.92 3.26 18.56 3.3 27.92 3.36 168.66-0.08 337.3 0.08 505.94-0.06 24.72 1 48.52-14.4 58.92-36.6 6.36-12.72 6.28-27.24 6.06-41.1-0.02-91.32-0.02-182.64 0-273.94-0.02-10.04 0.34-20.34-2.58-30.06-5.6-19.58-21.3-35.92-40.54-42.54-10.8-3.9-22.48-3.3-33.76-3.38-161.32 0.02-322.62 0-483.94 0.02-9.76 0.02-19.58-0.34-29.28 1.06z" fill="#1296db"></path><path d="M345.04 449.44c16.12-1.66 32.84 3.56 45.14 14.1 13.68 11.22 21.5 28.72 21.72 46.32 0.44 21.38 0.16 42.8 0.16 64.18-0.06 14.04-3.76 28.36-12.48 39.56-12.12 16.44-33.02 25.82-53.36 23.94-20.06-1.26-38.92-13.5-48.46-31.14-7.48-12.8-8.14-28.02-7.94-42.46 0.48-20.74-1.04-41.6 1.02-62.28 3.08-27.22 26.98-49.94 54.2-52.22zM666.94 449.44c16.7-1.74 33.98 3.92 46.48 15.1 12.32 10.84 19.84 26.88 20.34 43.28 0.94 20.04 0.12 40.12 0.44 60.16 0.12 14.08-1.54 28.78-9.36 40.86-11.28 18.78-33.34 30.34-55.2 28.8-19.14-0.78-37.42-11.48-47.72-27.58-8.74-12.9-10.44-28.88-10.06-44.08 0.4-20.62-0.74-41.26 0.68-61.84 2.04-28.16 26.34-52.32 54.4-54.7z" fill="#1296db"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/AllenWu233'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/AllenWu233/AllenWu233.github.io/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/AllenWu233/AllenWu233.github.io/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/AllenWu233/AllenWu233.github.io/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/AllenWu233/AllenWu233.github.io/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/AllenWu233/AllenWu233.github.io/p/poly-newton/">
+                <img src="/AllenWu233/AllenWu233.github.io/p/poly-newton/cirno_hu007689f65a59db96ba2a05a0e416b84e_185268_800x0_resize_q75_box.jpg"
+                        srcset="/AllenWu233/AllenWu233.github.io/p/poly-newton/cirno_hu007689f65a59db96ba2a05a0e416b84e_185268_800x0_resize_q75_box.jpg 800w, /AllenWu233/AllenWu233.github.io/p/poly-newton/cirno_hu007689f65a59db96ba2a05a0e416b84e_185268_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="603" 
+                        loading="lazy"
+                        alt="Featured image of post Python生成多项式与牛顿法" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/AllenWu233/AllenWu233.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >
+                学习笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/AllenWu233/AllenWu233.github.io/p/poly-newton/">Python生成多项式与牛顿法</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Python 与数学的碰撞
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022, Oct 02</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>事情的起因还得从昨天说起：
+博主在刷几道简单的算法题，其中有一道是 <a class="link" href="https://ac.nowcoder.com/acm/problem/16622"  target="_blank" rel="noopener"
+    >多项式输出</a><br>
+看似简单决定首先AC，无奈博主 C 语言能力不足，转战Python。<br>
+<del>结果还是眼高手低，这么简单的程序要这么多判断</del></p>
+</blockquote>
+<p><img src="/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98.jpg"
+	width="1234"
+	height="564"
+	srcset="/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_480x0_resize_q75_box.jpg 480w, /AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="简单的题目"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="218"
+		data-flex-basis="525px"
+	
+></p>
+<h2 id="生成多项式">生成多项式</h2>
+<p>参考了原题，但是输入输出的格式稍有不同</p>
+<blockquote>
+<p>get_polynomial_feature.py</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_polynomial</span><span class="p">(</span><span class="o">*</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;生成多项式。第一个形参为次数，其他形参为系数&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">power</span><span class="p">,</span> <span class="n">coefficients</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">power</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">coefficients</span><span class="p">[</span><span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 存储系数的字典</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">polynomial</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;=</span> <span class="n">power</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">poly</span> <span class="o">=</span> <span class="n">coefficients</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;a</span><span class="si">{</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># 判断系数绝对值是否为1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">counter</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 判断是否为最高次项</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">power</span><span class="o">-</span><span class="n">counter</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># 判断是否为一次项</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">counter</span> <span class="o">!=</span> <span class="n">power</span><span class="p">:</span>  <span class="c1"># 判断是否为常数项</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;+</span><span class="si">{</span><span class="n">poly</span><span class="si">}</span><span class="s2">*x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">elif</span> <span class="n">poly</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">poly</span><span class="si">}</span><span class="s2">*x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="s1">&#39;+&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">elif</span> <span class="n">poly</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">polynomial</span> <span class="o">+=</span>  <span class="s2">&#34;+&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;*x&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">elif</span> <span class="n">poly</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">polynomial</span> <span class="o">+=</span>  <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;*x&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">poly</span><span class="si">}</span><span class="s2">*x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="n">poly</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">poly</span><span class="si">}</span><span class="s2">*x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">counter</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">power</span><span class="o">-</span><span class="n">counter</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">counter</span> <span class="o">!=</span> <span class="n">power</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;+x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;-x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="s1">&#39;+1&#39;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">polynomial</span> <span class="o">+=</span> <span class="s1">&#39;-1&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">polynomial</span> <span class="o">+=</span> <span class="s2">&#34;+x&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">polynomial</span> <span class="o">+=</span> <span class="s2">&#34;-x&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">poly</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="n">poly</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">polynomial</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;-x**</span><span class="si">{</span><span class="n">power</span><span class="o">-</span><span class="n">counter</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">polynomial</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">get_polynomial</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>关于上面代码的吐槽：<br>
+<del>高情商：为锻炼编程能力，坚决不使用第三方库</del><br>
+<del>低情商：瞎堆砌代码，头铁重新发明轮子</del></p>
+</blockquote>
+<h2 id="牛顿法求多项式近似根">牛顿法求多项式近似根</h2>
+<blockquote>
+<p>最近在复习普林斯顿，正好来试试牛顿法</p>
+</blockquote>
+<h3 id="理论基础">理论基础</h3>
+<p><em><strong>牛顿法</strong></em><br>
+假设a是对方程<code>f(x) = 0</code>的解的一个近似.<br>
+如果令<code>b = a - f(a) / f'(a)</code>，<br>
+则在很多情况下，b 是个比 a 更好的近似.<br></p>
+<p><del>暂时不考虑牛顿法失效的情况（详见《普林斯顿微积分读本》P260~262）</del></p>
+<h3 id="代码">代码</h3>
+<blockquote>
+<p>newtons_method.py</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">get_polynomial_feature</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>  <span class="c1"># x为符号变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">x0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>  <span class="c1"># 初值</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 计数器</span>
+</span></span><span class="line"><span class="cl"><span class="n">polynomial_feature</span> <span class="o">=</span> <span class="n">get_polynomial</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  <span class="c1"># 待求解多项式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">polynomial_feature</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">f</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>   
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># subs()将变量x替换为x0;若f&#39;(x0)=0</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;极值点：&#34;</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x0</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>  <span class="c1"># 牛顿法</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">x_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">x_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 计算误差</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;迭代第 </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> 次后，误差小于 10^(-6)，误差为 </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">polynomial_feature</span><span class="si">}</span><span class="s2"> 的根为 </span><span class="si">{</span><span class="n">x_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>运行结果示例</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">迭代第</span> <span class="mi">7</span> <span class="err">次后，误差小于</span> <span class="mi">10</span><span class="err">^(</span><span class="mi">-6</span><span class="err">)，误差为</span> <span class="mf">4.12656549474007E-8</span>
+</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="err">*x**</span><span class="mi">3</span><span class="err">-x**</span><span class="mi">2</span><span class="err">+</span><span class="mi">11</span> <span class="err">的根为</span> <span class="mf">-1.23722554155332</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">***Repl</span> <span class="err">Closed***</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>当 Python 遇上数学，还挺有意思的<br>
+有机会博主要学一下<code>SymPy</code>和<code>Numpy</code>库</p>
+<h2 id="源代码仓库">源代码仓库</h2>
+<blockquote>
+<p>感兴趣的话可以 clone 一下</p>
+</blockquote>
+<h2 id="参考文献">参考文献</h2>
+<p>[1]（美）阿德里安·班纳.普林斯顿微积分读本[M].北京：人民邮电出版社2016.<br>
+[2]<a class="link" href="https://blog.csdn.net/weixin_48615832/article/details/109285701"  target="_blank" rel="noopener"
+    >牛顿迭代法（Newton’s Method）迭代求根的Python程序</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/AllenWu233/AllenWu233.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+        
+            <a href="/AllenWu233/AllenWu233.github.io/tags/python/">Python</a>
+        
+            <a href="/AllenWu233/AllenWu233.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+        
+            <a href="/AllenWu233/AllenWu233.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/AllenWu233/AllenWu233.github.io/p/hanoi/">
+        
+        
+            <div class="article-image">
+                <img src="/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_cover.124182a687abd214e31ce902aa512df1_hu27641d734727b23e2265cb7c30e12de0_12887_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post C语言初学者的汉诺塔"
+                        data-key="hanoi" 
+                        data-hash="md5-EkGCpoer0hTjHOkCqlEt8Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C语言初学者的汉诺塔</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/AllenWu233/AllenWu233.github.io/p/ark_simulation/">
+        
+        
+            <div class="article-image">
+                <img src="/AllenWu233/AllenWu233.github.io/p/ark_simulation/90904337_p0.1f0bdf584d38bca2e5c1b65231bc62c2_hue4fc7d0a46b1da5d11e22989396304c2_194577_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 明日方舟寻访模拟器"
+                        data-key="ark_simulation" 
+                        data-hash="md5-HwvfWE04vKLlwbZSMbxiwg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">明日方舟寻访模拟器</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.1.0/qq","https://unpkg.com/@waline/emojis@1.1.0/bilibili"],"lang":"zh-cn","locale":{"admin":"Admin","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://myblog-comments-ezycvvka7-allenwu233.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Allen_Wu233的博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#生成多项式">生成多项式</a></li>
+    <li><a href="#牛顿法求多项式近似根">牛顿法求多项式近似根</a>
+      <ol>
+        <li><a href="#理论基础">理论基础</a></li>
+        <li><a href="#代码">代码</a></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#源代码仓库">源代码仓库</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/AllenWu233/AllenWu233.github.io/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
