@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Allen_Wu233的博客</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/</link>
+        <link>https://allenwu233.github.io/</link>
         <description>Recent content on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://allenwu233.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Python生成多项式与牛顿法</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/</link>
+        <link>https://allenwu233.github.io/p/poly-newton/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/cirno.jpg" alt="Featured image of post Python生成多项式与牛顿法" /&gt;&lt;blockquote&gt;
+        <guid>https://allenwu233.github.io/p/poly-newton/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/poly-newton/cirno.jpg" alt="Featured image of post Python生成多项式与牛顿法" /&gt;&lt;blockquote&gt;
 &lt;p&gt;事情的起因还得从昨天说起：
 博主在刷几道简单的算法题，其中有一道是 &lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/problem/16622&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;多项式输出&lt;/a&gt;&lt;br&gt;
 看似简单决定首先AC，无奈博主 C 语言能力不足，转战Python。&lt;br&gt;
 &lt;del&gt;结果还是眼高手低，这么简单的程序要这么多判断&lt;/del&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/poly-newton/%E9%A2%98.jpg&#34;
 	width=&#34;1234&#34;
 	height=&#34;564&#34;
-	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://allenwu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;简单的题目&#34;
@@ -311,10 +311,10 @@
         </item>
         <item>
         <title>Arch Linux修复grub引导</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/arch-grub-fix/</link>
+        <link>https://allenwu233.github.io/p/arch-grub-fix/</link>
         <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/arch-grub-fix/</guid>
+        <guid>https://allenwu233.github.io/p/arch-grub-fix/</guid>
         <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;让我们设想一个情景：当您再也无法忍受日渐卡顿的 Windows 10 时，您二话不说将其重装，却发现您无法进入心爱的 Arch Linux 系统了。是不是很熟悉？别担心，对于喜欢折腾双系统的用户来说，这是常有的事。&lt;br&gt;只需修复grub引导，即可带您回归熟悉的 Arch Linux。&lt;/p&gt;
@@ -426,11 +426,11 @@
         </item>
         <item>
         <title>C语言初学者的汉诺塔</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/</link>
+        <link>https://allenwu233.github.io/p/hanoi/</link>
         <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_cover.jpg" alt="Featured image of post C语言初学者的汉诺塔" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+        <guid>https://allenwu233.github.io/p/hanoi/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/hanoi/hanoi_cover.jpg" alt="Featured image of post C语言初学者的汉诺塔" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在印度，有这样一个古老的传说。在世界中心贝拿勒斯的圣庙里，一块黄铜板上插着3根宝石针。印度教的主神梵天在创造世界的时候，在其中一根针上从下到上地穿好了由大到小的64片金盘，这就是所谓的汉诺塔(Tower of Hanoi)。不论白天黑夜，总有一个僧侣在按照下面的法则移动这些金盘到另一根针上：一次只移动一片，而且小片必在大片上面。当所有的金盘都从梵天穿好的那根针上移动到第三根针上时，世界就将在一声霹雳中消灭，梵塔、庙宇和众生都将同归于尽&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -458,10 +458,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;一个简单的例子&#34;&gt;一个简单的例子&lt;/h3&gt;
 &lt;p&gt;当 n = 3 时，用一张图来解决：
-&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3.jpg&#34;
+&lt;img src=&#34;https://allenwu233.github.io/p/hanoi/hanoi_3.jpg&#34;
 	width=&#34;850&#34;
 	height=&#34;637&#34;
-	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://allenwu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;三层汉诺塔&#34;
@@ -685,11 +685,11 @@
         </item>
         <item>
         <title>明日方舟寻访模拟器</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</link>
+        <link>https://allenwu233.github.io/p/ark_simulation/</link>
         <pubDate>Thu, 01 Sep 2022 09:20:59 +0800</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
+        <guid>https://allenwu233.github.io/p/ark_simulation/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
 仓库链接： &lt;a class=&#34;link&#34; href=&#34;https://github.com/AllenWu233/arknights_simulation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/AllenWu233/arknights_simulation&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;poolpy&#34;&gt;pool.py&lt;/h2&gt;
@@ -1441,11 +1441,11 @@
         </item>
         <item>
         <title>Sublime Text 3 Python环境配置教程（附pip安装教程）</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</link>
+        <link>https://allenwu233.github.io/p/st3-python/</link>
         <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
+        <guid>https://allenwu233.github.io/p/st3-python/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
 &lt;p&gt;然而对初学者来说，st3的配置还是有一点难度的，因此有了这篇教程（笑）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本机系统：windows 10&lt;br&gt;
@@ -1623,11 +1623,11 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         </item>
         <item>
         <title>Hello World!</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/hello-world/</link>
+        <link>https://allenwu233.github.io/p/hello-world/</link>
         <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/hello-world/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/hello-world/55619915_p0.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h2 id=&#34;hello-hugo-blog-world&#34;&gt;Hello Hugo Blog World!&lt;/h2&gt;
+        <guid>https://allenwu233.github.io/p/hello-world/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/hello-world/55619915_p0.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h2 id=&#34;hello-hugo-blog-world&#34;&gt;Hello Hugo Blog World!&lt;/h2&gt;
 &lt;p&gt;Python苦手不会用Django搭建博客，连夜转战hugo（迫真&lt;/p&gt;
 &lt;p&gt;既然是第一篇博客，多写几个“hello world”的话会有好运气的吧（笑）&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1643,10 +1643,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello world!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hello-world/55619915_p0.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/hello-world/55619915_p0.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hello-world/55619915_p0_hudee62e4fdef55c0193c600c5b875d461_921953_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hello-world/55619915_p0_hudee62e4fdef55c0193c600c5b875d461_921953_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://allenwu233.github.io/p/hello-world/55619915_p0_hudee62e4fdef55c0193c600c5b875d461_921953_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/hello-world/55619915_p0_hudee62e4fdef55c0193c600c5b875d461_921953_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;转转镇楼&#34;
@@ -1661,10 +1661,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         </item>
         <item>
         <title>关于</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/about/</link>
+        <link>https://allenwu233.github.io/about/</link>
         <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/about/</guid>
+        <guid>https://allenwu233.github.io/about/</guid>
         <description>&lt;h2 id=&#34;博主简介&#34;&gt;博主简介&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Python爱好者&lt;/li&gt;
@@ -1699,26 +1699,26 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         </item>
         <item>
         <title>归档</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/archives/</link>
+        <link>https://allenwu233.github.io/archives/</link>
         <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/archives/</guid>
+        <guid>https://allenwu233.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/search/</link>
+        <link>https://allenwu233.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/search/</guid>
+        <guid>https://allenwu233.github.io/search/</guid>
         <description></description>
         </item>
         <item>
         <title>友链</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/%E5%8F%8B%E9%93%BE/</link>
+        <link>https://allenwu233.github.io/%E5%8F%8B%E9%93%BE/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/%E5%8F%8B%E9%93%BE/</guid>
+        <guid>https://allenwu233.github.io/%E5%8F%8B%E9%93%BE/</guid>
         <description>&lt;p&gt;如果你想申请友链，可以把你的信息发到我的邮箱
 &lt;code&gt;allenwu233@163.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;请遵照以下格式&lt;/p&gt;
