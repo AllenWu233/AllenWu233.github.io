@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>明日方舟 on Allen_Wu233的博客</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/</link>
+        <link>https://allenwu233.github.io/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/</link>
         <description>Recent content in 明日方舟 on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 01 Sep 2022 09:20:59 +0800</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 01 Sep 2022 09:20:59 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>明日方舟寻访模拟器</title>
-        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</link>
+        <link>https://allenwu233.github.io/p/ark_simulation/</link>
         <pubDate>Thu, 01 Sep 2022 09:20:59 +0800</pubDate>
         
-        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</guid>
-        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
+        <guid>https://allenwu233.github.io/p/ark_simulation/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
 仓库链接： &lt;a class=&#34;link&#34; href=&#34;https://github.com/AllenWu233/arknights_simulation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/AllenWu233/arknights_simulation&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;poolpy&#34;&gt;pool.py&lt;/h2&gt;
