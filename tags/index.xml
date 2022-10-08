@@ -6,12 +6,28 @@
         <description>Recent content in Tags on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 07 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>C</title>
+        <link>https://allenwu233.github.io/tags/c/</link>
+        <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://allenwu233.github.io/tags/c/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Python</title>
         <link>https://allenwu233.github.io/tags/python/</link>
-        <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
         
         <guid>https://allenwu233.github.io/tags/python/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>算法</title>
+        <link>https://allenwu233.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+        <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://allenwu233.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
         <description></description>
         </item>
         <item>
@@ -28,22 +44,6 @@
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
         <guid>https://allenwu233.github.io/tags/%E6%95%B0%E5%AD%A6/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>算法</title>
-        <link>https://allenwu233.github.io/tags/%E7%AE%97%E6%B3%95/</link>
-        <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://allenwu233.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>C</title>
-        <link>https://allenwu233.github.io/tags/c/</link>
-        <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://allenwu233.github.io/tags/c/</guid>
         <description></description>
         </item>
         <item>
