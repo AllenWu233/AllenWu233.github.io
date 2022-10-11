@@ -3,21 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://allenwu233.github.io/</loc>
-    <lastmod>2022-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://allenwu233.github.io/tags/c/</loc>
-    <lastmod>2022-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://allenwu233.github.io/categories/</loc>
-    <lastmod>2022-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://allenwu233.github.io/post/</loc>
-    <lastmod>2022-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://allenwu233.github.io/tags/python/</loc>
-    <lastmod>2022-10-07T00:00:00+00:00</lastmod>
+    <loc>https://allenwu233.github.io/tags/sublime-text-3/</loc>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://allenwu233.github.io/tags/</loc>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://allenwu233.github.io/p/st3-c/</loc>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://allenwu233.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://allenwu233.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://allenwu233.github.io/tags/python/</loc>
     <lastmod>2022-10-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://allenwu233.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
@@ -41,9 +53,6 @@
     <loc>https://allenwu233.github.io/p/arch-grub-fix/</loc>
     <lastmod>2022-09-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://allenwu233.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2022-09-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://allenwu233.github.io/p/hanoi/</loc>
     <lastmod>2022-09-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -56,13 +65,7 @@
     <loc>https://allenwu233.github.io/p/ark_simulation/</loc>
     <lastmod>2022-09-01T09:20:59+08:00</lastmod>
   </url><url>
-    <loc>https://allenwu233.github.io/tags/sublime-text-3/</loc>
-    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://allenwu233.github.io/p/st3-python/</loc>
-    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://allenwu233.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-08-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://allenwu233.github.io/p/hello-world/</loc>
@@ -79,6 +82,8 @@
   </url><url>
     <loc>https://allenwu233.github.io/categories/%E9%9A%8F%E6%84%9F/</loc>
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://allenwu233.github.io/categories/allen%E8%AF%BB%E5%BA%84%E5%AD%90/</loc>
   </url><url>
     <loc>https://allenwu233.github.io/search/</loc>
   </url><url>
