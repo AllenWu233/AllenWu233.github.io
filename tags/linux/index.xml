@@ -19,7 +19,8 @@
 &lt;p&gt;Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。&lt;br&gt;——&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/Arch_Linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Arch Linux “激进”的升级策略——尽全力保持软件处于最新的稳定版本——使得它非常适合爱尝鲜的人。&lt;br&gt;而且，Arch 是高度自由化的系统，只要稍加调试，你完全可以把它打造成“梦中情系统”&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Arch Linux 升级策略相当“激进”——尽可能保持软件处于最新的稳定版本&lt;br&gt;
+而且，Arch 是高度自由化的系统，只要稍加调试，你完全可以把它打造成“梦中情系统”&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;注意：Arch 适用于乐于自己动手的用户，他们愿意花时间阅读文档，解决自己的问题。&lt;br&gt;
 如果你不喜欢折腾，请谨慎选择该系统！&lt;/strong&gt;&lt;/p&gt;
@@ -57,12 +58,22 @@
 	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish_hu0ea3311e01043fe45c9c24a205c22e3a_1833206_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish_hu0ea3311e01043fe45c9c24a205c22e3a_1833206_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;“梦中情系统”&amp;lt;&#34;
+		alt=&#34;“梦中情系统1”&amp;lt;&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;177&#34;
 		data-flex-basis=&#34;426px&#34;
+	
+&gt;
+&lt;img src=&#34;https://allenwu233.github.io/finish2.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;“梦中情系统2”&amp;lt;&#34;
+	
 	
 &gt;&lt;/p&gt;
 &lt;/blockquote&gt;
