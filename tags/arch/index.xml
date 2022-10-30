@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Arch on Allen_Wu233的博客</title>
+        <link>https://allenwu233.github.io/tags/arch/</link>
+        <description>Recent content in Arch on Allen_Wu233的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 22 Oct 2022 11:22:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/arch/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>从0开始的Arch之旅</title>
+        <link>https://allenwu233.github.io/p/allen-arch/</link>
+        <pubDate>Sat, 22 Oct 2022 11:22:00 +0800</pubDate>
+        
+        <guid>https://allenwu233.github.io/p/allen-arch/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/allen-arch/cover.jpg" alt="Featured image of post 从0开始的Arch之旅" /&gt;&lt;blockquote&gt;
+&lt;p&gt;Keep it Simple, Stupid. (KISS)&lt;br&gt;——Arch 之道&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。&lt;br&gt;——&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/Arch_Linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Arch Linux “激进”的升级策略——尽全力保持软件处于最新的稳定版本——使得它非常适合爱尝鲜的人。&lt;br&gt;而且，Arch 是高度自由化的系统，只要稍加调试，你完全可以把它打造成“梦中情系统”&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：Arch 适用于乐于自己动手的用户，他们愿意花时间阅读文档，解决自己的问题。&lt;br&gt;
+如果你不喜欢折腾，请谨慎选择该系统！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Arch 原则&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;简洁 &lt;code&gt;避免任何不必要的添加、修改和复杂增加&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;现代 &lt;code&gt;尽全力保持软件处于最新的稳定版本，只要不出现系统软件包破损，都尽量用最新版本&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;实用 &lt;code&gt;注重实用性，避免意识形态之争&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;以用户为中心 &lt;code&gt;为了满足贡献者的需求&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下是博主配置好的 Arch
+&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish.jpg&#34;
+	width=&#34;1366&#34;
+	height=&#34;768&#34;
+	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish_hu0ea3311e01043fe45c9c24a205c22e3a_1833206_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish_hu0ea3311e01043fe45c9c24a205c22e3a_1833206_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;“梦中情系统”&amp;lt;&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是博主入坑 Arch 以来的经验总结，包括各种配置和踩雷。长期更新。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;教程总结篇&#34;&gt;教程总结篇&lt;/h1&gt;
+&lt;h1 id=&#34;系统配置篇&#34;&gt;系统配置篇&lt;/h1&gt;
+&lt;h1 id=&#34;软件下载篇&#34;&gt;软件下载篇&lt;/h1&gt;
+&lt;h1 id=&#34;界面美化篇&#34;&gt;界面美化篇&lt;/h1&gt;
+&lt;h1 id=&#34;游戏游玩篇&#34;&gt;游戏游玩篇&lt;/h1&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

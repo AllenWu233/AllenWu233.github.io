@@ -6,7 +6,77 @@
         <description>Recent content in 教程 on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 11 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://allenwu233.github.io/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 22 Oct 2022 11:22:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>从0开始的Arch之旅</title>
+        <link>https://allenwu233.github.io/p/allen-arch/</link>
+        <pubDate>Sat, 22 Oct 2022 11:22:00 +0800</pubDate>
+        
+        <guid>https://allenwu233.github.io/p/allen-arch/</guid>
+        <description>&lt;img src="https://allenwu233.github.io/p/allen-arch/cover.jpg" alt="Featured image of post 从0开始的Arch之旅" /&gt;&lt;blockquote&gt;
+&lt;p&gt;Keep it Simple, Stupid. (KISS)&lt;br&gt;——Arch 之道&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。&lt;br&gt;——&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/Arch_Linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Arch Linux “激进”的升级策略——尽全力保持软件处于最新的稳定版本——使得它非常适合爱尝鲜的人。&lt;br&gt;而且，Arch 是高度自由化的系统，只要稍加调试，你完全可以把它打造成“梦中情系统”&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：Arch 适用于乐于自己动手的用户，他们愿意花时间阅读文档，解决自己的问题。&lt;br&gt;
+如果你不喜欢折腾，请谨慎选择该系统！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Arch 原则&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;简洁 &lt;code&gt;避免任何不必要的添加、修改和复杂增加&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;现代 &lt;code&gt;尽全力保持软件处于最新的稳定版本，只要不出现系统软件包破损，都尽量用最新版本&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;实用 &lt;code&gt;注重实用性，避免意识形态之争&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;以用户为中心 &lt;code&gt;为了满足贡献者的需求&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下是博主配置好的 Arch
+&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish.jpg&#34;
+	width=&#34;1366&#34;
+	height=&#34;768&#34;
+	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish_hu0ea3311e01043fe45c9c24a205c22e3a_1833206_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish_hu0ea3311e01043fe45c9c24a205c22e3a_1833206_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;“梦中情系统”&amp;lt;&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是博主入坑 Arch 以来的经验总结，包括各种配置和踩雷。长期更新。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;教程总结篇&#34;&gt;教程总结篇&lt;/h1&gt;
+&lt;h1 id=&#34;系统配置篇&#34;&gt;系统配置篇&lt;/h1&gt;
+&lt;h1 id=&#34;软件下载篇&#34;&gt;软件下载篇&lt;/h1&gt;
+&lt;h1 id=&#34;界面美化篇&#34;&gt;界面美化篇&lt;/h1&gt;
+&lt;h1 id=&#34;游戏游玩篇&#34;&gt;游戏游玩篇&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>Windows环境下 Sublime Text 3 C环境配置教程</title>
         <link>https://allenwu233.github.io/p/st3-c/</link>
         <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
@@ -15,7 +85,7 @@
         <description>&lt;img src="https://allenwu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91.jpg" alt="Featured image of post Windows环境下 Sublime Text 3 C环境配置教程" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;br&gt;
 不管是编程新手还是老手都能轻松掌握，相信你会喜欢上这款编辑器的(&lt;em&gt;￣3￣)╭&lt;/em&gt;)&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本机系统：windows 10&lt;br&gt;
+&lt;p&gt;本机系统：Windows 10&lt;br&gt;
 st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;主教程&#34;&gt;主教程&lt;/h2&gt;
@@ -56,10 +126,11 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
     &gt;https://www.sublimetext.com/3&lt;/a&gt;&lt;br&gt;
 单击超链接&lt;code&gt;Windows 64 bit &lt;/code&gt;，正常下载安装即可&lt;/p&gt;
 &lt;h4 id=&#34;安装package-control&#34;&gt;安装Package Control&lt;/h4&gt;
-&lt;p&gt;在主界面按&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;后，输入&lt;code&gt;Install Package Control&lt;/code&gt;， 按回车，等待安装完毕&lt;br&gt;
+&lt;p&gt;在主界面按&lt;kbd&gt;Ctrl + Shift + P&lt;/kbd&gt;后，输入&lt;code&gt;Install Package Control&lt;/code&gt;， 按回车，等待安装完毕&lt;br&gt;
+如果不行，菜单栏&lt;code&gt;Preference&lt;/code&gt;&amp;mdash;-&amp;gt;&lt;code&gt;Install Package Control&lt;/code&gt;&lt;br&gt;
 有时候服务器可能不稳定，多试几次就好&lt;/p&gt;
-&lt;h4 id=&#34;sublimerepl汉化可选&#34;&gt;SublimeREPL汉化（可选）&lt;/h4&gt;
-&lt;p&gt;按 &lt;code&gt;Ctrl + Shift + P&lt;/code&gt;，输入&lt;code&gt;ChineseLoremIpsum&lt;/code&gt;，按回车或单击下载即可。&lt;/p&gt;
+&lt;h4 id=&#34;sublime-text汉化可选&#34;&gt;Sublime Text汉化（可选）&lt;/h4&gt;
+&lt;p&gt;按 &lt;code&gt;Ctrl + Shift + P&lt;/code&gt;，输入&lt;code&gt;pcip&lt;/code&gt;，选中&lt;code&gt;Package Control: Install Package&lt;/code&gt;，输入&lt;code&gt;ChineseLocalizations&lt;/code&gt;，按回车或单击下载即可。&lt;/p&gt;
 &lt;h4 id=&#34;搭建-c-编译环境&#34;&gt;搭建 C 编译环境&lt;/h4&gt;
 &lt;p&gt;菜单栏&lt;code&gt;工具&lt;/code&gt;&amp;mdash;-&amp;gt;&lt;code&gt;编译系统&lt;/code&gt;&amp;mdash;-&amp;gt;&lt;code&gt;新建编译系统&lt;/code&gt;&lt;br&gt;
 删除所有内容，然后输入以下内容：&lt;/p&gt;
@@ -464,18 +535,23 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         <description>&lt;img src="https://allenwu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Windows环境下 Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
 &lt;p&gt;然而对初学者来说，st3的配置还是有一点难度的，因此有了这篇教程（笑）&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本机系统：windows 10&lt;br&gt;
+&lt;p&gt;本机系统：Windows 10&lt;br&gt;
 st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;主教程&#34;&gt;主教程&lt;/h2&gt;
+&lt;h3 id=&#34;安装-sublime-text-3&#34;&gt;安装 Sublime Text 3&lt;/h3&gt;
+&lt;p&gt;下载地址：&lt;a class=&#34;link&#34; href=&#34;https://www.sublimetext.com/3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.sublimetext.com/3&lt;/a&gt;&lt;br&gt;
+单击超链接&lt;code&gt;Windows 64 bit &lt;/code&gt;，正常下载安装即可&lt;/p&gt;
 &lt;h3 id=&#34;安装package-control&#34;&gt;安装Package Control&lt;/h3&gt;
-&lt;p&gt;在主界面按Ctrl + Shift + P后，输入Install Package Control， 按回车，等待安装完毕&lt;br&gt;
+&lt;p&gt;在主界面按&lt;kbd&gt;Ctrl + Shift + P&lt;/kbd&gt;后，输入&lt;code&gt;Install Package Control&lt;/code&gt;， 按回车，等待安装完毕&lt;br&gt;
+如果不行，菜单栏&lt;code&gt;Preference&lt;/code&gt;&amp;mdash;-&amp;gt;&lt;code&gt;Install Package Control&lt;/code&gt;&lt;br&gt;
 有时候服务器可能不稳定，多试几次就好&lt;/p&gt;
-&lt;h3 id=&#34;sublimerepl汉化&#34;&gt;SublimeREPL汉化&lt;/h3&gt;
-&lt;p&gt;按 Ctrl + Shift + P，输入ChineseLoremIpsum，按回车或单击下载即可。&lt;/p&gt;
+&lt;h3 id=&#34;sublime-text汉化可选&#34;&gt;Sublime Text汉化（可选）&lt;/h3&gt;
+&lt;p&gt;按 &lt;code&gt;Ctrl + Shift + P&lt;/code&gt;，输入&lt;code&gt;pcip&lt;/code&gt;，选中&lt;code&gt;Package Control: Install Package&lt;/code&gt;，输入&lt;code&gt;ChineseLocalizations&lt;/code&gt;，按回车或单击下载即可。&lt;/p&gt;
 &lt;h3 id=&#34;安装并配置sublimerepl&#34;&gt;安装并配置SublimeREPL&lt;/h3&gt;
 &lt;h4 id=&#34;安装&#34;&gt;安装&lt;/h4&gt;
-&lt;p&gt;按Ctrl + Shift + P，输入pcip（st3有模糊搜索功能），然后输入SublimeREPL，按回车键或单击下载&lt;/p&gt;
+&lt;p&gt;按&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;，输入&lt;code&gt;pcip&lt;/code&gt;（st3有模糊搜索功能），然后输入&lt;code&gt;SublimeREPL&lt;/code&gt;，按回车键或单击下载&lt;/p&gt;
 &lt;h4 id=&#34;配置&#34;&gt;配置&lt;/h4&gt;
 &lt;p&gt;菜单栏：首选项 - Package Settings - SublimeREPL - Settings-User
 代码如下：&lt;/p&gt;
