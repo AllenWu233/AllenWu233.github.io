@@ -12,7 +12,7 @@
         <pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
         
         <guid>https://allenwu233.github.io/p/stack/</guid>
-        <description>&lt;blockquote&gt;
+        <description>&lt;img src="https://allenwu233.github.io/p/stack/cover.jpg" alt="Featured image of post 数据结构初见-栈" /&gt;&lt;blockquote&gt;
 &lt;p&gt;如果说算法是程序的灵魂，那么数据结构就如同程序的躯体。&lt;br&gt;
 学习数据结构，一定少不了基础而经典的——&lt;strong&gt;栈(stack)&lt;/strong&gt;&lt;br&gt;
 那么，栈是什么？&lt;/p&gt;
@@ -45,7 +45,7 @@
     &gt;WIKIPEDIA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;简言之，栈（stack，又称为&lt;strong&gt;堆栈&lt;/strong&gt;或&lt;strong&gt;堆叠&lt;/strong&gt;）就是符合 &lt;strong&gt;“后进后出”(Last In First Out, LIFO)&lt;/strong&gt; 规则的线性存储结构，有&lt;strong&gt;PUSH&lt;/strong&gt;和&lt;strong&gt;POP&lt;/strong&gt;两种操作&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;简言之，栈（stack，又称为&lt;strong&gt;堆栈&lt;/strong&gt;或&lt;strong&gt;堆叠&lt;/strong&gt;）就是符合 &lt;strong&gt;“后进先出”(Last In First Out, LIFO)&lt;/strong&gt; 规则的线性存储结构，有&lt;strong&gt;PUSH&lt;/strong&gt;和&lt;strong&gt;POP&lt;/strong&gt;两种操作&lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;PUSH: 压栈，把元素压入栈顶&lt;/li&gt;
 &lt;li&gt;POP: 弹出：从栈顶把元素弹出
