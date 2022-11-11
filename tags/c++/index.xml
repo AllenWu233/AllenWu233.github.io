@@ -6,7 +6,15 @@
         <description>Recent content in C&#43;&#43; on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 30 Oct 2022 14:00:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 06 Nov 2022 22:00:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>数据之美-二叉树</title>
+        <link>https://allenwu233.github.io/p/binary-tree/</link>
+        <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
+        
+        <guid>https://allenwu233.github.io/p/binary-tree/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>数据结构初见-栈</title>
         <link>https://allenwu233.github.io/p/stack/</link>
         <pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
