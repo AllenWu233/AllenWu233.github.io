@@ -12,7 +12,54 @@
         <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
         
         <guid>https://allenwu233.github.io/p/binary-tree/</guid>
-        <description></description>
+        <description>&lt;img src="https://allenwu233.github.io/p/binary-tree/cover.jpg" alt="Featured image of post 数据之美-二叉树" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在计算机科学中， &lt;strong&gt;二叉树（Binary tree）&lt;/strong&gt; 是每个结点最多只有两个分支（即不存在分支度大于2的结点）的树结构。通常分支被称作“左子树”或“右子树”。二叉树的分支具有左右次序，不能随意颠倒。&lt;br&gt;
+与普通树不同，普通树的结点个数至少为1，而二叉树的结点个数可以为0；普通树结点的最大分支度没有限制，而二叉树结点的最大分支度为2；普通树的结点无左、右次序之分，而二叉树的结点有左、右次序之分。&lt;br&gt;
+——From &lt;a class=&#34;link&#34; href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;中文维基百科·二叉树&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;二叉树是非常重要的数据结构，其独特的结构使得它在搜索和处理数据方面有相当不错的表现
+&lt;span id=&#34;1&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/binary-tree/binary_tree.png&#34;
+	width=&#34;3840&#34;
+	height=&#34;2160&#34;
+	srcset=&#34;https://allenwu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_480x0_resize_box_3.png 480w, https://allenwu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;一棵完美二叉树（Full Tree）&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二叉树的遍历&#34;&gt;二叉树的遍历&lt;/h2&gt;
+&lt;h3 id=&#34;层次遍历宽度优先遍历&#34;&gt;层次遍历（宽度优先遍历）&lt;/h3&gt;
+&lt;p&gt;顾名思义，即按从上到下、从左到右的顺序遍历结点&lt;br&gt;
+以&lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;上图&lt;/a&gt;为例，遍历的顺序为&lt;code&gt;1～15&lt;/code&gt;&lt;br&gt;
+这种方法叫 &lt;strong&gt;宽度优先遍历（Breadth-First Search, BFS）&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;递归遍历深度优先遍历&#34;&gt;递归遍历（深度优先遍历）&lt;/h3&gt;
+&lt;p&gt;博主认为二叉树的递归遍历是最为精彩的部分。理解其三种递归遍历方式，能一窥二叉树的结构之美&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于一棵二叉树 T ，可以递归定义它的先序遍历、中序遍历和后序遍历，如下所示：&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;PreOrder(T) = T的根结点 + PreOrder(T的左子树) + PreOrder(T的右子树)&lt;/li&gt;
+&lt;li&gt;InOrder(T) = InOrder(T的左子树) + T的根结点 + InOrder(T的右结点)&lt;/li&gt;
+&lt;li&gt;PostOrder(T) = PostOrder(T的左子树) + PostOrder(T的右子树) + T的根结点&lt;br&gt;&lt;br&gt;
+这三种遍历都属于递归遍历，或者说 &lt;strong&gt;深度优先遍历（Depth-First Search, DFS）&lt;/strong&gt; ，因为它总是优先往深处访问&lt;br&gt;
+——Form 刘汝佳《算法竞赛入门经典（第2版）》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;先序遍历&#34;&gt;先序遍历&lt;/h4&gt;
+&lt;h4 id=&#34;中序遍历&#34;&gt;中序遍历&lt;/h4&gt;
+&lt;h4 id=&#34;后序遍历&#34;&gt;后序遍历&lt;/h4&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;参考文献&lt;/h2&gt;
+&lt;p&gt;[1]&lt;a class=&#34;link&#34; href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;中文维基百科·二叉树&lt;/a&gt;&lt;br&gt;
+[2]刘汝佳《算法竞赛入门经典（第2版）》&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>数据结构初见-栈</title>
@@ -559,15 +606,15 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S  # 安装软件
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Syy  # 强制同步软件包数据库
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Syu  # 进行全面的系统更新（俗称“滚”）
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -R  # 卸载软件及其依赖（如果可以的话）
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay  # 进行全面的系统更新
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S  # 安装软件
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -R  # 卸载软件及其依赖（如果可以的话）
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;sudo pacman -S &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 安装软件&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;sudo pacman -Syy &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 强制同步软件包数据库&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;sudo pacman -Syu &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 进行全面的系统更新（俗称“滚”）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;sudo pacman -R &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 卸载软件及其依赖（如果可以的话）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;yay &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 进行全面的系统更新&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;yay -S &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 安装软件&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;yay -R &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 卸载软件及其依赖（如果可以的话）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;界面美化篇&#34;&gt;界面美化篇&lt;/h2&gt;
 &lt;h2 id=&#34;游戏游玩篇&#34;&gt;游戏游玩篇&lt;/h2&gt;
@@ -1103,7 +1150,7 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;上课的时候总有一些同学和前后左右的人交头接耳，这是令小学班主任十分头疼的一件事情。不过，班主任小雪发现了一些有趣的现象，当同学们的座次确定下来之后，只有有限的D对同学上课时会交头接耳。&lt;br&gt;
-同学们在教室中坐成了 MM 行 NN 列，坐在第 ii 行第 jj 列的同学的位置是（i，j）（i，j），为了方便同学们进出，在教室中设置了 KK 条横向的通道，LL 条纵向的通道。于是，聪明的小雪想到了一个办法，或许可以减少上课时学生交头接耳的问题：她打算重新摆放桌椅，改变同学们桌椅间通道的位置，因为如果一条通道隔开了两个会交头接耳的同学，那么他们就不会交头接耳了。&lt;br&gt;
+同学们在教室中坐成了 M 行 N 列，坐在第 i 行第 j 列的同学的位置是（i，j）（i，j），为了方便同学们进出，在教室中设置了 K 条横向的通道，LL 条纵向的通道。于是，聪明的小雪想到了一个办法，或许可以减少上课时学生交头接耳的问题：她打算重新摆放桌椅，改变同学们桌椅间通道的位置，因为如果一条通道隔开了两个会交头接耳的同学，那么他们就不会交头接耳了。&lt;br&gt;
 请你帮忙给小雪编写一个程序，给出最好的通道划分方案。在该方案下，上课时交头接耳的学生对数最少。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
@@ -1111,7 +1158,7 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入描述&lt;/strong&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;第一行，有 5 各用空格隔开的整数，分别是 M，N，K，L，D（2 ≤ N，M ≤ 1000，0 ≤ K &amp;lt; M，0 ≤ L &amp;lt; N，D ≤ 2000）。&lt;br&gt;
-接下来 DD 行，每行有 4 个用空格隔开的整数，第 ii 行的 4 个整数 X_i，Y_i，P_i，Q_i，表示坐在位置 (X_i, Y_i) 与 (P_i, Q_i) 的两个同学会交头接耳（输入保证他们前后相邻或者左右相邻）。
+接下来 D 行，每行有 4 个用空格隔开的整数，第 i 行的 4 个整数 X_i，Y_i，P_i，Q_i，表示坐在位置 (X_i, Y_i) 与 (P_i, Q_i) 的两个同学会交头接耳（输入保证他们前后相邻或者左右相邻）。
 输入数据保证最优方案的唯一性。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
