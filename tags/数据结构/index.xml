@@ -41,7 +41,7 @@
 以&lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;上图&lt;/a&gt;为例，遍历的顺序为&lt;code&gt;1～15&lt;/code&gt;&lt;br&gt;
 这种方法叫 &lt;strong&gt;宽度优先遍历（Breadth-First Search, BFS）&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;递归遍历深度优先遍历&#34;&gt;递归遍历（深度优先遍历）&lt;/h3&gt;
-&lt;p&gt;博主认为二叉树的递归遍历是最为精彩的部分。理解其三种递归遍历方式，能一窥二叉树的结构之美&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;博主认为二叉树的递归遍历是&lt;em&gt;最为精彩&lt;/em&gt;的部分。理解其三种递归遍历方式，能一窥二叉树的结构之美&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对于一棵二叉树 T ，可以递归定义它的先序遍历、中序遍历和后序遍历，如下所示：&lt;br&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

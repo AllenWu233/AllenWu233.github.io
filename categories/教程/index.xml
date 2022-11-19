@@ -644,10 +644,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         <item>
         <title>Arch Linux修复grub引导</title>
         <link>https://allenwu233.github.io/p/arch-grub-fix/</link>
-        <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 16 Sep 2022 16:29:00 +0800</pubDate>
         
         <guid>https://allenwu233.github.io/p/arch-grub-fix/</guid>
-        <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+        <description>&lt;img src="https://allenwu233.github.io/p/arch-grub-fix/cover.jpg" alt="Featured image of post Arch Linux修复grub引导" /&gt;&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;让我们设想一个情景：当您再也无法忍受日渐卡顿的 Windows 10 时，您二话不说将其重装，却发现您无法进入心爱的 Arch Linux 系统了。是不是很熟悉？别担心，对于喜欢折腾双系统的用户来说，这是常有的事。&lt;br&gt;只需修复grub引导，即可带您回归熟悉的 Arch Linux。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -672,7 +672,7 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fdisk -l
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;挂载分区实例（&lt;strong&gt;注：分区符号以自己实际情况为准！&lt;/strong&gt;）&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;挂载分区示例（&lt;strong&gt;注：分区符号以自己实际情况为准！&lt;/strong&gt;）&lt;/p&gt;
 &lt;p&gt;挂载&lt;code&gt;/mnt&lt;/code&gt;分区&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -709,6 +709,24 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;swapon /dev/sda3
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;挂载&lt;code&gt;/dev&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mount --bind /dev /mnt/dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;更改根目录&lt;br&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chroot /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;联网&#34;&gt;联网&lt;/h3&gt;
 &lt;p&gt;如果你是插网线（拨号上网除外，如校园网）的，跳过此步骤&lt;/p&gt;
 &lt;h4 id=&#34;进入iwd的shell&#34;&gt;进入iwd的shell&lt;/h4&gt;
@@ -741,7 +759,7 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;修复grub&#34;&gt;修复grub&lt;/h3&gt;
-&lt;p&gt;输入以下代码：&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;输入以下命令：&lt;br&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
