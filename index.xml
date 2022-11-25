@@ -54,7 +54,7 @@
 &lt;/ul&gt;
 &lt;p&gt;还是以&lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;上图&lt;/a&gt;为例，来讲一下如何递归遍历：&lt;br&gt;
 要遍历整棵二叉树，首先把&lt;code&gt;1,2,3&lt;/code&gt;看作一棵小二叉树来遍历，其中&lt;code&gt;1&lt;/code&gt;为根，&lt;code&gt;2,3&lt;/code&gt;为结点。遍历结点&lt;code&gt;2&lt;/code&gt;或&lt;code&gt;3&lt;/code&gt;时，再分别把&lt;code&gt;2,4,5&lt;/code&gt;或&lt;code&gt;3,6,7&lt;/code&gt;看作小二叉树来遍历，依次类推。具体遍历顺序由遍历的方式而定&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;是不是很简单？跃跃欲试了？在看下面的答案前，先试着写一下这三种遍历方式的&lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;顺序&lt;/a&gt;吧&lt;/p&gt;
+&lt;p&gt;是不是很简单？在看下面的答案前，先试着写一下这三种遍历方式的&lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;顺序&lt;/a&gt;吧&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注：“根”——根结点，“左”——左子树，“右”——右子树&lt;br&gt;
 还是&lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;上图的例子&lt;/a&gt;：&lt;/p&gt;
@@ -805,7 +805,7 @@
 &lt;h2 id=&#34;参考文献&#34;&gt;参考文献&lt;/h2&gt;
 &lt;p&gt;[1]&lt;a class=&#34;link&#34; href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;中文维基百科·二叉树&lt;/a&gt;&lt;br&gt;
-[2]刘汝佳《算法竞赛入门经典（第2版）》&lt;/p&gt;
+[2]刘汝佳《算法竞赛入门经典（第2版）&lt;/p&gt;
 </description>
         </item>
         <item>
