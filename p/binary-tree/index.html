@@ -447,7 +447,184 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="几道例题">几道例题</h3>
-<h4 id="树的层次遍历trees-on-the-level-uva-122">树的层次遍历（Trees on the level, UVa 122）</h4>
+<h4 id="推导先序遍历">推导先序遍历</h4>
+<p>即<a class="link" href="#2" >2.2.4</a>的代码实现<br>
+类似的题目：<a class="link" href="https://ac.nowcoder.com/acm/problem/244280"  target="_blank" rel="noopener"
+    >天依出去玩</a>，以及<a class="link" href="https://ac.nowcoder.com/acm/contest/view-submission?submissionId=54973026"  target="_blank" rel="noopener"
+    >答案</a></p>
+<blockquote>
+<p>pre_order.py</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">pre_order</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span> <span class="o">=</span> <span class="p">[],</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">read_list</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">pre_order</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span>
+</span></span><span class="line"><span class="cl">    <span class="n">in_order</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">in_order</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">post_order</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">post_order</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pre_order</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">in_order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">in_order</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">post_order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">post_order</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">build_pre</span><span class="p">(</span><span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;递归构建二叉树的先序遍历&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">pre_order</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 直观地看到递归的步骤</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;in_order   = &#34;</span><span class="p">,</span> <span class="n">in_order</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;post_order = &#34;</span><span class="p">,</span> <span class="n">post_order</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;pre_order  = &#34;</span><span class="p">,</span> <span class="n">pre_order</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">root</span> <span class="o">=</span> <span class="n">post_order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pre_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>  <span class="c1"># 所谓先序遍历，只需在构建子树时记录下根节点即可</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">root_in_order</span> <span class="o">=</span> <span class="n">in_order</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">in_left</span> <span class="o">=</span> <span class="n">in_order</span><span class="p">[:</span><span class="n">root_in_order</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">in_right</span> <span class="o">=</span> <span class="n">in_order</span><span class="p">[</span><span class="n">root_in_order</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">in_order</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">post_left</span> <span class="o">=</span> <span class="n">post_order</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">in_left</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">post_right</span> <span class="o">=</span> <span class="n">post_order</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">in_left</span><span class="p">)</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">post_left</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">build_pre</span><span class="p">(</span><span class="n">in_left</span><span class="p">,</span> <span class="n">post_left</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">post_right</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">build_pre</span><span class="p">(</span><span class="n">in_right</span><span class="p">,</span> <span class="n">post_right</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">read_list</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="n">build_pre</span><span class="p">(</span><span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;PreOrder: &#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pre_order</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>输出示例：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="mi">7</span> <span class="mi">8</span> <span class="mi">11</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">16</span> <span class="mi">12</span> <span class="mi">18</span>  <span class="c1"># 中序遍历</span>
+</span></span><span class="line"><span class="cl"><span class="mi">8</span> <span class="mi">3</span> <span class="mi">11</span> <span class="mi">7</span> <span class="mi">16</span> <span class="mi">18</span> <span class="mi">12</span> <span class="mi">5</span>  <span class="c1"># 后序遍历</span>
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[]</span>  <span class="c1"># 读入数据</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># 递归第一步，添加根节点5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>  <span class="c1"># 递归第二步，添加根节点7</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">in_order</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">18</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_order</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">18</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pre_order</span>  <span class="o">=</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">PreOrder</span><span class="p">:</span> <span class="mi">5</span> <span class="mi">7</span> <span class="mi">11</span> <span class="mi">8</span> <span class="mi">3</span> <span class="mi">12</span> <span class="mi">16</span> <span class="mi">18</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="树的层次遍历trees-on-the-level-uva-122">树的层次遍历（Trees on the level, UVa 122）</h4>
 <p>题目：</p>
 <ul>
 <li><a class="link" href="https://vjudge.net/problem/UVA-122"  target="_blank" rel="noopener"
@@ -925,7 +1102,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><del>似乎翻译成 Python 后可读性更强（</del></p>
-<h3 id="二叉树的查找">二叉树的查找</h3>
+<h3 id="二叉查找树">二叉查找树</h3>
 <p><del>（先挖个坑，以后回来更新）</del></p>
 <h2 id="参考文献">参考文献</h2>
 <p>[1]<a class="link" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"  target="_blank" rel="noopener"
@@ -1273,12 +1450,13 @@
         </li>
         <li><a href="#几道例题">几道例题</a>
           <ol>
+            <li><a href="#推导先序遍历">推导先序遍历</a></li>
             <li><a href="#树的层次遍历trees-on-the-level-uva-122">树的层次遍历（Trees on the level, UVa 122）</a></li>
             <li><a href="#二叉树的递归遍历trees-uva548">二叉树的递归遍历（Trees, UVa548)</a></li>
             <li><a href="#天平not-so-mobile-uva-839">天平（Not so Mobile, UVa 839）</a></li>
           </ol>
         </li>
-        <li><a href="#二叉树的查找">二叉树的查找</a></li>
+        <li><a href="#二叉查找树">二叉查找树</a></li>
       </ol>
     </li>
     <li><a href="#参考文献">参考文献</a></li>
