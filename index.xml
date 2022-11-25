@@ -809,7 +809,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;del&gt;似乎翻译成 Python 后可读性更强（&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id=&#34;python类实现二叉树&#34;&gt;Python类实现二叉树&lt;/h2&gt;
-&lt;p&gt;面向对象真的很有意思，从无到有搓出一个功能完善的类~~，其兴奋感不亚于在mc中造出一台生电机器（~~&lt;/p&gt;
+&lt;p&gt;面向对象真的很有意思，从无到有搓出一个功能完善的类 &lt;del&gt;，其兴奋感不亚于在mc中造出一台生电机器（&lt;/del&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;tree.py&lt;/p&gt;
 &lt;/blockquote&gt;
