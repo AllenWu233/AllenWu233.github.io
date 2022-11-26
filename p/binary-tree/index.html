@@ -450,8 +450,8 @@
 <h4 id="推导先序遍历">推导先序遍历</h4>
 <p>即<a class="link" href="#2" >2.2.4</a>的代码实现<br>
 类似的题目：<a class="link" href="https://ac.nowcoder.com/acm/problem/244280"  target="_blank" rel="noopener"
-    >天依出去玩</a>，以及<a class="link" href="https://ac.nowcoder.com/acm/contest/view-submission?submissionId=54973026"  target="_blank" rel="noopener"
-    >答案</a></p>
+    >天依出去玩</a>，以及<a class="link" href="https://ac.nowcoder.com/acm/contest/view-submission?submissionId=55005430&amp;returnHomeType=1&amp;uid=807489743"  target="_blank" rel="noopener"
+    >参考答案</a></p>
 <blockquote>
 <p>pre_order.py</p>
 </blockquote>
@@ -500,18 +500,13 @@
 </span><span class="lnt">41
 </span><span class="lnt">42
 </span><span class="lnt">43
-</span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">pre_order</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span> <span class="o">=</span> <span class="p">[],</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">read_list</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">pre_order</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span>
 </span></span><span class="line"><span class="cl">    <span class="n">in_order</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">in_order</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>
 </span></span><span class="line"><span class="cl">    <span class="n">post_order</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">post_order</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pre_order</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">in_order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">in_order</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 </span></span><span class="line"><span class="cl">    <span class="n">post_order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">post_order</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
@@ -540,13 +535,16 @@
 </span></span><span class="line"><span class="cl">        <span class="n">build_pre</span><span class="p">(</span><span class="n">in_right</span><span class="p">,</span> <span class="n">post_right</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">read_list</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">read_list</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
 </span></span><span class="line"><span class="cl">    <span class="n">build_pre</span><span class="p">(</span><span class="n">in_order</span><span class="p">,</span> <span class="n">post_order</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;PreOrder: &#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pre_order</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
