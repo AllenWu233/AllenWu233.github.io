@@ -8,18 +8,18 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff"><meta name='description' content='与算法的邂逅'><title>C语言初学者的汉诺塔</title>
+<meta name="theme-color" content="#ffffff"><meta name='description' content='减少不必要的枚举'><title>“不要的就剪掉”-回溯法</title>
 
-<link rel='canonical' href='https://allenwu233.github.io/p/hanoi/'>
+<link rel='canonical' href='https://allenwu233.github.io/p/backtracking/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='C语言初学者的汉诺塔'>
-<meta property='og:description' content='与算法的邂逅'>
-<meta property='og:url' content='https://allenwu233.github.io/p/hanoi/'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='“不要的就剪掉”-回溯法'>
+<meta property='og:description' content='减少不必要的枚举'>
+<meta property='og:url' content='https://allenwu233.github.io/p/backtracking/'>
 <meta property='og:site_name' content='Allen_Wu233的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='递归' /><meta property='article:tag' content='C' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='模拟' /><meta property='article:published_time' content='2022-09-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-09-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://allenwu233.github.io/p/hanoi/hanoi_cover.jpg' />
-<meta name="twitter:title" content="C语言初学者的汉诺塔">
-<meta name="twitter:description" content="与算法的邂逅"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://allenwu233.github.io/p/hanoi/hanoi_cover.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:published_time' content='2022-12-03T20:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-12-03T20:00:00&#43;08:00'/><meta property='og:image' content='https://allenwu233.github.io/p/backtracking/cover.jpg' />
+<meta name="twitter:title" content="“不要的就剪掉”-回溯法">
+<meta name="twitter:description" content="减少不必要的枚举"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://allenwu233.github.io/p/backtracking/cover.jpg' />
     <link rel="shortcut icon" href="trees" />
 
     </head>
@@ -251,13 +251,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/hanoi/">
-                <img src="/p/hanoi/hanoi_cover_hu27641d734727b23e2265cb7c30e12de0_12887_800x0_resize_q75_box.jpg"
-                        srcset="/p/hanoi/hanoi_cover_hu27641d734727b23e2265cb7c30e12de0_12887_800x0_resize_q75_box.jpg 800w, /p/hanoi/hanoi_cover_hu27641d734727b23e2265cb7c30e12de0_12887_1600x0_resize_q75_box.jpg 1600w"
+            <a href="/p/backtracking/">
+                <img src="/p/backtracking/cover_hu65c3bfeb1c3162ebc2da8f1aaf828518_382304_800x0_resize_q75_box.jpg"
+                        srcset="/p/backtracking/cover_hu65c3bfeb1c3162ebc2da8f1aaf828518_382304_800x0_resize_q75_box.jpg 800w, /p/backtracking/cover_hu65c3bfeb1c3162ebc2da8f1aaf828518_382304_1600x0_resize_q75_box.jpg 1600w"
                         width="800" 
-                        height="289" 
+                        height="656" 
                         loading="lazy"
-                        alt="Featured image of post C语言初学者的汉诺塔" />
+                        alt="Featured image of post “不要的就剪掉”-回溯法" />
                 
             </a>
         </div>
@@ -276,12 +276,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/hanoi/">C语言初学者的汉诺塔</a>
+            <a href="/p/backtracking/">“不要的就剪掉”-回溯法</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            与算法的邂逅
+            减少不必要的枚举
         </h3>
         
     </div>
@@ -299,7 +299,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2022, Sep 11</time>
+                <time class="article-time--published">2022, Dec 03</time>
             </div>
         
 
@@ -315,104 +315,34 @@
     
     
     <h2 id="引言">引言</h2>
+<p><strong>暴力搜索法</strong>（又称 <strong>穷举搜索</strong>，在计算机科学中也称<strong>生成与测试</strong>）是一种简单粗暴处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案<br>
+但有时候直接枚举会带来问题：枚举量过大而无法减少不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？</p>
 <blockquote>
-<p>在印度，有这样一个古老的传说。在世界中心贝拿勒斯的圣庙里，一块黄铜板上插着3根宝石针。印度教的主神梵天在创造世界的时候，在其中一根针上从下到上地穿好了由大到小的64片金盘，这就是所谓的汉诺塔(Tower of Hanoi)。不论白天黑夜，总有一个僧侣在按照下面的法则移动这些金盘到另一根针上：一次只移动一片，而且小片必在大片上面。当所有的金盘都从梵天穿好的那根针上移动到第三根针上时，世界就将在一声霹雳中消灭，梵塔、庙宇和众生都将同归于尽&hellip;&hellip;</p>
+<p><strong>回溯法（backtracking）</strong> 是<strong>暴力搜索法</strong>的一种，可在递归构造中把搜索和检查有机地结合起来，从而减小枚举量</p>
 </blockquote>
-<h2 id="分析问题">分析问题</h2>
-<h3 id="什么是汉诺塔">什么是汉诺塔</h3>
-<p>总结如下：
-有 A, B, C 三根柱子，A 柱上有 n(n &gt; 1) 个金盘，金盘的尺寸由下到上依次变小。每次只能移动一片金盘，且大金盘不能位于小金盘之上，使得所有金盘都移动到 C 柱。<br>
-问：如何移？最少要移动多少次？</p>
-<h3 id="一个最简单的例子">一个最简单的例子</h3>
-<p>当 n = 1 时，只需1步就能解决：<code>A--&gt;C</code><br>
-( <strong>A--&gt;C</strong> 表示把 A 柱最上面的一个金盘移动到 C 柱，下同)</p>
-<h3 id="一个很简单的例子">一个很简单的例子</h3>
-<p>当 n = 2 时，只需3步：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">A--&gt;B
-</span></span><span class="line"><span class="cl">A--&gt;C
-</span></span><span class="line"><span class="cl">B--&gt;C
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="一个简单的例子">一个简单的例子</h3>
-<p>当 n = 3 时，用一张图来解决：
-<img src="/p/hanoi/hanoi_3.jpg"
-	width="850"
-	height="637"
-	srcset="/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, /p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w"
-	loading="lazy"
-	
-		alt="三层汉诺塔"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="133"
-		data-flex-basis="320px"
-	
->
-用语言表述如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">A--&gt;C
-</span></span><span class="line"><span class="cl">A--&gt;B
-</span></span><span class="line"><span class="cl">C--&gt;B
-</span></span><span class="line"><span class="cl">A--&gt;C
-</span></span><span class="line"><span class="cl">B--&gt;A
-</span></span><span class="line"><span class="cl">B--&gt;C
-</span></span><span class="line"><span class="cl">A--&gt;C
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>共需7步</p>
-<h3 id="扩展到-n">扩展到 n</h3>
-<p>当 n = 4, 5, 6 甚至 20 时，又该怎么办呢？<br>
-这个问题看起来很复杂，其实是有规律可循的<br>
-根据数学方法计算得出，移动 n 层的汉诺塔所需次数为</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2**n - 1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>关于具体证明的讨论就不属于本文的范畴了</p>
-<h2 id="分析算法">分析算法</h2>
-<p>可以用<strong>递归</strong>的思想来解决<br>
-将n个金盘从A柱移动到C柱可分解为以下三个步骤：<br></p>
-<ul>
-<li>先将 A 柱上的 n-1 个金盘借助于 C 柱移到 B 柱上（把 C 看作临时柱）
-<ul>
-<li>这一步又可分解为以下三步：
-<ul>
-<li>将 A 柱上的 n-2 个金盘借助于 B 柱移到 C 柱上</li>
-<li>将 A 柱上的第 n-1 个金盘移到 B 柱上</li>
-<li>再将 C 柱上的 n-2 个金盘借助于 A 柱移到 B 柱上</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>然后将 A 柱上的最后一个金盘移到 C 柱上</li>
-<li>再将 B 柱上的 n-1 金盘借助于 A 柱移到 C 柱上</li>
-</ul>
-<p><br>是不是有点递归的意思了？
-<br>博主最近在学习 C 语言，所以试着用 C 来实现这个算法。代码如下</p>
-<h2 id="代码">代码</h2>
-<h3 id="c">C</h3>
+<p>让我们通过几道经典的题目来感受一下回溯法的魅力吧～</p>
+<h2 id="八皇后问题">八皇后问题</h2>
+<p>可以说是最经典的题目之一了。甚至常被作为“判断有没有学过回溯法”的依据 <del>（刘老师如是说）</del></p>
+<blockquote>
+<p>如何能够在8×8的国际象棋棋盘上放置八个皇后，使得任何一个皇后都无法直接吃掉其他的皇后？为了达到此目的，任两个皇后都不能处于同一条横行、纵行或斜线上。<br>
+八皇后问题可以推广为更一般的n皇后摆放问题：这时棋盘的大小变为n×n，而皇后个数也变成n。当且仅当n = 1或n ≥ 4时问题有解。<br>——From <a class="link" href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"  target="_blank" rel="noopener"
+    >维基百科·八皇后问题</a></p>
+</blockquote>
+<p>而我们要解决的，正是推广开来的n皇后问题。但为了方便描述，下面的分析还是以八皇后问题为例</p>
+<h3 id="思路一直接枚举">思路一：直接枚举</h3>
+<p>枚举出所有可能的棋局，再来判断是否符合题目要求。<br></p>
+<p>问题可以转换为：从<code>8 * 8 = 64</code>个格子里选出<code>8</code>个（即组合生成），保证任两个格子都不能处于同一条横行、纵行或斜线上<br>
+根据排列组合，我们知道共有<code>C(64, 8) = 4.426e9</code>种方案，显然是太复杂了。<br></p>
+<p>稍加思考，我们可以改进策略：恰好每行每列各选一个格子，保证任两个格子都在同一斜线上。如此转化为全排列生成的问题，方案数降为<code>8! = 40320</code>种，肉眼可见的效率提升啊（笑）<br>
+但如果直接暴力搜索的话，效率还是比较低的，我们需要在此基础上改进一下</p>
+<h3 id="思路二回溯法">思路二：回溯法</h3>
+<blockquote>
+<p>所谓<strong>回溯（backtracking）</strong>，就是指在递归求解问题时，如果当前步骤没有合法选择，则函数返回上一级递归调用</p>
+</blockquote>
+<p>我们可以用C[x]表示第x行皇后的列编号。难点之一是如何判断皇后间是否斜向攻击。</p>
+<blockquote>
+<p>nqueens_1.cpp</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -453,118 +383,62 @@
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="cm">/* 汉诺塔问题，输入金盘的数量 n ，输出将 n 个金盘从 A 柱（借助 B 柱）移动到 C 柱 的过程 */</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="cm">/* 初始化计数器 */</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">// n皇后问题：在n*n棋盘上放置n个皇后，使得它们互不攻击，找出所有解
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 普通回溯法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/* 输出一次移动 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">C</span><span class="p">[</span><span class="mi">50</span><span class="p">],</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// C[x]表示第x行皇后的列编号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">%c--&gt;%c&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">hanoi</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">char</span> <span class="n">one</span><span class="p">,</span> <span class="kt">char</span> <span class="n">two</span><span class="p">,</span> <span class="kt">char</span> <span class="n">three</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/* 汉诺塔的递归算法 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nc</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 递归次数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">cur</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="n">tot</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 递归边界。只要走到了这里，所有皇后必然不冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (cur == n)  // 打印解
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     printf(&#34;解%d: &#34;, tot);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     for (int i = 0; i &lt; n; i++)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//         printf(&#34;(%d,%d) &#34;, i, C[i]);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     printf(&#34;\n&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">two</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>  <span class="cm">/* 把 two 看作临时柱 */</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">ok</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 尝试把第cur行的皇后放在第i列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cur</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>  <span class="c1">// 检查是否和前面的皇后冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 对于(x,y),y-x值为主对角线，y+x值为副对角线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">==</span> <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="n">cur</span><span class="o">-</span><span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span><span class="o">-</span><span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="n">cur</span><span class="o">+</span><span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span><span class="o">+</span><span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="n">ok</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">ok</span><span class="p">)</span> <span class="n">search</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// 如果合法，则继续递归
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(;;)</span>  <span class="cm">/* 实现多次模拟 */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;汉诺塔层数：&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;C&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n\n</span><span class="s">移动次数：%d</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="cm">/* 重置计数器 */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">search</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;解的个数: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">tot</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;递归次数: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">nc</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">memset</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">C</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="python">Python</h3>
-<p>当然也少不了Python啦</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># 汉诺塔问题，输入金盘的数量 n ，输出将 n 个金盘从 A 柱（借助 B 柱）</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 移动到 C 柱 的过程</span>
-</span></span><span class="line"><span class="cl"><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 初始化计数器</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;输出一次移动&#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">counter</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">--&gt;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">three</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;汉诺塔的递归算法&#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">two</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&#34;汉诺塔层数：&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;移动次数：</span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 重置计数器</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="结语">结语</h2>
-<p>想起一句名言</p>
-<blockquote>
-<p>算法 + 数据结构 = 程序</p>
-</blockquote>
-<p>这是博主第一次真正认真学习算法，从此打开了新世界的大门（笑）</p>
-<h2 id="参考文献">参考文献</h2>
-<p>[1]于延.C语言程序设计与实践[M].北京：清华大学出版社，2018（2019重印）</p>
+</div><h2 id="参考文献">参考文献</h2>
+<p>[1]刘汝佳《算法竞赛入门经典（第2版）》<br>
+[2]<a class="link" href="https://zh.wikipedia.org/wiki/%E6%9A%B4%E5%8A%9B%E6%90%9C%E7%B4%A2"  target="_blank" rel="noopener"
+    >维基百科·暴力搜索</a><br>
+[3]<a class="link" href="https://zh.wikipedia.org/wiki/%E5%9B%9E%E6%BA%AF%E6%B3%95"  target="_blank" rel="noopener"
+    >维基百科·回溯法</a><br>
+[4]<a class="link" href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"  target="_blank" rel="noopener"
+    >维基百科·八皇后问题</a><br></p>
 
 </section>
 
@@ -575,13 +449,9 @@
         
             <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
         
-            <a href="/tags/%E9%80%92%E5%BD%92/">递归</a>
-        
-            <a href="/tags/c/">C</a>
-        
             <a href="/tags/python/">Python</a>
         
-            <a href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+            <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
         
     </section>
 
@@ -600,6 +470,54 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/binary-tree/">
+        
+        
+            <div class="article-image">
+                <img src="/p/binary-tree/cover.f7c3ad18489abafb9d69c0befd20fc04_hu7d9b1d6a228fea1f1ff53e51181777dd_870824_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 数据结构之美-二叉树"
+                        data-key="binary-tree" 
+                        data-hash="md5-98OtGEiauvudacC&#43;/SD8BA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构之美-二叉树</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/stack/">
+        
+        
+            <div class="article-image">
+                <img src="/p/stack/cover.13edb9016b5e1cf4b65e71a16eca2b52_hu6a7cccc9e6f5d69880541e7e00771ca1_547931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 数据结构初见-栈"
+                        data-key="stack" 
+                        data-hash="md5-E&#43;25AWteHPS2XnGhbsorUg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构初见-栈</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -651,71 +569,23 @@
             
                 
 <article class="has-image">
-    <a href="/p/backtracking/">
+    <a href="/p/hanoi/">
         
         
             <div class="article-image">
-                <img src="/p/backtracking/cover.724d2a98076990e37db4779bcb1f0c67_hu65c3bfeb1c3162ebc2da8f1aaf828518_382304_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/p/hanoi/hanoi_cover.124182a687abd214e31ce902aa512df1_hu27641d734727b23e2265cb7c30e12de0_12887_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post “不要的就剪掉”-回溯法"
-                        data-key="backtracking" 
-                        data-hash="md5-ck0qmAdpkON9tHebyx8MZw==">
+                        alt="Featured image of post C语言初学者的汉诺塔"
+                        data-key="hanoi" 
+                        data-hash="md5-EkGCpoer0hTjHOkCqlEt8Q==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">“不要的就剪掉”-回溯法</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/ark_simulation/">
-        
-        
-            <div class="article-image">
-                <img src="/p/ark_simulation/90904337_p0.1f0bdf584d38bca2e5c1b65231bc62c2_hue4fc7d0a46b1da5d11e22989396304c2_194577_250x150_fill_q75_box_smart1.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 明日方舟寻访模拟器"
-                        data-key="ark_simulation" 
-                        data-hash="md5-HwvfWE04vKLlwbZSMbxiwg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">明日方舟寻访模拟器</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/binary-tree/">
-        
-        
-            <div class="article-image">
-                <img src="/p/binary-tree/cover.f7c3ad18489abafb9d69c0befd20fc04_hu7d9b1d6a228fea1f1ff53e51181777dd_870824_250x150_fill_q75_box_smart1.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 数据结构之美-二叉树"
-                        data-key="binary-tree" 
-                        data-hash="md5-98OtGEiauvudacC&#43;/SD8BA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">数据结构之美-二叉树</h2>
+            <h2 class="article-title">C语言初学者的汉诺塔</h2>
         </div>
     </a>
 </article>
@@ -886,23 +756,12 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#引言">引言</a></li>
-    <li><a href="#分析问题">分析问题</a>
+    <li><a href="#八皇后问题">八皇后问题</a>
       <ol>
-        <li><a href="#什么是汉诺塔">什么是汉诺塔</a></li>
-        <li><a href="#一个最简单的例子">一个最简单的例子</a></li>
-        <li><a href="#一个很简单的例子">一个很简单的例子</a></li>
-        <li><a href="#一个简单的例子">一个简单的例子</a></li>
-        <li><a href="#扩展到-n">扩展到 n</a></li>
+        <li><a href="#思路一直接枚举">思路一：直接枚举</a></li>
+        <li><a href="#思路二回溯法">思路二：回溯法</a></li>
       </ol>
     </li>
-    <li><a href="#分析算法">分析算法</a></li>
-    <li><a href="#代码">代码</a>
-      <ol>
-        <li><a href="#c">C</a></li>
-        <li><a href="#python">Python</a></li>
-      </ol>
-    </li>
-    <li><a href="#结语">结语</a></li>
     <li><a href="#参考文献">参考文献</a></li>
   </ol>
 </nav>
