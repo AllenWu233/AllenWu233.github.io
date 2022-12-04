@@ -203,7 +203,7 @@
         
 
         <li >
-            <a href='/%E5%8F%8B%E9%93%BE/' >
+            <a href='/links/' >
                 
                 
                 
@@ -332,7 +332,7 @@
 <h3 id="思路一直接枚举">思路一：直接枚举</h3>
 <p>枚举出所有可能的棋局，再来判断是否符合题目要求。<br></p>
 <p>问题可以转换为：从<code>8 * 8 = 64</code>个格子里选出<code>8</code>个（即组合生成），保证任两个格子都不能处于同一条横行、纵行或斜线上<br>
-根据排列组合，我们知道共有<code>C(64, 8) = 4.426e9</code>种方案，显然是太复杂了。<br></p>
+根据排列组合，我们知道共有<code>C(64, 8) = 4.426e9</code> 种方案，显然是太复杂了。<br></p>
 <p>稍加思考，我们可以改进策略：恰好每行每列各选一个格子，保证任两个格子都在同一斜线上。如此转化为全排列生成的问题，方案数降为<code>8! = 40320</code>种，肉眼可见的效率提升啊（笑）<br>
 但如果直接暴力搜索的话，效率还是比较低的，我们需要在此基础上改进一下</p>
 <h3 id="思路二回溯法">思路二：回溯法</h3>
@@ -459,6 +459,29 @@
     </footer>
 
 
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
     
 </article>
 
