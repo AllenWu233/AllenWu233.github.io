@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <lastBuildDate>Sat, 03 Dec 2022 20:00:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>“不要的就剪掉”-回溯法</title>
+        <title>生成和检查的有机结合-回溯法</title>
         <link>https://allenwu233.github.io/p/backtracking/</link>
         <pubDate>Sat, 03 Dec 2022 20:00:00 +0800</pubDate>
         
         <guid>https://allenwu233.github.io/p/backtracking/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/backtracking/cover.jpg" alt="Featured image of post “不要的就剪掉”-回溯法" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+        <description>&lt;img src="https://allenwu233.github.io/p/backtracking/cover.jpg" alt="Featured image of post 生成和检查的有机结合-回溯法" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;暴力搜索法&lt;/strong&gt;（又称 &lt;strong&gt;穷举搜索&lt;/strong&gt;，在计算机科学中也称&lt;strong&gt;生成与测试&lt;/strong&gt;）是一种简单粗暴处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案&lt;br&gt;
 但有时候直接枚举会带来问题：枚举量过大而无法减少不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？&lt;/p&gt;
 &lt;blockquote&gt;

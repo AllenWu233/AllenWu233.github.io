@@ -462,7 +462,7 @@
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="cm">/* 输出一次移动 */</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">%c--&gt;%c&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">%c--&gt;%c&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -471,13 +471,13 @@
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">two</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>  <span class="cm">/* 把 two 看作临时柱 */</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">two</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">move</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>  <span class="cm">/* 把 two 看作临时柱 */</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">three</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -486,10 +486,10 @@
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(;;)</span>  <span class="cm">/* 实现多次模拟 */</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;汉诺塔层数：&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;C&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n\n</span><span class="s">移动次数：%d</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;汉诺塔层数：&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;C&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n\n</span><span class="s">移动次数：%d</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="cm">/* 重置计数器 */</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -694,7 +694,7 @@
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post “不要的就剪掉”-回溯法"
+                        alt="Featured image of post 生成和检查的有机结合-回溯法"
                         data-key="backtracking" 
                         data-hash="md5-ck0qmAdpkON9tHebyx8MZw==">
                 
@@ -702,7 +702,7 @@
         
 
         <div class="article-details">
-            <h2 class="article-title">“不要的就剪掉”-回溯法</h2>
+            <h2 class="article-title">生成和检查的有机结合-回溯法</h2>
         </div>
     </a>
 </article>
