@@ -1907,28 +1907,15 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;以下是博主配置好的 Arch
-&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish.jpg&#34;
+&lt;p&gt;以下是博主配置好的 Arch&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
 	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;“梦中情系统1”&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;177&#34;
-		data-flex-basis=&#34;426px&#34;
-	
-&gt;
-&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish2.jpg&#34;
-	width=&#34;1366&#34;
-	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;“梦中情系统2”&#34;
+		alt=&#34;之前的桌面&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1936,7 +1923,34 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish2.jpg&#34;
+	width=&#34;1366&#34;
+	height=&#34;768&#34;
+	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;终端&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish3.jpg&#34;
+	width=&#34;1366&#34;
+	height=&#34;768&#34;
+	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;“梦中情系统”&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文是博主入坑 Arch 以来的经验总结，包括各种配置和踩雷。长期更新。&lt;/p&gt;
@@ -2014,12 +2028,131 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;界面美化篇&#34;&gt;界面美化篇&lt;/h2&gt;
-&lt;h2 id=&#34;游戏游玩篇&#34;&gt;游戏游玩篇&lt;/h2&gt;
-&lt;h2 id=&#34;教程总结篇&#34;&gt;教程总结篇&lt;/h2&gt;
-&lt;p&gt;总结了一些常用网站和教程（参考文献）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;常用网站&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h3 id=&#34;音频可视化插件---panon&#34;&gt;音频可视化插件 - Panon&lt;/h3&gt;
+&lt;p&gt;就是我开头展示的图片上方的横条啦&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish3.jpg&#34;
+	width=&#34;1366&#34;
+	height=&#34;768&#34;
+	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;看上面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/plasma5-applets-panon&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://aur.archlinux.org/packages/plasma5-applets-panon&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;游戏畅享篇&#34;&gt;游戏畅享篇&lt;/h2&gt;
+&lt;h3 id=&#34;游戏玩家必备---steam&#34;&gt;游戏玩家必备 - Steam&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S steam
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;基于终端窗口的小游戏&#34;&gt;基于终端窗口的小游戏&lt;/h3&gt;
+&lt;h4 id=&#34;来把刺激有趣的贪吃蛇吧---nsnake&#34;&gt;来把刺激有趣的贪吃蛇吧！ - nsnake&lt;/h4&gt;
+&lt;p&gt;支持AUR安装，强烈好评！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S nsnake
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;经典怀旧俄罗斯方块移植---tetris&#34;&gt;经典怀旧：俄罗斯方块移植 - tetris&lt;/h4&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/samtay/tetris&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github nsnake&lt;/a&gt;&lt;br&gt;
+同样支持AUR！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S tetris-terminal-git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;教程总结篇&#34;&gt;教程总结篇&lt;/h2&gt;
+&lt;h3 id=&#34;个人常用软件&#34;&gt;个人常用软件&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;简介&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;文本编辑器&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/sublime-text-4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sublime Text 4&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;轻巧而可自定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;多媒体播放器&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/vlc-git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;VLC&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;好用，不必多言&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;邮件客户端&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/thunderbird-bin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Thunderbird Mail&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;界面美观，多邮箱管理方便&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;屏幕录制&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/obs-studio-tytan652&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OBS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;录制质量高，用了都说好&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;绘画&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/krita-appimage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Krita&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;界面设计和实际使用体验都非常专业（偶尔修修图是绰绰有余的啦）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;通用文档查看器&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/okular-git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Okular&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;KDE系软件，体验一流（用来阅读PDF再适合不过了）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;办公&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/wps-office-cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;WPS for Linux（中国版）&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;有一说一，Linux版挺好用的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;浏览器&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/google-chrome&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google Chrome&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;标配&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;截图&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/shutter-git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Shutter&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;虽然有点大，但还是很好用的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;输入法&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/fcitx5-git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fcitx 5&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;简洁而强大，可以定义输入方案&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;常用网站&#34;&gt;常用网站&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2070,9 +2203,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;教程&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h3 id=&#34;教程&#34;&gt;教程&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2123,9 +2254,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;其他资源&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h3 id=&#34;其他资源&#34;&gt;其他资源&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
