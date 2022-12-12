@@ -477,15 +477,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">sudo pacman -S </span><span class="w"> </span><span class="c"># 安装软件</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">sudo pacman -Syy </span><span class="w"> </span><span class="c"># 强制同步软件包数据库</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">sudo pacman -Syu </span><span class="w"> </span><span class="c"># 进行全面的系统更新（俗称“滚”）</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">sudo pacman -R </span><span class="w"> </span><span class="c"># 卸载软件及其依赖（如果可以的话）</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">yay </span><span class="w"> </span><span class="c"># 进行全面的系统更新</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">yay -S </span><span class="w"> </span><span class="c"># 安装软件</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">yay -R </span><span class="w"> </span><span class="c"># 卸载软件及其依赖（如果可以的话）</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo pacman -S  <span class="c1"># 安装软件</span>
+</span></span><span class="line"><span class="cl">sudo pacman -Syy  <span class="c1"># 强制同步软件包数据库</span>
+</span></span><span class="line"><span class="cl">sudo pacman -Syu  <span class="c1"># 进行全面的系统更新（俗称“滚”）</span>
+</span></span><span class="line"><span class="cl">sudo pacman -R  <span class="c1"># 卸载软件及其依赖（如果可以的话）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">yay  <span class="c1"># 进行全面的系统更新</span>
+</span></span><span class="line"><span class="cl">yay -S  <span class="c1"># 安装软件</span>
+</span></span><span class="line"><span class="cl">yay -R  <span class="c1"># 卸载软件及其依赖（如果可以的话）</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="界面美化篇">界面美化篇</h2>
 <h3 id="音频可视化插件---panon">音频可视化插件 - Panon</h3>
@@ -506,7 +506,38 @@
 ></p>
 <p><a class="link" href="https://aur.archlinux.org/packages/plasma5-applets-panon"  target="_blank" rel="noopener"
     >https://aur.archlinux.org/packages/plasma5-applets-panon</a></p>
-<h2 id="游戏畅享篇">游戏畅享篇</h2>
+<h3 id="kde桌面相关">KDE桌面相关</h3>
+<h4 id="重启后桌面图标混乱">重启后桌面图标混乱</h4>
+<p>具体表现为：辛辛苦苦整理好的桌面图标，重启后直接被打乱，甚至有些超出了显示范围以至于桌面出现了滑动条XD<br></p>
+<blockquote>
+<p>💣后来发现大概跟不正常关机有关😕</p>
+</blockquote>
+<blockquote>
+<p>❗避免不正常关机！<br>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。</p>
+</blockquote>
+<p>解决方案：重启KDE Plasma</p>
+<h5 id="法一热重启">法一：热重启</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kquitapp5 plasmashell <span class="o">&amp;&amp;</span> kstart5 plasmashell
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以写成脚本：</p>
+<h5 id="法二直接杀死并重启">法二：直接杀死并重启</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kquitapp5 plasmashell  <span class="c1"># 退出kde桌面</span>
+</span></span><span class="line"><span class="cl">kstart5 plasmashell  <span class="c1"># 重新启动 plasma 桌面会话</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="游戏畅享篇">游戏畅享篇</h2>
 <h3 id="游戏玩家必备---steam">游戏玩家必备 - Steam</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1071,6 +1102,11 @@
     <li><a href="#界面美化篇">界面美化篇</a>
       <ol>
         <li><a href="#音频可视化插件---panon">音频可视化插件 - Panon</a></li>
+        <li><a href="#kde桌面相关">KDE桌面相关</a>
+          <ol>
+            <li><a href="#重启后桌面图标混乱">重启后桌面图标混乱</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#游戏畅享篇">游戏畅享篇</a>
