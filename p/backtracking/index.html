@@ -316,7 +316,7 @@
     
     <h2 id="引言">引言</h2>
 <p><strong>暴力搜索法</strong>（又称 <strong>穷举搜索</strong>，在计算机科学中也称<strong>生成与测试</strong>）是一种简单粗暴处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案<br>
-但有时候直接枚举会带来问题：枚举量过大而无法减少不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？</p>
+但有时候直接枚举会带来问题：枚举量过大而存在大量不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？</p>
 <blockquote>
 <p><strong>回溯法（backtracking）</strong> 是<strong>暴力搜索法</strong>的一种，可在递归构造中把搜索和检查有机地结合起来，从而减小枚举量</p>
 </blockquote>
@@ -328,7 +328,7 @@
 八皇后问题可以推广为更一般的n皇后摆放问题：这时棋盘的大小变为n×n，而皇后个数也变成n。当且仅当n = 1或n ≥ 4时问题有解。<br>——From <a class="link" href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"  target="_blank" rel="noopener"
     >维基百科·八皇后问题</a></p>
 </blockquote>
-<p>而我们要解决的，正是推广开来的n皇后问题。但为了方便描述，下面的分析还是以八皇后问题为例</p>
+<p>而我们要解决的，正是推广后的n皇后问题。但为了方便描述，下面的分析还是以八皇后问题为例</p>
 <h3 id="思路一直接枚举">思路一：直接枚举</h3>
 <p>枚举出所有可能的棋局，再来判断是否符合题目要求。<br></p>
 <p>问题可以转换为：从<code>8 * 8 = 64</code>个格子里选出<code>8</code>个（即组合生成），保证任两个格子都不能处于同一条横行、纵行或斜线上<br>
@@ -339,7 +339,11 @@
 <blockquote>
 <p>所谓<strong>回溯（backtracking）</strong>，就是指在递归求解问题时，如果当前步骤没有合法选择，则函数返回上一级递归调用</p>
 </blockquote>
-<p>我们可以用C[x]表示第x行皇后的列编号。难点之一是如何判断皇后间是否斜向攻击。</p>
+<p>我们可以用C[x]表示第x行皇后的列编号。难点之一是如何判断皇后间是否斜向攻击。<br></p>
+<p>把棋盘看作一个以左上角为原点、往下为x轴、往右为y轴的平面直角坐标系，于是棋盘的<strong>主对角线</strong>就是<code>y = x</code>，于是对于格子<code>(x,y)</code>，<code>y-x</code>的值就标识了主对角线（确保你理解了这一点！）。
+同理，副对角线为<code>y = -x</code>，<code>x+y</code>的值标记了副对角线</p>
+<p>来看看代码吧～</p>
+<h4 id="普通回溯法">普通回溯法</h4>
 <blockquote>
 <p>nqueens_1.cpp</p>
 </blockquote>
@@ -385,11 +389,9 @@
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
-</span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">// n皇后问题：在n*n棋盘上放置n个皇后，使得它们互不攻击，找出所有解
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 普通回溯法
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -431,7 +433,187 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="参考文献">参考文献</h2>
+</div><p>这样就解决了这个问题。结点数似乎很难再减少了，但效率还可以提高！</p>
+<h4 id="优化的回溯法">优化的回溯法</h4>
+<p>利用二维数组<code>vis[2][]</code>存储状态，来直接判断当前尝试的皇后所在的列和两个对角线是否已有其他皇后。因为<code>y-x</code>可能为负，存储时要加上<code>n</code>（数组下标不能为负）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">C</span><span class="p">[</span><span class="mi">50</span><span class="p">],</span> <span class="n">vis</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">50</span><span class="p">],</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 利用二维数组vis[2][]直接判断当前尝试的皇后所在的列和两个对角线是否已有其他皇后
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nc</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cur</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="n">tot</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if(cur == n)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     printf(&#34;解%d: &#34;, tot);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     for (int i = 0; i &lt; n; i++)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//         printf(&#34;(%d,%d) &#34;, i, C[i]);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     printf(&#34;\n&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cur</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 如果不用打印解，整个C数组都可以省略
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vis</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vis</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cur</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// 访问标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">search</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vis</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vis</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cur</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 及时改回来！
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">memset</span><span class="p">(</span><span class="n">vis</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">search</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;解的个数: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">tot</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;递归次数: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">nc</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意访问标记的设置，即对辅助全局变量（数组vis）的修改，并且在结束访问后即使修改回来！</p>
+<h4 id="生成---测试法">生成 - 测试法</h4>
+<p>作为比较，我们看看生成 - 测试法的效率如何</p>
+<blockquote>
+<p>nqueens_3.cpp</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">C</span><span class="p">[</span><span class="mi">50</span><span class="p">],</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 先生成棋面，再判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nc</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">cur</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="n">i</span><span class="o">-</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span><span class="o">-</span><span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="n">i</span><span class="o">+</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span><span class="o">+</span><span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tot</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">search</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">memset</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">C</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">search</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;解的个数: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">tot</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;递归次数: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">nc</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们来对比一下这几个程序的效率：</p>
+<h2 id="参考文献">参考文献</h2>
 <p>[1]刘汝佳《算法竞赛入门经典（第2版）》<br>
 [2]<a class="link" href="https://zh.wikipedia.org/wiki/%E6%9A%B4%E5%8A%9B%E6%90%9C%E7%B4%A2"  target="_blank" rel="noopener"
     >维基百科·暴力搜索</a><br>
@@ -794,7 +976,13 @@
     <li><a href="#八皇后问题">八皇后问题</a>
       <ol>
         <li><a href="#思路一直接枚举">思路一：直接枚举</a></li>
-        <li><a href="#思路二回溯法">思路二：回溯法</a></li>
+        <li><a href="#思路二回溯法">思路二：回溯法</a>
+          <ol>
+            <li><a href="#普通回溯法">普通回溯法</a></li>
+            <li><a href="#优化的回溯法">优化的回溯法</a></li>
+            <li><a href="#生成---测试法">生成 - 测试法</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#参考文献">参考文献</a></li>
