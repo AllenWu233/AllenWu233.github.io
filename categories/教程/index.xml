@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>教程 on Allen_Wu233的博客</title>
-        <link>https://allenwu233.github.io/categories/%E6%95%99%E7%A8%8B/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/categories/%E6%95%99%E7%A8%8B/</link>
         <description>Recent content in 教程 on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 22 Oct 2022 11:22:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 22 Oct 2022 11:22:00 +0800</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>从0开始的Arch之旅</title>
-        <link>https://allenwu233.github.io/p/allen-arch/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/allen-arch/</link>
         <pubDate>Sat, 22 Oct 2022 11:22:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/allen-arch/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/allen-arch/cover.jpg" alt="Featured image of post 从0开始的Arch之旅" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/allen-arch/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/allen-arch/cover.jpg" alt="Featured image of post 从0开始的Arch之旅" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Keep it Simple, Stupid. (KISS)&lt;br&gt;——Arch 之道&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -20,10 +20,10 @@
 &lt;p&gt;Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。&lt;br&gt;——&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/Arch_Linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/101776734_p0.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/101776734_p0.jpg&#34;
 	width=&#34;3508&#34;
 	height=&#34;4960&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;pid101776734&#34;
@@ -67,10 +67,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;以下是博主配置好的 Arch&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;之前的桌面&#34;
@@ -81,10 +81,10 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish2.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;终端&#34;
@@ -95,10 +95,10 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;“梦中情系统”&#34;
@@ -188,10 +188,10 @@
 &lt;/div&gt;&lt;h2 id=&#34;界面美化篇&#34;&gt;界面美化篇&lt;/h2&gt;
 &lt;h3 id=&#34;音频可视化插件---panon&#34;&gt;音频可视化插件 - Panon&lt;/h3&gt;
 &lt;p&gt;就是我开头展示的图片上方的横条啦&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;看上面&#34;
@@ -474,11 +474,11 @@
         </item>
         <item>
         <title>Windows环境下 Sublime Text 3 C环境配置教程</title>
-        <link>https://allenwu233.github.io/p/st3-c/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-c/</link>
         <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://allenwu233.github.io/p/st3-c/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91.jpg" alt="Featured image of post Windows环境下 Sublime Text 3 C环境配置教程" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;br&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-c/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91.jpg" alt="Featured image of post Windows环境下 Sublime Text 3 C环境配置教程" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;br&gt;
 不管是编程新手还是老手都能轻松掌握，相信你会喜欢上这款编辑器的(&lt;em&gt;￣3￣)╭&lt;/em&gt;)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本机系统：Windows 10&lt;br&gt;
@@ -502,10 +502,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果一切顺利，那么会有类似下面的输出：&lt;br&gt;
-&lt;img src=&#34;https://allenwu233.github.io/p/st3-c/gcc.JPG&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/gcc.JPG&#34;
 	width=&#34;818&#34;
 	height=&#34;512&#34;
-	srcset=&#34;https://allenwu233.github.io/p/st3-c/gcc_hu83fdd9b56dc93f75c45131c838f53d11_47316_480x0_resize_q75_box.JPG 480w, https://allenwu233.github.io/p/st3-c/gcc_hu83fdd9b56dc93f75c45131c838f53d11_47316_1024x0_resize_q75_box.JPG 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/gcc_hu83fdd9b56dc93f75c45131c838f53d11_47316_480x0_resize_q75_box.JPG 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/gcc_hu83fdd9b56dc93f75c45131c838f53d11_47316_1024x0_resize_q75_box.JPG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;查看 gcc 版本&#34;
@@ -632,10 +632,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;编译：按&lt;code&gt;Ctrl + B&lt;/code&gt;，可能会弹出以下选项：
-&lt;img src=&#34;https://allenwu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91.jpg&#34;
 	width=&#34;690&#34;
 	height=&#34;735&#34;
-	srcset=&#34;https://allenwu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91_hu682d0ef1f6084df9f7c3f1336a8d8919_33444_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91_hu682d0ef1f6084df9f7c3f1336a8d8919_33444_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91_hu682d0ef1f6084df9f7c3f1336a8d8919_33444_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/%E7%BC%96%E8%AF%91_hu682d0ef1f6084df9f7c3f1336a8d8919_33444_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;编译&#34;
@@ -648,10 +648,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &gt;
 选择&lt;code&gt;c - Single File Build &amp;amp; Run&lt;/code&gt;&lt;br&gt;
 输出如下：
-&lt;img src=&#34;https://allenwu233.github.io/p/st3-c/%E8%BE%93%E5%87%BA.JPG&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/%E8%BE%93%E5%87%BA.JPG&#34;
 	width=&#34;979&#34;
 	height=&#34;512&#34;
-	srcset=&#34;https://allenwu233.github.io/p/st3-c/%E8%BE%93%E5%87%BA_hua660e93823d19e994e5f48c970241f3a_28241_480x0_resize_q75_box.JPG 480w, https://allenwu233.github.io/p/st3-c/%E8%BE%93%E5%87%BA_hua660e93823d19e994e5f48c970241f3a_28241_1024x0_resize_q75_box.JPG 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/%E8%BE%93%E5%87%BA_hua660e93823d19e994e5f48c970241f3a_28241_480x0_resize_q75_box.JPG 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/%E8%BE%93%E5%87%BA_hua660e93823d19e994e5f48c970241f3a_28241_1024x0_resize_q75_box.JPG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;输出&#34;
@@ -791,10 +791,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;恭喜你已经成功配置st3！快去畅快玩耍吧！&lt;br&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/st3-c/101147392_p0.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/101147392_p0.jpg&#34;
 	width=&#34;1200&#34;
 	height=&#34;855&#34;
-	srcset=&#34;https://allenwu233.github.io/p/st3-c/101147392_p0_hu9be91b8a9e9834b04e9177d06c135bd0_741362_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/st3-c/101147392_p0_hu9be91b8a9e9834b04e9177d06c135bd0_741362_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/101147392_p0_hu9be91b8a9e9834b04e9177d06c135bd0_741362_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/st3-c/101147392_p0_hu9be91b8a9e9834b04e9177d06c135bd0_741362_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;文&#34;
@@ -809,11 +809,11 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         </item>
         <item>
         <title>Arch Linux修复grub引导</title>
-        <link>https://allenwu233.github.io/p/arch-grub-fix/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/arch-grub-fix/</link>
         <pubDate>Fri, 16 Sep 2022 16:29:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/arch-grub-fix/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/arch-grub-fix/cover.jpg" alt="Featured image of post Arch Linux修复grub引导" /&gt;&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/arch-grub-fix/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/arch-grub-fix/cover.jpg" alt="Featured image of post Arch Linux修复grub引导" /&gt;&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;让我们设想一个情景：当您再也无法忍受日渐卡顿的 Windows 10 时，您二话不说将其重装，却发现您无法进入心爱的 Arch Linux 系统了。是不是很熟悉？别担心，对于喜欢折腾双系统的用户来说，这是常有的事。&lt;br&gt;只需修复grub引导，即可带您回归熟悉的 Arch Linux。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -942,11 +942,11 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         </item>
         <item>
         <title>Windows环境下 Sublime Text 3 Python环境配置教程（附pip安装教程）</title>
-        <link>https://allenwu233.github.io/p/st3-python/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</link>
         <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://allenwu233.github.io/p/st3-python/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Windows环境下 Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/st3-python/st3.JPG" alt="Featured image of post Windows环境下 Sublime Text 3 Python环境配置教程（附pip安装教程）" /&gt;&lt;p&gt;Sublime text 3（以下简称st3）是一款相当好用的轻量级文本编辑器，包含大量实用插件，一用就爱不释手。&lt;/p&gt;
 &lt;p&gt;然而对初学者来说，st3的配置还是有一点难度的，因此有了这篇教程（笑）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本机系统：Windows 10&lt;br&gt;

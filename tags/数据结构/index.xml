@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>数据结构 on Allen_Wu233的博客</title>
-        <link>https://allenwu233.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <description>Recent content in 数据结构 on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 06 Nov 2022 22:00:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 06 Nov 2022 22:00:00 +0800</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>数据结构之美-二叉树</title>
-        <link>https://allenwu233.github.io/p/binary-tree/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/binary-tree/</link>
         <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/binary-tree/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/binary-tree/cover.jpg" alt="Featured image of post 数据结构之美-二叉树" /&gt;&lt;h2 id=&#34;引言---二叉树是什么&#34;&gt;引言 - 二叉树是什么&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/binary-tree/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/binary-tree/cover.jpg" alt="Featured image of post 数据结构之美-二叉树" /&gt;&lt;h2 id=&#34;引言---二叉树是什么&#34;&gt;引言 - 二叉树是什么&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在计算机科学中， &lt;strong&gt;二叉树（Binary tree）&lt;/strong&gt; 是每个结点最多只有两个分支（即不存在分支度大于2的结点）的树结构。通常分支被称作“左子树”或“右子树”。二叉树的分支具有左右次序，不能随意颠倒。&lt;br&gt;
 与普通树不同，普通树的结点个数至少为1，而二叉树的结点个数可以为0；普通树结点的最大分支度没有限制，而二叉树结点的最大分支度为2；普通树的结点无左、右次序之分，而二叉树的结点有左、右次序之分。&lt;br&gt;
@@ -21,10 +21,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;二叉树是非常重要的数据结构，其独特的结构使得它在搜索和处理数据方面有相当不错的表现
 &lt;span id=&#34;1&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/binary-tree/binary_tree.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/binary_tree.png&#34;
 	width=&#34;3840&#34;
 	height=&#34;2160&#34;
-	srcset=&#34;https://allenwu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_480x0_resize_box_3.png 480w, https://allenwu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_480x0_resize_box_3.png 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;一棵完美二叉树（Full Tree）&#34;
@@ -1215,10 +1215,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;二叉查找树&#34;&gt;二叉查找树&lt;/h2&gt;
 &lt;p&gt;&lt;del&gt;（先挖个坑，以后回来更新）&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/binary-tree/640.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/640.jpg&#34;
 	width=&#34;405&#34;
 	height=&#34;543&#34;
-	srcset=&#34;https://allenwu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1235,11 +1235,11 @@
         </item>
         <item>
         <title>数据结构初见-栈</title>
-        <link>https://allenwu233.github.io/p/stack/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/stack/</link>
         <pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/stack/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/stack/cover.jpg" alt="Featured image of post 数据结构初见-栈" /&gt;&lt;blockquote&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/stack/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/stack/cover.jpg" alt="Featured image of post 数据结构初见-栈" /&gt;&lt;blockquote&gt;
 &lt;p&gt;如果说算法是程序的灵魂，那么数据结构就如同程序的躯体。&lt;br&gt;
 学习数据结构，一定少不了基础而经典的——&lt;strong&gt;栈(stack)&lt;/strong&gt;&lt;br&gt;
 那么，栈是什么？&lt;/p&gt;
@@ -1247,10 +1247,10 @@
 &lt;h2 id=&#34;什么是栈&#34;&gt;什么是栈&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;del&gt;Stack 是东方Project同人音乐社团「暁records」主唱/作词/偶尔作曲/编曲，拥有的独特嗓音,虽然有些人不喜欢,但是从来不会被忽略,一入耳就能留下永远无法忘记的印象&amp;hellip;&amp;hellip;&lt;/del&gt;&lt;br&gt;
-&lt;img src=&#34;https://allenwu233.github.io/p/stack/singer_stack.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/singer_stack.jpg&#34;
 	width=&#34;300&#34;
 	height=&#34;300&#34;
-	srcset=&#34;https://allenwu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Stack姐&#34;
@@ -1276,10 +1276,10 @@
 &lt;ul&gt;
 &lt;li&gt;PUSH: 压栈，把元素压入栈顶&lt;/li&gt;
 &lt;li&gt;POP: 弹出：从栈顶把元素弹出
-&lt;img src=&#34;https://allenwu233.github.io/p/stack/Lifo_stack.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/Lifo_stack.jpg&#34;
 	width=&#34;800&#34;
 	height=&#34;559&#34;
-	srcset=&#34;https://allenwu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Lifo stack&#34;
@@ -1607,10 +1607,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Yummy~&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/stack/76889557_p0_master1200.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/76889557_p0_master1200.jpg&#34;
 	width=&#34;1066&#34;
 	height=&#34;1066&#34;
-	srcset=&#34;https://allenwu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;yummy&#34;

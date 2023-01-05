@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>学习笔记 on Allen_Wu233的博客</title>
-        <link>https://allenwu233.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <description>Recent content in 学习笔记 on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 03 Dec 2022 20:00:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 03 Dec 2022 20:00:00 +0800</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>生成和检查的有机结合-回溯法</title>
-        <link>https://allenwu233.github.io/p/backtracking/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/backtracking/</link>
         <pubDate>Sat, 03 Dec 2022 20:00:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/backtracking/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/backtracking/cover.jpg" alt="Featured image of post 生成和检查的有机结合-回溯法" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/backtracking/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/backtracking/cover.jpg" alt="Featured image of post 生成和检查的有机结合-回溯法" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;暴力搜索法&lt;/strong&gt;（又称 &lt;strong&gt;穷举搜索&lt;/strong&gt;，在计算机科学中也称&lt;strong&gt;生成与测试&lt;/strong&gt;）是一种简单粗暴处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案&lt;br&gt;
 但有时候直接枚举会带来问题：枚举量过大而存在大量不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？&lt;/p&gt;
 &lt;blockquote&gt;
@@ -430,10 +430,10 @@
 &lt;p&gt;当 n &amp;lt;= 13 时，回溯法和优化后的回溯法有不错的效率；当 n &amp;gt; 13 时，优化后回溯法的效率明显更高&lt;/p&gt;
 &lt;p&gt;而生成-测试法的复杂度明显高得多，n = 10 时耗时长达约一分半，递归次数也远超出INT类型的范围&lt;/p&gt;
 &lt;p&gt;效率飞一般的提升！快去试试吧！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/backtracking/71105196_p0_master1200.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/backtracking/71105196_p0_master1200.jpg&#34;
 	width=&#34;850&#34;
 	height=&#34;1200&#34;
-	srcset=&#34;https://allenwu233.github.io/p/backtracking/71105196_p0_master1200_hu56fa7ff29406b68357f69e917ff0d735_495837_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/backtracking/71105196_p0_master1200_hu56fa7ff29406b68357f69e917ff0d735_495837_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/backtracking/71105196_p0_master1200_hu56fa7ff29406b68357f69e917ff0d735_495837_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/backtracking/71105196_p0_master1200_hu56fa7ff29406b68357f69e917ff0d735_495837_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Rumia_pid71105196&#34;
@@ -456,11 +456,11 @@
         </item>
         <item>
         <title>数据结构之美-二叉树</title>
-        <link>https://allenwu233.github.io/p/binary-tree/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/binary-tree/</link>
         <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/binary-tree/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/binary-tree/cover.jpg" alt="Featured image of post 数据结构之美-二叉树" /&gt;&lt;h2 id=&#34;引言---二叉树是什么&#34;&gt;引言 - 二叉树是什么&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/binary-tree/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/binary-tree/cover.jpg" alt="Featured image of post 数据结构之美-二叉树" /&gt;&lt;h2 id=&#34;引言---二叉树是什么&#34;&gt;引言 - 二叉树是什么&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在计算机科学中， &lt;strong&gt;二叉树（Binary tree）&lt;/strong&gt; 是每个结点最多只有两个分支（即不存在分支度大于2的结点）的树结构。通常分支被称作“左子树”或“右子树”。二叉树的分支具有左右次序，不能随意颠倒。&lt;br&gt;
 与普通树不同，普通树的结点个数至少为1，而二叉树的结点个数可以为0；普通树结点的最大分支度没有限制，而二叉树结点的最大分支度为2；普通树的结点无左、右次序之分，而二叉树的结点有左、右次序之分。&lt;br&gt;
@@ -469,10 +469,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;二叉树是非常重要的数据结构，其独特的结构使得它在搜索和处理数据方面有相当不错的表现
 &lt;span id=&#34;1&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/binary-tree/binary_tree.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/binary_tree.png&#34;
 	width=&#34;3840&#34;
 	height=&#34;2160&#34;
-	srcset=&#34;https://allenwu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_480x0_resize_box_3.png 480w, https://allenwu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_480x0_resize_box_3.png 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/binary_tree_hua065d3b7e21d7cb12cc012c23ace7ef6_491160_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;一棵完美二叉树（Full Tree）&#34;
@@ -1663,10 +1663,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;二叉查找树&#34;&gt;二叉查找树&lt;/h2&gt;
 &lt;p&gt;&lt;del&gt;（先挖个坑，以后回来更新）&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/binary-tree/640.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/640.jpg&#34;
 	width=&#34;405&#34;
 	height=&#34;543&#34;
-	srcset=&#34;https://allenwu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/binary-tree/640_hu4c51fe0012950fa0eb5234a3207f9c20_176223_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1683,11 +1683,11 @@
         </item>
         <item>
         <title>数据结构初见-栈</title>
-        <link>https://allenwu233.github.io/p/stack/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/stack/</link>
         <pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/stack/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/stack/cover.jpg" alt="Featured image of post 数据结构初见-栈" /&gt;&lt;blockquote&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/stack/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/stack/cover.jpg" alt="Featured image of post 数据结构初见-栈" /&gt;&lt;blockquote&gt;
 &lt;p&gt;如果说算法是程序的灵魂，那么数据结构就如同程序的躯体。&lt;br&gt;
 学习数据结构，一定少不了基础而经典的——&lt;strong&gt;栈(stack)&lt;/strong&gt;&lt;br&gt;
 那么，栈是什么？&lt;/p&gt;
@@ -1695,10 +1695,10 @@
 &lt;h2 id=&#34;什么是栈&#34;&gt;什么是栈&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;del&gt;Stack 是东方Project同人音乐社团「暁records」主唱/作词/偶尔作曲/编曲，拥有的独特嗓音,虽然有些人不喜欢,但是从来不会被忽略,一入耳就能留下永远无法忘记的印象&amp;hellip;&amp;hellip;&lt;/del&gt;&lt;br&gt;
-&lt;img src=&#34;https://allenwu233.github.io/p/stack/singer_stack.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/singer_stack.jpg&#34;
 	width=&#34;300&#34;
 	height=&#34;300&#34;
-	srcset=&#34;https://allenwu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/singer_stack_hu1cbe140cfcbde688634f66d91bd1acfe_20464_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Stack姐&#34;
@@ -1724,10 +1724,10 @@
 &lt;ul&gt;
 &lt;li&gt;PUSH: 压栈，把元素压入栈顶&lt;/li&gt;
 &lt;li&gt;POP: 弹出：从栈顶把元素弹出
-&lt;img src=&#34;https://allenwu233.github.io/p/stack/Lifo_stack.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/Lifo_stack.jpg&#34;
 	width=&#34;800&#34;
 	height=&#34;559&#34;
-	srcset=&#34;https://allenwu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/Lifo_stack_hu7b92ea5d0a3dba3e4bcfc10ab205a4e0_24684_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Lifo stack&#34;
@@ -2055,10 +2055,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Yummy~&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/stack/76889557_p0_master1200.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/76889557_p0_master1200.jpg&#34;
 	width=&#34;1066&#34;
 	height=&#34;1066&#34;
-	srcset=&#34;https://allenwu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/stack/76889557_p0_master1200_hu8402a3a8d3c5b698a57e0088826d6d3a_1587461_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;yummy&#34;
@@ -2073,11 +2073,11 @@
         </item>
         <item>
         <title>最“简单”的算法——贪心算法</title>
-        <link>https://allenwu233.github.io/p/greedy-algorithm/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/</link>
         <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://allenwu233.github.io/p/greedy-algorithm/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/greedy-algorithm/93657404_p0.jpg" alt="Featured image of post 最“简单”的算法——贪心算法" /&gt;&lt;blockquote&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/93657404_p0.jpg" alt="Featured image of post 最“简单”的算法——贪心算法" /&gt;&lt;blockquote&gt;
 &lt;p&gt;有人说&lt;strong&gt;贪心算法&lt;/strong&gt;是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，那轮到你我的份？&lt;br&gt;
 ——By &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/effective_coder?type=blog&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;CSDN@lloil&lt;/a&gt;&lt;/p&gt;
@@ -2189,10 +2189,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/greedy-algorithm/%E5%88%87%E8%99%AB%E5%AD%90.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/%E5%88%87%E8%99%AB%E5%AD%90.jpg&#34;
 	width=&#34;355&#34;
 	height=&#34;240&#34;
-	srcset=&#34;https://allenwu233.github.io/p/greedy-algorithm/%E5%88%87%E8%99%AB%E5%AD%90_hu628175859f915f23ce4ffd41e3201378_21011_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/greedy-algorithm/%E5%88%87%E8%99%AB%E5%AD%90_hu628175859f915f23ce4ffd41e3201378_21011_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/%E5%88%87%E8%99%AB%E5%AD%90_hu628175859f915f23ce4ffd41e3201378_21011_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/%E5%88%87%E8%99%AB%E5%AD%90_hu628175859f915f23ce4ffd41e3201378_21011_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2448,10 +2448,10 @@
 &lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
 &lt;p&gt;算法不愧是编程的灵魂&amp;hellip;&amp;hellip;&lt;br&gt;
 这才是编程的浪漫啊！&lt;del&gt;（因解题时间过长理智丧失ing&amp;hellip;）&lt;/del&gt;
-&lt;img src=&#34;https://allenwu233.github.io/p/greedy-algorithm/%E5%A6%B9%E7%BA%A2%E6%95%B2%E4%BB%A3%E7%A0%81.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/%E5%A6%B9%E7%BA%A2%E6%95%B2%E4%BB%A3%E7%A0%81.jpg&#34;
 	width=&#34;420&#34;
 	height=&#34;514&#34;
-	srcset=&#34;https://allenwu233.github.io/p/greedy-algorithm/%E5%A6%B9%E7%BA%A2%E6%95%B2%E4%BB%A3%E7%A0%81_huacf68506b28abaa9efe8067c1ce2ae5c_59208_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/greedy-algorithm/%E5%A6%B9%E7%BA%A2%E6%95%B2%E4%BB%A3%E7%A0%81_huacf68506b28abaa9efe8067c1ce2ae5c_59208_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/%E5%A6%B9%E7%BA%A2%E6%95%B2%E4%BB%A3%E7%A0%81_huacf68506b28abaa9efe8067c1ce2ae5c_59208_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/greedy-algorithm/%E5%A6%B9%E7%BA%A2%E6%95%B2%E4%BB%A3%E7%A0%81_huacf68506b28abaa9efe8067c1ce2ae5c_59208_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;妹红敲代码.jpg&#34;
@@ -2473,21 +2473,21 @@
         </item>
         <item>
         <title>Python生成多项式与牛顿法</title>
-        <link>https://allenwu233.github.io/p/poly-newton/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://allenwu233.github.io/p/poly-newton/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/poly-newton/cirno.jpg" alt="Featured image of post Python生成多项式与牛顿法" /&gt;&lt;blockquote&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/poly-newton/cirno.jpg" alt="Featured image of post Python生成多项式与牛顿法" /&gt;&lt;blockquote&gt;
 &lt;p&gt;事情的起因还得从昨天说起：
 博主在刷几道简单的算法题，其中有一道是 &lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/problem/16622&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;多项式输出&lt;/a&gt;&lt;br&gt;
 看似简单决定首先AC，无奈博主 C 语言能力不足，转战Python。&lt;br&gt;
 &lt;del&gt;结果还是眼高手低，这么简单的程序要这么多判断&lt;/del&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/poly-newton/%E9%A2%98.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98.jpg&#34;
 	width=&#34;1234&#34;
 	height=&#34;564&#34;
-	srcset=&#34;https://allenwu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/poly-newton/%E9%A2%98_hu6bae64f14b402eb686b90ab8a0b0b479_116889_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;简单的题目&#34;
@@ -2776,11 +2776,11 @@
         </item>
         <item>
         <title>C语言初学者的汉诺塔</title>
-        <link>https://allenwu233.github.io/p/hanoi/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/</link>
         <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://allenwu233.github.io/p/hanoi/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/hanoi/hanoi_cover.jpg" alt="Featured image of post C语言初学者的汉诺塔" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_cover.jpg" alt="Featured image of post C语言初学者的汉诺塔" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在印度，有这样一个古老的传说。在世界中心贝拿勒斯的圣庙里，一块黄铜板上插着3根宝石针。印度教的主神梵天在创造世界的时候，在其中一根针上从下到上地穿好了由大到小的64片金盘，这就是所谓的汉诺塔(Tower of Hanoi)。不论白天黑夜，总有一个僧侣在按照下面的法则移动这些金盘到另一根针上：一次只移动一片，而且小片必在大片上面。当所有的金盘都从梵天穿好的那根针上移动到第三根针上时，世界就将在一声霹雳中消灭，梵塔、庙宇和众生都将同归于尽&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2808,10 +2808,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;一个简单的例子&#34;&gt;一个简单的例子&lt;/h3&gt;
 &lt;p&gt;当 n = 3 时，用一张图来解决：
-&lt;img src=&#34;https://allenwu233.github.io/p/hanoi/hanoi_3.jpg&#34;
+&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3.jpg&#34;
 	width=&#34;850&#34;
 	height=&#34;637&#34;
-	srcset=&#34;https://allenwu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/hanoi/hanoi_3_hu40f2d2d34883b2c6a9aeda12a5fe4c7d_8078_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;三层汉诺塔&#34;
@@ -3035,11 +3035,11 @@
         </item>
         <item>
         <title>明日方舟寻访模拟器</title>
-        <link>https://allenwu233.github.io/p/ark_simulation/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</link>
         <pubDate>Thu, 01 Sep 2022 09:20:59 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/ark_simulation/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/ark_simulation/90904337_p0.jpg" alt="Featured image of post 明日方舟寻访模拟器" /&gt;&lt;p&gt;博主几年前初学Python时摸的屑程序，代码相当繁琐(&lt;br&gt;
 仓库链接： &lt;a class=&#34;link&#34; href=&#34;https://github.com/AllenWu233/arknights_simulation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/AllenWu233/arknights_simulation&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;poolpy&#34;&gt;pool.py&lt;/h2&gt;

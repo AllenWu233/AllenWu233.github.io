@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Arch on Allen_Wu233的博客</title>
-        <link>https://allenwu233.github.io/tags/arch/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/tags/arch/</link>
         <description>Recent content in Arch on Allen_Wu233的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 22 Oct 2022 11:22:00 +0800</lastBuildDate><atom:link href="https://allenwu233.github.io/tags/arch/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 22 Oct 2022 11:22:00 +0800</lastBuildDate><atom:link href="https://github.com/AllenWu233/AllenWu233.github.io/tags/arch/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>从0开始的Arch之旅</title>
-        <link>https://allenwu233.github.io/p/allen-arch/</link>
+        <link>https://github.com/AllenWu233/AllenWu233.github.io/p/allen-arch/</link>
         <pubDate>Sat, 22 Oct 2022 11:22:00 +0800</pubDate>
         
-        <guid>https://allenwu233.github.io/p/allen-arch/</guid>
-        <description>&lt;img src="https://allenwu233.github.io/p/allen-arch/cover.jpg" alt="Featured image of post 从0开始的Arch之旅" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+        <guid>https://github.com/AllenWu233/AllenWu233.github.io/p/allen-arch/</guid>
+        <description>&lt;img src="https://github.com/AllenWu233/AllenWu233.github.io/p/allen-arch/cover.jpg" alt="Featured image of post 从0开始的Arch之旅" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Keep it Simple, Stupid. (KISS)&lt;br&gt;——Arch 之道&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -20,10 +20,10 @@
 &lt;p&gt;Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。&lt;br&gt;——&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/Arch_Linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ArchWiki&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/101776734_p0.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/101776734_p0.jpg&#34;
 	width=&#34;3508&#34;
 	height=&#34;4960&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/101776734_p0_hud775384d6e1de19a81664cb136eec910_972183_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;pid101776734&#34;
@@ -67,10 +67,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;以下是博主配置好的 Arch&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish_hubbd07772456348cb64cd422cc7e83cea_1634450_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;之前的桌面&#34;
@@ -81,10 +81,10 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish2.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish2_hu9bdffc485b51cfb5cd1720feb5b28ff9_573403_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;终端&#34;
@@ -95,10 +95,10 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;“梦中情系统”&#34;
@@ -188,10 +188,10 @@
 &lt;/div&gt;&lt;h2 id=&#34;界面美化篇&#34;&gt;界面美化篇&lt;/h2&gt;
 &lt;h3 id=&#34;音频可视化插件---panon&#34;&gt;音频可视化插件 - Panon&lt;/h3&gt;
 &lt;p&gt;就是我开头展示的图片上方的横条啦&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://allenwu233.github.io/p/allen-arch/finish3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;768&#34;
-	srcset=&#34;https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://allenwu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_480x0_resize_q75_box.jpg 480w, https://github.com/AllenWu233/AllenWu233.github.io/AllenWu233/AllenWu233.github.io/p/allen-arch/finish3_hu25357b1cbe2b160800ff14736c149820_377329_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;看上面&#34;
