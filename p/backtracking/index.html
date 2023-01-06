@@ -315,7 +315,7 @@
     
     
     <h2 id="引言">引言</h2>
-<p><strong>暴力搜索法</strong>（又称 <strong>穷举搜索</strong>，在计算机科学中也称<strong>生成与测试</strong>）是一种简单粗暴处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案<br>
+<p><strong>暴力搜索法</strong>（又称 <strong>穷举搜索</strong>，在计算机科学中也称<strong>生成与测试</strong>）是一种“简单粗暴地”处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案<br>
 但有时候直接枚举会带来问题：枚举量过大而存在大量不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？</p>
 <blockquote>
 <p><strong>回溯法（backtracking）</strong> 是<strong>暴力搜索法</strong>的一种，可在递归构造中把搜索和检查有机地结合起来，从而减小枚举量</p>
@@ -324,24 +324,51 @@
 <h2 id="八皇后问题">八皇后问题</h2>
 <p>可以说是最经典的题目之一了。甚至常被作为“判断有没有学过回溯法”的依据 <del>（刘老师如是说）</del></p>
 <blockquote>
-<p>如何能够在8×8的国际象棋棋盘上放置八个皇后，使得任何一个皇后都无法直接吃掉其他的皇后？为了达到此目的，任两个皇后都不能处于同一条横行、纵行或斜线上。<br>
-八皇后问题可以推广为更一般的n皇后摆放问题：这时棋盘的大小变为n×n，而皇后个数也变成n。当且仅当n = 1或n ≥ 4时问题有解。<br>——From <a class="link" href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"  target="_blank" rel="noopener"
+<p>如何能够在8×8的国际象棋棋盘上放置八个皇后，使得任何一个皇后都无法直接吃掉其他的皇后？为了达到此目的，任两个皇后都不能处于同一条横行、纵行或斜线上。<br><br>
+八皇后问题可以推广为更一般的n皇后摆放问题：这时棋盘的大小变为n×n，而皇后个数也变成n。当且仅当n = 1或n ≥ 4时问题有解。<br><br>——From <a class="link" href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"  target="_blank" rel="noopener"
     >维基百科·八皇后问题</a></p>
 </blockquote>
 <p>而我们要解决的，正是推广后的n皇后问题。但为了方便描述，下面的分析还是以八皇后问题为例</p>
-<h3 id="思路一直接枚举">思路一：直接枚举</h3>
+<h3 id="思路一组合生成">思路一：组合生成</h3>
 <p>枚举出所有可能的棋局，再来判断是否符合题目要求。<br></p>
 <p>问题可以转换为：从<code>8 * 8 = 64</code>个格子里选出<code>8</code>个（即组合生成），保证任两个格子都不能处于同一条横行、纵行或斜线上<br>
 根据排列组合，我们知道共有<code>C(64, 8) = 4.426e9</code> 种方案，显然是太复杂了。<br></p>
-<p>稍加思考，我们可以改进策略：恰好每行每列各选一个格子，保证任两个格子都在同一斜线上。如此转化为全排列生成的问题，方案数降为<code>8! = 40320</code>种，肉眼可见的效率提升啊（笑）<br>
-但如果直接暴力搜索的话，效率还是比较低的，我们需要在此基础上改进一下</p>
-<h3 id="思路二回溯法">思路二：回溯法</h3>
+<h3 id="思路二全排列生成">思路二：全排列生成</h3>
+<p>稍加思考，我们可以改进策略：恰好每行每列各选一个格子，保证任两个格子都在同一斜线上。如此转化为全排列生成的问题，方案数降为<code>8! = 40320</code>种，肉眼可见的效率提升啊（笑）</p>
+<p>我们可以用C[x]表示第x行皇后的列编号。难点之一是如何判断皇后间是否斜向攻击。<br></p>
+<p>把棋盘看作一个以左上角为原点、往下为x轴、往右为y轴的平面直角坐标系，于是棋盘的<strong>主对角线</strong>就是<code>y = x</code>，于是对于格子<code>(x,y)</code>，<code>y-x</code>的值就标识了主对角线（确保你理解了这一点！）。同理，副对角线为<code>y = -x</code>，<code>x+y</code>的值标记了副对角线。如下图所示：</p>
+<p><img src="/p/backtracking/y-x.jpg"
+	width="338"
+	height="324"
+	srcset="/p/backtracking/y-x_hu2a8830ed1ccae152647e9bfc2e551686_36934_480x0_resize_q75_box.jpg 480w, /p/backtracking/y-x_hu2a8830ed1ccae152647e9bfc2e551686_36934_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="y-x"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="250px"
+	
+> <img src="/p/backtracking/x&#43;y.jpg"
+	width="338"
+	height="321"
+	srcset="/p/backtracking/x&#43;y_hu5f6baa164796fc0bac05ad5951885dc1_43647_480x0_resize_q75_box.jpg 480w, /p/backtracking/x&#43;y_hu5f6baa164796fc0bac05ad5951885dc1_43647_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="x&#43;y"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="105"
+		data-flex-basis="252px"
+	
+></p>
+<p>接下来，就要用到回溯法了：</p>
 <blockquote>
 <p>所谓<strong>回溯（backtracking）</strong>，就是指在递归求解问题时，如果当前步骤没有合法选择，则函数返回上一级递归调用</p>
 </blockquote>
-<p>我们可以用C[x]表示第x行皇后的列编号。难点之一是如何判断皇后间是否斜向攻击。<br></p>
-<p>把棋盘看作一个以左上角为原点、往下为x轴、往右为y轴的平面直角坐标系，于是棋盘的<strong>主对角线</strong>就是<code>y = x</code>，于是对于格子<code>(x,y)</code>，<code>y-x</code>的值就标识了主对角线（确保你理解了这一点！）。
-同理，副对角线为<code>y = -x</code>，<code>x+y</code>的值标记了副对角线</p>
+<p>简单来说，就是把问题分成若干个步骤递归求解，当某一步不合题意时停止，返回上一步。这样可以大大减少运算量</p>
 <p>来看看代码吧～</p>
 <h4 id="普通回溯法">普通回溯法</h4>
 <blockquote>
@@ -731,7 +758,100 @@
 </table></div>
 <p>当 n &lt;= 13 时，回溯法和优化后的回溯法有不错的效率；当 n &gt; 13 时，优化后回溯法的效率明显更高</p>
 <p>而生成-测试法的复杂度明显高得多，n = 10 时耗时长达约一分半，递归次数也远超出INT类型的范围</p>
-<p>效率飞一般的提升！快去试试吧！</p>
+<h4 id="python代码">Python代码</h4>
+<blockquote>
+<p>nqueen.py</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_solve</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">tot</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">C</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;解：</span><span class="si">{</span><span class="n">tot</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">)&#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">cur</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">C</span><span class="p">,</span> <span class="n">vis</span><span class="p">,</span> <span class="n">tot</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">nc</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nc</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">cur</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tot</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">cur</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">print_solve</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">vis</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">vis</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cur</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">C</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vis</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vis</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cur</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">search</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vis</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vis</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cur</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">30</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vis</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">30</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nc</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">search</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;解的个数：</span><span class="si">{</span><span class="n">tot</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;递归次数：</span><span class="si">{</span><span class="n">nc</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效率飞一般的提升！快去试试吧！</p>
+<p>(To be continue&hellip;)</p>
 <p><img src="/p/backtracking/71105196_p0_master1200.jpg"
 	width="850"
 	height="1200"
@@ -1110,12 +1230,13 @@
     <li><a href="#引言">引言</a></li>
     <li><a href="#八皇后问题">八皇后问题</a>
       <ol>
-        <li><a href="#思路一直接枚举">思路一：直接枚举</a></li>
-        <li><a href="#思路二回溯法">思路二：回溯法</a>
+        <li><a href="#思路一组合生成">思路一：组合生成</a></li>
+        <li><a href="#思路二全排列生成">思路二：全排列生成</a>
           <ol>
             <li><a href="#普通回溯法">普通回溯法</a></li>
             <li><a href="#优化的回溯法">优化的回溯法</a></li>
             <li><a href="#生成---测试法">生成 - 测试法</a></li>
+            <li><a href="#python代码">Python代码</a></li>
           </ol>
         </li>
       </ol>
