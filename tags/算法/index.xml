@@ -62,6 +62,7 @@
 		data-flex-basis=&#34;252px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;回溯法&#34;&gt;回溯法&lt;/h3&gt;
 &lt;p&gt;接下来，就要用到回溯法了：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;所谓&lt;strong&gt;回溯（backtracking）&lt;/strong&gt;，就是指在递归求解问题时，如果当前步骤没有合法选择，则函数返回上一级递归调用&lt;/p&gt;
