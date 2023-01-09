@@ -26,14 +26,14 @@
 &gt;
 第一次写题解惹~&lt;/p&gt;
 &lt;p&gt;简单，但是卡了好一会，最后发现是忘了清零数组 XD&lt;/p&gt;
-&lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
+&lt;h2 id=&#34;题意&#34;&gt;题意&lt;/h2&gt;
 &lt;p&gt;题目：&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/UVA439&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;洛谷·UVa439&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;输入8*8国际象棋棋盘的两个坐标（起点和终点。列：a~h，行：1~8），求出从起点到终点所需最少步数&lt;/p&gt;
-&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;典型的BFS求最短路问题。二维数组&lt;code&gt;id[10][10]&lt;/code&gt;存储从该格再走一步后的步数，队列&lt;code&gt;qx&lt;/code&gt;,&lt;code&gt;qy&lt;/code&gt;存储坐标&lt;/p&gt;
 &lt;p&gt;注意到每个格子不能重复，否则无法算出最短路&lt;/p&gt;
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -122,7 +122,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;ps小技巧&#34;&gt;P.S.小技巧&lt;/h3&gt;
+&lt;/div&gt;&lt;h2 id=&#34;ps小技巧&#34;&gt;P.S.小技巧&lt;/h2&gt;
 &lt;p&gt;你应该注意到了，我采用了重定向输入输出，却没有在代码里定义LOCAL符号——其实我已经在编译选项里编译了&lt;/p&gt;
 &lt;p&gt;这样做的好处是，在本地调试时默认为重定向输入输出，提交到oj时自动忽略编译重定向这段代码，方便且能避免出错&lt;/p&gt;
 &lt;p&gt;只需在编译时加上&lt;code&gt;-LOCAL&lt;/code&gt;这条参数即可。我的做法是修改Sublime Text的编译系统文件：&lt;/p&gt;

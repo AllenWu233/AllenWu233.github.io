@@ -328,14 +328,14 @@
 >
 第一次写题解惹~</p>
 <p>简单，但是卡了好一会，最后发现是忘了清零数组 XD</p>
-<h3 id="题意">题意</h3>
+<h2 id="题意">题意</h2>
 <p>题目：<a class="link" href="https://www.luogu.com.cn/problem/UVA439"  target="_blank" rel="noopener"
     >洛谷·UVa439</a></p>
 <p>输入8*8国际象棋棋盘的两个坐标（起点和终点。列：a~h，行：1~8），求出从起点到终点所需最少步数</p>
-<h3 id="分析">分析</h3>
+<h2 id="分析">分析</h2>
 <p>典型的BFS求最短路问题。二维数组<code>id[10][10]</code>存储从该格再走一步后的步数，队列<code>qx</code>,<code>qy</code>存储坐标</p>
 <p>注意到每个格子不能重复，否则无法算出最短路</p>
-<h3 id="代码">代码</h3>
+<h2 id="代码">代码</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -424,7 +424,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="ps小技巧">P.S.小技巧</h3>
+</div><h2 id="ps小技巧">P.S.小技巧</h2>
 <p>你应该注意到了，我采用了重定向输入输出，却没有在代码里定义LOCAL符号——其实我已经在编译选项里编译了</p>
 <p>这样做的好处是，在本地调试时默认为重定向输入输出，提交到oj时自动忽略编译重定向这段代码，方便且能避免出错</p>
 <p>只需在编译时加上<code>-LOCAL</code>这条参数即可。我的做法是修改Sublime Text的编译系统文件：</p>
@@ -826,14 +826,10 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#题意">题意</a></li>
-        <li><a href="#分析">分析</a></li>
-        <li><a href="#代码">代码</a></li>
-        <li><a href="#ps小技巧">P.S.小技巧</a></li>
-      </ol>
-    </li>
+    <li><a href="#题意">题意</a></li>
+    <li><a href="#分析">分析</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#ps小技巧">P.S.小技巧</a></li>
   </ol>
 </nav>
         </div>
