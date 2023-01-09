@@ -125,7 +125,7 @@
 &lt;/div&gt;&lt;h2 id=&#34;ps小技巧&#34;&gt;P.S.小技巧&lt;/h2&gt;
 &lt;p&gt;你应该注意到了，我采用了重定向输入输出，却没有在代码里定义LOCAL符号——其实我已经在编译选项里编译了&lt;/p&gt;
 &lt;p&gt;这样做的好处是，在本地调试时默认为重定向输入输出，提交到oj时自动忽略编译重定向这段代码，方便且能避免出错&lt;/p&gt;
-&lt;p&gt;只需在编译时加上&lt;code&gt;-LOCAL&lt;/code&gt;这条参数即可。我的做法是修改Sublime Text的编译系统文件：&lt;/p&gt;
+&lt;p&gt;只需在编译时加上&lt;code&gt;-DLOCAL&lt;/code&gt;这条参数即可。我的做法是修改Sublime Text的编译系统文件：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;c++_acm.sublime-build&lt;/p&gt;
 &lt;/blockquote&gt;
