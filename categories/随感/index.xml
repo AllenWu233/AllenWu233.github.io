@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>随感 on Allen_Wu233&#39;s blog</title>
+        <link>https://blog.allenwu233.com/categories/%E9%9A%8F%E6%84%9F/</link>
+        <description>Recent content in 随感 on Allen_Wu233&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 24 May 2023 22:51:26 +0800</lastBuildDate><atom:link href="https://blog.allenwu233.com/categories/%E9%9A%8F%E6%84%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>World, Hello!</title>
+        <link>https://blog.allenwu233.com/p/worldhello/</link>
+        <pubDate>Wed, 24 May 2023 22:51:26 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/worldhello/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/worldhello/108137556_p0.jpg" alt="Featured image of post World, Hello!" /&gt;&lt;p&gt;正式拥有了属于自己的域名！&lt;/p&gt;
+&lt;p&gt;有了域名后，博客的曝光率也会大一些了罢（大嘘）&lt;/p&gt;
+&lt;p&gt;Anyway，在我的博客生涯中，这确实可以算是个有意义的节点&lt;/p&gt;
+&lt;p&gt;于是&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;world-hello&#34;&gt;World, hello!&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Rust&#34; data-lang=&#34;Rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;greet_world&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;southern_germany&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Grüß Gott!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;chinese&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;世界，你好&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;english&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;World, hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;japanese&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;世界よ、こんにちは&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regions&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;southern_germany&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;chinese&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;english&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;japanese&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;region&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;in&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;iter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;println!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;region&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;greet_world&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;灵感来自：&lt;a class=&#34;link&#34; href=&#34;https://course.rs/first-try/hello-world.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;不仅仅是 Hello world&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息&lt;/h3&gt;
+&lt;p&gt;本文原载于&lt;a class=&#34;link&#34; href=&#34;https://blog-allenwu233.netlify.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.allenwu233.com/&lt;/a&gt;，复制请保留原文出处&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ACM生涯，堂堂完结！（？）</title>
+        <link>https://blog.allenwu233.com/p/end-of-my-acm/</link>
+        <pubDate>Wed, 17 May 2023 22:43:27 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/end-of-my-acm/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/end-of-my-acm/cover.jpg" alt="Featured image of post ACM生涯，堂堂完结！（？）" /&gt;&lt;h2 id=&#34;20221211-20230517&#34;&gt;2022.12.11-2023.05.17&lt;/h2&gt;
+&lt;p&gt;嘛，就像是一场梦。&lt;/p&gt;
+&lt;p&gt;新生赛侥幸第六进入集训队的欣喜、codeforces的下马威、寒假牛客训练营的坐牢、下午的uva刷题、集训的或是集体坐牢或是轮流A题、div.3个人最好记录的自得、2023 GDCPC SZUT的两日游（隔音奇差、每隔一个小时就被吵醒一次的屑酒店，GDCPC的打铁）&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;竞赛这条路还是不太适合我啊（笑）&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;没有什么遗憾（flag，快进到后知后觉bushi），不过心情也是有一丝复杂。至少，我也在ACM的大门前往里看了几眼，仰望过高峰 _(:з」∠)_&lt;/p&gt;
+&lt;p&gt;年仅半年的ACMer生涯，堂堂完结！&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;复活&#34;&gt;复！活！&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.allenwu233.com/p/end-of-my-acm/%E5%A4%8D%E6%B4%BB.jpg&#34;
+	width=&#34;580&#34;
+	height=&#34;315&#34;
+	srcset=&#34;https://blog.allenwu233.com/p/end-of-my-acm/%E5%A4%8D%E6%B4%BB_hu488065fc86de06711cb840d110bc347d_27929_480x0_resize_q75_box.jpg 480w, https://blog.allenwu233.com/p/end-of-my-acm/%E5%A4%8D%E6%B4%BB_hu488065fc86de06711cb840d110bc347d_27929_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;复活&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;441px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;TNND，真是被看扁了呀！&lt;br&gt;
+爱的力量，是无限的！（筋肉魔理沙.jpg）&lt;/p&gt;
+&lt;p&gt;嘛，大概是一时脑抽了——毕竟长时间的高压训练和GDCPC的出师不利也挺打击学习的热情的。不过，现在我的看法是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;只要我在无数次的 WA, TLE 后的 AC 仍能欣喜若狂，我就能打ACM.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ACMer 生涯，堂堂连载！&lt;br&gt;
+2023.05.18-&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ACM训练大纲&amp;寒假训练计划</title>
+        <link>https://blog.allenwu233.com/p/my-acm-plan/</link>
+        <pubDate>Sun, 08 Jan 2023 20:15:00 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/my-acm-plan/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/my-acm-plan/cover.jpg" alt="Featured image of post ACM训练大纲&amp;寒假训练计划" /&gt;&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
+&lt;p&gt;主线：获得ICPC/CCPC国赛银奖及以上，争取金奖
+如果能有幸打上Final，大概此生无憾了罢 &lt;del&gt;（人还是要有点梦想的 &lt;code&gt;~(￣▽￣)~*&lt;/code&gt;）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;支线：蓝桥杯、天梯赛获奖&lt;/p&gt;
+&lt;h2 id=&#34;acm训练大纲&#34;&gt;ACM训练大纲&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/19719698&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;来自高手的建议&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一般要做到50行以内的程序不用调试、100行以内的二分钟内调试成功.acm主要是考算法的，主要时间是花在思考算法上，不是花在写程序与debug上。下面给个计划你练练：&lt;/p&gt;
+&lt;h3 id=&#34;第一阶段&#34;&gt;第一阶段：&lt;/h3&gt;
+&lt;p&gt;练经典常用算法，下面的每个算法给我打上十到二十遍，同时自己精简代码，因为太常用，所以要练到写时不用想，10-15分钟内打完，甚至关掉显示器都可以把程序打出来.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.最短路(Floyd、Dijstra,BellmanFord)&lt;/li&gt;
+&lt;li&gt;2.最小生成树(先写个prim,kruscal要用并查集，不好写)&lt;/li&gt;
+&lt;li&gt;3.大数（高精度）加减乘除&lt;/li&gt;
+&lt;li&gt;4.二分查找.(代码可在五行以内)&lt;/li&gt;
+&lt;li&gt;5.叉乘、判线段相交、然后写个凸包.&lt;/li&gt;
+&lt;li&gt;6.BFS、DFS,同时熟练hash表(要熟，要灵活,代码要简)&lt;/li&gt;
+&lt;li&gt;7.数学上的有：辗转相除（两行内），线段交点、多角形面积公式.&lt;/li&gt;
+&lt;li&gt;8.调用系统的qsort, 技巧很多，慢慢掌握.&lt;/li&gt;
+&lt;li&gt;9.任意进制间的转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;第二阶段&#34;&gt;第二阶段：&lt;/h3&gt;
+&lt;p&gt;练习复杂一点，但也较常用的算法。如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.二分图匹配（匈牙利），最小路径覆盖&lt;/li&gt;
+&lt;li&gt;2.网络流，最小费用流。&lt;/li&gt;
+&lt;li&gt;3.线段树.&lt;/li&gt;
+&lt;li&gt;4.并查集。&lt;/li&gt;
+&lt;li&gt;5.熟悉动态规划的各个典型：LCS、最长递增子串、三角剖分、记忆化dp&lt;/li&gt;
+&lt;li&gt;6.博弈类算法。博弈树，二进制法等。&lt;/li&gt;
+&lt;li&gt;7.最大团，最大独立集。&lt;/li&gt;
+&lt;li&gt;8.判断点在多边形内。&lt;/li&gt;
+&lt;li&gt;9.差分约束系统.&lt;/li&gt;
+&lt;li&gt;10.双向广度搜索、A*算法，最小耗散优先.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;第三阶段&#34;&gt;第三阶段：&lt;/h3&gt;
+&lt;p&gt;前两个阶段是打基础，第三阶段是锻炼在比赛中可以快速建立模型、想新算法。这就要平时多做做综合的题型了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.把oibh上的论文看看（大概几百篇的，我只看了一点点，呵呵）。&lt;/li&gt;
+&lt;li&gt;2.平时扫扫zoj上的难题啦，别老做那些不用想的题.(中大acm的版主经常说我挑简单的来做 :-P )&lt;/li&gt;
+&lt;li&gt;3.多参加网上的比赛，感受一下比赛的气氛，评估自己的实力.&lt;/li&gt;
+&lt;li&gt;4.一道题不要过了就算，问一下人，有更好的算法也打一下。&lt;/li&gt;
+&lt;li&gt;5.做过的题要记好
+:-)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;寒假训练计划2023&#34;&gt;寒假训练计划（2023）&lt;/h2&gt;
+&lt;p&gt;先打好基础吧。自己的技术提上来了，才能配合好队友啊（笑）&lt;/p&gt;
+&lt;h3 id=&#34;先定个小目标&#34;&gt;先定个小目标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;1.熟悉基础算法&lt;/p&gt;
+&lt;p&gt;参考学校的专题学习&amp;amp;讲课：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;dfs/bfs，二分/三分/尺取，前缀和/差分，排序&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;基础dp&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;图论：并查集，最短路，最小生成树&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;数学：gcd，exgcd，快速幂，求逆元（费马小定理），素数筛，组合数学，容斥定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;算法优化：单调栈/队列，优先队列，树状数组，线段树&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2.博客&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上每个专题里至少挑两道题目进行博文撰写，此外另挑5道个人认为有意思的题目写博客&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3.参加牛客寒假训练营&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参加六次比赛，每场的出题加补题数超过总题数的一半（向上取整）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;4.继续学习《算法竞赛入门经典》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在补完第6、7章习题的基础上，争取学完第8、9章&lt;/p&gt;
+&lt;h3 id=&#34;具体的计划&#34;&gt;具体的计划&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.每日刷题 - 夯基础，练手感&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至少3道，题目来自紫书和codeforces、洛谷、牛客等oj&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2.比赛 - 以赛促练&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;codeforces round赛、牛客寒假训练赛&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3.附加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;阅读《流畅的Python》和《C++ Primer Plus》，拓展语言特性知识&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;路漫漫其修远兮，吾将上下而求索。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.allenwu233.com/p/my-acm-plan/-736f76a606b2b140.jpg&#34;
+	width=&#34;637&#34;
+	height=&#34;884&#34;
+	srcset=&#34;https://blog.allenwu233.com/p/my-acm-plan/-736f76a606b2b140_hud6f7e3cc09bef107a5851720595858f8_122540_480x0_resize_q75_box.jpg 480w, https://blog.allenwu233.com/p/my-acm-plan/-736f76a606b2b140_hud6f7e3cc09bef107a5851720595858f8_122540_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cheer up!&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;72&#34;
+		data-flex-basis=&#34;172px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>记忆、爱与救赎</title>
+        <link>https://blog.allenwu233.com/p/little-reimu/</link>
+        <pubDate>Fri, 25 Nov 2022 22:00:00 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/little-reimu/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/little-reimu/28295855_p0.jpg" alt="Featured image of post 记忆、爱与救赎" /&gt;&lt;blockquote&gt;
+&lt;p&gt;原载于&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/read/cv14658761&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bilibili&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.allenwu233.com/p/little-reimu/28295855_p0.jpg&#34;
+	width=&#34;1846&#34;
+	height=&#34;1512&#34;
+	srcset=&#34;https://blog.allenwu233.com/p/little-reimu/28295855_p0_hu1d132c07ba095a06b3c7207193a19170_1082802_480x0_resize_q75_box.jpg 480w, https://blog.allenwu233.com/p/little-reimu/28295855_p0_hu1d132c07ba095a06b3c7207193a19170_1082802_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;293px&#34;
+	
+&gt;
+封面图 pid:28295855&lt;/p&gt;
+&lt;p&gt;第一次写长评论，还请多多指教。
+附上作品链接：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原版：&lt;br&gt;
+&lt;img src=&#34;https://blog.allenwu233.com/p/little-reimu/01.jpg&#34;
+	width=&#34;113&#34;
+	height=&#34;85&#34;
+	srcset=&#34;https://blog.allenwu233.com/p/little-reimu/01_hu433effd36765b25301a66de5ef970b16_26242_480x0_resize_q75_box.jpg 480w, https://blog.allenwu233.com/p/little-reimu/01_hu433effd36765b25301a66de5ef970b16_26242_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;319px&#34;
+	
+&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Wx411w7Q6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;東方幼靈夢【1-7话完結】【內嵌字幕】&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;国内up配音版：&lt;br&gt;
+&lt;img src=&#34;https://blog.allenwu233.com/p/little-reimu/02.jpg&#34;
+	width=&#34;122&#34;
+	height=&#34;90&#34;
+	srcset=&#34;https://blog.allenwu233.com/p/little-reimu/02_hue2989cd823ecf70c72b1e777df5e946a_8934_480x0_resize_q75_box.jpg 480w, https://blog.allenwu233.com/p/little-reimu/02_hue2989cd823ecf70c72b1e777df5e946a_8934_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1gs411f7Fg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;日语配音：东方幼灵梦 第一话&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+&lt;p&gt;感人至深的一部作品，不愧是经典！我一个平时不怎么流泪的人看完后眼睛也湿润了&amp;hellip;&amp;hellip;&lt;br&gt;
+谈点观后感吧。&lt;/p&gt;
+&lt;h3 id=&#34;消除记忆&#34;&gt;消除记忆&lt;/h3&gt;
+&lt;p&gt;关于消除记忆，我认为这是件比死亡还要残酷的事，不论是对露米娅来说还是对幼灵梦。&lt;/p&gt;
+&lt;p&gt;就露米娅而言，照紫的说法，被消除记忆和“幼化”的她摆脱了束缚，成功“重生”；但从观众的视角来看，露米娅已经死了：抛除了食人罪孽的同时，失去了过往的美好回忆、遗忘了所爱之人的露米娅，已经不再是当初那个善良可爱、心存感恩的“大”露米娅了。这一情节，极大地增加了本作的悲剧性（好一把大刀）。&lt;/p&gt;
+&lt;p&gt;就幼灵梦来说，失去对生命中的两个至爱之人的记忆，更是令人痛心。引用我看过的一篇小说中的话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“如果她不活在我的记忆里，就没法存在于任何地方了。”&lt;br&gt;
+——《花与爱丽丝》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果幼灵梦没被消除与阿妈和露米娅有关的记忆，虽然她要承担亲人离去的痛苦（但这对孩子来说过于残酷了&amp;hellip;&amp;hellip;紫的做法也不是不可理解），但在以后的日子里，回想起那段幸福经历的灵梦，也会露出幸福的笑容吧——阿妈和露米娅已永远活在她的心中。然而事实是残酷的——对于幼灵梦来说，阿妈和露米娅等于从来没有存在过，她甚至连回忆的机会也没有了。这又增加了悲剧的意味啊（又一把大刀）。&lt;/p&gt;
+&lt;p&gt;终究是紫承担下了所有&amp;hellip;&amp;hellip;经历了无数次生离死别的她，为了让露米娅得到真正的救赎、让幼灵梦能够健康快乐地成长，即使残酷，也只能消除她们的记忆，而独自咀嚼悲伤。换做是我，可能也会跟紫一样的吧。&lt;/p&gt;
+&lt;h3 id=&#34;爱与救赎&#34;&gt;爱与救赎&lt;/h3&gt;
+&lt;p&gt;毋庸置疑，这是一部以爱与救赎为主题的作品。我认为剧情可分为三条线：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一条是露米娅的救赎之路。由冷酷可怖的食人妖怪变成心怀感恩的老好人，最终摆脱桎梏，重获新生。&lt;/li&gt;
+&lt;li&gt;一条是阿妈的救赎之路。由备受他人误解与歧视而抑郁的博丽巫女，到乐天知命、享受当下幸福的思想转变。&lt;/li&gt;
+&lt;li&gt;一条是幼灵梦的救赎之路。由路旁的弃婴，成长为一个被人爱、也会爱人的孩子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而将这三条线交织在一起，使之密不可分、相互促成的，正是那股伟大的力量——爱。&lt;/p&gt;
+&lt;p&gt;显然，这种爱已经上升到亲情程度的爱了。&lt;/p&gt;
+&lt;p&gt;本作中，幼灵梦分饭团的情节尤为令我印象深刻。“这样就两个人都肚子饱饱！”抱有这种想法的幼灵梦，已经是个会爱人的人了——既会爱自己，也会爱他人。在我看来，如果幼灵梦只是单纯把饭团全给露米娅的话，就不能算是完美的爱——牺牲自己，再爱他人。正是这种天真单纯的爱，感化了当初的露米娅吧——毕竟，这是第一个把她看作是亲人的人。换个角度来看，也正是这种真诚的爱，解开了阿妈的心结，使她懂得了爱为何物吧。&lt;/p&gt;
+&lt;p&gt;其次，还有紫对阿妈、幼灵梦的爱。这大概是紫想杀害小露米娅却又收手的缘故吧——虽然是杀友仇人，却是友人用生命救下的。“明明是个妖怪，却是个老好人，再加上是个爱哭鬼，还是我所爱之人，最好的朋友哟。”&lt;/p&gt;
+&lt;p&gt;结局幼灵梦与小露米娅的重聚，或许是我们仅有的慰藉了吧。纵使幼灵梦那句“谁？”令人心酸，让我们祝愿她们能开始一段新的幸福生活吧。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;——Allen&lt;br&gt;
+2021.12.30 深夜&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>Hello World!</title>
+        <link>https://blog.allenwu233.com/p/hello-world/</link>
+        <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/hello-world/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/hello-world/55619915_p0.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h2 id=&#34;hello-hugo-blog-world&#34;&gt;Hello Hugo Blog World!&lt;/h2&gt;
+&lt;p&gt;Python苦手不会用Django搭建博客，连夜转战hugo（迫真&lt;/p&gt;
+&lt;p&gt;既然是第一篇博客，多写几个“hello world”的话会有好运气的吧（笑）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hello_world.py&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello world!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://blog.allenwu233.com/p/hello-world/55619915_p0.jpg&#34;
+	width=&#34;1366&#34;
+	height=&#34;768&#34;
+	srcset=&#34;https://blog.allenwu233.com/p/hello-world/55619915_p0_hudee62e4fdef55c0193c600c5b875d461_921953_480x0_resize_q75_box.jpg 480w, https://blog.allenwu233.com/p/hello-world/55619915_p0_hudee62e4fdef55c0193c600c5b875d461_921953_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;转转镇楼&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

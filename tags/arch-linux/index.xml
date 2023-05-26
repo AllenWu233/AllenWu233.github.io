@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Arch Linux on Allen_Wu233&#39;s blog</title>
+        <link>https://blog.allenwu233.com/tags/arch-linux/</link>
+        <description>Recent content in Arch Linux on Allen_Wu233&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sun, 26 Mar 2023 11:38:15 +0800</lastBuildDate><atom:link href="https://blog.allenwu233.com/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Arch Linux VirtualBox安装与配置指南</title>
+        <link>https://blog.allenwu233.com/p/vbox-install/</link>
+        <pubDate>Sun, 26 Mar 2023 11:38:15 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/vbox-install/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/vbox-install/cover.jpg" alt="Featured image of post Arch Linux VirtualBox安装与配置指南" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;优先参考官方教程：&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/zh-hans/VirtualBox&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·VirtualBox&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装与配置&#34;&gt;安装与配置&lt;/h2&gt;
+&lt;h3 id=&#34;安装基本软件包&#34;&gt;安装基本软件包&lt;/h3&gt;
+&lt;p&gt;安装软件包 &lt;code&gt;virtualbox&lt;/code&gt; 。内核模块的安装方式要从下面二选一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果使用的是 &lt;code&gt;linux&lt;/code&gt; 内核，建议安装 &lt;code&gt;virtualbox-host-modules-arch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;其他的内核，包括 &lt;code&gt;linux-lts&lt;/code&gt; ，请安装 &lt;code&gt;virtualbox-host-dkms&lt;/code&gt; 包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了让 &lt;code&gt;virtualbox-host-dkms&lt;/code&gt; 包编译内核模块，需要安装对应的内核头文件（例如 &lt;code&gt;linux-lts&lt;/code&gt;  内核的头文件是 &lt;code&gt;linux-lts-headers&lt;/code&gt; ）。当 &lt;code&gt;VirtualBox&lt;/code&gt; 或内核更新的时候，DKMS 的 Pacman 钩子会自动编译内核模块。&lt;/p&gt;
+&lt;p&gt;博主的内核为&lt;code&gt;linux-zen&lt;/code&gt;，因此选择安装 &lt;code&gt;virtualbox-host-dkms&lt;/code&gt; (已提前安装&lt;code&gt;linux-zen-headers&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S virtualbox-host-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;加载-virtualbox-内核模块&#34;&gt;加载 VirtualBox 内核模块&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;virtualbox-host-modules-arch&lt;/code&gt; 和 &lt;code&gt;virtualbox-host-dkms&lt;/code&gt; 使用 &lt;code&gt;systemd-modules-load.service&lt;/code&gt; 在启动时自动加载 VirtualBox 的四个内核模块。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl enable systemd-modules-load.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;从客体系统访问主机-usb-设备&#34;&gt;从客体系统访问主机 USB 设备&lt;/h3&gt;
+&lt;p&gt;将需要运行 VirtualBox 的用户名添加到 vboxusers 用户组，USB 设备才能被访问&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gpasswd -a [用户名] vboxusers
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;客体机插件光盘&#34;&gt;客体机插件光盘&lt;/h3&gt;
+&lt;p&gt;安装&lt;code&gt;virtualbox-guest-iso&lt;/code&gt;软件包之后才可以安装增强功能。这个包里有个 .iso 镜像文件，用来为 Arch 之外的客体系统安装插件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S virtualbox-guest-iso
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;镜像文件的位置在 &lt;code&gt;/usr/lib/virtualbox/additions/VBoxGuestAdditions.iso&lt;/code&gt;，手动在虚拟机的虚拟光驱里加载这个文件之后，即可在客体机里安装插件&lt;/p&gt;
+&lt;h3 id=&#34;修改grub启动参数&#34;&gt;修改GRUB启动参数&lt;/h3&gt;
+&lt;p&gt;如果你的 Vbox 启动虚拟机卡在 starting virtual machine&amp;hellip; 界面，可以尝试加上&lt;code&gt;ibt=off&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo vim /etc/default/grub&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;[other...] ibt=off&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;记得运行&lt;code&gt;sudo grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt;来保存设置&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录&lt;/h2&gt;
+&lt;h3 id=&#34;参考文献&#34;&gt;参考文献&lt;/h3&gt;
+&lt;p&gt;[1]&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/zh-hans/VirtualBox&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·VirtualBox&lt;/a&gt;&lt;br&gt;
+[2]&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/wiki/Btrfs#Copy-on-Write_%28CoW%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·Btrfs&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息&lt;/h3&gt;
+&lt;p&gt;本文原载于&lt;a class=&#34;link&#34; href=&#34;https://blog-allenwu233.netlify.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog-allenwu233.netlify.app/&lt;/a&gt;，复制请保留原文出处&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
