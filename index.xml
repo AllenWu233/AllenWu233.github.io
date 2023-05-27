@@ -6,7 +6,183 @@
         <description>Recent content on Allen_Wu233&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 25 May 2023 21:56:26 +0800</lastBuildDate><atom:link href="https://blog.allenwu233.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 May 2023 12:43:37 +0800</lastBuildDate><atom:link href="https://blog.allenwu233.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>My NVIDIA Optimimus on Arch Linux 我的 NVIDIA 双显卡解决方案</title>
+        <link>https://blog.allenwu233.com/p/my-nvidia-optimimus/</link>
+        <pubDate>Sat, 27 May 2023 12:43:37 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/my-nvidia-optimimus/</guid>
+        <description>&lt;img src="https://blog.allenwu233.com/p/my-nvidia-optimimus/cover.jpg" alt="Featured image of post My NVIDIA Optimimus on Arch Linux 我的 NVIDIA 双显卡解决方案" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;建议优先参考官方 wiki&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/NVIDIA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·NVIDIA&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/NVIDIA_Optimus&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·NVIDIA Optimus&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在经历一系列的折腾（&lt;code&gt;optimus-manager&lt;/code&gt; 配置失败 &amp;ndash;&amp;gt; &lt;code&gt;prime-run&lt;/code&gt; &amp;ndash;&amp;gt; 又回头折腾 &lt;code&gt;optimus-manager&lt;/code&gt;）之后，我偶然发现 &lt;code&gt;Envycontrol&lt;/code&gt; 这一可行而简单的解决方案&lt;/p&gt;
+&lt;h2 id=&#34;安装n卡驱动&#34;&gt;安装N卡驱动&lt;/h2&gt;
+&lt;p&gt;参考：&lt;a class=&#34;link&#34; href=&#34;https://arch.icekylin.online/guide/rookie/graphic-driver.html#nvidia-%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;archlinux简明指南·archlinux 显卡驱动 &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我选择的是开源驱动（我的内核：&lt;code&gt;Linux-zen&lt;/code&gt;）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S nvidia-open-dkms nvidia-settings lib32-nvidia-utils &lt;span class=&#34;c1&#34;&gt;# 必须安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;prime-run&#34;&gt;prime-run&lt;/h2&gt;
+&lt;p&gt;archlinux简明指南介绍的 &lt;code&gt;optimus-manager&lt;/code&gt; 方案折腾不出来，各种报错，只能退而求其次&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S nvidia-prime
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后可在默认集显的环境下为程序临时启用 N 卡，如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;prime-run vlc
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;prime-run hmcl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;但这只能作为应急方案，想全局使用 N 卡就得启动独显直连，很不方便。于是我们的主角登场了：&lt;/p&gt;
+&lt;h2 id=&#34;envycontrol&#34;&gt;Envycontrol&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;EnvyControl is a CLI tool that provides an easy way to switch between GPU modes on Nvidia Optimus systems (i.e laptops with hybrid Intel + Nvidia or AMD + Nvidia graphics configurations) under Linux.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近在玩 EndeavourOS（一个Arch系发行版），无意间发现其官网有介绍 N 卡切换的方案：&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://discovery.endeavouros.com/category/nvidia/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://discovery.endeavouros.com/category/nvidia/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;题外话：EndeavourOS 确实挺惊艳的，安装便捷不说，还有保姆级的懒人引导，默认主题也是相当酷炫。比较适合想了解 Arch 却望而却步的新手&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;一不做二不休，马上来试试&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S envycontrol
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;github 仓库：&lt;a class=&#34;link&#34; href=&#34;https://github.com/bayasdev/envycontrol&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/bayasdev/envycontrol&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用方法&#34;&gt;使用方法&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;usage: envycontrol &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-h&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-v&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-q&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-s MODE&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--dm DISPLAY_MANAGER&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--force-comp&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--coolbits &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;VALUE&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                   &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--rtd3 &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;VALUE&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--reset-sddm&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--reset&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--verbose&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;options:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -h, --help            show this &lt;span class=&#34;nb&#34;&gt;help&lt;/span&gt; message and &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -v, --version         Output the current version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -q, --query           Query the current graphics mode
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -s MODE, --switch MODE
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        Switch the graphics mode. Available choices: integrated, hybrid, nvidia
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --dm DISPLAY_MANAGER  Manually specify your Display Manager &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Nvidia mode. Available choices: gdm, gdm3, sddm,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        lightdm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --force-comp          Enable ForceCompositionPipeline on Nvidia mode
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --coolbits &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;VALUE&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;    Enable Coolbits on Nvidia mode. Default &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; specified: &lt;span class=&#34;m&#34;&gt;28&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --rtd3 &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;VALUE&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;        Setup PCI-Express Runtime D3 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;RTD3&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; Power Management on Hybrid mode. Available choices: 0,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        1, 2, 3. Default &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; specified: &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --reset-sddm          Restore default Xsetup file
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --reset               Revert changes made by EnvyControl
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  --verbose             Enable verbose mode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;强烈建议看看官方的 &lt;a class=&#34;link&#34; href=&#34;https://github.com/bayasdev/envycontrol#readme&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;README.md&lt;/a&gt;，里面的说明很详细&lt;/p&gt;
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo envycontrol -s nvidia  &lt;span class=&#34;c1&#34;&gt;# 切换到 N 卡&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo envycontrol -s integrated  &lt;span class=&#34;c1&#34;&gt;# 切换到集显&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo envycontrol -s hybrid  &lt;span class=&#34;c1&#34;&gt;# 切换到混合模式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;踩雷&#34;&gt;踩雷💣&lt;/h2&gt;
+&lt;p&gt;如果系统启动时提示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a start job is running for load/save screen backlight brightness;&amp;#34;nvidia_0&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;挂起 90s 后提示 Failed 才能进入桌面，并且关机时也有类似的毛病。那么只需修改一下 grub 启动参数：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo vim /etc/default/grub&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Add it
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;acpi_backlight=video&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo grub-mkconfig -o /boot/grub/grub.cfg 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;重启即可&lt;/p&gt;
+&lt;p&gt;事后分析发现是 N 卡的锅，无论是&lt;code&gt;sudo envycontrol -s nvidia&lt;/code&gt;还是 BIOS 里开启独显之类都会出现这个问题。这里添加的启动参数相当于绕过检查直接进入系统，参考&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/wiki/%E8%83%8C%E5%85%89#%E5%86%85%E6%A0%B8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·背光&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录&lt;/h2&gt;
+&lt;h3 id=&#34;参考文献&#34;&gt;参考文献&lt;/h3&gt;
+&lt;p&gt;[1]&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/NVIDIA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·NVIDIA&lt;/a&gt;&lt;br&gt;
+[2]&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/NVIDIA_Optimus&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·NVIDIA Optimus&lt;/a&gt;&lt;br&gt;
+[3]&lt;a class=&#34;link&#34; href=&#34;https://arch.icekylin.online/guide/rookie/graphic-driver.html#nvidia-%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;archlinux 简明指南·archlinux 显卡驱动&lt;/a&gt;&lt;br&gt;
+[4]&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/wiki/%E8%83%8C%E5%85%89&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki·背光&lt;/a&gt;&lt;br&gt;
+[5]&lt;a class=&#34;link&#34; href=&#34;https://arch.icekylin.online/guide/rookie/graphic-driver.html#nvidia-%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;archlinux简明指南·archlinux 显卡驱动 &lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息&lt;/h3&gt;
+&lt;p&gt;本文原载于&lt;a class=&#34;link&#34; href=&#34;https://blog-allenwu233.netlify.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.allenwu233.com/&lt;/a&gt;，复制请保留原文出处&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Codeforces Round 874 (Div. 3) D.Flipper 题解</title>
         <link>https://blog.allenwu233.com/p/contest-1833-d/</link>
         <pubDate>Thu, 25 May 2023 21:56:26 +0800</pubDate>
