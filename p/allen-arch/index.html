@@ -326,7 +326,11 @@
             <li><a href="#重启后桌面图标混乱">重启后桌面图标混乱</a></li>
           </ol>
         </li>
-        <li><a href="#动态壁纸">动态壁纸</a></li>
+        <li><a href="#动态壁纸">动态壁纸</a>
+          <ol>
+            <li><a href="#smart-video-wallpaper">Smart video wallpaper</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#游戏畅享篇">游戏畅享篇</a>
@@ -448,15 +452,6 @@
 <p>Keep it Simple, Stupid. (KISS)<br>——Arch 之道</p>
 </blockquote>
 <blockquote>
-<p>Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。<br>——<a class="link" href="https://wiki.archlinux.org/title/Arch_Linux"  target="_blank" rel="noopener"
-    >ArchWiki</a></p>
-</blockquote>
-<p>Arch Linux 升级策略相当“激进”——尽可能保持软件处于最新的稳定版本<br>
-而且，Arch 是高度自由化的系统——从安装到管理，Arch Linux 放手让你处理一切。只要稍加配置，你完全可以把它打造成“梦中情系统”<br>如果你是DIY爱好者，那么一定要试试 Arch！</p>
-<blockquote>
-<p>❗<strong>注意：Arch 适用于乐于自己动手的用户，他们愿意花时间阅读文档，解决自己的问题。如果你不喜欢折腾，请谨慎选择该系统！</strong></p>
-</blockquote>
-<blockquote>
 <p>Arch 原则</p>
 </blockquote>
 <ul>
@@ -481,6 +476,15 @@
 </ol>
 </li>
 </ul>
+<blockquote>
+<p>Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。<br>——<a class="link" href="https://wiki.archlinux.org/title/Arch_Linux"  target="_blank" rel="noopener"
+    >ArchWiki</a></p>
+</blockquote>
+<p>Arch Linux 升级策略相当“激进”——尽可能保持软件处于最新的稳定版本<br>
+而且，Arch 是高度自由化的系统——从安装到管理，Arch Linux 放手让你处理一切。只要稍加配置，你完全可以把它打造成“梦中情系统”<br>如果你是DIY爱好者，那么一定要试试 Arch！</p>
+<blockquote>
+<p>❗<strong>注意：Arch 适用于乐于自己动手的用户，他们愿意花时间阅读文档，解决自己的问题。如果你不喜欢折腾，请谨慎选择该系统！</strong></p>
+</blockquote>
 <blockquote>
 <p>以下是博主配置好的 Arch</p>
 </blockquote>
@@ -795,27 +799,6 @@
 <p>❗避免不正常关机！<br>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。</p>
 </blockquote>
 <p>解决方案：重启KDE Plasma</p>
-<h5 id="法一热重启">法一：热重启</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kquitapp5 plasmashell <span class="o">&amp;&amp;</span> kstart5 plasmashell
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可以写成脚本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/zsh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>kquitapp5 plasmashell <span class="o">&amp;&amp;</span> kstart5 plasmashell
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h5 id="法二直接杀死并重启">法二：直接杀死并重启</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -823,10 +806,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kquitapp5 plasmashell  <span class="c1"># 退出kde桌面</span>
-</span></span><span class="line"><span class="cl">kstart5 plasmashell  <span class="c1"># 重新启动 plasma 桌面会话</span>
+</span></span><span class="line"><span class="cl">kstart5 plasmashell <span class="p">&amp;</span>  <span class="c1"># 重新启动 plasma 桌面会话</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="动态壁纸">动态壁纸</h3>
+<h4 id="smart-video-wallpaper">Smart video wallpaper</h4>
 <p>下载 Plasma 挂件 <code>Smart video wallpaper</code></p>
 <p>然后在桌面设置的壁纸类型选中它，添加动态壁纸（视频文件）即可</p>
 <p><img src="/p/allen-arch/smart_video_wallpaper.jpg"
