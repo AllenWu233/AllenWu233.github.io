@@ -163,7 +163,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;重启即可&lt;/p&gt;
-&lt;p&gt;事后分析发现是 N 卡的锅，无论是&lt;code&gt;sudo envycontrol -s nvidia&lt;/code&gt;还是 BIOS 里开启独显之类都会出现这个问题。这里添加的启动参数相当于绕过检查直接进入系统，参考&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/wiki/%E8%83%8C%E5%85%89#%E5%86%85%E6%A0%B8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;事后分析发现是 N 卡的锅，无论是&lt;code&gt;sudo envycontrol -s nvidia&lt;/code&gt;还是在 BIOS 里开启独显都会出现这个问题。这里添加的启动参数相当于绕过检查直接进入系统，参考&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinuxcn.org/wiki/%E8%83%8C%E5%85%89#%E5%86%85%E6%A0%B8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ArchWiki·背光&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;附录&#34;&gt;附录&lt;/h2&gt;
 &lt;h3 id=&#34;参考文献&#34;&gt;参考文献&lt;/h3&gt;
