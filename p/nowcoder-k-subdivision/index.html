@@ -10,18 +10,18 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<meta name='description' content='题目 D. Flipper 题意：给出一个 $ n $ 排列p[]，选择一个区间[l, r] (l &amp;lt;= r)，构造一个新的排列：a[r&#43;1 : ] &#43; a[l : r].reverse() &#43; a[1 : l] (在这里我用 Python 切片表示'>
-<title>Codeforces Round 874 (Div. 3) D.Flipper 题解</title>
+<meta name='description' content='基础的BFS'>
+<title>“范式杯”2023牛客暑期多校训练营1 K - Subdivision</title>
 
-<link rel='canonical' href='https://blog.allenwu233.com/p/contest-1833-d/'>
+<link rel='canonical' href='https://blog.allenwu233.com/p/nowcoder-k-subdivision/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Codeforces Round 874 (Div. 3) D.Flipper 题解'>
-<meta property='og:description' content='题目 D. Flipper 题意：给出一个 $ n $ 排列p[]，选择一个区间[l, r] (l &amp;lt;= r)，构造一个新的排列：a[r&#43;1 : ] &#43; a[l : r].reverse() &#43; a[1 : l] (在这里我用 Python 切片表示'>
-<meta property='og:url' content='https://blog.allenwu233.com/p/contest-1833-d/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='“范式杯”2023牛客暑期多校训练营1 K - Subdivision'>
+<meta property='og:description' content='基础的BFS'>
+<meta property='og:url' content='https://blog.allenwu233.com/p/nowcoder-k-subdivision/'>
 <meta property='og:site_name' content='Allen_Wu233&#39;s blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='贪心' /><meta property='article:tag' content='构造' /><meta property='article:published_time' content='2023-05-25T21:56:26&#43;08:00'/><meta property='article:modified_time' content='2023-05-25T21:56:26&#43;08:00'/>
-<meta name="twitter:title" content="Codeforces Round 874 (Div. 3) D.Flipper 题解">
-<meta name="twitter:description" content="题目 D. Flipper 题意：给出一个 $ n $ 排列p[]，选择一个区间[l, r] (l &amp;lt;= r)，构造一个新的排列：a[r&#43;1 : ] &#43; a[l : r].reverse() &#43; a[1 : l] (在这里我用 Python 切片表示">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='题解' /><meta property='article:tag' content='BFS' /><meta property='article:tag' content='图论' /><meta property='article:published_time' content='2023-07-18T15:16:44&#43;08:00'/><meta property='article:modified_time' content='2023-07-18T15:16:44&#43;08:00'/>
+<meta name="twitter:title" content="“范式杯”2023牛客暑期多校训练营1 K - Subdivision">
+<meta name="twitter:description" content="基础的BFS">
     <link rel="shortcut icon" href="trees" />
 
     </head>
@@ -291,10 +291,23 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#题目">题目</a></li>
+    <li><a href="#原题">原题</a>
+      <ol>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#输入描述">输入描述</a></li>
+        <li><a href="#输出描述">输出描述</a>
+          <ol>
+            <li><a href="#示例1">示例1</a></li>
+            <li><a href="#示例2">示例2</a></li>
+            <li><a href="#示例3">示例3</a></li>
+          </ol>
+        </li>
+        <li><a href="#备注">备注:</a></li>
+      </ol>
+    </li>
+    <li><a href="#题意">题意</a></li>
     <li><a href="#分析">分析</a></li>
     <li><a href="#代码">代码</a></li>
-    <li><a href="#总结">总结</a></li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#参考文献">参考文献</a></li>
@@ -328,9 +341,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/contest-1833-d/">Codeforces Round 874 (Div. 3) D.Flipper 题解</a>
+            <a href="/p/nowcoder-k-subdivision/">“范式杯”2023牛客暑期多校训练营1 K - Subdivision</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            基础的BFS
+        </h3>
         
     </div>
 
@@ -350,7 +367,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 25, 2023</time>
+                <time class="article-time--published">Jul 18, 2023</time>
             </div>
         
 
@@ -366,21 +383,157 @@
     <section class="article-content">
     
     
-    <h2 id="题目">题目</h2>
-<p><a class="link" href="https://codeforces.com/contest/1833/problem/D"  target="_blank" rel="noopener"
-    >D. Flipper</a></p>
-<p>题意：给出一个 $ n $ 排列<code>p[]</code>，选择一个区间<code>[l, r]</code> (l &lt;= r)，构造一个新的排列：<code>a[r+1 : ] + a[l : r].reverse() + a[1 : l]</code> (在这里我用 Python 切片表示，即左闭右开区间)，求能构造出的字典序最大的排列</p>
-<h2 id="分析">分析</h2>
-<p>假设答案用 $ ans_i $ 表示</p>
-<p>初步分析，当 $ r = n $ 时，$ans_1 = r_{n}$，否则 $ans_1 = r_{n+1}$。为了保证字典序最大，我们需要选取尽可能大的 $ r $</p>
-<p>易知当 $ p_1 = n $ 时，$ r $ 应选取 $ n-1 $，否则选取 $ n $</p>
-<p>确定 $ r $ 后再来看 $ l $，这里有个技巧：先输出<code>a[r+1 : ] + a[r]</code>，再从<code>a[r-1]</code>开始往前遍历，只要 <code>a[i] &lt; a[1]</code>（说明如果 $ l $ 选 $ i $ 的话，操作之后字典序反而变小，所以 $ l $ 选 $ i+1 $），就马上输出 <code>a[1 : i+1]</code> (注意这里还是左闭右开区间)</p>
-<p>这是 CF 上的题解：</p>
+    <h2 id="原题">原题</h2>
+<h3 id="题目描述">题目描述</h3>
+<p>You are given a graph with $n$ vertices and $m$ undirected edges of length $1$. You can do the following operation on the graph for arbitrary times:</p>
 <blockquote>
-<p>In these constraints we could solve the problem for $ O(n^2) $. Let us note that there can be no more than two candidates for the value $r$. Since the first number in the permutation will be either $p_r+1$ if $r&lt;n$, or $p_r$ if $r=n$. Then let&rsquo;s go through the value of $r$ and choose the one in which the first number in the resulting permutation is as large as possible. Next, if $p_n=n$, then we can have two candidates for $r$ is $n$,$n−1$, but note that it is always advantageous to put $r=n$ in that case, since it will not spoil the answer. Then we can go through $l$, and get the solution by the square, but we can do something smarter.</p>
-<p>Notice now that the answer already contains all the numbers $p_i$
-where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is still unknown, and then $p_1$, $p_2$, …, $p_l−1$. In that case, let&rsquo;s write pr as $l≤r$ and then write $p_r−1$, $p_r−2$, … as long as they are larger than $p_1$. Otherwise, we immediately determine the value of $l$ and finish the answer to the end. Thus, constructively we construct the maximal permutation.</p>
+<p>Choose an edge $(u,v)$ and replace it by two edges, $(u,w)$ and $(w,v)$, where $w$ is a newly inserted vertex. Both of the two edges are of length $1$.</p>
 </blockquote>
+<p>You need to find out the maximum number of vertices whose minimum distance to vertex $1$ is no more than $k$.</p>
+<h3 id="输入描述">输入描述</h3>
+<p>The first line contains three integers $n (1≤n≤10^5)$, $m (0≤m≤2⋅10^5)$ and $k (0≤k≤10^9)$.
+Each of the next $m$ lines contains two integers $u$ and $v (1≤u,v≤n)$, indicating an edge between $u$ and $v$. It is guaranteed that there are no self-loops or multiple edges.</p>
+<h3 id="输出描述">输出描述</h3>
+<p>Output an integer indicating the maximum number of vertices whose minimum distance to vertex $1$ is no more than $k$.</p>
+<h4 id="示例1">示例1</h4>
+<p>输入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">5 4 2
+</span></span><span class="line"><span class="cl">1 2
+</span></span><span class="line"><span class="cl">2 3
+</span></span><span class="line"><span class="cl">3 1
+</span></span><span class="line"><span class="cl">4 5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="示例2">示例2</h4>
+<p>输入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">8 9 3
+</span></span><span class="line"><span class="cl">1 2
+</span></span><span class="line"><span class="cl">1 3
+</span></span><span class="line"><span class="cl">1 5
+</span></span><span class="line"><span class="cl">3 4
+</span></span><span class="line"><span class="cl">3 6
+</span></span><span class="line"><span class="cl">4 5
+</span></span><span class="line"><span class="cl">5 6
+</span></span><span class="line"><span class="cl">6 7
+</span></span><span class="line"><span class="cl">7 8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">15
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="示例3">示例3</h4>
+<p>输入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">114 0 514
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="备注">备注:</h3>
+<p>Here is the illustration for the second example.</p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20230717/0_1689574090396/EDC585D199EEEC167C6B17F17085A1FA"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="题意">题意</h2>
+<p>给出一个边长为$ 1 $的<strong>无向图</strong>，其中每条边都可以插入数量任意的结点。求到结点$1$距离不大于$k$的结点数的最大值</p>
+<h2 id="分析">分析</h2>
+<p>以样例2为例：</p>
+<p><img src="/p/nowcoder-k-subdivision/graph_1.png"
+	width="706"
+	height="389"
+	srcset="/p/nowcoder-k-subdivision/graph_1_hu0644eeab58ebfc55e3f40817c140fac3_32420_480x0_resize_box_3.png 480w, /p/nowcoder-k-subdivision/graph_1_hu0644eeab58ebfc55e3f40817c140fac3_32420_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="样例2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="435px"
+	
+></p>
+<p>显然，对于度数为1的结点（如结点2），可以在它和与其相关联的点之间插入任意个结点，而不影响其他的点。即：度数为1的结点所在的边最多贡献$k$个结点</p>
+<p>先从 $1$ 开始 BFS，同时求出每个点到 $1$ 的最短路</p>
+<p>画出BFS树，并标出各点的度数</p>
+<p><img src="/p/nowcoder-k-subdivision/graph_2.png"
+	width="448"
+	height="631"
+	srcset="/p/nowcoder-k-subdivision/graph_2_hu46751ed5c7481c0af9ef9ba184ee5a88_35772_480x0_resize_box_3.png 480w, /p/nowcoder-k-subdivision/graph_2_hu46751ed5c7481c0af9ef9ba184ee5a88_35772_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="红色数字即为结点度数"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="70"
+		data-flex-basis="170px"
+	
+></p>
+<p>考虑选什么边来加点，两种情况：</p>
+<ul>
+<li>
+<p>第一种，删除该边不影响任何一个点到 $1$ 的最短距离。若一个点到 $1$ 的最短距离小于等于 $k$ 且该点度数大于等于 $2$，则存在 度数 - $2$ 条这样的边（如 $(3,4)$、 $(4,5)$、 $(5,6)$，这三条边分别可提供$2$、$2$、$1$ 个贡献）</p>
+</li>
+<li>
+<p>第二种，删除该边影响某点到 $1$ 的最短路，那么这样的整个分支最多为答案提供 $k$ 的贡献（如 $(1,2)$ ）</p>
+</li>
+</ul>
+<p>于是先假设所有与结点 $1$ 相关联的点都为第二种点，然后再选边加点</p>
+<p>可用链式前向星存图</p>
 <h2 id="代码">代码</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -454,13 +607,22 @@ where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is stil
 </span><span class="lnt">68
 </span><span class="lnt">69
 </span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define _all(x) (x).begin(), (x).end()
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define _abs(x) ((x &gt;= 0) ? (x) : (-x))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define _abs(x) ((x &gt;= 0) ? (x) : -(x))
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define PII pair&lt;int, int&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define PLL pair&lt;LL, LL&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define PDD pair&lt;double, double&gt;
@@ -474,147 +636,73 @@ where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is stil
 </span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">INF</span> <span class="o">=</span> <span class="mh">0x3f3f3f3f</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">LL</span> <span class="n">LINF</span> <span class="o">=</span> <span class="mh">0x3f3f3f3f3f3f3f3f</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">1e5</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mf">2e5</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">idx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">h</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">to</span><span class="p">[</span><span class="n">M</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span> <span class="n">ne</span><span class="p">[</span><span class="n">M</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">dis</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>  <span class="c1">// d[] 度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">to</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="n">ne</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">idx</span><span class="o">++</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">h</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">dis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dis</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">u</span> <span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">bfs</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">t</span><span class="p">];</span> <span class="o">~</span><span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">ne</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>  <span class="c1">// ~i 等价于 i != -1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">to</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dis</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// choose r, i.e. find the largest num in a[1:n] and record its index
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if a[i] == n, choose a[r] == n-1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// else a[r] == n
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">[</span><span class="n">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span> <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// cout &lt;&lt; a[r+1:]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// cout &lt;&lt; a[r-1]..a[l] &lt;&lt; a[1:l]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bfs</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LL</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">k</span><span class="p">;</span>  <span class="c1">// 记得加上结点 1 本身
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 选边加点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ans</span> <span class="o">+=</span> <span class="p">(</span><span class="n">LL</span><span class="p">)(</span><span class="n">k</span> <span class="o">-</span> <span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">LL</span><span class="p">)(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// find l: l = i-1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">IOS</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">test_case</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">test_case</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">test_case</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">init</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">solve</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">solve</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>CF 上的题解写的很妙：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">[</span><span class="n">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span> <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>等价于：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>优雅地把我当时写的十几行代码压缩成两三行</p>
-<p><img src="/p/contest-1833-d/B784EC3F47E31090269A04FC58C874D8.jpg"
-	width="346"
-	height="299"
-	srcset="/p/contest-1833-d/B784EC3F47E31090269A04FC58C874D8_hu3d7af37b5c64d5ded30e3cb92b7d3905_55961_480x0_resize_q75_box.jpg 480w, /p/contest-1833-d/B784EC3F47E31090269A04FC58C874D8_hu3d7af37b5c64d5ded30e3cb92b7d3905_55961_1024x0_resize_q75_box.jpg 1024w"
-	loading="lazy"
-	
-		alt="真是漂亮滴很呐"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="115"
-		data-flex-basis="277px"
-	
-></p>
-<h2 id="总结">总结</h2>
-<p>当时卡在这题了，找出 $ r $ 后就不会了。其实只要稍微转换一下思路，反向思考就好啦 （￣▽￣）</p>
-<h2 id="附录">附录</h2>
+</div><h2 id="附录">附录</h2>
 <h3 id="参考文献">参考文献</h3>
+<p><a class="link" href="https://ac.nowcoder.com/acm/discuss/blogs?tagId=253614"  target="_blank" rel="noopener"
+    >https://ac.nowcoder.com/acm/discuss/blogs?tagId=253614</a></p>
 <h3 id="版权信息">版权信息</h3>
 <p>本文原载于<a class="link" href="https://blog-allenwu233.netlify.app/"  target="_blank" rel="noopener"
     >https://blog.allenwu233.com/</a>，复制请保留原文出处</p>
@@ -626,9 +714,11 @@ where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is stil
     
     <section class="article-tags">
         
-            <a href="/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+            <a href="/tags/%E9%A2%98%E8%A7%A3/">题解</a>
         
-            <a href="/tags/%E6%9E%84%E9%80%A0/">构造</a>
+            <a href="/tags/bfs/">BFS</a>
+        
+            <a href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a>
         
     </section>
 
@@ -685,32 +775,6 @@ where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is stil
         <div class="flex article-list--tile">
             
                 
-<article class="">
-    <a href="/p/nowcoder-k-subdivision/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">“范式杯”2023牛客暑期多校训练营1 K - Subdivision</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/contest-1822/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Codeforces Round 867 (Div. 3) 题解</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
 <article class="has-image">
     <a href="/p/gdcpc-2022-e/">
         
@@ -736,23 +800,23 @@ where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is stil
             
                 
 <article class="has-image">
-    <a href="/p/allen-dynamic-programming/">
+    <a href="/p/8-nums/">
         
         
             <div class="article-image">
-                <img src="/p/allen-dynamic-programming/cover.9c6c492f35fde64f8c6a56a64136b00e_hu98ba12145a917d22a89a9b2588fb0656_1270357_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/p/8-nums/cover.e41d42cc2a77ba0ea91088aebbb58afd_hu31865a8f35bec30ce462c650c7b364d5_3943317_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post Allen的动态规划基础"
-                        data-key="Allen-dynamic-programming" 
-                        data-hash="md5-nGxJLzX95k&#43;MalamQTawDg==">
+                        alt="Featured image of post 路径寻找-八数码问题"
+                        data-key="8-nums" 
+                        data-hash="md5-5B1CzCp3ug6pEIiuu7WK/Q==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Allen的动态规划基础</h2>
+            <h2 class="article-title">路径寻找-八数码问题</h2>
         </div>
     </a>
 </article>
@@ -760,23 +824,60 @@ where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is stil
             
                 
 <article class="has-image">
-    <a href="/p/allen-graph/">
+    <a href="/p/uva1600/">
         
         
             <div class="article-image">
-                <img src="/p/allen-graph/cover.40e97e627b4a65c942d440b6e370cb74_hub8501650f831f44b273345dc74b0044c_179835_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/p/uva1600/cover.99ab465616dde4337717c807452c9b90_hu1f6aa3bb2cf8d2be4d1079b68fe23c95_574217_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post Allen的图论基础"
-                        data-key="Allen-graph" 
-                        data-hash="md5-QOl&#43;YntKZclC1EC243DLdA==">
+                        alt="Featured image of post Uva 1600 Patrol Robot"
+                        data-key="uva1600" 
+                        data-hash="md5-matGVhbd5DN3F8gHRSybkA==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Allen的图论基础</h2>
+            <h2 class="article-title">Uva 1600 Patrol Robot</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/uva439/">
+        
+        
+            <div class="article-image">
+                <img src="/p/uva439/cover.f08b5d8add28c18697284880113c24aa_hub80921d3980af53a6ac306ef3a45b36a_156659_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post UVa 439 Knight Moves"
+                        data-key="uva439" 
+                        data-hash="md5-8Itdit0owYaXKEiAETwkqg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">UVa 439 Knight Moves</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/contest-1822/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Codeforces Round 867 (Div. 3) 题解</h2>
         </div>
     </a>
 </article>
