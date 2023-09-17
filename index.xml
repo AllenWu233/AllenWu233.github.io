@@ -6,7 +6,20 @@
         <description>Recent content on Allen_Wu233&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 18 Jul 2023 15:16:44 +0800</lastBuildDate><atom:link href="https://blog.allenwu233.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 02 Aug 2023 19:14:36 +0800</lastBuildDate><atom:link href="https://blog.allenwu233.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>从KDE到i3——我的平铺式桌面之旅</title>
+        <link>https://blog.allenwu233.com/p/my-i3-desktop/</link>
+        <pubDate>Wed, 02 Aug 2023 19:14:36 +0800</pubDate>
+        
+        <guid>https://blog.allenwu233.com/p/my-i3-desktop/</guid>
+        <description>&lt;h2 id=&#34;附录&#34;&gt;附录&lt;/h2&gt;
+&lt;h3 id=&#34;参考文献&#34;&gt;参考文献&lt;/h3&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息&lt;/h3&gt;
+&lt;p&gt;本文原载于&lt;a class=&#34;link&#34; href=&#34;https://blog-allenwu233.netlify.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.allenwu233.com/&lt;/a&gt;，复制请保留原文出处&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>“范式杯”2023牛客暑期多校训练营1 K - Subdivision</title>
         <link>https://blog.allenwu233.com/p/nowcoder-k-subdivision/</link>
         <pubDate>Tue, 18 Jul 2023 15:16:44 +0800</pubDate>
@@ -927,6 +940,10 @@ where $i&amp;gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is 
 &lt;/blockquote&gt;
 &lt;p&gt;ACMer 生涯，堂堂连载！&lt;br&gt;
 2023.05.18-&lt;/p&gt;
+&lt;h2 id=&#34;acm生涯堂堂休刊&#34;&gt;ACM生涯，堂堂休刊！&lt;/h2&gt;
+&lt;p&gt;大约的确是燃尽了罢。
+以上。&lt;br&gt;
+-2023.09.17&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -6426,14 +6443,14 @@ $ 68 = 2 \times 2 \times 17 $&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 输入法
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;input-method=
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 字体大小
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;font-size=26
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 光标形状: 0 = 下划线, 1 = 块
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cursor-shape=1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 光标闪动时间: 毫秒计，0 = 不闪动
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cursor-interval=500
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 输入法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;input-method&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 字体大小
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;font-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;26&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 光标形状: 0 = 下划线, 1 = 块
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;cursor-shape&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 光标闪动时间: 毫秒计，0 = 不闪动
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;cursor-interval&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;500&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;让普通用户无需root权限也能使用fbterm命令&#34;&gt;让普通用户无需root权限也能使用&lt;code&gt;fbterm&lt;/code&gt;命令&lt;/h5&gt;
@@ -7221,7 +7238,7 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;能朝给定总目标前进一步&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;　　&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;求出可行解的一个解元素&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;　　 &lt;span class=&#34;n&#34;&gt;求出可行解的一个解元素&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;由所有解元素组合成问题的一个可行解&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -9259,10 +9276,10 @@ st3版本：Sublime Text Build 3211 x64&lt;/p&gt;
         <description>&lt;h2 id=&#34;博主简介&#34;&gt;博主简介&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Python爱好者&lt;/li&gt;
-&lt;li&gt;东方Project厨&lt;/li&gt;
+&lt;li&gt;东方众&lt;/li&gt;
 &lt;li&gt;Minecraft爱好者&lt;/li&gt;
+&lt;li&gt;音游玩家&lt;/li&gt;
 &lt;li&gt;cs 本科在读&lt;/li&gt;
-&lt;li&gt;在役 ACMer（真·蒟蒻）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;会更新一些学习笔记或配置教程之类的，偶尔可能会写点随感。&lt;/p&gt;
 &lt;h2 id=&#34;反馈&#34;&gt;反馈&lt;/h2&gt;

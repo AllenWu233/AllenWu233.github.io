@@ -3,21 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.allenwu233.com/</loc>
-    <lastmod>2023-07-18T15:16:44+08:00</lastmod>
+    <lastmod>2023-09-17T18:50:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/tags/arch/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/tags/archlinux/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/categories/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/tags/linux/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/post/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/tags/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/p/my-i3-desktop/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2023-08-02T19:14:36+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/p/nowcoder-k-subdivision/</loc>
     <lastmod>2023-07-18T15:16:44+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/tags/bfs/</loc>
-    <lastmod>2023-07-18T15:16:44+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/categories/</loc>
-    <lastmod>2023-07-18T15:16:44+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/post/</loc>
-    <lastmod>2023-07-18T15:16:44+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/tags/</loc>
     <lastmod>2023-07-18T15:16:44+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/tags/%E9%A2%98%E8%A7%A3/</loc>
@@ -47,16 +62,10 @@
     <loc>https://blog.allenwu233.com/tags/arch-linux/</loc>
     <lastmod>2023-05-27T12:43:37+08:00</lastmod>
   </url><url>
-    <loc>https://blog.allenwu233.com/tags/linux/</loc>
-    <lastmod>2023-05-27T12:43:37+08:00</lastmod>
-  </url><url>
     <loc>https://blog.allenwu233.com/p/my-nvidia-optimimus/</loc>
     <lastmod>2023-05-27T12:43:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/tags/nvidia/</loc>
-    <lastmod>2023-05-27T12:43:37+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-05-27T12:43:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/p/contest-1833-d/</loc>
@@ -72,7 +81,7 @@
     <lastmod>2023-05-24T22:51:26+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/page/</loc>
-    <lastmod>2023-05-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-17T18:50:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/rss/</loc>
     <lastmod>2023-05-24T00:00:00+00:00</lastmod>
@@ -173,12 +182,6 @@
     <loc>https://blog.allenwu233.com/p/stack/</loc>
     <lastmod>2022-10-30T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.allenwu233.com/tags/arch/</loc>
-    <lastmod>2022-11-11T22:30:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/tags/archlinux/</loc>
-    <lastmod>2022-11-11T22:30:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.allenwu233.com/p/allen-arch/</loc>
     <lastmod>2022-11-11T22:30:00+08:00</lastmod>
   </url><url>
@@ -231,7 +234,7 @@
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/about/</loc>
-    <lastmod>2022-11-11T22:38:00+08:00</lastmod>
+    <lastmod>2023-09-17T18:50:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/archives/</loc>
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>

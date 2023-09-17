@@ -10,19 +10,18 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<meta name='description' content='一款好用的开源虚拟机'>
-<title>Arch Linux VirtualBox安装与配置指南</title>
+<meta name='description' content='附录 参考文献 版权信息 本文原载于https://blog.allenwu233.com/，复制请保留原文出处'>
+<title>从KDE到i3——我的平铺式桌面之旅</title>
 
-<link rel='canonical' href='https://blog.allenwu233.com/p/vbox-install/'>
+<link rel='canonical' href='https://blog.allenwu233.com/p/my-i3-desktop/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Arch Linux VirtualBox安装与配置指南'>
-<meta property='og:description' content='一款好用的开源虚拟机'>
-<meta property='og:url' content='https://blog.allenwu233.com/p/vbox-install/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='从KDE到i3——我的平铺式桌面之旅'>
+<meta property='og:description' content='附录 参考文献 版权信息 本文原载于https://blog.allenwu233.com/，复制请保留原文出处'>
+<meta property='og:url' content='https://blog.allenwu233.com/p/my-i3-desktop/'>
 <meta property='og:site_name' content='Allen_Wu233&#39;s blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Arch Linux' /><meta property='article:tag' content='VirtualBox' /><meta property='article:published_time' content='2023-03-26T11:38:15&#43;08:00'/><meta property='article:modified_time' content='2023-03-26T11:38:15&#43;08:00'/><meta property='og:image' content='https://blog.allenwu233.com/p/vbox-install/cover.jpg' />
-<meta name="twitter:title" content="Arch Linux VirtualBox安装与配置指南">
-<meta name="twitter:description" content="一款好用的开源虚拟机"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://blog.allenwu233.com/p/vbox-install/cover.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Archlinux' /><meta property='article:tag' content='Arch' /><meta property='article:published_time' content='2023-08-02T19:14:36&#43;08:00'/><meta property='article:modified_time' content='2023-08-02T19:14:36&#43;08:00'/>
+<meta name="twitter:title" content="从KDE到i3——我的平铺式桌面之旅">
+<meta name="twitter:description" content="附录 参考文献 版权信息 本文原载于https://blog.allenwu233.com/，复制请保留原文出处">
     <link rel="shortcut icon" href="trees" />
 
     </head>
@@ -292,16 +291,6 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#引言">引言</a></li>
-    <li><a href="#安装与配置">安装与配置</a>
-      <ol>
-        <li><a href="#安装基本软件包">安装基本软件包</a></li>
-        <li><a href="#加载-virtualbox-内核模块">加载 VirtualBox 内核模块</a></li>
-        <li><a href="#从客体系统访问主机-usb-设备">从客体系统访问主机 USB 设备</a></li>
-        <li><a href="#客体机插件光盘">客体机插件光盘</a></li>
-        <li><a href="#修改grub启动参数">修改GRUB启动参数</a></li>
-      </ol>
-    </li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#参考文献">参考文献</a></li>
@@ -319,20 +308,8 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/vbox-install/">
-                <img src="/p/vbox-install/cover_hu626c66432c49ed9204d98fb534eedf63_188156_800x0_resize_q75_box.jpg"
-                        srcset="/p/vbox-install/cover_hu626c66432c49ed9204d98fb534eedf63_188156_800x0_resize_q75_box.jpg 800w, /p/vbox-install/cover_hu626c66432c49ed9204d98fb534eedf63_188156_1600x0_resize_q75_box.jpg 1600w"
-                        width="800" 
-                        height="534" 
-                        loading="lazy"
-                        alt="Featured image of post Arch Linux VirtualBox安装与配置指南" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -347,13 +324,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/vbox-install/">Arch Linux VirtualBox安装与配置指南</a>
+            <a href="/p/my-i3-desktop/">从KDE到i3——我的平铺式桌面之旅</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            一款好用的开源虚拟机
-        </h3>
         
     </div>
 
@@ -373,7 +346,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 26, 2023</time>
+                <time class="article-time--published">Aug 02, 2023</time>
             </div>
         
 
@@ -389,80 +362,11 @@
     <section class="article-content">
     
     
-    <h2 id="引言">引言</h2>
-<p><strong>优先参考官方教程：<a class="link" href="https://wiki.archlinuxcn.org/zh-hans/VirtualBox"  target="_blank" rel="noopener"
-    >ArchWiki·VirtualBox</a></strong></p>
-<h2 id="安装与配置">安装与配置</h2>
-<h3 id="安装基本软件包">安装基本软件包</h3>
-<p>安装软件包 <code>virtualbox</code> 。内核模块的安装方式要从下面二选一：</p>
-<ul>
-<li>如果使用的是 <code>linux</code> 内核，建议安装 <code>virtualbox-host-modules-arch</code></li>
-<li>其他的内核，包括 <code>linux-lts</code> ，请安装 <code>virtualbox-host-dkms</code> 包</li>
-</ul>
-<p>为了让 <code>virtualbox-host-dkms</code> 包编译内核模块，需要安装对应的内核头文件（例如 <code>linux-lts</code>  内核的头文件是 <code>linux-lts-headers</code> ）。当 <code>VirtualBox</code> 或内核更新的时候，DKMS 的 Pacman 钩子会自动编译内核模块。</p>
-<p>博主的内核为<code>linux-zen</code>，因此选择安装 <code>virtualbox-host-dkms</code> (已提前安装<code>linux-zen-headers</code>)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S virtualbox-host-dkms
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="加载-virtualbox-内核模块">加载 VirtualBox 内核模块</h3>
-<p><code>virtualbox-host-modules-arch</code> 和 <code>virtualbox-host-dkms</code> 使用 <code>systemd-modules-load.service</code> 在启动时自动加载 VirtualBox 的四个内核模块。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl enable systemd-modules-load.service
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="从客体系统访问主机-usb-设备">从客体系统访问主机 USB 设备</h3>
-<p>将需要运行 VirtualBox 的用户名添加到 vboxusers 用户组，USB 设备才能被访问</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gpasswd -a [用户名] vboxusers
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="客体机插件光盘">客体机插件光盘</h3>
-<p>安装<code>virtualbox-guest-iso</code>软件包之后才可以安装增强功能。这个包里有个 .iso 镜像文件，用来为 Arch 之外的客体系统安装插件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S virtualbox-guest-iso
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>镜像文件的位置在 <code>/usr/lib/virtualbox/additions/VBoxGuestAdditions.iso</code>，手动在虚拟机的虚拟光驱里加载这个文件之后，即可在客体机里安装插件</p>
-<h3 id="修改grub启动参数">修改GRUB启动参数</h3>
-<p>如果你的 Vbox 启动虚拟机卡在 starting virtual machine&hellip; 界面，可以尝试加上<code>ibt=off</code></p>
-<blockquote>
-<p>sudo vim /etc/default/grub</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GRUB_CMDLINE_LINUX_DEFAULT=&#34;[other...] ibt=off&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>记得运行<code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code>来保存设置</p>
-<h2 id="附录">附录</h2>
+    <h2 id="附录">附录</h2>
 <h3 id="参考文献">参考文献</h3>
-<p>[1]<a class="link" href="https://wiki.archlinuxcn.org/zh-hans/VirtualBox"  target="_blank" rel="noopener"
-    >ArchWiki·VirtualBox</a><br>
-[2]<a class="link" href="https://wiki.archlinuxcn.org/wiki/Btrfs#Copy-on-Write_%28CoW%29"  target="_blank" rel="noopener"
-    >ArchWiki·Btrfs</a></p>
 <h3 id="版权信息">版权信息</h3>
 <p>本文原载于<a class="link" href="https://blog-allenwu233.netlify.app/"  target="_blank" rel="noopener"
-    >https://blog-allenwu233.netlify.app/</a>，复制请保留原文出处</p>
+    >https://blog.allenwu233.com/</a>，复制请保留原文出处</p>
 
 </section>
 
@@ -471,9 +375,11 @@
     
     <section class="article-tags">
         
-            <a href="/tags/arch-linux/">Arch Linux</a>
+            <a href="/tags/linux/">Linux</a>
         
-            <a href="/tags/virtualbox/">VirtualBox</a>
+            <a href="/tags/archlinux/">Archlinux</a>
+        
+            <a href="/tags/arch/">Arch</a>
         
     </section>
 
@@ -531,6 +437,30 @@
             
                 
 <article class="has-image">
+    <a href="/p/allen-arch/">
+        
+        
+            <div class="article-image">
+                <img src="/p/allen-arch/cover.f68770f91d8d5c51a58f1a8b5f6d51d7_hue247bd8aa06b4de35fd1d421a1fa9444_5921691_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 从0开始的Arch之旅"
+                        data-key="allen-arch" 
+                        data-hash="md5-9odw&#43;R2NXFGljxqLX21R1w==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从0开始的Arch之旅</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/p/my-nvidia-optimimus/">
         
         
@@ -554,37 +484,24 @@
 
             
                 
-<article class="">
-    <a href="/p/my-i3-desktop/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">从KDE到i3——我的平铺式桌面之旅</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
 <article class="has-image">
-    <a href="/p/allen-arch/">
+    <a href="/p/vbox-install/">
         
         
             <div class="article-image">
-                <img src="/p/allen-arch/cover.f68770f91d8d5c51a58f1a8b5f6d51d7_hue247bd8aa06b4de35fd1d421a1fa9444_5921691_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/p/vbox-install/cover.ae96b8dcce84d78fae62287a7e59283b_hu626c66432c49ed9204d98fb534eedf63_188156_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post 从0开始的Arch之旅"
-                        data-key="allen-arch" 
-                        data-hash="md5-9odw&#43;R2NXFGljxqLX21R1w==">
+                        alt="Featured image of post Arch Linux VirtualBox安装与配置指南"
+                        data-key="vbox-install" 
+                        data-hash="md5-rpa43M6E14&#43;uYih6flkoOw==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">从0开始的Arch之旅</h2>
+            <h2 class="article-title">Arch Linux VirtualBox安装与配置指南</h2>
         </div>
     </a>
 </article>
