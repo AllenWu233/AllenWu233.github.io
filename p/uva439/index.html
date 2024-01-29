@@ -512,20 +512,20 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">   &#34;shell_cmd&#34;: &#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -Wall -DLOCAL \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; ${file_base_name} &amp;&amp; echo Press ENTER to continue...&#34;,
-</span></span><span class="line"><span class="cl">   &#34;file_regex&#34;: &#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;,
-</span></span><span class="line"><span class="cl">   &#34;working_dir&#34;: &#34;${file_path}&#34;,
-</span></span><span class="line"><span class="cl">   &#34;selector&#34;: &#34;source.c++&#34;,
-</span></span><span class="line"><span class="cl">   &#34;encoding&#34;: &#34;gbk&#34;,
-</span></span><span class="line"><span class="cl">   &#34;variants&#34;:
-</span></span><span class="line"><span class="cl">   [
-</span></span><span class="line"><span class="cl">       {
-</span></span><span class="line"><span class="cl">           &#34;name&#34;: &#34;Single File Build &amp; Run in cmd&#34;,
-</span></span><span class="line"><span class="cl">           &#34;shell_cmd&#34;: &#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -g -Wall \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;
-</span></span><span class="line"><span class="cl">       }
-</span></span><span class="line"><span class="cl">   ]
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -Wall -DLOCAL </span><span class="se">\&#34;</span><span class="s2">${file_name}</span><span class="se">\&#34;</span><span class="s2"> -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp;&amp; ${file_base_name} &amp;&amp; echo Press ENTER to continue...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;file_regex&#34;</span><span class="p">:</span> <span class="s2">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;working_dir&#34;</span><span class="p">:</span> <span class="s2">&#34;${file_path}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;selector&#34;</span><span class="p">:</span> <span class="s2">&#34;source.c++&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;encoding&#34;</span><span class="p">:</span> <span class="s2">&#34;gbk&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;variants&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">   <span class="p">[</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Single File Build &amp; Run in cmd&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">           <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -g -Wall </span><span class="se">\&#34;</span><span class="s2">${file_name}</span><span class="se">\&#34;</span><span class="s2"> -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp;&amp; start cmd /c </span><span class="se">\&#34;\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp; pause</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>按<code>Ctrl + Shift + B</code>，显示两条编译选项，第一条是重定向，第二条是通过终端窗口进行标准输入输出</p>
@@ -780,7 +780,7 @@
         
             2022 - 
         
-        2023 Allen_Wu233&#39;s blog
+        2024 Allen_Wu233&#39;s blog
     </section>
     
     <section class="powerby">

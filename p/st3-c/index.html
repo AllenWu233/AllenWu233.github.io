@@ -495,40 +495,40 @@ st3版本：Sublime Text Build 3211 x64</p>
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">    &#34;shell_cmd&#34;: &#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;,
-</span></span><span class="line"><span class="cl">    &#34;file_regex&#34;: &#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;,
-</span></span><span class="line"><span class="cl">    &#34;working_dir&#34;: &#34;${file_path}&#34;,
-</span></span><span class="line"><span class="cl">    &#34;selector&#34;: &#34;source.c&#34;,
-</span></span><span class="line"><span class="cl">    &#34;encoding&#34;: &#34;gbk&#34;,
-</span></span><span class="line"><span class="cl">    &#34;variants&#34;:
-</span></span><span class="line"><span class="cl">    [
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;Single File Build&#34;,
-</span></span><span class="line"><span class="cl">            &#34;shell_cmd&#34;: &#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34;&#34;
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;Single File Run&#34;,
-</span></span><span class="line"><span class="cl">            &#34;shell_cmd&#34;: &#34;start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;Single File Build &amp; Run&#34;,
-</span></span><span class="line"><span class="cl">            &#34;shell_cmd&#34;: &#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;Multiple Files Build&#34;,
-</span></span><span class="line"><span class="cl">            &#34;shell_cmd&#34;: &#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall *.cpp -o \&#34;${file_base_name}\&#34;&#34;
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;Multiple Files Run&#34;,
-</span></span><span class="line"><span class="cl">            &#34;shell_cmd&#34;: &#34;start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;Multiple Files Build &amp; Run&#34;,
-</span></span><span class="line"><span class="cl">            &#34;shell_cmd&#34;: &#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall *.cpp -o \&#34;${file_base_name}\&#34; &amp;&amp; start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">    ]
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall </span><span class="se">\&#34;</span><span class="s2">${file_name}</span><span class="se">\&#34;</span><span class="s2"> -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp;&amp; start cmd /c </span><span class="se">\&#34;\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp; pause</span><span class="se">\&#34;</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;file_regex&#34;</span><span class="p">:</span> <span class="s2">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;working_dir&#34;</span><span class="p">:</span> <span class="s2">&#34;${file_path}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;selector&#34;</span><span class="p">:</span> <span class="s2">&#34;source.c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;encoding&#34;</span><span class="p">:</span> <span class="s2">&#34;gbk&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;variants&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Single File Build&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall </span><span class="se">\&#34;</span><span class="s2">${file_name}</span><span class="se">\&#34;</span><span class="s2"> -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Single File Run&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;start cmd /c </span><span class="se">\&#34;\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp; pause</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Single File Build &amp; Run&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall </span><span class="se">\&#34;</span><span class="s2">${file_name}</span><span class="se">\&#34;</span><span class="s2"> -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp;&amp; start cmd /c </span><span class="se">\&#34;\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp; pause</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Multiple Files Build&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall *.cpp -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Multiple Files Run&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;start cmd /c </span><span class="se">\&#34;\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp; pause</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Multiple Files Build &amp; Run&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;shell_cmd&#34;</span><span class="p">:</span> <span class="s2">&#34;gcc -finput-charset=UTF-8 -fexec-charset=GBK -Wall *.cpp -o </span><span class="se">\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp;&amp; start cmd /c </span><span class="se">\&#34;\&#34;</span><span class="s2">${file_base_name}</span><span class="se">\&#34;</span><span class="s2"> &amp; pause</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>记得按<code>Ctrl + S</code>保存，命名（如：<code>c.sublime-build</code>）<br>
@@ -974,7 +974,7 @@ st3版本：Sublime Text Build 3211 x64</p>
         
             2022 - 
         
-        2023 Allen_Wu233&#39;s blog
+        2024 Allen_Wu233&#39;s blog
     </section>
     
     <section class="powerby">
