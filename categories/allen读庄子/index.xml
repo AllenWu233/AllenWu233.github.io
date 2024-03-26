@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Allen读《庄子》 on Allen_Wu233&#39;s blog</title>
-        <link>https://blog.allenwu233.com/categories/allen%E8%AF%BB%E5%BA%84%E5%AD%90/</link>
+        <link>http://localhost:1313/categories/allen%E8%AF%BB%E5%BA%84%E5%AD%90/</link>
         <description>Recent content in Allen读《庄子》 on Allen_Wu233&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://blog.allenwu233.com/categories/allen%E8%AF%BB%E5%BA%84%E5%AD%90/index.xml" rel="self" type="application/rss+xml" />
+        <language>zh-cn</language><atom:link href="http://localhost:1313/categories/allen%E8%AF%BB%E5%BA%84%E5%AD%90/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
