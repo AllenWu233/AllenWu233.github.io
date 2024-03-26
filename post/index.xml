@@ -103,8 +103,9 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: Normally, adb will report Total xfer: 1.00x, but in some cases, even if the process succeeds the output will stop at 47% and report adb: failed to read command: Success. In some cases it will report adb: failed to read command: No error or adb: failed to read command: Undefined error: 0 which is also fine.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;以后更新系统直接在recovery刷入ROM即可&lt;/p&gt;
 &lt;h2 id=&#34;root&#34;&gt;Root&lt;/h2&gt;
-&lt;p&gt;折腾手机自然少不了Root啦。我使用的是安装简便的&lt;a class=&#34;link&#34; href=&#34;https://github.com/topjohnwu/Magisk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;折腾手机自然少不了Root啦。我使用的是安装过程简便的&lt;a class=&#34;link&#34; href=&#34;https://github.com/topjohnwu/Magisk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Magisk&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;安装magisk&#34;&gt;安装Magisk&lt;/h3&gt;
 &lt;p&gt;推荐阅读&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
@@ -122,6 +123,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;重启，尽享root后的世界吧！&lt;/p&gt;
+&lt;p&gt;更新系统后Magisk会失效，可以重新执行此步骤修补镜像并刷入&lt;/p&gt;
 &lt;h3 id=&#34;安装magisk-modules&#34;&gt;安装Magisk modules&lt;/h3&gt;
 &lt;p&gt;先在Magisk的设置里开启&lt;strong&gt;Zygisk&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;推荐几个好用的模块：&lt;/p&gt;
