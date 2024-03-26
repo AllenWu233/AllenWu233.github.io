@@ -10,19 +10,19 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<meta name='description' content='折腾双系统 ing...'>
-<title>Arch Linux修复grub引导</title>
+<meta name='description' content='还是生命在于折腾'>
+<title>红米Note 12 Turbo刷机小记</title>
 
-<link rel='canonical' href='https://blog.allenwu233.com/p/arch-grub-fix/'>
+<link rel='canonical' href='https://blog.allenwu233.com/p/redmi-note-12-trubo-flash/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Arch Linux修复grub引导'>
-<meta property='og:description' content='折腾双系统 ing...'>
-<meta property='og:url' content='https://blog.allenwu233.com/p/arch-grub-fix/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='红米Note 12 Turbo刷机小记'>
+<meta property='og:description' content='还是生命在于折腾'>
+<meta property='og:url' content='https://blog.allenwu233.com/p/redmi-note-12-trubo-flash/'>
 <meta property='og:site_name' content='Allen_Wu233&#39;s blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-09-16T16:29:00&#43;08:00'/><meta property='article:modified_time' content='2022-11-19T16:29:00&#43;08:00'/><meta property='og:image' content='https://blog.allenwu233.com/p/arch-grub-fix/cover.jpg' />
-<meta name="twitter:title" content="Arch Linux修复grub引导">
-<meta name="twitter:description" content="折腾双系统 ing..."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://blog.allenwu233.com/p/arch-grub-fix/cover.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='刷机' /><meta property='article:tag' content='Android' /><meta property='article:tag' content='root' /><meta property='article:tag' content='Magisk' /><meta property='article:tag' content='LineageOS' /><meta property='article:tag' content='类原生' /><meta property='article:tag' content='手机' /><meta property='article:published_time' content='2024-03-26T20:32:38&#43;08:00'/><meta property='article:modified_time' content='2024-03-26T20:32:38&#43;08:00'/><meta property='og:image' content='https://blog.allenwu233.com/images/lineageos-download-rom-nougat.jpg' />
+<meta name="twitter:title" content="红米Note 12 Turbo刷机小记">
+<meta name="twitter:description" content="还是生命在于折腾"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.allenwu233.com/images/lineageos-download-rom-nougat.jpg' />
     <link rel="shortcut icon" href="trees" />
 
     </head>
@@ -311,23 +311,40 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#背景">背景</a></li>
-    <li><a href="#注意事项">注意事项</a></li>
-    <li><a href="#正文">正文</a>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#刷机">刷机</a>
       <ol>
-        <li><a href="#进入">进入</a></li>
-        <li><a href="#挂载分区">挂载分区</a></li>
-        <li><a href="#联网">联网</a>
+        <li><a href="#解锁bootloader">解锁Bootloader</a>
           <ol>
-            <li><a href="#进入iwd的shell">进入iwd的shell</a></li>
-            <li><a href="#列出无线网络设备">列出无线网络设备</a></li>
-            <li><a href="#列出网络并连接">列出网络并连接</a></li>
+            <li><a href="#绑定小米账号">绑定小米账号</a></li>
+            <li><a href="#解锁bl">解锁BL</a></li>
           </ol>
         </li>
-        <li><a href="#修复grub">修复grub</a></li>
+        <li><a href="#刷入lineageos">刷入LineageOS</a>
+          <ol>
+            <li><a href="#下载">下载</a></li>
+            <li><a href="#刷入">刷入</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
-    <li><a href="#参考文献">参考文献</a></li>
+    <li><a href="#root">Root</a>
+      <ol>
+        <li><a href="#安装magisk">安装Magisk</a></li>
+        <li><a href="#安装magisk-modules">安装Magisk modules</a></li>
+      </ol>
+    </li>
+    <li><a href="#apps推荐">Apps推荐</a></li>
+    <li><a href="#已知问题">已知问题</a>
+      <ol>
+        <li><a href="#重启后无法接收短信">重启后无法接收短信</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#版权信息">版权信息</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -342,13 +359,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/arch-grub-fix/">
-                <img src="/p/arch-grub-fix/cover_hu9e8095ec70720aa95e9f9c6dedde2fa1_422917_800x0_resize_q75_box.jpg"
-                        srcset="/p/arch-grub-fix/cover_hu9e8095ec70720aa95e9f9c6dedde2fa1_422917_800x0_resize_q75_box.jpg 800w, /p/arch-grub-fix/cover_hu9e8095ec70720aa95e9f9c6dedde2fa1_422917_1600x0_resize_q75_box.jpg 1600w"
-                        width="800" 
-                        height="769" 
-                        loading="lazy"
-                        alt="Featured image of post Arch Linux修复grub引导" />
+            <a href="/p/redmi-note-12-trubo-flash/">
+                
+                    <img src="/images/lineageos-download-rom-nougat.jpg" loading="lazy" alt="Featured image of post 红米Note 12 Turbo刷机小记" />
                 
             </a>
         </div>
@@ -367,12 +380,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/arch-grub-fix/">Arch Linux修复grub引导</a>
+            <a href="/p/redmi-note-12-trubo-flash/">红米Note 12 Turbo刷机小记</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            折腾双系统 ing...
+            还是生命在于折腾
         </h3>
         
     </div>
@@ -393,7 +406,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 16, 2022</time>
+                <time class="article-time--published">Mar 26, 2024</time>
             </div>
         
 
@@ -409,137 +422,252 @@
     <section class="article-content">
     
     
-    <h2 id="背景">背景</h2>
+    <h2 id="引言">引言</h2>
+<p>无法忍受日渐卡顿和GPS定位出问题的<code>Honor Play</code>，我换上了<code>Redmi Note 12 Turbo</code>，而前者也终于结束了它将近五年的服役</p>
+<p>正是看中了<strong>易刷机</strong>和<strong>性价比高</strong>的特点，我才选了这款手机。于是，搁置多年的玩（折）机（腾）之旅又将继续（</p>
+<p>自然得玩玩类原生系统了。我选择刷入<a class="link" href="https://lineageos.org/"  target="_blank" rel="noopener"
+    >LineageOS</a>，已经有大佬上传了非官方的ROM，非常方便</p>
+<h2 id="刷机">刷机</h2>
+<h3 id="解锁bootloader">解锁Bootloader</h3>
+<p>可以看看这篇教程<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h4 id="绑定小米账号">绑定小米账号</h4>
+<p>一般新机需要绑定小米账号并插入SIM卡 <strong>168小时（一周）</strong> 后才能解锁Bootloader。绑定步骤如下：</p>
+<ul>
+<li>一、开启 开发者选项：1.我的设备 – 2.全部参数 – 3.连击MIUI版本</li>
+<li>二、1.更多设置 – 2.开发者选项 – 3.设备解锁状态 – 4.绑定账号和设备（需要插入SIM卡）
+等待一周后进入下一步</li>
+</ul>
+<h4 id="解锁bl">解锁BL</h4>
+<p>这一步最好是在Windows系统下完成，虚拟机或wine可能会出现问题</p>
+<p>去<a class="link" href="https://www.miui.com/unlock/download.html"  target="_blank" rel="noopener"
+    >小米官网</a>下载解锁软件，解压后运行 <strong>MiUsbDriver.exe</strong> ，登录后连接手机，按提示进入<code>Fastboot</code>模式（关机状态下按<code>电源键</code>+<code>音量下键</code>）操作即可</p>
+<h3 id="刷入lineageos">刷入LineageOS</h3>
+<p>建议优先参考官方教程<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h4 id="下载">下载</h4>
+<p>下载<a class="link" href="https://miracle.girlswithout.top/adrian/lineage-21/marble/"  target="_blank" rel="noopener"
+    >此页面</a>中除<code>lineage-21.0-20240306-UNOFFICIAL-marble.zip.sha256sum</code>外的所有文件，即：</p>
 <blockquote>
-<p>让我们设想一个情景：当您再也无法忍受日渐卡顿的 Windows 10 时，您二话不说将其重装，却发现您无法进入心爱的 Arch Linux 系统了。是不是很熟悉？别担心，对于喜欢折腾双系统的用户来说，这是常有的事。<br>只需修复grub引导，即可带您回归熟悉的 Arch Linux。</p>
+<ul>
+<li>*-marble-boot.img</li>
+<li>*-marble-dtbo.img</li>
+<li>*-marble-recover.img</li>
+<li>*-marble-vendor_boot.img</li>
+<li>*-marble.zip</li>
+</ul>
 </blockquote>
-<h2 id="注意事项">注意事项</h2>
+<h4 id="刷入">刷入</h4>
+<p>需要有基本的<a class="link" href="https://en.wikipedia.org/wiki/Fastboot"  target="_blank" rel="noopener"
+    >fastboot</a>和<a class="link" href="https://en.wikipedia.org/wiki/Android_Debug_Bridge"  target="_blank" rel="noopener"
+    >adb</a>相关知识</p>
+<p>在Arch Linux下安装fastboot和adb：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">paru -S android-tools 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将手机连接到PC，手机进入fastboot模式，然后依次刷入下面四个img：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">fastboot flash boot &lt;boot&gt;.img
+</span></span><span class="line"><span class="cl">fastboot flash dtbo &lt;dtbo&gt;.img
+</span></span><span class="line"><span class="cl">fastboot flash vendor_boot &lt;vendor_boot&gt;.img
+</span></span><span class="line"><span class="cl">fastboot flash recovery &lt;recovery_filename&gt;.img
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的<code>&lt;boot&gt;.img</code>代表你所下载的 <code>-marble-boot.img</code>，其他几个同理</p>
+<p>重启到<code>recovery</code>模式。可以用命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">fastboot reboot recovery
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>也可以关机状态按<code>电源键</code>+<code>音量上键</code>进入</p>
+<p>在recovery界面按：
+<strong>Factory Reset</strong> - <strong>Format data / factory reset</strong> 以格式化</p>
+<p>返回主菜单，按 <strong>Apply Update</strong> - <strong>Apply from ADB</strong></p>
+<p>在PC上运行命令以刷入<code>LineageOS</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">adb sideload &lt;filename&gt;.zip
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据ROM提供者的提示，PC终端上显示安装进度可能会卡在47%，然而手机提示已完成安装，是否需要安装额外的包。不用担心，其实系统已经成功安装了，此时点 <strong>No</strong>，然后重启到正常的系统即可</p>
 <blockquote>
-<p>本教程默认您具备安装 Arch Linux 系统的能力，且手头上有 Arch Linux 系统安装盘</p>
+<p>⚠️ <strong>第一次进系统时建议先不要插入SIM卡，以免出现奇奇怪怪的问题</strong></p>
 </blockquote>
-<p>如果您不会安装 Arch Linux 或不会制作系统安装盘，推荐阅读：<br>
-<a class="link" href="https://blog.linioi.com/"  target="_blank" rel="noopener"
-    >@清絮</a> <a class="link" href="https://blog.linioi.com/posts/18/"  target="_blank" rel="noopener"
-    >Arch Linux + Windows 双系统安装教程</a></p>
-<h2 id="正文">正文</h2>
-<h3 id="进入">进入</h3>
-<p>通过 Arch Linux 系统安装盘进入安装终端（没错，就是安装 arch 开头的步骤）</p>
-<h3 id="挂载分区">挂载分区</h3>
-<p>检查分区情况：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fdisk -l
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>挂载分区示例（<strong>注：分区符号以自己实际情况为准！</strong>）</p>
-<p>挂载<code>/mnt</code>分区</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mount /dev/sda1 /mnt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>挂载<code>/boot</code>分区</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mount /dev/sda2 /mnt/boot
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>挂载<code>/home</code>分区</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mount /dev/sda4 /mnt/home
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启用<code>/swap</code>分区</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">swapon /dev/sda3
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>挂载<code>/dev</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mount --bind /dev /mnt/dev
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>更改根目录<br></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chroot /mnt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="联网">联网</h3>
-<p>如果你是插网线（拨号上网除外，如校园网）的，跳过此步骤</p>
-<h4 id="进入iwd的shell">进入iwd的shell</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">iwctl
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="列出无线网络设备">列出无线网络设备</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">device list
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="列出网络并连接">列出网络并连接</h4>
+<blockquote>
+<p><strong>Tip</strong>: Normally, adb will report Total xfer: 1.00x, but in some cases, even if the process succeeds the output will stop at 47% and report adb: failed to read command: Success. In some cases it will report adb: failed to read command: No error or adb: failed to read command: Undefined error: 0 which is also fine.</p>
+</blockquote>
+<h2 id="root">Root</h2>
+<p>折腾手机自然少不了Root啦。我使用的是安装简便的<a class="link" href="https://github.com/topjohnwu/Magisk"  target="_blank" rel="noopener"
+    >Magisk</a></p>
+<h3 id="安装magisk">安装Magisk</h3>
+<p>推荐阅读<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>先在手机上安装<a class="link" href="https://github.com/topjohnwu/Magisk/releases"  target="_blank" rel="noopener"
+    >Magisk app</a>，然后将前面下载的<code>&lt;boot&gt;.img</code>拷到手机上，打开Magisk， <strong>安装</strong> - <strong>选择并修补一个文件</strong>，选中刚刚拷的文件，修补后拷回电脑</p>
+<p>手机上允许adb调试。重启到fastboot模式并刷入修补后的镜像：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">station 设备名 get-networks
-</span></span><span class="line"><span class="cl">station 设备名 connect WiFi名称
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">adb reboot fastboot
+</span></span><span class="line"><span class="cl">fastboot flash boot &lt;magisk_patch-filename&gt;.img
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="修复grub">修复grub</h3>
-<p>输入以下命令：<br></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">grub-install /dev/sda
-</span></span></code></pre></td></tr></table>
+</div><p>重启，尽享root后的世界吧！</p>
+<h3 id="安装magisk-modules">安装Magisk modules</h3>
+<p>先在Magisk的设置里开启<strong>Zygisk</strong></p>
+<p>推荐几个好用的模块：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Module Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="link" href="https://github.com/AdguardTeam/AdGuardHome"  target="_blank" rel="noopener"
+    >AdGuardHome</a></td>
+<td>屏蔽大多数应用的广告，强烈安利</td>
+</tr>
+<tr>
+<td><a class="link" href="https://github.com/topjohnwu/Magisk/releases"  target="_blank" rel="noopener"
+    >Sui</a></td>
+<td>使Magisk管理应用的逻辑更现代化，依赖Zygisk</td>
+</tr>
+<tr>
+<td><a class="link" href="https://github.com/LSPosed/LSPosed.github.io/releases"  target="_blank" rel="noopener"
+    >Shamiko</a><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></td>
+<td>向应用隐藏Root，强烈安利</td>
+</tr>
+<tr>
+<td><a class="link" href="https://github.com/LSPosed/LSPosed/releases"  target="_blank" rel="noopener"
+    >LSPosed</a></td>
+<td>类似Xposed框架，可安装许多插件</td>
+</tr>
+<tr>
+<td><a class="link" href="https://github.com/yc9559/uperf"  target="_blank" rel="noopener"
+    >uperf</a></td>
+<td>用户态性能控制器，实现大部分内核态升频功能。可配合子模块<a class="link" href="https://github.com/yc9559/uperf/releases"  target="_blank" rel="noopener"
+    >SfAnalysis</a>和<a class="link" href="https://github.com/yc9559/uperf/releases"  target="_blank" rel="noopener"
+    >SsAnalysis</a></td>
+</tr>
+<tr>
+<td><a class="link" href="https://github.com/eritpchy/FingerprintPay"  target="_blank" rel="noopener"
+    >FingerprintPay </a></td>
+<td>让微信、QQ、支付宝、淘宝、云闪付支持使用指纹支付</td>
+</tr>
+</tbody>
+</table></div>
+<p>安装方式：<strong>模块</strong> - <strong>从本地安装</strong>
+安装成功后重启即可</p>
+<h2 id="apps推荐">Apps推荐</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>App Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="link" href="https://f-droid.org"  target="_blank" rel="noopener"
+    >F-Droid</a></td>
+<td>自由开源软件下载</td>
+</tr>
+<tr>
+<td><a class="link" href="https://f-droid.org/packages/com.aurora.store/"  target="_blank" rel="noopener"
+    >Aurora Store</a></td>
+<td>Google Play的非官方自由/开源软件客户端</td>
+</tr>
+<tr>
+<td><a class="link" href="https://iceboxdoc.catchingnow.com/"  target="_blank" rel="noopener"
+    >冰箱 Ice Box</a></td>
+<td>把暂时不用或者不需常驻后台的应用“冻结”起来</td>
+</tr>
+<tr>
+<td><a class="link" href="https://brevent.jianyv.com/"  target="_blank" rel="noopener"
+    >黑域</a></td>
+<td>后台应用管理</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="已知问题">已知问题</h2>
+<h3 id="重启后无法接收短信">重启后无法接收短信</h3>
+<p>可能是LineageOS的问题。根据<a class="link" href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/page-4#post-89404995"  target="_blank" rel="noopener"
+    >用户<strong>aqwgtj</strong>的回复</a>，在设置里面禁用再启用SIM卡就能正常接收短信了：
+<strong>设置</strong> - <strong>网络和互联网</strong> - <strong>SIM卡</strong> - &lt;选择SIM卡&gt; - 重新开关<strong>使用SIM卡</strong></p>
+<blockquote>
+<p>aqwgtj: make sure to SMS normal must be to disable your SIM and re-enable it after restarting machine eachtime, either no SMS can see.</p>
+</blockquote>
+<p>目前还没有找到根治的办法，只好每次重启都重开一次😕</p>
+<h2 id="附录">附录</h2>
+<h3 id="版权信息">版权信息</h3>
+<p>本文原载于<a class="link" href="https://blog.allenwu233.com/"  target="_blank" rel="noopener"
+    >https://blog.allenwu233.com/</a>，复制请保留原文出处</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a class="link" href="https://magiskcn.com/xiaomi-unlock"  target="_blank" rel="noopener"
+    >小米手机解锁Bootloader（Xiaomi手机解BL锁）</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a class="link" href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/"  target="_blank" rel="noopener"
+    >[ROM][14][UNOFFICIAL] LineageOS 21 for Xiaomi POCO F5 / Redmi Note 12 Turbo</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a class="link" href="https://magiskcn.com/?utm_source=pocket_saves"  target="_blank" rel="noopener"
+    >Magisk安装教程</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a class="link" href="https://magiskcn.com/shamiko-install"  target="_blank" rel="noopener"
+    >Shamiko安装（Shamiko install）</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
-</div><p>检查输出结果。如果一切正常，恭喜你已成功修复grub！快回去畅快体验 Arch Linux 吧！</p>
-<h2 id="参考文献">参考文献</h2>
-<p>[1]<a class="link" href="https://blog.linioi.com/posts/18/"  target="_blank" rel="noopener"
-    >Arch Linux + Windows 双系统安装教程</a></p>
 
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%88%B7%E6%9C%BA/">刷机</a>
+        
+            <a href="/tags/android/">Android</a>
+        
+            <a href="/tags/root/">Root</a>
+        
+            <a href="/tags/magisk/">Magisk</a>
+        
+            <a href="/tags/lineageos/">LineageOS</a>
+        
+            <a href="/tags/%E7%B1%BB%E5%8E%9F%E7%94%9F/">类原生</a>
+        
+            <a href="/tags/%E6%89%8B%E6%9C%BA/">手机</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -553,19 +681,7 @@
 
         <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
-    <section class="article-lastmod">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-        <span>
-            最后更新于 Nov 19 16:29 CST, 2022
-        </span>
-    </section></footer>
+    </footer>
 
 
     
@@ -603,25 +719,6 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/redmi-note-12-trubo-flash/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/images/lineageos-download-rom-nougat.jpg" loading="lazy" data-key="redmi-note-12-trubo-flash" data-hash="/images/lineageos-download-rom-nougat.jpg"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">红米Note 12 Turbo刷机小记</h2>
-        </div>
-    </a>
-</article>
-
             
                 
 <article class="has-image">
@@ -714,6 +811,30 @@
 
         <div class="article-details">
             <h2 class="article-title">Windows环境下 Sublime Text 3 C环境配置教程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/arch-grub-fix/">
+        
+        
+            <div class="article-image">
+                <img src="/p/arch-grub-fix/cover.27271c3fdd81148d59f2a11f6737d116_hu9e8095ec70720aa95e9f9c6dedde2fa1_422917_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Arch Linux修复grub引导"
+                        data-key="arch-grub-fix" 
+                        data-hash="md5-JyccP92BFI1Z8qEfZzfRFg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Arch Linux修复grub引导</h2>
         </div>
     </a>
 </article>
