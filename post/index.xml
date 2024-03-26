@@ -73,7 +73,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot flash recovery &amp;lt;recovery_filename&amp;gt;.img
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这里的&lt;code&gt;&amp;lt;boot&amp;gt;.img&lt;/code&gt;代表你所下载的 &lt;code&gt;-marble-boot.img&lt;/code&gt;，其他几个同理&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;这里的&lt;code&gt;&amp;lt;boot&amp;gt;.img&lt;/code&gt;代表你所下载的 &lt;code&gt;*-marble-boot.img&lt;/code&gt;，其他几个同理&lt;/p&gt;
 &lt;p&gt;重启到&lt;code&gt;recovery&lt;/code&gt;模式。可以用命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
