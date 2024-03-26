@@ -32,7 +32,7 @@
 &lt;p&gt;去&lt;a class=&#34;link&#34; href=&#34;https://www.miui.com/unlock/download.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米官网&lt;/a&gt;下载解锁软件，解压后运行 &lt;strong&gt;MiUsbDriver.exe&lt;/strong&gt; ，登录后连接手机，按提示进入&lt;code&gt;Fastboot&lt;/code&gt;模式（关机状态下按&lt;code&gt;电源键&lt;/code&gt;+&lt;code&gt;音量下键&lt;/code&gt;）操作即可&lt;/p&gt;
 &lt;h3 id=&#34;刷入lineageos&#34;&gt;刷入LineageOS&lt;/h3&gt;
-&lt;p&gt;建议优先参考官方教程&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;建议优先参考ROM提供者的教程&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h4 id=&#34;下载&#34;&gt;下载&lt;/h4&gt;
 &lt;p&gt;下载&lt;a class=&#34;link&#34; href=&#34;https://miracle.girlswithout.top/adrian/lineage-21/marble/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;此页面&lt;/a&gt;中除&lt;code&gt;lineage-21.0-20240306-UNOFFICIAL-marble.zip.sha256sum&lt;/code&gt;外的所有文件，即：&lt;/p&gt;
