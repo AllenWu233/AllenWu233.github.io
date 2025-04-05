@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>算法 on Allen&#39;s World</title>
+    <link>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Allen&#39;s World</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 27 Jan 2023 15:47:55 +0800</lastBuildDate>
+    <atom:link href="https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>路径寻找-八数码问题</title>
+      <link>https://blog.allenwu233.com/zh/posts/8-nums/</link>
+      <pubDate>Fri, 27 Jan 2023 15:47:55 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/8-nums/</guid>
+      <description>Hash与BFS</description>
+    </item>
+    <item>
+      <title>生成和检查的有机结合-回溯法</title>
+      <link>https://blog.allenwu233.com/zh/posts/backtracking/</link>
+      <pubDate>Sat, 03 Dec 2022 20:00:00 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/backtracking/</guid>
+      <description>减少不必要的枚举</description>
+    </item>
+    <item>
+      <title>最“简单”的算法——贪心算法</title>
+      <link>https://blog.allenwu233.com/zh/posts/greedy-algorithm/</link>
+      <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/greedy-algorithm/</guid>
+      <description>这破题我写了三天.jpg</description>
+    </item>
+    <item>
+      <title>C语言初学者的汉诺塔</title>
+      <link>https://blog.allenwu233.com/zh/posts/hanoi/</link>
+      <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/hanoi/</guid>
+      <description>与算法的邂逅</description>
+    </item>
+  </channel>
+</rss>

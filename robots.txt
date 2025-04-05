@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://blog.allenwu233.com/sitemap.xml
