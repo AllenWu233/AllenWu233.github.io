@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>数据结构 on Allen&#39;s World</title>
-    <link>https://blog.allenwu233.com/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-    <description>Recent content in 数据结构 on Allen&#39;s World</description>
+    <title>数据结构 on 逍遥乡 | Allen&#39;s World</title>
+    <link>https://allenwu233.github.io/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 25 Nov 2022 21:33:00 +0800</lastBuildDate>
-    <atom:link href="https://blog.allenwu233.com/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://allenwu233.github.io/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数据结构之美-二叉树</title>
-      <link>https://blog.allenwu233.com/zh/posts/binary-tree/</link>
+      <link>https://allenwu233.github.io/zh/posts/binary-tree/</link>
       <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/binary-tree/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/binary-tree/</guid>
       <description>最近看什么都像二叉树（</description>
     </item>
     <item>
       <title>数据结构初见-栈</title>
-      <link>https://blog.allenwu233.com/zh/posts/stack/</link>
+      <link>https://allenwu233.github.io/zh/posts/stack/</link>
       <pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/stack/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/stack/</guid>
       <description>简单而又不简单</description>
     </item>
   </channel>

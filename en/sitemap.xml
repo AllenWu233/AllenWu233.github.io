@@ -2,120 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.allenwu233.com/</loc>
+    <loc>https://allenwu233.github.io/</loc>
     <lastmod>2025-03-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/"
+                href="https://allenwu233.github.io/zh/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/"
+                href="https://allenwu233.github.io/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/about/</loc>
+    <loc>https://allenwu233.github.io/about/</loc>
     <lastmod>2025-03-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/about/"
+                href="https://allenwu233.github.io/zh/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/about/"
+                href="https://allenwu233.github.io/about/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/posts/hello-world/</loc>
+    <loc>https://allenwu233.github.io/tags/blog/</loc>
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/posts/hello-world/"
+                href="https://allenwu233.github.io/zh/tags/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/posts/hello-world/"
+                href="https://allenwu233.github.io/tags/blog/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/posts/</loc>
+    <loc>https://allenwu233.github.io/posts/hello-world/</loc>
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/posts/"
+                href="https://allenwu233.github.io/zh/posts/hello-world/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/posts/"
+                href="https://allenwu233.github.io/posts/hello-world/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/tags/random-thoughts/</loc>
-    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/tags/</loc>
+    <loc>https://allenwu233.github.io/posts/</loc>
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/tags/"
+                href="https://allenwu233.github.io/zh/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/tags/"
+                href="https://allenwu233.github.io/posts/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/archives/</loc>
+    <loc>https://allenwu233.github.io/tags/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/archives/"
+                href="https://allenwu233.github.io/zh/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/archives/"
+                href="https://allenwu233.github.io/tags/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/categories/</loc>
+    <loc>https://allenwu233.github.io/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/categories/"
+                href="https://allenwu233.github.io/zh/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/categories/"
+                href="https://allenwu233.github.io/archives/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/links/</loc>
+    <loc>https://allenwu233.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/links/"
+                href="https://allenwu233.github.io/zh/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/links/"
+                href="https://allenwu233.github.io/categories/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/search/</loc>
+    <loc>https://allenwu233.github.io/links/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.allenwu233.com/zh/search/"
+                href="https://allenwu233.github.io/zh/links/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.allenwu233.com/search/"
+                href="https://allenwu233.github.io/links/"
+                />
+  </url><url>
+    <loc>https://allenwu233.github.io/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://allenwu233.github.io/zh/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://allenwu233.github.io/search/"
                 />
   </url>
 </urlset>

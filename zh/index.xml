@@ -1,114 +1,114 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Allen&#39;s World</title>
-    <link>https://blog.allenwu233.com/zh/</link>
-    <description>Recent content on Allen&#39;s World</description>
+    <title>逍遥乡 | Allen&#39;s World</title>
+    <link>https://allenwu233.github.io/zh/</link>
+    <description>Recent content on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.allenwu233.com/zh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://allenwu233.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>红米Note 12 Turbo刷机小记</title>
-      <link>https://blog.allenwu233.com/zh/posts/redmi-note-12-trubo-flash/</link>
+      <link>https://allenwu233.github.io/zh/posts/redmi-note-12-trubo-flash/</link>
       <pubDate>Tue, 26 Mar 2024 20:32:38 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/redmi-note-12-trubo-flash/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/redmi-note-12-trubo-flash/</guid>
       <description>生命在于折腾</description>
     </item>
     <item>
-      <title>【转载】为什么有些人需要生活的仪式感？</title>
-      <link>https://blog.allenwu233.com/zh/posts/ritual-sense-of-life/</link>
+      <title>为什么有些人需要生活的仪式感？</title>
+      <link>https://allenwu233.github.io/zh/posts/ritual-sense-of-life/</link>
       <pubDate>Tue, 27 Jun 2023 10:37:07 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/ritual-sense-of-life/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/ritual-sense-of-life/</guid>
       <description>人生得意须尽欢，莫使金樽空对月</description>
     </item>
     <item>
       <title>World, Hello!</title>
-      <link>https://blog.allenwu233.com/zh/posts/worldhello/</link>
+      <link>https://allenwu233.github.io/zh/posts/worldhello/</link>
       <pubDate>Wed, 24 May 2023 22:51:26 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/worldhello/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/worldhello/</guid>
       <description>不仅仅是 Hello world</description>
     </item>
     <item>
       <title>路径寻找-八数码问题</title>
-      <link>https://blog.allenwu233.com/zh/posts/8-nums/</link>
+      <link>https://allenwu233.github.io/zh/posts/8-nums/</link>
       <pubDate>Fri, 27 Jan 2023 15:47:55 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/8-nums/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/8-nums/</guid>
       <description>Hash与BFS</description>
     </item>
     <item>
       <title>生成和检查的有机结合-回溯法</title>
-      <link>https://blog.allenwu233.com/zh/posts/backtracking/</link>
+      <link>https://allenwu233.github.io/zh/posts/backtracking/</link>
       <pubDate>Sat, 03 Dec 2022 20:00:00 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/backtracking/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/backtracking/</guid>
       <description>减少不必要的枚举</description>
     </item>
     <item>
       <title>记忆、爱与救赎</title>
-      <link>https://blog.allenwu233.com/zh/posts/little-reimu/</link>
+      <link>https://allenwu233.github.io/zh/posts/little-reimu/</link>
       <pubDate>Fri, 25 Nov 2022 22:00:00 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/little-reimu/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/little-reimu/</guid>
       <description>观《东方幼灵梦》有感</description>
     </item>
     <item>
       <title>数据结构之美-二叉树</title>
-      <link>https://blog.allenwu233.com/zh/posts/binary-tree/</link>
+      <link>https://allenwu233.github.io/zh/posts/binary-tree/</link>
       <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/binary-tree/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/binary-tree/</guid>
       <description>最近看什么都像二叉树（</description>
     </item>
     <item>
       <title>数据结构初见-栈</title>
-      <link>https://blog.allenwu233.com/zh/posts/stack/</link>
+      <link>https://allenwu233.github.io/zh/posts/stack/</link>
       <pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/stack/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/stack/</guid>
       <description>简单而又不简单</description>
     </item>
     <item>
       <title>最“简单”的算法——贪心算法</title>
-      <link>https://blog.allenwu233.com/zh/posts/greedy-algorithm/</link>
+      <link>https://allenwu233.github.io/zh/posts/greedy-algorithm/</link>
       <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/greedy-algorithm/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/greedy-algorithm/</guid>
       <description>这破题我写了三天.jpg</description>
     </item>
     <item>
       <title>C语言初学者的汉诺塔</title>
-      <link>https://blog.allenwu233.com/zh/posts/hanoi/</link>
+      <link>https://allenwu233.github.io/zh/posts/hanoi/</link>
       <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/hanoi/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/hanoi/</guid>
       <description>与算法的邂逅</description>
     </item>
     <item>
       <title>Hello World!</title>
-      <link>https://blog.allenwu233.com/zh/posts/hello-world/</link>
+      <link>https://allenwu233.github.io/zh/posts/hello-world/</link>
       <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/hello-world/</guid>
+      <guid>https://allenwu233.github.io/zh/posts/hello-world/</guid>
       <description>Allen的第一篇博客</description>
     </item>
     <item>
       <title>关于</title>
-      <link>https://blog.allenwu233.com/zh/about/</link>
+      <link>https://allenwu233.github.io/zh/about/</link>
       <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/about/</guid>
+      <guid>https://allenwu233.github.io/zh/about/</guid>
       <description>一般路过车万人</description>
     </item>
     <item>
       <title>友链</title>
-      <link>https://blog.allenwu233.com/zh/links/</link>
+      <link>https://allenwu233.github.io/zh/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/links/</guid>
+      <guid>https://allenwu233.github.io/zh/links/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.linioi.com&#34;&gt;清絮&lt;/a&gt;：人生如逆旅，我亦是行人&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://pxyfcywl.netlify.app&#34;&gt;彼岸花开&lt;/a&gt;：欢迎！高洁而真诚的灵魂&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;传递博客精神&#34;&gt;传递博客精神&lt;/h2&gt;
+&lt;h2 id=&#34;又一条新航线&#34;&gt;又一条新航线&lt;/h2&gt;
 &lt;p&gt;欢迎在评论区留下你的博客链接，最好按以下格式：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 你的名字&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 一句话个人或博客简介&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 个人网站&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 头像链接（可选）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;博主信息：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Allen_Wu233&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;博主信息，请随意添加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Allen Wu&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;天地与我并生，而万物与我为一。&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://blog.allenwu233.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;🍻欢迎友好交流！不要吝啬你的友链！&lt;/p&gt;</description>
