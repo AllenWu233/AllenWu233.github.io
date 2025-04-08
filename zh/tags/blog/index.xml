@@ -6,8 +6,15 @@
     <description>Recent content in Blog on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 24 May 2023 22:51:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Apr 2025 21:05:44 +0800</lastBuildDate>
     <atom:link href="https://allenwu233.github.io/zh/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>再度折腾博客</title>
+      <link>https://allenwu233.github.io/zh/posts/hugo-papermod/</link>
+      <pubDate>Tue, 08 Apr 2025 21:05:44 +0800</pubDate>
+      <guid>https://allenwu233.github.io/zh/posts/hugo-papermod/</guid>
+      <description>时隔一年的回归</description>
+    </item>
     <item>
       <title>World, Hello!</title>
       <link>https://allenwu233.github.io/zh/posts/worldhello/</link>
