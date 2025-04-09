@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>BFS on 逍遥乡 | Allen&#39;s World</title>
-    <link>https://allenwu233.github.io/zh/tags/bfs/</link>
+    <link>https://blog.allenwu233.com/zh/tags/bfs/</link>
     <description>Recent content in BFS on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 27 Jan 2023 15:47:55 +0800</lastBuildDate>
-    <atom:link href="https://allenwu233.github.io/zh/tags/bfs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.allenwu233.com/zh/tags/bfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>路径寻找-八数码问题</title>
-      <link>https://allenwu233.github.io/zh/posts/8-nums/</link>
+      <link>https://blog.allenwu233.com/zh/posts/8-nums/</link>
       <pubDate>Fri, 27 Jan 2023 15:47:55 +0800</pubDate>
-      <guid>https://allenwu233.github.io/zh/posts/8-nums/</guid>
+      <guid>https://blog.allenwu233.com/zh/posts/8-nums/</guid>
       <description>Hash与BFS</description>
     </item>
   </channel>

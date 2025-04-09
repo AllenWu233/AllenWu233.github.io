@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://allenwu233.github.io/sitemap.xml
+Sitemap: https://blog.allenwu233.com/sitemap.xml

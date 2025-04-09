@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>递归 on 逍遥乡 | Allen&#39;s World</title>
-    <link>https://allenwu233.github.io/zh/tags/%E9%80%92%E5%BD%92/</link>
+    <link>https://blog.allenwu233.com/zh/tags/%E9%80%92%E5%BD%92/</link>
     <description>Recent content in 递归 on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 11 Sep 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://allenwu233.github.io/zh/tags/%E9%80%92%E5%BD%92/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.allenwu233.com/zh/tags/%E9%80%92%E5%BD%92/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C语言初学者的汉诺塔</title>
-      <link>https://allenwu233.github.io/zh/posts/hanoi/</link>
+      <link>https://blog.allenwu233.com/zh/posts/hanoi/</link>
       <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://allenwu233.github.io/zh/posts/hanoi/</guid>
+      <guid>https://blog.allenwu233.com/zh/posts/hanoi/</guid>
       <description>与算法的邂逅</description>
     </item>
   </channel>
