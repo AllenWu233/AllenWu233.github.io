@@ -236,17 +236,5 @@
                 hreflang="zh"
                 href="https://blog.allenwu233.com/zh/search/"
                 />
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/links/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/links/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/links/"
-                />
   </url>
 </urlset>
