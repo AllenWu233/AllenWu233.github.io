@@ -99,5 +99,28 @@
       <guid>https://blog.allenwu233.com/zh/about/</guid>
       <description>一般路过车万人</description>
     </item>
+    <item>
+      <title>友链</title>
+      <link>https://blog.allenwu233.com/zh/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.allenwu233.com/zh/links/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.linioi.com&#34;&gt;清絮&lt;/a&gt;：人生如逆旅，我亦是行人&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pxyfcywl.netlify.app&#34;&gt;彼岸花开&lt;/a&gt;：欢迎！高洁而真诚的灵魂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;又一条新航线&#34;&gt;又一条新航线&lt;/h2&gt;
+&lt;p&gt;欢迎在评论区留下你的博客链接，最好按以下格式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: # 你的名字
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;description: # 一句话个人或博客简介
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;website: # 个人网站
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;avatar: # 头像链接（可选）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;博主信息，请随意添加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: Allen Wu
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;description: 天地与我并生，而万物与我为一。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;website: https://blog.allenwu233.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;avatar: https://blog.allenwu233.com/img/avatar.png
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;favicon: https://blog.allenwu233.com/img/favicon/favicon-32x32.png
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;🍻欢迎友好交流！不要吝啬你的友链！&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

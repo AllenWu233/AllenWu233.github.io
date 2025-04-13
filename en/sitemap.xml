@@ -105,6 +105,16 @@
                 />
   </url><url>
     <loc>https://blog.allenwu233.com/links/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/links/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/links/"
+                />
   </url><url>
     <loc>https://blog.allenwu233.com/search/</loc>
     <xhtml:link
