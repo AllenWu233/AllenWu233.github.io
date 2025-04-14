@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.allenwu233.com/zh/</loc>
-    <lastmod>2025-04-08T21:05:44+08:00</lastmod>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,6 +14,60 @@
                 hreflang="zh"
                 href="https://blog.allenwu233.com/zh/"
                 />
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/categories/"
+                />
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/posts/"
+                />
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/tags/"
+                />
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E7%97%85/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/peel-an-orange/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/%E9%9A%8F%E6%84%9F/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E9%95%BF%E8%B7%91/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/blog/</loc>
     <lastmod>2025-04-08T21:05:44+08:00</lastmod>
@@ -28,49 +82,7 @@
                 href="https://blog.allenwu233.com/zh/tags/blog/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/</loc>
-    <lastmod>2025-04-08T21:05:44+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/categories/"
-                />
-  </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/hugo/</loc>
-    <lastmod>2025-04-08T21:05:44+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/posts/</loc>
-    <lastmod>2025-04-08T21:05:44+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/posts/"
-                />
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/</loc>
-    <lastmod>2025-04-08T21:05:44+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/tags/"
-                />
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/%E9%9A%8F%E6%84%9F/</loc>
     <lastmod>2025-04-08T21:05:44+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/hugo-papermod/</loc>
@@ -104,9 +116,6 @@
     <lastmod>2024-04-02T21:39:02+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/minecraft/</loc>
-    <lastmod>2023-06-27T10:37:07+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-06-27T10:37:07+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/ritual-sense-of-life/</loc>
