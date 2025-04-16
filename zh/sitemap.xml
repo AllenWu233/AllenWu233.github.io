@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.allenwu233.com/zh/</loc>
-    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://blog.allenwu233.com/zh/categories/</loc>
-    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/</loc>
-    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +42,7 @@
                 />
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/</loc>
-    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -54,16 +54,22 @@
                 href="https://blog.allenwu233.com/zh/tags/"
                 />
   </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/%E9%9A%8F%E6%84%9F/</loc>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E6%9C%88/</loc>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/moon-walking/</loc>
+    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E7%97%85/</loc>
     <lastmod>2025-04-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/peel-an-orange/</loc>
-    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/%E9%9A%8F%E6%84%9F/</loc>
     <lastmod>2025-04-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E9%95%BF%E8%B7%91/</loc>
