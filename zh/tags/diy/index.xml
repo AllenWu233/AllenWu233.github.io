@@ -2,26 +2,19 @@
 <?xml-stylesheet href="/styles/pretty-feed-v3.xsl" type="text/xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>教程 on 逍遥乡 | Allen&#39;s World</title>
-    <link>https://blog.allenwu233.com/zh/categories/%E6%95%99%E7%A8%8B/</link>
-    <description>Recent content in 教程 on 逍遥乡 | Allen&#39;s World</description>
+    <title>DIY on 逍遥乡 | Allen&#39;s World</title>
+    <link>https://blog.allenwu233.com/zh/tags/diy/</link>
+    <description>Recent content in DIY on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.146.7</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.allenwu233.com/zh/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.allenwu233.com/zh/tags/diy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记一次CD保护盒定制</title>
       <link>https://blog.allenwu233.com/zh/posts/cd-box/</link>
       <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.allenwu233.com/zh/posts/cd-box/</guid>
       <description>车万碟佬的日常</description>
-    </item>
-    <item>
-      <title>红米Note 12 Turbo刷机小记</title>
-      <link>https://blog.allenwu233.com/zh/posts/redmi-note-12-trubo-flash/</link>
-      <pubDate>Tue, 26 Mar 2024 20:32:38 +0800</pubDate>
-      <guid>https://blog.allenwu233.com/zh/posts/redmi-note-12-trubo-flash/</guid>
-      <description>生命在于折腾</description>
     </item>
   </channel>
 </rss>

@@ -15,6 +15,25 @@
                 href="https://blog.allenwu233.com/zh/"
                 />
   </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/categories/"
+                />
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/cd/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/diy/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/</loc>
     <lastmod>2025-04-24T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -28,21 +47,8 @@
                 href="https://blog.allenwu233.com/zh/posts/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/</loc>
-    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/categories/"
-                />
-  </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/</loc>
-    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -54,8 +60,17 @@
                 href="https://blog.allenwu233.com/zh/tags/"
                 />
   </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/touhou/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/cd-box/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2025-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/categories/%E9%9A%8F%E6%84%9F/</loc>
     <lastmod>2025-04-16T00:00:00+00:00</lastmod>
@@ -107,9 +122,6 @@
     <lastmod>2024-04-02T21:39:02+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/redmi-note-12-trubo-flash/</loc>
-    <lastmod>2024-04-02T21:39:02+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2024-04-02T21:39:02+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E7%B1%BB%E5%8E%9F%E7%94%9F/</loc>
@@ -183,9 +195,6 @@
   </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/backtracking/</loc>
     <lastmod>2023-01-12T12:16:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/touhou/</loc>
-    <lastmod>2022-11-25T22:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E4%B8%9C%E6%96%B9project/</loc>
     <lastmod>2022-11-25T22:00:00+08:00</lastmod>
