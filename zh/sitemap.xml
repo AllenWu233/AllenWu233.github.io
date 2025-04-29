@@ -15,6 +15,25 @@
                 href="https://blog.allenwu233.com/zh/"
                 />
   </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/allen%E4%B8%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/principle-of-compilation-1/</loc>
+    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/</loc>
+    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/categories/"
+                />
+  </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/</loc>
     <lastmod>2025-04-29T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -28,27 +47,8 @@
                 href="https://blog.allenwu233.com/zh/posts/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/</loc>
-    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/categories/"
-                />
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/cd/</loc>
-    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/diy/</loc>
-    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/</loc>
-    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -59,6 +59,18 @@
                 hreflang="zh"
                 href="https://blog.allenwu233.com/zh/tags/"
                 />
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/cd/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/diy/</loc>
+    <lastmod>2025-04-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/touhou/</loc>
     <lastmod>2025-04-24T00:00:00+00:00</lastmod>
@@ -158,9 +170,6 @@
     <lastmod>2023-04-25T15:59:32+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-04-25T15:59:32+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-04-25T15:59:32+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E9%A2%98%E8%A7%A3/</loc>
