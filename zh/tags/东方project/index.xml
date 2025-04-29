@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet href="/styles/pretty-feed-v3.xsl" type="text/xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>东方Project on 逍遥乡 | Allen&#39;s World</title>
     <link>https://blog.allenwu233.com/zh/tags/%E4%B8%9C%E6%96%B9project/</link>
     <description>Recent content in 东方Project on 逍遥乡 | Allen&#39;s World</description>
-    <generator>Hugo -- 0.146.7</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 25 Nov 2022 22:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.allenwu233.com/zh/tags/%E4%B8%9C%E6%96%B9project/index.xml" rel="self" type="application/rss+xml" />

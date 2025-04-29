@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet href="/styles/pretty-feed-v3.xsl" type="text/xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blog on Allen&#39;s World</title>
     <link>https://blog.allenwu233.com/tags/blog/</link>
     <description>Recent content in Blog on Allen&#39;s World</description>
-    <generator>Hugo -- 0.146.7</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en</language>
     <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.allenwu233.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
