@@ -6,8 +6,16 @@
     <description>Recent content on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.allenwu233.com/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Allen与编译原理 - 2. 文法和语言</title>
+      <link>https://blog.allenwu233.com/zh/posts/principle-of-compilation-2/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/principle-of-compilation-2/</guid>
+      <description>&lt;h2 id=&#34;21-文法的直观概念&#34;&gt;2.1 文法的直观概念&lt;/h2&gt;
+&lt;p&gt;像是英文、中文的语法，编译原理也有自己的一套文法——毕竟编译就是翻译语言的过程，而语言需要遵循规定的文法，才能正确、合理地被翻译成另一种语言。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Allen与编译原理 - 1. 引论</title>
       <link>https://blog.allenwu233.com/zh/posts/principle-of-compilation-1/</link>

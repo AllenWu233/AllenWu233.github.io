@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.allenwu233.com/zh/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,27 +15,8 @@
                 href="https://blog.allenwu233.com/zh/"
                 />
   </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/allen%E4%B8%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/posts/principle-of-compilation-1/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/categories/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.allenwu233.com/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.allenwu233.com/zh/categories/"
-                />
-  </url><url>
     <loc>https://blog.allenwu233.com/zh/posts/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -47,8 +28,27 @@
                 href="https://blog.allenwu233.com/zh/posts/"
                 />
   </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/allen%E4%B8%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/principle-of-compilation-2/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/categories/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.allenwu233.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.allenwu233.com/zh/categories/"
+                />
+  </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -61,9 +61,15 @@
                 />
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.allenwu233.com/zh/posts/principle-of-compilation-1/</loc>
     <lastmod>2025-04-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/cd/</loc>
@@ -213,9 +219,6 @@
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E6%89%8B%E4%B9%A6/</loc>
     <lastmod>2022-11-25T22:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.allenwu233.com/zh/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
-    <lastmod>2022-11-25T21:33:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.allenwu233.com/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2022-11-25T21:33:00+08:00</lastmod>
