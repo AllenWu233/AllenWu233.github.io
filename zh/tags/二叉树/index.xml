@@ -13,8 +13,7 @@
       <link>https://blog.allenwu233.com/zh/posts/principle-of-compilation-2/</link>
       <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.allenwu233.com/zh/posts/principle-of-compilation-2/</guid>
-      <description>&lt;h2 id=&#34;21-文法的直观概念&#34;&gt;2.1 文法的直观概念&lt;/h2&gt;
-&lt;p&gt;像是英文、中文的语法，编译原理也有自己的一套文法——毕竟编译就是翻译语言的过程，而语言需要遵循规定的文法，才能正确、合理地被翻译成另一种语言。&lt;/p&gt;</description>
+      <description>用递归来表示文法</description>
     </item>
     <item>
       <title>数据结构之美-二叉树</title>
