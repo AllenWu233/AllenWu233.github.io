@@ -4,7 +4,7 @@
     <title>Tags on 逍遥乡 | Allen&#39;s World</title>
     <link>https://blog.allenwu233.com/zh/tags/</link>
     <description>Recent content in Tags on 逍遥乡 | Allen&#39;s World</description>
-    <generator>Hugo -- 0.147.8</generator>
+    <generator>Hugo -- 0.147.9</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.allenwu233.com/zh/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -27,27 +27,6 @@
       <link>https://blog.allenwu233.com/zh/tags/llm/</link>
       <pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.allenwu233.com/zh/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>编译原理</title>
-      <link>https://blog.allenwu233.com/zh/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>二叉树</title>
-      <link>https://blog.allenwu233.com/zh/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>算法</title>
-      <link>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     <item>
@@ -198,6 +177,13 @@
       <description></description>
     </item>
     <item>
+      <title>算法</title>
+      <link>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Tue, 25 Apr 2023 15:59:32 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>题解</title>
       <link>https://blog.allenwu233.com/zh/tags/%E9%A2%98%E8%A7%A3/</link>
       <pubDate>Tue, 25 Apr 2023 15:59:32 +0800</pubDate>
@@ -258,6 +244,13 @@
       <link>https://blog.allenwu233.com/zh/tags/%E6%89%8B%E4%B9%A6/</link>
       <pubDate>Fri, 25 Nov 2022 22:00:00 +0800</pubDate>
       <guid>https://blog.allenwu233.com/zh/tags/%E6%89%8B%E4%B9%A6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>二叉树</title>
+      <link>https://blog.allenwu233.com/zh/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
       <description></description>
     </item>
     <item>
