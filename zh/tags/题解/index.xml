@@ -6,8 +6,15 @@
     <description>Recent content in 题解 on 逍遥乡 | Allen&#39;s World</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 25 Apr 2023 15:59:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jul 2023 15:16:44 +0800</lastBuildDate>
     <atom:link href="https://blog.allenwu233.com/zh/tags/%E9%A2%98%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“范式杯”2023牛客暑期多校训练营1 K - Subdivision</title>
+      <link>https://blog.allenwu233.com/zh/posts/nowcoder-k-subdivision/</link>
+      <pubDate>Tue, 18 Jul 2023 15:16:44 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/nowcoder-k-subdivision/</guid>
+      <description>基础的BFS</description>
+    </item>
     <item>
       <title>Codeforces Round 867 (Div. 3) 题解</title>
       <link>https://blog.allenwu233.com/zh/posts/contest-1822/</link>
