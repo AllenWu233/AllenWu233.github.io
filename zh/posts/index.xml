@@ -13,7 +13,7 @@
       <link>https://blog.allenwu233.com/zh/posts/temporal-experience-density/</link>
       <pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.allenwu233.com/zh/posts/temporal-experience-density/</guid>
-      <description>“哥们深夜研究心理学”</description>
+      <description>“深夜研究心理学”</description>
     </item>
     <item>
       <title>记一次CD保护盒定制</title>
@@ -65,6 +65,20 @@
       <description>人生得意须尽欢，莫使金樽空对月</description>
     </item>
     <item>
+      <title>Codeforces Round 874 (Div. 3) D.Flipper 题解</title>
+      <link>https://blog.allenwu233.com/zh/posts/contest-1833-d/</link>
+      <pubDate>Thu, 25 May 2023 21:56:26 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/contest-1833-d/</guid>
+      <description>&lt;h2 id=&#34;题目&#34;&gt;题目&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://codeforces.com/contest/1833/problem/D&#34;&gt;D. Flipper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：给出一个 $ n $ 排列&lt;code&gt;p[]&lt;/code&gt;，选择一个区间&lt;code&gt;[l, r]&lt;/code&gt; (l &amp;lt;= r)，构造一个新的排列：&lt;code&gt;a[r+1 : ] + a[l : r].reverse() + a[1 : l]&lt;/code&gt; (在这里我用 Python 切片表示，即左闭右开区间)，求能构造出的字典序最大的排列&lt;/p&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
+&lt;p&gt;假设答案用 $ ans_i $ 表示&lt;/p&gt;
+&lt;p&gt;初步分析，当 $ r = n $ 时，$ans_1 = r_{n}$，否则 $ans_1 = r_{n+1}$。为了保证字典序最大，我们需要选取尽可能大的 $ r $&lt;/p&gt;
+&lt;p&gt;易知当 $ p_1 = n $ 时，$ r $ 应选取 $ n-1 $，否则选取 $ n $&lt;/p&gt;
+&lt;p&gt;确定 $ r $ 后再来看 $ l $，这里有个技巧：先输出&lt;code&gt;a[r+1 : ] + a[r]&lt;/code&gt;，再从&lt;code&gt;a[r-1]&lt;/code&gt;开始往前遍历，只要 &lt;code&gt;a[i] &amp;lt; a[1]&lt;/code&gt;（说明如果 $ l $ 选 $ i $ 的话，操作之后字典序反而变小，所以 $ l $ 选 $ i+1 $），就马上输出 &lt;code&gt;a[1 : i+1]&lt;/code&gt; (注意这里还是左闭右开区间)&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>World, Hello!</title>
       <link>https://blog.allenwu233.com/zh/posts/worldhello/</link>
       <pubDate>Wed, 24 May 2023 22:51:26 +0800</pubDate>
@@ -105,6 +119,27 @@
       <pubDate>Fri, 27 Jan 2023 15:47:55 +0800</pubDate>
       <guid>https://blog.allenwu233.com/zh/posts/8-nums/</guid>
       <description>Hash与BFS</description>
+    </item>
+    <item>
+      <title>UVa 12166 Equilibrium Mobile</title>
+      <link>https://blog.allenwu233.com/zh/posts/uva12166/</link>
+      <pubDate>Thu, 12 Jan 2023 16:57:44 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/uva12166/</guid>
+      <description>二叉树与天平</description>
+    </item>
+    <item>
+      <title>Uva 1600 Patrol Robot</title>
+      <link>https://blog.allenwu233.com/zh/posts/uva1600/</link>
+      <pubDate>Wed, 11 Jan 2023 12:30:00 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/uva1600/</guid>
+      <description>BFS求最短路的升级版</description>
+    </item>
+    <item>
+      <title>UVa 439 Knight Moves</title>
+      <link>https://blog.allenwu233.com/zh/posts/uva439/</link>
+      <pubDate>Mon, 09 Jan 2023 18:33:00 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/uva439/</guid>
+      <description>来下国际象棋吧</description>
     </item>
     <item>
       <title>生成和检查的有机结合-回溯法</title>

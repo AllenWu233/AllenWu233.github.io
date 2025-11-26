@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>贪心 on 逍遥乡 | Allen&#39;s World</title>
+    <link>https://blog.allenwu233.com/zh/tags/%E8%B4%AA%E5%BF%83/</link>
+    <description>Recent content in 贪心 on 逍遥乡 | Allen&#39;s World</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 25 May 2023 21:56:26 +0800</lastBuildDate>
+    <atom:link href="https://blog.allenwu233.com/zh/tags/%E8%B4%AA%E5%BF%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Codeforces Round 874 (Div. 3) D.Flipper 题解</title>
+      <link>https://blog.allenwu233.com/zh/posts/contest-1833-d/</link>
+      <pubDate>Thu, 25 May 2023 21:56:26 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/contest-1833-d/</guid>
+      <description>&lt;h2 id=&#34;题目&#34;&gt;题目&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://codeforces.com/contest/1833/problem/D&#34;&gt;D. Flipper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：给出一个 $ n $ 排列&lt;code&gt;p[]&lt;/code&gt;，选择一个区间&lt;code&gt;[l, r]&lt;/code&gt; (l &amp;lt;= r)，构造一个新的排列：&lt;code&gt;a[r+1 : ] + a[l : r].reverse() + a[1 : l]&lt;/code&gt; (在这里我用 Python 切片表示，即左闭右开区间)，求能构造出的字典序最大的排列&lt;/p&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
+&lt;p&gt;假设答案用 $ ans_i $ 表示&lt;/p&gt;
+&lt;p&gt;初步分析，当 $ r = n $ 时，$ans_1 = r_{n}$，否则 $ans_1 = r_{n+1}$。为了保证字典序最大，我们需要选取尽可能大的 $ r $&lt;/p&gt;
+&lt;p&gt;易知当 $ p_1 = n $ 时，$ r $ 应选取 $ n-1 $，否则选取 $ n $&lt;/p&gt;
+&lt;p&gt;确定 $ r $ 后再来看 $ l $，这里有个技巧：先输出&lt;code&gt;a[r+1 : ] + a[r]&lt;/code&gt;，再从&lt;code&gt;a[r-1]&lt;/code&gt;开始往前遍历，只要 &lt;code&gt;a[i] &amp;lt; a[1]&lt;/code&gt;（说明如果 $ l $ 选 $ i $ 的话，操作之后字典序反而变小，所以 $ l $ 选 $ i+1 $），就马上输出 &lt;code&gt;a[1 : i+1]&lt;/code&gt; (注意这里还是左闭右开区间)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

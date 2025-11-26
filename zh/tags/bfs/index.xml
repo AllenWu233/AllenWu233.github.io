@@ -22,5 +22,19 @@
       <guid>https://blog.allenwu233.com/zh/posts/8-nums/</guid>
       <description>Hash与BFS</description>
     </item>
+    <item>
+      <title>Uva 1600 Patrol Robot</title>
+      <link>https://blog.allenwu233.com/zh/posts/uva1600/</link>
+      <pubDate>Wed, 11 Jan 2023 12:30:00 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/uva1600/</guid>
+      <description>BFS求最短路的升级版</description>
+    </item>
+    <item>
+      <title>UVa 439 Knight Moves</title>
+      <link>https://blog.allenwu233.com/zh/posts/uva439/</link>
+      <pubDate>Mon, 09 Jan 2023 18:33:00 +0800</pubDate>
+      <guid>https://blog.allenwu233.com/zh/posts/uva439/</guid>
+      <description>来下国际象棋吧</description>
+    </item>
   </channel>
 </rss>
