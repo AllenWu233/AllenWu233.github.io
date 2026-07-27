@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# block taxonomy pages to save crawl budget
+Disallow: /series/
+Disallow: /categories/
+Disallow: /tags/
+
+# block system directories
+Disallow: /assets/
+Disallow: /content/
+Disallow: /archetypes/
+Disallow: /themes/
+
+# sitemap location
+Sitemap: https://lunarithm.space/sitemap.xml
