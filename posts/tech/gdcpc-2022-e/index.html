@@ -88,14 +88,35 @@
   <h1>GDCPC 2022 E 黑白大陆</h1>
 </header>
 <div class="content__body"><h2 id="题目">题目</h2>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/GDCPC-2022-E.jpg"
-  alt=""
-  
-  loading="lazy"
-/>
-</p>
-<h2 id="分析">分析</h2>
+<blockquote>
+<p><strong>代码长度限制</strong> 16 KB<br>
+<strong>Java (javac)</strong><br>
+时间限制 2000 ms<br>
+内存限制 512 MB</p>
+<p><strong>其他编译器</strong><br>
+时间限制 1000 ms<br>
+内存限制 512 MB</p>
+</blockquote>
+<hr>
+<p>毕业出了魔法学院的 YahAHa 回到了他的家乡&mdash;黑白大陆。</p>
+<p>黑白大陆是一块由 $n \times m$ 个格子组成的方形大陆，在每一个格子上标有黑色或白色，在黑白大陆上，不同颜色的相邻格子之间时常会发生战争。</p>
+<p>热爱和平的 YahAHa 想要把黑白大陆统一成象征和平的白色。</p>
+<p>YahAHa 会一种神奇的魔法，他可以把<strong>连通的白色区域变成黑色</strong>，<strong>连通的黑色区域变成白色</strong>。</p>
+<p>YahAHa 不想消耗太多法力，于是他想知道，把整个黑白大陆变成白色最少需要使用几次魔法。</p>
+<hr>
+<p><strong>输入格式</strong><br>
+第一行两个整数 $n, m$（$1 \leq n, m \leq 50$）表示黑白大陆的大小。<br>
+接下来 $n$ 行，每行 $m$ 个整数 $a_{i,j}$ 表示黑白大陆每一个格子的颜色。（$0 \leq a_{i,j} \leq 1$，其中 $0$ 表示代表和平的白色，$1$ 表示黑色）</p>
+<p><strong>输出格式</strong><br>
+一行一个整数，表示把整个黑白大陆变成白色最少需要使用几次魔法。</p>
+<p><strong>输入样例</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>3 3
+</span></span><span style="display:flex;"><span>1 0 1
+</span></span><span style="display:flex;"><span>0 1 0
+</span></span><span style="display:flex;"><span>1 0 1
+</span></span></code></pre></div><p><strong>输出样例</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>3
+</span></span></code></pre></div><h2 id="分析">分析</h2>
 <blockquote>
 <p>题意：给出一个 $ m \times n $ 的布尔矩阵，每次可以进行一下两种操作之一：</p>
 <ul>
@@ -255,8 +276,102 @@ $O(nm)$ + $O((n + m) \times (n + m + \sum_{u=1}^{n + m} d^{+}(u)))$</p>
 </span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="数据生成器">数据生成器</h2>
-<p>附赠数据生成器</p>
+</span></span></code></pre></div><h2 id="优化2026-07-27">优化（2026-07-27）</h2>
+<p>显然两个 DFS 可以合并成一个，下面是 Kimi-2.6 给出的代码（未验证）。</p>
+<h3 id="kimi-26">Kimi-2.6</h3>
+<p><strong>思路没有复杂化，但代码实现确实可以简化。</strong></p>
+<p>这道题的标准做法就是「连通块缩点 → 建图 → 求带权图的偏心距」，原题解的核心逻辑（DFS 找连通块 + BFS 求最短路）是合理且必要的。不过原代码用了两个几乎一样的 DFS、用 <code>vis</code> 正负号来区分颜色等，属于实现层面的冗余。</p>
+<h3 id="为什么思路是自然的">为什么思路是自然的？</h3>
+<ol>
+<li>
+<p><strong>操作的本质是连通块级别的</strong>：<br>
+每次操作会将整个同色连通块翻转，然后与相邻的异色连通块合并。因此单个格子没有独立意义，必须把连通块当作一个「超级节点」。</p>
+</li>
+<li>
+<p><strong>扩散过程等价于图上的最短路</strong>：<br>
+从某个连通块出发，每操作一次，当前区域就向相邻连通块扩散一层。覆盖到距离为 $d$ 的连通块恰好需要 $d$ 步。如果最后被覆盖的连通块是黑色（1），翻转后整个大图会变成黑色，需要再多操作一次才能全变 0。因此总代价为 $d + \text{color}(v)$。</p>
+</li>
+<li>
+<p><strong>问题转化为</strong>：<br>
+对每个起点 $s$，求 $\max_{v} {\text{dist}(s, v) + \text{color}(v)}$，再对所有 $s$ 取最小值。这就是原题解做的 BFS。</p>
+</li>
+</ol>
+<h3 id="代码可以如何简化">代码可以如何简化？</h3>
+<p>原题解的两个 DFS（<code>dfs1</code> / <code>dfs0</code>）可以合并为一个；<code>vis</code> 数组直接用正编号存储，颜色单独用数组记录；建图时统一遍历相邻格子即可。</p>
+<p>下面是一个更简洁的等价实现（核心逻辑不变，代码量更少）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m, a[<span style="color:#ae81ff">55</span>][<span style="color:#ae81ff">55</span>], vis[<span style="color:#ae81ff">55</span>][<span style="color:#ae81ff">55</span>], col[<span style="color:#ae81ff">2505</span>], idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> G[<span style="color:#ae81ff">2505</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dx[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}, dy[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 一个 DFS 处理所有连通块
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> c) {
+</span></span><span style="display:flex;"><span>    vis[x][y] <span style="color:#f92672">=</span> idx;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> nx <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> dx[i], ny <span style="color:#f92672">=</span> y <span style="color:#f92672">+</span> dy[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (nx <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> nx <span style="color:#f92672">&gt;</span> n <span style="color:#f92672">||</span> ny <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> ny <span style="color:#f92672">&gt;</span> m) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (a[nx][ny] <span style="color:#f92672">!=</span> c <span style="color:#f92672">||</span> vis[nx][ny]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        dfs(nx, ny, c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            cin <span style="color:#f92672">&gt;&gt;</span> a[i][j];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1. 找连通块
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>vis[i][j]) {
+</span></span><span style="display:flex;"><span>                col[<span style="color:#f92672">++</span>idx] <span style="color:#f92672">=</span> a[i][j];
+</span></span><span style="display:flex;"><span>                dfs(i, j, a[i][j]);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 2. 建图（遍历相邻格子，不同连通块就连边）
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; k <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; k<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> ni <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> dx[k], nj <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> dy[k];
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (ni <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> ni <span style="color:#f92672">&gt;</span> n <span style="color:#f92672">||</span> nj <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> nj <span style="color:#f92672">&gt;</span> m) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> vis[i][j], v <span style="color:#f92672">=</span> vis[ni][nj];
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (u <span style="color:#f92672">!=</span> v) G[u].push_back(v);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 3. 对每个起点 BFS
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e9</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> s <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; s <span style="color:#f92672">&lt;=</span> idx; s<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> dist(idx <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> q;
+</span></span><span style="display:flex;"><span>        q.push(s); dist[s] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>q.empty()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> q.front(); q.pop();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> v : G[u]) <span style="color:#66d9ef">if</span> (dist[v] <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                dist[v] <span style="color:#f92672">=</span> dist[u] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                q.push(v);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> idx; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            mx <span style="color:#f92672">=</span> max(mx, dist[i] <span style="color:#f92672">+</span> col[i]);  <span style="color:#75715e">// 黑块(+1)，白块(+0)
+</span></span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> min(ans, mx);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>主要简化点</strong>：</p>
+<ul>
+<li>一个通用 DFS 代替两个颜色特化 DFS</li>
+<li><code>vis</code> 只存编号，颜色由 <code>col</code> 数组显式记录</li>
+<li>建图逻辑统一，不依赖 DFS 内部处理边界</li>
+</ul>
+<h3 id="还能不能更简单">还能不能更简单？</h3>
+<p>对于 $50 \times 50$（最多约 2500 个连通块）的数据范围，$O(V \cdot (V+E))$ 的 BFS 已经足够快，不需要更复杂的优化。</p>
+<p>如果硬要追求理论上的「更简单」，可以利用该图是<strong>二分图</strong>的性质：所有白点到黑点的距离为奇数，白点到白点为偶数。因此从白点出发的答案一定是偶数，从黑点出发一定是奇数。但这只是奇偶性观察，并不能直接推出一个 $O(1)$ 或 $O(V)$ 的闭式解来替代 BFS。</p>
+<p><strong>结论</strong>：算法框架已经是最简路径之一，不必再寻找更高层的抽象；但代码实现上完全可以写得更干净。</p>
+<h2 id="附赠数据生成器">附赠数据生成器</h2>
 <blockquote>
 <p>E_in.py</p>
 </blockquote>
@@ -391,7 +506,15 @@ $O(nm)$ + $O((n + m) \times (n + m + \sum_{u=1}^{n + m} d^{+}(u)))$</p>
     <li><a href="#题目">题目</a></li>
     <li><a href="#分析">分析</a></li>
     <li><a href="#代码">代码</a></li>
-    <li><a href="#数据生成器">数据生成器</a></li>
+    <li><a href="#优化2026-07-27">优化（2026-07-27）</a>
+      <ol>
+        <li><a href="#kimi-26">Kimi-2.6</a></li>
+        <li><a href="#为什么思路是自然的">为什么思路是自然的？</a></li>
+        <li><a href="#代码可以如何简化">代码可以如何简化？</a></li>
+        <li><a href="#还能不能更简单">还能不能更简单？</a></li>
+      </ol>
+    </li>
+    <li><a href="#附赠数据生成器">附赠数据生成器</a></li>
     <li><a href="#总结">总结</a></li>
   </ol>
 </nav>  
