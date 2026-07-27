@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>Allen的图论基础 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="Allen的图论基础 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/allen-graph/" />
+
+  <meta property="og:description" content="比如......一笔画问题？ &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>Allen的图论基础</h1>
+</header>
+<div class="content__body"><h2 id="引言">引言</h2>
+<h3 id="什么是图论">什么是图论？</h3>
+<p><strong>图论</strong>是离散数学的一个十分有趣的分支，以 <strong>“图”</strong> 为主要研究对象，研究图的内在结构，探索其中的组合性质、代数性质和拓扑性质，找到满足条件的“好图”等。比如大名鼎鼎的七桥问题（欧拉回路）就属于图论的范畴</p>
+<h3 id="那么图又是什么呢">那么，图又是什么呢？</h3>
+<p>简单来说，<strong>图（Graph）</strong> 是由多个点以及连接这些点的线所构成的对象。具体定义详见<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)">维基百科·图</a>、<a href="https://oi-wiki.org/graph/concept/">OI Wiki·图论相关概念</a></p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/myblog@main/6n-graf.svg"
+  alt="图"
+  
+  loading="lazy"
+/>
+</p>
+<p>在计算机中，图也是一种相当重要的数据结构，最短路、最小生成树、网络流等问题往往需要图来实现</p>
+<h2 id="图的存储">图的存储</h2>
+<blockquote>
+<p>本文约定用 $ n $ 代指图的点数，用 $ m $ 代指图的边数，用 $ d^+(u) $ 代指点 $ u $ 的出度，即以 $ u $ 为出发点的边数</p>
+</blockquote>
+<h3 id="邻接矩阵">邻接矩阵</h3>
+<h4 id="方法">方法</h4>
+<p>从图的概念我们知道，图由点集和边集组成。而我们可以用一个二维数组<code>G</code>来存边，<code>G[u][v] = 1</code>表示存在从<code>u</code>到<code>v</code>的边。如果边带权值<code>w</code>，可以令<code>G[u][v] = w</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> vis[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> G[maxn][maxn];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 查找边(u,v)是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">find_edge</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> v) { <span style="color:#66d9ef">return</span> G[u][v]; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> u) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (vis[u]) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    vis[u] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> u <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; v <span style="color:#f92672">&lt;=</span> n; v<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (G[u][v]) dfs(v);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 一共有n个点,m条边
+</span></span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u, v, w;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> u <span style="color:#f92672">&gt;&gt;</span> v <span style="color:#f92672">&gt;&gt;</span> w;
+</span></span><span style="display:flex;"><span>        G[u][v] <span style="color:#f92672">=</span> w;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        memset(vis, false, <span style="color:#66d9ef">sizeof</span>(vis));
+</span></span><span style="display:flex;"><span>        dfs(i);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> find_edge(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> find_edge(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 输入示例：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">5 6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1 2 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2 3 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1 3 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">3 1 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">3 4 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">5 2 7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span></code></pre></div><blockquote>
+<p>例题：<a href="https://www.luogu.com.cn/problem/P1359">P1359 租用游艇</a></p>
+</blockquote>
+<p>利用邻接矩阵来存储图，注意在本题中邻接矩阵为半矩阵（类似于上三角矩阵，但主对角线元素为0， 即<code>a[i][i] = 0</code>）。需要注意的是，单纯dfs会超时，需要剪枝</p>
+<p>动态规划也可以解，而且代码非常简洁（貌似本来是就动态规划的题，被我硬生生写成dfs😂）</p>
+<h4 id="复杂度">复杂度</h4>
+<p>查询是否存在某条边：$ O(1) $</p>
+<p>遍历一个点的所有出边：$ O(n) $</p>
+<p>遍历整张图：$ O(n^2) $</p>
+<p>空间复杂度：$ O(n^2) $</p>
+<h4 id="应用">应用</h4>
+<p>邻接矩阵只适用于没有重边（或重边可以忽略）的情况</p>
+<p>其最显著的优点是可以$ O(1) $查询一条边是否存在</p>
+<p>由于邻接矩阵在<strong>稀疏图</strong>上效率很低（尤其是在点数较多的图上，空间无法承受），所以一般只会在<strong>稠密图</strong>上使用邻接矩阵</p>
+<p>（以上关于复杂度和应用的资料来源于<a href="https://oi-wiki.org/graph/save/">OI Wiki·图的存储</a>，下同）</p>
+<h3 id="邻接表">邻接表</h3>
+<h4 id="方法-1">方法</h4>
+<p>我们可以为各个点分别存储与它相关联的边，如：</p>
+<pre tabindex="0"><code>1: --&gt;a --&gt;b --&gt;c
+2: --&gt;b --&gt;c
+3: --&gt;c --&gt;d --&gt;e
+4: --&gt;a --&gt;d
+</code></pre><p>可以看出邻接表是一种链表，它是以任意顺序来存储边的。但在算法竞赛中，我们可以用数组或<code>vector</code>来模拟链表</p>
+<p>我们也可以存储边的终点，比如下图：</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/myblog@main/graph_1.jpg"
+  alt=""
+  
+  loading="lazy"
+/>
+</p>
+<pre tabindex="0"><code>1: [2, 3, 5]
+2: [5]
+3: [1]
+4: [3]
+5: []
+</code></pre><p>如果是无向边，只需两个端点都存一遍即可，比如无向边<code>(1, 2)</code>:</p>
+<pre tabindex="0"><code>1: [2]
+2: [1]
+</code></pre><p>下面是C++代码实现：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Node</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v;  <span style="color:#75715e">// 边的终点
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> w;  <span style="color:#75715e">// 边权
+</span></span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vis;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>Node<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&gt;</span> G;  <span style="color:#75715e">// 存储点 u 的所有出边的相关信息（终点、边权等）
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 查找边(u,v)是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">find_edge</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> v) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">int</span>)G[u].size(); i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (G[u][i].v <span style="color:#f92672">==</span> v) <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> u) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (vis[u]) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    vis[u] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> u <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">int</span>)G[u].size(); i<span style="color:#f92672">++</span>) dfs(G[u][i].v);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 一共有n个点,m条边
+</span></span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vis.resize(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, false);
+</span></span><span style="display:flex;"><span>    G.resize(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u, v, w;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> u <span style="color:#f92672">&gt;&gt;</span> v <span style="color:#f92672">&gt;&gt;</span> w;
+</span></span><span style="display:flex;"><span>        G[u].push_back({v, w});
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        dfs(i);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> find_edge(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="复杂度-1">复杂度</h4>
+<p>查询是否存在 u 到 v 的边：$ O(d^+(u)) $ （如果事先进行了排序就可以使用<strong>二分查找</strong>做到$ O(\log(d^+(u))) $ ）</p>
+<p>遍历点 u 的所有出边：$ O(d^+(u)) $</p>
+<p>遍历整张图：$ O(n+m) $</p>
+<p>空间复杂度：$ O(m) $</p>
+<h4 id="应用-1">应用</h4>
+<p>存各种图都很适合，除非有特殊需求（如需要快速查询一条边是否存在，且点数较少，可以使用邻接矩阵）</p>
+<p>尤其适用于需要对一个点的所有出边进行排序的场合</p>
+<h3 id="链式前向星">链式前向星</h3>
+<h4 id="方法-2">方法</h4>
+<p>邻接表的升级版，其实就是静态建立的邻接表</p>
+<p>其特点是对边进行编号，第一条边编号为<code>0</code></p>
+<p>关键是理解一下变量：</p>
+<ul>
+<li>边集数组：<code>e[i]</code>存储第 i 条边的边权</li>
+<li><code>ne</code>，表示与这个边起点相同的上一条边的编号</li>
+<li>头结点数组：<code>h[i]</code>表示以 i 为起点的最后一条边的编号</li>
+</ul>
+<p><code>h</code>数组一般初始化为-1，遍历图时<code>ne = -1</code>做为终止条件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m, idx;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> h[N], ne[N], to[N], e[N], vis[N];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// h[u]初始值为 -1
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add_edge</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> v, <span style="color:#66d9ef">int</span> w) {
+</span></span><span style="display:flex;"><span>    to[idx] <span style="color:#f92672">=</span> v;     <span style="color:#75715e">// 终点
+</span></span></span><span style="display:flex;"><span>    e[idx] <span style="color:#f92672">=</span> w;      <span style="color:#75715e">// 边权
+</span></span></span><span style="display:flex;"><span>    ne[idx] <span style="color:#f92672">=</span> h[u];  <span style="color:#75715e">// 以 u 为起点的上一条边的编号
+</span></span></span><span style="display:flex;"><span>    h[u] <span style="color:#f92672">=</span> idx<span style="color:#f92672">++</span>;    <span style="color:#75715e">// 更新以 u 为起点上一条边的编号
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> u) {
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> u <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    vis[u] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> h[u]; <span style="color:#f92672">~</span>i; i <span style="color:#f92672">=</span> ne[i]) {  <span style="color:#75715e">// ~i 相当于 i != -1
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>vis[to[i]]) dfs(to[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span>() {   <span style="color:#75715e">// 遍历各点出边终点
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;: &#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> h[i]; <span style="color:#f92672">~</span>j; j <span style="color:#f92672">=</span> ne[j])
+</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> to[j] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    memset(h, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#66d9ef">sizeof</span>(h));  <span style="color:#75715e">// 初始化；ne[i] = -1表示到达终点
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 存图
+</span></span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u, v, w;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> u <span style="color:#f92672">&gt;&gt;</span> v <span style="color:#f92672">&gt;&gt;</span> w;
+</span></span><span style="display:flex;"><span>        add_edge(u, v, w);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// add_edge(v, u, w);  // 无向边
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 输出存储过程
+</span></span></span><span style="display:flex;"><span>        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;to[&#34;</span><span style="color:#f92672">&lt;&lt;</span>idx<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;] = &#34;</span><span style="color:#f92672">&lt;&lt;</span>to[idx<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;; &#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;ne[&#34;</span><span style="color:#f92672">&lt;&lt;</span>idx<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;] = &#34;</span><span style="color:#f92672">&lt;&lt;</span>ne[idx<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;; &#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;h[&#34;</span><span style="color:#f92672">&lt;&lt;</span>u<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;] = &#34;</span><span style="color:#f92672">&lt;&lt;</span>h[u]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        memset(vis, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(vis));
+</span></span><span style="display:flex;"><span>        dfs(i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 输出存储结果
+</span></span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;h[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> h[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, &#34;</span>;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;ne[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> ne[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, &#34;</span>;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;to[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> to[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, &#34;</span>;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;e[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;,</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*  输入示例：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">4 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1 2 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2 4 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">4 3 15
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span></code></pre></div><h4 id="复杂度-2">复杂度</h4>
+<p>查询是否存在 u 到 v 的边：$ O(d^+(u)) $</p>
+<p>遍历点 u 的所有出边：$ O(d^+(u)) $</p>
+<p>遍历整张图：$ O(n+m) $</p>
+<p>空间复杂度：$ O(m) $</p>
+<h4 id="应用-2">应用</h4>
+<p>存各种图都很适合，但不能快速查询一条边是否存在，也不能方便地对一个点的出边进行排序</p>
+<p>优点是边是带编号的，有时会非常有用，而且如果<code>idx</code>的初始值为奇数，存双向边时<code>i ^ 1</code>即是<code>i</code>的反边（常用于<strong>网络流</strong>）</p>
+<h4 id="例题">例题</h4>
+<p><a href="https://www.luogu.com.cn/problem/P3916">P3916 图的遍历</a></p>
+<p>这道题的技巧是反向存图，以便反向查找各点所能到达的编号最大的点，即：</p>
+<pre tabindex="0"><code>cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;
+add_edge(v, u);
+</code></pre><p>反向DFS得出结果：</p>
+<pre tabindex="0"><code>for (int i = n; i &gt; 0; i--)
+    if (!vis[i]) dfs(i, i);
+</code></pre><p>最后输出<code>vis[]</code>即可</p>
+<h2 id="图论相关问题">图论相关问题</h2>
+<h3 id="拓扑排序">拓扑排序</h3>
+<p>在<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E8%AE%BA" title="图论">图论</a>中，由一个<a href="https://zh.wikipedia.org/wiki/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE" title="有向无环图">有向无环图</a>的顶点组成的序列，当且仅当满足下列条件时，才能称为该<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE" title="图">图</a>的一个拓扑排序（英语：<strong>Topological sorting</strong>）：</p>
+<ul>
+<li>
+<ol>
+<li>序列中包含每个顶点，且每个顶点只出现一次；</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>若A在序列中排在B的前面，则在图中不存在从B到A的<a href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E5%BE%84_(%E5%9B%BE%E8%AE%BA)" title="路径 (图论)">路径</a>。</li>
+</ol>
+</li>
+</ul>
+<p>所谓拓扑排序，就是由一个偏序关系得到一个全序关系。通俗来讲，就是要按照一个特定次序来遍历图的所有序号：遍历一个结点前，需保证指向它的所有结点已经遍历。可以看出，只有有向无环图（<strong>DAG</strong>）才有拓扑序</p>
+<p>我们可以构思出这样一个算法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>L <span style="color:#f92672">=</span> []  <span style="color:#75715e"># 拓扑序</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> 存在结点入度为1<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>    任选一个入度为1的结点u
+</span></span><span style="display:flex;"><span>    L<span style="color:#f92672">.</span>append(u)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> v <span style="color:#f92672">in</span> G[u]:
+</span></span><span style="display:flex;"><span>        v的度数 <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    从图中删除u结点
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(L) <span style="color:#f92672">==</span> 初始图总结点数<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>  <span style="color:#75715e"># 拓扑序存在</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>比如下图：
+<img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/myblog@main/topo.svg"
+  alt=""
+  
+  loading="lazy"
+/>
+</p>
+<pre tabindex="0"><code># 它的拓扑序可以是：
+1 2 3 4 5
+# 也可以是：
+1 3 2 4 5
+</code></pre><p>可以用BFS或DFS来实现拓扑排序。由于只需遍历一遍结点，复杂度相当客观，为$O(V+E)$</p>
+<h4 id="bfs">BFS</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m, _in[N];  <span style="color:#75715e">// 点数，边数，入度
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> vis[N];
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> G;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> topo;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">toposort</span>() {
+</span></span><span style="display:flex;"><span>    queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> q;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>_in[i]) q.push(i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>q.empty()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> q.front();
+</span></span><span style="display:flex;"><span>        q.pop();
+</span></span><span style="display:flex;"><span>        topo.emplace_back(u);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>v : G[u]) {
+</span></span><span style="display:flex;"><span>            _in[v]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>_in[v]) q.push(v);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int</span>)topo.size() <span style="color:#f92672">==</span> n;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="dfs">DFS</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> i) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>_in[i] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>vis[i] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>tmp[i]) {
+</span></span><span style="display:flex;"><span>        topo.emplace_back(i);
+</span></span><span style="display:flex;"><span>        vis[i] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>        tmp[i] <span style="color:#f92672">=</span> true;  <span style="color:#75715e">// 临时标记。如果遍历到已标记结点，说明不是DAG
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>j : G[i]) {
+</span></span><span style="display:flex;"><span>            _in[j]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            dfs(j);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        tmp[i] <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">toposort</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) dfs(i);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ((<span style="color:#66d9ef">int</span>)topo.size() <span style="color:#f92672">==</span> n);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="例题-1">例题</h4>
+<blockquote>
+<p><a href="https://codeforces.com/contest/1593/problem/E">Codeforces Round 748 (Div. 3) E.Gardener and Tree</a></p>
+</blockquote>
+<p>题意:给出一棵无根树，每次操作删除所有叶子结点，问k次操作后还剩几个结点</p>
+<p>类比拓扑排序，每次操作选出度数为1的结点，遍历其终边并使终点度数减1,然后删除这些结点。注意：题目给出的树是无向的，因此不能直接用DFS（比如树为一条单链，DFS会直接从一头遍历到另一头），而BFS会更好写，代码也是类似的，唯一的区别是，要判断删点前其邻接点度数为1的情况（说明邻接点已经在队列里了）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define _all(x) (x).begin(), (x).end()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define _abs(x) ((x &gt;= 0) ? (x) : (-x))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PII pair&lt;int, int&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PLL pair&lt;LL, LL&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PDD pair&lt;double, double&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define fi first
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define se second
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> LL;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">double</span> LD;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> ULL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> INF <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x3f3f3f3f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">double</span> PI <span style="color:#f92672">=</span> acos(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">4e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> d[N], vis[N], n, k;  <span style="color:#75715e">// d[]为结点度数，vis[]为操作次数
+</span></span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> G;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span>    memset(d, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(d));
+</span></span><span style="display:flex;"><span>    memset(vis, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(vis));
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> k;
+</span></span><span style="display:flex;"><span>    G.clear();
+</span></span><span style="display:flex;"><span>    G.resize(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u, v;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> u <span style="color:#f92672">&gt;&gt;</span> v;
+</span></span><span style="display:flex;"><span>        G[u].emplace_back(v);
+</span></span><span style="display:flex;"><span>        G[v].emplace_back(u);
+</span></span><span style="display:flex;"><span>        d[u]<span style="color:#f92672">++</span>, d[v]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 基于BFS的拓扑排序
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> q;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (d[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>            q.push(i);
+</span></span><span style="display:flex;"><span>            vis[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>q.empty()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> q.front();
+</span></span><span style="display:flex;"><span>        q.pop();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>v : G[u]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 邻接点度数为1,说明其已经在队列内
+</span></span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (d[v] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                d[v]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 删去点u后v度数为1,v入队
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (d[v] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                    vis[v] <span style="color:#f92672">=</span> vis[u] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                    q.push(v);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vis[i] <span style="color:#f92672">&gt;</span> k) ans<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    IOS
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> test_case;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> test_case;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (test_case<span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>        init();
+</span></span><span style="display:flex;"><span>        solve();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="欧拉道路欧拉回路">欧拉道路、欧拉回路</h3>
+<p>（待填坑……）</p>
+<h3 id="最小生成树">最小生成树</h3>
+<p>（待填坑……）</p>
+<h2 id="附录">附录</h2>
+<h3 id="参考文献">参考文献</h3>
+<p>[1]<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E8%AE%BA">维基百科·图论</a></p>
+<p>[2]<a href="https://oi-wiki.org/graph/concept/">OI Wiki·图论相关概念</a></p>
+<p>[3]<a href="https://oi-wiki.org/graph/save/">OI Wiki·图的存储</a></p>
+<p>[4]宫崎修一《程序员的数学4：图论入门》</p>
+<p>[5]<a href="https://blog.csdn.net/sugarbliss/article/details/86495945">链式前向星&ndash;最通俗易懂的讲解</a></p>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>比如......一笔画问题？</p>
+ 
+<p>
+   2023-02-26
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a>
+      <ol>
+        <li><a href="#什么是图论">什么是图论？</a></li>
+        <li><a href="#那么图又是什么呢">那么，图又是什么呢？</a></li>
+      </ol>
+    </li>
+    <li><a href="#图的存储">图的存储</a>
+      <ol>
+        <li><a href="#邻接矩阵">邻接矩阵</a></li>
+        <li><a href="#邻接表">邻接表</a></li>
+        <li><a href="#链式前向星">链式前向星</a></li>
+      </ol>
+    </li>
+    <li><a href="#图论相关问题">图论相关问题</a>
+      <ol>
+        <li><a href="#拓扑排序">拓扑排序</a></li>
+        <li><a href="#欧拉道路欧拉回路">欧拉道路、欧拉回路</a></li>
+        <li><a href="#最小生成树">最小生成树</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

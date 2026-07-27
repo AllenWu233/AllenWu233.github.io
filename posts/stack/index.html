@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>数据结构初见-栈 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="数据结构初见-栈 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/stack/" />
+
+  <meta property="og:description" content="简单而又不简单 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>数据结构初见-栈</h1>
+</header>
+<div class="content__body"><blockquote>
+<p>如果说算法是程序的灵魂，那么数据结构就如同程序的躯体。
+学习数据结构，一定少不了基础而经典的——<strong>栈(stack)</strong>
+那么，栈是什么？</p>
+</blockquote>
+<h2 id="什么是栈">什么是栈</h2>
+<blockquote>
+<p><del>Stack 是东方Project同人音乐社团「暁records」主唱/作词/偶尔作曲/编曲，拥有的独特嗓音,虽然有些人不喜欢,但是从来不会被忽略,一入耳就能留下永远无法忘记的印象&hellip;&hellip;</del> &gt; <img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/myblog@main/singer_stack.jpg"
+  alt="Stack姐"
+  
+  loading="lazy"
+/>
+</p>
+</blockquote>
+<p>咳咳&hellip;&hellip;正经的：</p>
+<blockquote>
+<p>In computer science, a stack is an abstract data type that serves as a collection of elements, with two main operations:</p>
+<ul>
+<li>Push, which adds an element to the collection, and</li>
+<li>Pop, which removes the most recently added element that was not yet removed.
+&mdash;&mdash;from <a href="https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29">WIKIPEDIA</a></li>
+</ul>
+</blockquote>
+<p>简言之，栈（stack，又称为<strong>堆栈</strong>或<strong>堆叠</strong>）就是符合 <strong>“后进先出”(Last In First Out, LIFO)</strong> 规则的线性存储结构，有<strong>PUSH</strong>和<strong>POP</strong>两种操作</p>
+<ul>
+<li>PUSH: 压栈，把元素压入栈顶</li>
+<li>POP: 弹出：从栈顶把元素弹出
+<img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/myblog@main/img/Lifo_stack.jpg"
+  alt="Lifo stack"
+  
+  loading="lazy"
+/>
+
+由此我们知道，元素只能从栈顶入、从栈顶出，而不能从栈底进出
+把栈比作一个直径为一颗糖果大小、封底无盖的糖果盒，要想存取糖果，只能从开口的一端来——每次操作都只与栈顶元素相关</li>
+</ul>
+<h2 id="代码实现">代码实现</h2>
+<h3 id="例题">例题</h3>
+<p>用一道例题来说明栈的用途：<a href="https://vjudge.net/problem/UVA-514">铁轨(Rails, ACM/ICPC CERC 1997, UVa 514)</a>
+题目略有改动</p>
+<blockquote>
+<p><strong>Summary</strong> &gt; There is a famous railway station in PopPush City. Country there is incredibly hilly. The station was built in last century. Unfortunately, funds were extremely limited that time. It was possible to establish only a surface track. Moreover, it turned out that the station could be only a dead-end one (see picture) and due to lack of available space it could have only one track.</p>
+</blockquote>
+<blockquote>
+<p><strong>Explanation</strong> &gt; The problem requires reordering items on a stack, specifically to determine if the reordering can be done in a single pass.</p>
+</blockquote>
+<blockquote>
+<p><strong>Input Sample</strong></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>5
+</span></span><span style="display:flex;"><span>1 2 3 4 5
+</span></span><span style="display:flex;"><span>5
+</span></span><span style="display:flex;"><span>5 4 1 2 3
+</span></span><span style="display:flex;"><span>6
+</span></span><span style="display:flex;"><span>6 5 4 3 2 1
+</span></span></code></pre></div><blockquote>
+<p><strong>Ouput Sample</strong></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Yes
+</span></span><span style="display:flex;"><span>No
+</span></span><span style="display:flex;"><span>Yes
+</span></span></code></pre></div><h3 id="c">C++</h3>
+<p>C++ 的 STL 提供了包括栈在内等特殊的数据结构，可以很方便地调用。参考了刘汝佳老师的代码</p>
+<blockquote>
+<p>rails.cpp</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stack&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> MAXN <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, target[MAXN];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>n) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> s;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> A <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>target[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (B <span style="color:#f92672">&lt;=</span> n)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (A <span style="color:#f92672">==</span> target[B]) { A<span style="color:#f92672">++</span>; B<span style="color:#f92672">++</span>; }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>s.empty() <span style="color:#f92672">&amp;&amp;</span> s.top() <span style="color:#f92672">==</span> target[B]) { s.pop(); B<span style="color:#f92672">++</span>; }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (A <span style="color:#f92672">&lt;=</span> n) s.push(A<span style="color:#f92672">++</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> { ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">break</span>; }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ok <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;Yes&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;No&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="python">Python</h3>
+<h4 id="python再翻译">Python再翻译</h4>
+<p>Python内置的数据结构相当强大，可以轻松模拟栈</p>
+<blockquote>
+<p>rails.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> input()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(n)
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    target <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    A, B, ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> B <span style="color:#f92672">&lt;=</span> n:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> A <span style="color:#f92672">==</span> target[B]:
+</span></span><span style="display:flex;"><span>            A <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            B <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> len(s) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> s[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> target[B]:
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">.</span>pop(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            B <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> A <span style="color:#f92672">&lt;=</span> n:
+</span></span><span style="display:flex;"><span>            A <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">.</span>append(A)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ok <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Yes&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;No&#34;</span>)
+</span></span></code></pre></div><h4 id="ex-python类实现stack">EX: Python类实现Stack</h4>
+<p>利用<code>list</code>这一好用的内置数据结构，我们可以用Python类来实现栈</p>
+<blockquote>
+<p>stack.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Stack</span>(object):
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;__items&#39;</span>)  <span style="color:#75715e"># 限定Stack类的成员只有__items</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 初始化栈为空列表</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>__items <span style="color:#f92672">=</span> []  <span style="color:#75715e"># 私有属性</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 判断栈是否为空，返回布尔值</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">empty</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>__items <span style="color:#f92672">==</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 返回栈顶元素</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">top</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>__items[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 返回栈的大小</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">size</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> len(self<span style="color:#f92672">.</span>__items)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 把新的元素堆进栈里面（程序员喜欢把这个过程叫做压栈，入栈，进栈……）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">push</span>(self, item):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>__items<span style="color:#f92672">.</span>append(item)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 把栈顶元素丢出去（程序员喜欢把这个过程叫做出栈……）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pop</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>__items<span style="color:#f92672">.</span>pop(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 初始化一个栈对象</span>
+</span></span><span style="display:flex;"><span>    my_stack <span style="color:#f92672">=</span> Stack()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 把&#39;candy_01&#39;丢进栈里</span>
+</span></span><span style="display:flex;"><span>    my_stack<span style="color:#f92672">.</span>push(<span style="color:#e6db74">&#39;candy_01&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 把&#39;candy_02&#39;丢进栈里</span>
+</span></span><span style="display:flex;"><span>    my_stack<span style="color:#f92672">.</span>push(<span style="color:#e6db74">&#39;candy_02&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 看一下栈的大小（有几个元素）</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>size())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 打印栈顶元素</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>top())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 把栈顶元素丢出去，并打印出来</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>pop())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 再看一下栈顶元素是谁</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>top())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 这个时候栈的大小是多少？</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>size())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 再丢一个栈顶元素</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>pop())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 看一下栈的大小</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>size())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 栈是不是空了？</span>
+</span></span><span style="display:flex;"><span>    print(my_stack<span style="color:#f92672">.</span>empty())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 哇~真好吃~</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;Yummy~&#39;</span>)
+</span></span></code></pre></div><p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/myblog@main/img76889557_p0_master1200.jpg"
+  alt="yummy"
+  
+  loading="lazy"
+/>
+</p>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>简单而又不简单</p>
+ 
+<p>
+   2022-10-30
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#什么是栈">什么是栈</a></li>
+    <li><a href="#代码实现">代码实现</a>
+      <ol>
+        <li><a href="#例题">例题</a></li>
+        <li><a href="#c">C++</a></li>
+        <li><a href="#python">Python</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

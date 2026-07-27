@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>生活 on 冰轮韵</title>
+		<link>http://localhost:1313/tags/%E7%94%9F%E6%B4%BB/</link>
+		<description>Recent content in 生活 on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>记一次CD保护盒定制</title>
+				<link>http://localhost:1313/posts/cd-box/</link>
+				<pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/cd-box/</guid>
+				<description>车万碟佬的日常</description>
+			</item>
+			<item>
+				<title>月色入户，欣然起行</title>
+				<link>http://localhost:1313/posts/moon-walking/</link>
+				<pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/moon-walking/</guid>
+				<description>大晚上的诗兴大发</description>
+			</item>
+			<item>
+				<title>剥一个橘子</title>
+				<link>http://localhost:1313/posts/peel-an-orange/</link>
+				<pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/peel-an-orange/</guid>
+				<description>小病一场，剥一个橘子，觉得日子也不坏</description>
+			</item>
+			<item>
+				<title>为什么有些人需要生活的仪式感？</title>
+				<link>http://localhost:1313/posts/ritual-sense-of-life/</link>
+				<pubDate>Tue, 27 Jun 2023 10:37:07 +0800</pubDate>
+				<guid>http://localhost:1313/posts/ritual-sense-of-life/</guid>
+				<description>人生得意须尽欢，莫使金樽空对月</description>
+			</item>
+	</channel>
+</rss>

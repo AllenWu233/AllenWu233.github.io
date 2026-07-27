@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>心理学 on 冰轮韵</title>
+		<link>http://localhost:1313/tags/%E5%BF%83%E7%90%86%E5%AD%A6/</link>
+		<description>Recent content in 心理学 on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/%E5%BF%83%E7%90%86%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>时间感密度</title>
+				<link>http://localhost:1313/posts/temporal-experience-density/</link>
+				<pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/temporal-experience-density/</guid>
+				<description>“深夜研究心理学”</description>
+			</item>
+	</channel>
+</rss>

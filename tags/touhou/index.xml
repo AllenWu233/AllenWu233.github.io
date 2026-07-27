@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Touhou on 冰轮韵</title>
+		<link>http://localhost:1313/tags/touhou/</link>
+		<description>Recent content in Touhou on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/touhou/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>记一次CD保护盒定制</title>
+				<link>http://localhost:1313/posts/cd-box/</link>
+				<pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/cd-box/</guid>
+				<description>车万碟佬的日常</description>
+			</item>
+			<item>
+				<title>记忆、爱与救赎</title>
+				<link>http://localhost:1313/posts/little-reimu/</link>
+				<pubDate>Fri, 25 Nov 2022 22:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/posts/little-reimu/</guid>
+				<description>观《东方幼灵梦》有感</description>
+			</item>
+	</channel>
+</rss>

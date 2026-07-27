@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>图论 on 冰轮韵</title>
+		<link>http://localhost:1313/tags/%E5%9B%BE%E8%AE%BA/</link>
+		<description>Recent content in 图论 on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 18 Jul 2023 15:16:44 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/%E5%9B%BE%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>“范式杯”2023牛客暑期多校训练营1 K - Subdivision</title>
+				<link>http://localhost:1313/posts/nowcoder-k-subdivision/</link>
+				<pubDate>Tue, 18 Jul 2023 15:16:44 +0800</pubDate>
+				<guid>http://localhost:1313/posts/nowcoder-k-subdivision/</guid>
+				<description>基础的BFS</description>
+			</item>
+			<item>
+				<title>Allen的图论基础</title>
+				<link>http://localhost:1313/posts/allen-graph/</link>
+				<pubDate>Sun, 26 Feb 2023 15:37:08 +0800</pubDate>
+				<guid>http://localhost:1313/posts/allen-graph/</guid>
+				<description>比如&amp;hellip;&amp;hellip;一笔画问题？</description>
+			</item>
+	</channel>
+</rss>

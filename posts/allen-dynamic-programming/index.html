@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>Allen的动态规划基础 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="Allen的动态规划基础 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/allen-dynamic-programming/" />
+
+  <meta property="og:description" content="状态和状态转移方程 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>Allen的动态规划基础</h1>
+</header>
+<div class="content__body"><blockquote>
+<p>来点BGM</p>
+</blockquote>
+<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=28990792&auto=0&height=66"></iframe></center>
+<h2 id="引言">引言</h2>
+<h3 id="概念">概念</h3>
+<p><strong>动态规划（英语：Dynamic programming，简称DP）</strong> 是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
+<p>动态规划常常适用于有<strong>重叠子问题</strong>和<strong>最优子结构</strong>性质的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
+<h3 id="适用情况">适用情况</h3>
+<ul>
+<li>
+<p><strong>最优子结构性质</strong>。
+如果问题的最优解所包含的子问题的解也是最优的，我们就称该问题具有最优子结构性质（即满足最优化原理）。最优子结构性质为动态规划算法解决问题提供了重要线索。</p>
+</li>
+<li>
+<p><strong>无后效性</strong>。即子问题的解一旦确定，就不再改变，不受在这之后、包含它的更大的问题的求解决策影响。</p>
+</li>
+<li>
+<p><strong>子问题重叠性质</strong>。子问题重叠性质是指在用递归算法自顶向下对问题进行求解时，每次产生的子问题并不总是新问题，有些子问题会被重复计算多次。动态规划算法正是利用了这种子问题的重叠性质，对每一个子问题只计算一次，然后将其计算结果保存在一个表格中，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率，降低了时间复杂度。</p>
+</li>
+</ul>
+<p>——From <a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">维基百科·动态规划</a></p>
+<p>动态规划其实不是一种具体的算法，而是解决问题的思想和方法。简单来说，动态规划就是把问题分解成一个个子问题，通过求子问题的最优解得到全局最优解（这就是所谓的<strong>最优子结构（optimal substructure）</strong>）</p>
+<h2 id="正文">正文</h2>
+<h3 id="状态和状态转移方程">状态和状态转移方程</h3>
+<p>动态规划的核心是<strong>状态</strong>和<strong>状态转移方程</strong></p>
+<blockquote>
+<p>动态规划中状态就是子问题的结果，而本阶段的状态往往是上一阶段状态和上一阶段决策的结果，描述这种前后阶段关系的方程，就是<strong>状态转移方程</strong></p>
+</blockquote>
+<p>如 $ f(i, j) = \max \{f(i, k) , f(k+1, j)+1\} $ 就是一个状态转移方程</p>
+<p>来看看几道例题</p>
+<h3 id="数字三角形">数字三角形</h3>
+<blockquote>
+<p>题目：有一个由非负整数组成的三角形，第一行只有一个数。从第一行的数开始，每次可以往左下或右下走一格，直到走到最下行，把沿途经过的数加起来，求怎么走才能使得数字之和最大？</p>
+</blockquote>
+<p>数字三角形如下所示：</p>
+<pre tabindex="0"><code>      1
+     / \
+    3   2
+   / \ / \
+  4   10  1
+ / \ / \ / \
+4   3   2   20
+</code></pre><h3 id="分析">分析</h3>
+<h4 id="贪心法">贪心法？</h4>
+<p>按照贪心法，求出的路径为：<code>1 --&gt; 3 --&gt; 10 --&gt; 3</code></p>
+<p>而实际最大和的路径为：<code>1 --&gt; 2 --&gt; 1 --&gt; 20</code></p>
+<p>显然，贪心法不能保证全局最优解</p>
+<h4 id="回溯法">回溯法？</h4>
+<p>每一个结点都有两种选择，如果用回溯法求出所有可能的的路径，就能找到最优解</p>
+<p>然而回溯法的效率太低：一个$ n $层的三角形有 $ 2^{n-1} $ 条路线，复杂度之大让人无法接受</p>
+<p>可以看出，这是一个动态的决策问题——每次可以选择往左下走或往右下走，由此引出我们今天的主角——动态规划</p>
+<h4 id="动态规划">动态规划</h4>
+<p>假设用下三角矩阵（主对角线上方所有元素为0的二维数组）<code>a</code>、<code>d</code>分别存储数字三角形和<code>d[i][j]</code>出发路径的最大和</p>
+<p>根据动态规划的思想，求第一层（<code>d[1][1]</code>，即整个数字三角形路径的最大和）出发的最大和，得先求出从第二层出发的最大和；求第二层出发的最大和，得先求出从第三层出发的最大和&hellip;&hellip;由此类推，我们可以把整个问题分解成多个子问题。显然，这道题符合动态规划的条件：</p>
+<ul>
+<li><strong>最优子结构性质</strong>。求出第<code>n</code>层的最优解，就能求出第<code>n-1</code>层的最优解，子问题的最优解最终保证整个问题的最优解</li>
+<li><strong>无后效性</strong>。第<code>n</code>层的最优解一旦确定，就不受前面层的影响</li>
+<li><strong>子问题重叠性质</strong>。比如要计算<code>d[2][1]</code>,就要先计算<code>d[3][1]</code>和<code>d[3][2]</code>；而要计算<code>d[2][2]</code>,也要先计算<code>d[3][2]</code>。由此可见问题的解答树大量重叠，正是动态规划的用武之地</li>
+</ul>
+<p>状态转移方程如下</p>
+<p>$ d(i, j) = a(i, j) + max\{d(i+1, j), d(i+1, j+1)\} $</p>
+<p>下面介绍两种基本的动态规划写法</p>
+<h5 id="方法一记忆化搜索">方法一：记忆化搜索</h5>
+<p>直接递归的写法是可以的，但由于子问题的重叠，会导致大量无用的重复计算，因此要用到记忆化搜索来提前返回</p>
+<p>核心代码如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">// 因为题目说每个数都是非负整数，所以d[]初始化为-1，d[i] &gt;= 0 表示未计算
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve</span>(<span style="color:#66d9ef">int</span> i, <span style="color:#66d9ef">int</span> j) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (d[i][j] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> d[i][j];  <span style="color:#75715e">// 已经搜索过，直接返回
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> d[i][j] <span style="color:#f92672">=</span> a[i][j] <span style="color:#f92672">+</span> (i <span style="color:#f92672">==</span> n <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> max(solve(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, j), solve(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)));  <span style="color:#75715e">// 保存计算结果的同时并返回值
+</span></span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这里利用了C语言“赋值语句具有返回值”的特性来简化代码</p>
+<h5 id="方法二递推">方法二：递推</h5>
+<p>注意计算顺序，要从后往前推</p>
+<p>核心代码如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) d[n][i] <span style="color:#f92672">=</span> a[n][i];  <span style="color:#75715e">// 初始化最后一层
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">--</span>)  <span style="color:#75715e">// 从后往前递推
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> i; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            d[i][j] <span style="color:#f92672">=</span> a[i][j] <span style="color:#f92672">+</span> max(d[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j], d[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> d[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>完整代码可参考<a href="https://github.com/AllenWu233/algorithm_study/tree/main/chapter_9">仓库</a>（附赠数据生成器Python脚本）</p>
+<h3 id="dag上的动态规划">DAG上的动态规划</h3>
+<p>跟图论扯上关系了（￣▽￣）</p>
+<p>相关月魂：<a href="https://blog-allenwu233.netlify.app/p/allen-graph/">Allen的图论基础</a></p>
+<p><strong>DAG（Directed Acyclic Graph，有向无环图）</strong>，即从任意顶点出发无法经过若干条边回到该点的有向图。</p>
+<h4 id="不固定终点的最长路和字典序">不固定终点的最长路和字典序</h4>
+<blockquote>
+<p>例题：嵌套矩形。
+题意：给出若干个矩形，选出尽量多的矩形拍成一排，使得除了最后一个之外，每一个矩形都可以嵌套（矩形的长和宽必须严格小于下一个矩形的长和宽；矩形可以旋转）在下一个矩形内。如果有多解，矩形编号的字典序应尽量小</p>
+</blockquote>
+<p>可以看出，“嵌套”是一个二元关系，可以用图来表示。我们使用邻接矩阵来存图</p>
+<p>状态转移方程为：$ d(i) = max\{d(i), d(j)+1\} $</p>
+<p>代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> G[N][N], a[N], b[N], d[N];  <span style="color:#75715e">// d[i] 表示从结点 i 出发的最长路长度
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 读入数据并建图
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read_input</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x, y;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+</span></span><span style="display:flex;"><span>        a[i] <span style="color:#f92672">=</span> min(x, y);
+</span></span><span style="display:flex;"><span>        b[i] <span style="color:#f92672">=</span> max(x, y);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (a[i] <span style="color:#f92672">&lt;</span> a[j] <span style="color:#f92672">&amp;&amp;</span> b[i] <span style="color:#f92672">&lt;</span> b[j]) G[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 记忆化搜索，注意 d[] 要初始化为0
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">dp</span>(<span style="color:#66d9ef">int</span> i) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>ans <span style="color:#f92672">=</span> d[i];  <span style="color:#75715e">// 用引用来简化读写
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (ans <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> ans;
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (G[i][j]) ans <span style="color:#f92672">=</span> max(ans, dp(j)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ans;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 递归打印答案，保证字典序最小：尽量选择最小的 i 和 j
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_ans</span>(<span style="color:#66d9ef">int</span> i) {
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) <span style="color:#66d9ef">if</span> (G[i][j] <span style="color:#f92672">&amp;&amp;</span> d[i] <span style="color:#f92672">==</span> d[j]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        print_ans(j);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;  <span style="color:#75715e">// 递归返回后退出循环
+</span></span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef LOCAL
+</span></span></span><span style="display:flex;"><span>    freopen(<span style="color:#e6db74">&#34;nested_rectangle.in&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>, stdin);
+</span></span><span style="display:flex;"><span>    freopen(<span style="color:#e6db74">&#34;nested_rectangle_.out&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>, stdout);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> t;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> t;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (t<span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>        memset(d, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(d));
+</span></span><span style="display:flex;"><span>        memset(G, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(G));
+</span></span><span style="display:flex;"><span>        read_input();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) dp(i);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> Max <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, maxi <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (d[i] <span style="color:#f92672">&gt;</span> Max) { Max <span style="color:#f92672">=</span> d[i]; maxi <span style="color:#f92672">=</span> i; }
+</span></span><span style="display:flex;"><span>        print_ans(maxi);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>EX: <a href="https://www.luogu.com.cn/problem/UVA437">UVa 437 The Tower of Babylon</a></p>
+</blockquote>
+<p>例题的升级版，只是多了一个维度，完全可以套用例题的模板</p>
+<p><a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_9/uva437_the_tower_of_babylon.cpp">AC代码参考</a></p>
+<h4 id="固定终点的最长路和最短路">固定终点的最长路和最短路</h4>
+<blockquote>
+<p>例题：硬币问题。
+有 n 种硬币，面值分别为 V1, V2, &hellip; , Vn, 每种都有无限多。</p>
+</blockquote>
+<blockquote>
+<p>EX: <a href="https://www.luogu.com.cn/problem/UVA1347">Uva 1347 Tour</a></p>
+</blockquote>
+<p>原题可转化为：两人从同一起点出发，每次其中一人走动，最后都走到终点</p>
+<p><a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_9/uva1347_tour.cpp">AC代码参考</a></p>
+<h2 id="附录">附录</h2>
+<h3 id="参考文献">参考文献</h3>
+<p>[1]<a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">维基百科·动态规划</a></p>
+<p>[2]刘汝佳《算法竞赛入门基础（第2版）》</p>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>状态和状态转移方程</p>
+ 
+<p>
+   2023-03-13
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a>
+      <ol>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#适用情况">适用情况</a></li>
+      </ol>
+    </li>
+    <li><a href="#正文">正文</a>
+      <ol>
+        <li><a href="#状态和状态转移方程">状态和状态转移方程</a></li>
+        <li><a href="#数字三角形">数字三角形</a></li>
+        <li><a href="#分析">分析</a></li>
+        <li><a href="#dag上的动态规划">DAG上的动态规划</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>
