@@ -253,7 +253,51 @@ $O(nm)$ + $O((n + m) \times (n + m + \sum_{u=1}^{n + m} d^{+}(u)))$</p>
 </span></span></code></pre></div><h2 id="总结">总结</h2>
 <p>上周末打的虚拟赛，我负责E题。虽然一上来就想到了DFS建图，然而还不熟练，错漏百出：邻接表建图出错、BFS漏写访问标记，<del>以至于全程挂机（bushi）</del>。还要加强训练，<del>我也是加把劲ACMer</del></p>
 </div>
-<footer class="content__footer"><script
+<footer class="content__footer">
+  
+   
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  crossorigin="anonymous"
+  onload="
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+      ],
+    })
+  "
+></script>
+
+
+<style>
+   
+  .katex {
+    font-size: 1.05em;
+  }
+
+   
+  .katex-display {
+    font-size: 1.15em;
+    margin: 1em 0;
+  }
+</style>
+  <script
   src="https://giscus.app/client.js"
   data-repo="AllenWu233/lunarithm-comments"
   data-repo-id="R_kgDOTkgvVw"
@@ -270,6 +314,7 @@ $O(nm)$ + $O((n + m) \times (n + m + \sum_{u=1}^{n + m} d^{+}(u)))$</p>
   crossorigin="anonymous"
   async
 ></script>
+
 </footer>
 
             </section>
