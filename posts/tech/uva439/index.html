@@ -88,17 +88,17 @@
   <h1>UVa 439 Knight Moves</h1>
 </header>
 <div class="content__body"><p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/content/zh/posts/UVa%20439%20Knight%20Moves/cover_.jpg"
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/uva439_cover.jpg"
   alt=""
   
   loading="lazy"
 />
-
-第一次写题解惹~</p>
-<p>简单，但是卡了好一会，最后发现是忘了清零数组 XD</p>
+</p>
+<p>第一次写题解~</p>
+<p><del>简单，但是卡了好一会，最后发现是忘了清零数组 XD</del></p>
 <p>题目：<a href="https://www.luogu.com.cn/problem/UVA439">洛谷·UVa439</a></p>
 <h2 id="题意">题意</h2>
-<p>输入8*8国际象棋棋盘的两个坐标（起点和终点。列：a<del>h，行：1</del>8），求出马（Knight）从起点到终点所需最少步数</p>
+<p>输入8*8国际象棋棋盘的两个坐标（起点和终点。列：a~h，行：1~8），求出<code>马（Knight）</code>从起点到终点所需最少步数</p>
 <h2 id="分析">分析</h2>
 <p>典型的BFS求最短路问题。二维数组<code>id[10][10]</code>存储从该格再走一步后的步数，队列<code>qx</code>,<code>qy</code>存储坐标</p>
 <p>注意到每个格子不能重复，否则无法算出最短路</p>
@@ -151,21 +151,20 @@
 <blockquote>
 <p>c++_acm.sublime-build</p>
 </blockquote>
-<pre tabindex="0"><code>{
-   &#34;shell_cmd&#34;: &#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -Wall -DLOCAL \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; ${file_base_name} &amp;&amp; echo Press ENTER to continue...&#34;,
-   &#34;file_regex&#34;: &#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;,
-   &#34;working_dir&#34;: &#34;${file_path}&#34;,
-   &#34;selector&#34;: &#34;source.c++&#34;,
-   &#34;encoding&#34;: &#34;gbk&#34;,
-   &#34;variants&#34;:
-   [
-       {
-           &#34;name&#34;: &#34;Single File Build &amp; Run in cmd&#34;,
-           &#34;shell_cmd&#34;: &#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -g -Wall \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;
-       }
-   ]
-}
-</code></pre><p>按<code>Ctrl + Shift + B</code>，显示两条编译选项，第一条是重定向，第二条是通过终端窗口进行标准输入输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;shell_cmd&#34;</span>: <span style="color:#e6db74">&#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -Wall -DLOCAL \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; ${file_base_name} &amp;&amp; echo Press ENTER to continue...&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;file_regex&#34;</span>: <span style="color:#e6db74">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;working_dir&#34;</span>: <span style="color:#e6db74">&#34;${file_path}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;selector&#34;</span>: <span style="color:#e6db74">&#34;source.c++&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;encoding&#34;</span>: <span style="color:#e6db74">&#34;gbk&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;variants&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Single File Build &amp; Run in cmd&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;shell_cmd&#34;</span>: <span style="color:#e6db74">&#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -g -Wall \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; start cmd /c \&#34;\&#34;${file_base_name}\&#34; &amp; pause\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>按<code>Ctrl + Shift + B</code>，显示两条编译选项，第一条是重定向，第二条是通过终端窗口进行标准输入输出</p>
 <p><del>重定向一用一时爽，一直用一直爽（</del></p>
 </div>
 <footer class="content__footer">

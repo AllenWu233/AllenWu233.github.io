@@ -88,44 +88,37 @@
   <h1>最“简单”的算法——贪心算法</h1>
 </header>
 <div class="content__body"><blockquote>
-<p>有人说<strong>贪心算法</strong>是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，那轮到你我的份？
-——By <a href="https://blog.csdn.net/effective_coder?type=blog">CSDN@lloil</a></p>
+<p>“有人说<strong>贪心算法</strong>是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，那轮到你我的份？”</p>
+<p>——By <a href="https://blog.csdn.net/effective_coder?type=blog">CSDN@lloil</a></p>
 </blockquote>
-<h2 id="贪心算法简介">贪心算法简介</h2>
+<h2 id="简介">简介</h2>
 <h3 id="什么是贪心算法">什么是贪心算法</h3>
 <blockquote>
 <p><strong>贪心算法（greedy algorithm，又称贪婪算法）</strong> 是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，算法得到的是在某种意义上的局部最优解。
-贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择。
-——By <a href="https://baike.baidu.com/item/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/5411800">百度百科·贪心算法</a></p>
+贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择。</p>
+<p>——By <a href="https://baike.baidu.com/item/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/5411800">百度百科·贪心算法</a></p>
 </blockquote>
 <h3 id="基本要素">基本要素</h3>
-<blockquote>
-<p>1.贪心选择性质</p>
-</blockquote>
+<h4 id="1贪心选择性质">1.贪心选择性质</h4>
 <p>一个问题的整体最优解可通过一系列局部的最优解的选择，即贪心选择达到，并且每次的选择可以依赖以前作出的选择，但不依赖于后面要作出的选择。这就是贪心选择性质。
 对于一个具体问题，要确定它<strong>是否具有贪心选择性质</strong>，<strong>必须证明每一步所作的贪心选择最终导致问题的整体最优解</strong></p>
-<blockquote>
-<p>2.最优子结构性质</p>
-</blockquote>
+<h4 id="2最优子结构性质">2.最优子结构性质</h4>
 <p>当一个问题的最优解包含其子问题的最优解时，称此问题具有最优子结构性质。
 问题的最优子结构性质是该问题可用贪心法求解的关键所在。在实际应用中，至于什么问题具有什么样的贪心选择性质是不确定的，需要具体问题具体分析</p>
 <h3 id="基本思路">基本思路</h3>
 <p>从问题的某一个初始解出发逐步逼近给定的目标，以尽可能快的地求得更好的解。当达到算法中的某一步不能再继续前进时，算法停止。</p>
 <p>该算法存在问题：</p>
-<blockquote>
 <ul>
 <li>不能保证求得的最后解是最佳的；</li>
 <li>一般用来求最大或最小解问题；</li>
 <li>只能求满足某些约束条件的可行解的范围。</li>
 </ul>
-</blockquote>
-<p>实现该算法的过程：
-从问题的某一初始解出发:</p>
+<p>实现该算法的过程，从问题的某一初始解出发:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> 能朝给定总目标前进一步:
 </span></span><span style="display:flex;"><span>　　 求出可行解的一个解元素
 </span></span><span style="display:flex;"><span>由所有解元素组合成问题的一个可行解
 </span></span></code></pre></div><h2 id="一道简单的例题">一道简单的例题</h2>
-<h3 id="题目如下">题目如下</h3>
+<h3 id="题目">题目</h3>
 <p>原题：<a href="https://ac.nowcoder.com/acm/problem/16618">拼座椅</a></p>
 <blockquote>
 <p><strong>题目描述</strong></p>
@@ -169,14 +162,14 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 <p><strong>说明</strong></p>
 </blockquote>
 <p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/%22/img/cut_bug.jpg%22"
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/cut_bug.jpg"
   alt="bug"
   
   loading="lazy"
 />
 </p>
 <p>上图中用符号*、※、+ 标出了3对会交头接耳的学生的位置，图中3条粗线的位置表示通道，图示的通道划分方案是唯一的最佳方案。</p>
-<h3 id="题目分析">题目分析</h3>
+<h3 id="分析">分析</h3>
 <p>这是一道典型的贪心算法题。要满足交头接耳的学生对数最少，只需选择能分开学生对数最多的行和列即可。
 <del>有人把这道题比喻成切虫子：有若干条长度为 2 的 虫子，怎么切才能使切死的虫子数最多（莉格露表示强烈谴责）</del></p>
 <p>然而即便是这么简单的题，也有不少 <em>难点/陷阱</em></p>
@@ -304,11 +297,11 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </span></span><span style="display:flex;"><span>print(get_result(bl, l))
 </span></span></code></pre></div><p><del>才二十几行代码就解决了 C 七十几行代码才解决的问题</del></p>
 <h2 id="总结">总结</h2>
-<p>算法不愧是编程的灵魂&hellip;&hellip;
-这才是编程的浪漫啊！<del>（因解题时间过长理智丧失ing&hellip;）</del>
-<img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/img/%e5%a6%b9%e7%ba%a2%e6%95%b2%e4%bb%a3%e7%a0%81.jpg"
-  alt="妹红敲代码.jpg"
+<p>算法不愧是编程的灵魂……</p>
+<p>这才是编程的浪漫啊！<del>（因解题时间过长理智丧失ing&hellip;）</del></p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/%e5%a6%b9%e7%ba%a2%e6%95%b2%e4%bb%a3%e7%a0%81.jpg"
+  alt="妹红敲代码"
   
   loading="lazy"
 />
@@ -320,6 +313,13 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </ol>
 <h2 id="to-be-continue">To Be Continue</h2>
 <p>关于贪心算法，我只是学了点皮毛而已，以后还会在这里更新更加<code>deep♂dark</code>的用法</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/greedy-algorithm.jpg"
+  alt="饕餮尤魔"
+  
+  loading="lazy"
+/>
+</p>
 </div>
 <footer class="content__footer">
   
@@ -432,7 +432,7 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 <hr />
 目录： <nav id="TableOfContents">
   <ol>
-    <li><a href="#贪心算法简介">贪心算法简介</a>
+    <li><a href="#简介">简介</a>
       <ol>
         <li><a href="#什么是贪心算法">什么是贪心算法</a></li>
         <li><a href="#基本要素">基本要素</a></li>
@@ -441,8 +441,8 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
     </li>
     <li><a href="#一道简单的例题">一道简单的例题</a>
       <ol>
-        <li><a href="#题目如下">题目如下</a></li>
-        <li><a href="#题目分析">题目分析</a></li>
+        <li><a href="#题目">题目</a></li>
+        <li><a href="#分析">分析</a></li>
         <li><a href="#源代码">源代码</a></li>
       </ol>
     </li>

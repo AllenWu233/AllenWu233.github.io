@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>数据结构之美-二叉树 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码凝魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="数据结构之美-二叉树 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BE%8E-%E4%BA%8C%E5%8F%89%E6%A0%91/" />
+
+  <meta property="og:description" content="最近看什么都像二叉树（ &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="https://lunarithm.space/favicon.ico" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      
+      <li class="nomarker avatar-container">
+        <a href="https://lunarithm.space/" class="avatar-link">
+          <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
+        </a>
+      </li>
+
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+<style>
+   
+  .site-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    <!-- transition: transform 0.2s ease-in-out; -->
+  }
+  
+   
+  .site-avatar:hover {
+    transform: scale(1.05);
+  }
+</style>
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>数据结构之美-二叉树</h1>
+</header>
+<div class="content__body"><p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/binary_tree.png"
+  alt=""
+  
+  loading="lazy"
+/>
+</p>
+<h2 id="引言---二叉树是什么">引言 - 二叉树是什么</h2>
+<blockquote>
+<p>在计算机科学中， <strong>二叉树（Binary tree）</strong> 是每个结点最多只有两个分支（即不存在分支度大于2的结点）的树结构。通常分支被称作“左子树”或“右子树”。二叉树的分支具有左右次序，不能随意颠倒。
+与普通树不同，普通树的结点个数至少为1，而二叉树的结点个数可以为0；普通树结点的最大分支度没有限制，而二叉树结点的最大分支度为2；普通树的结点无左、右次序之分，而二叉树的结点有左、右次序之分。
+——From <a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91">中文维基百科·二叉树</a></p>
+</blockquote>
+<p>二叉树是非常重要的数据结构，其独特的结构使得它在搜索和处理数据方面有相当不错的表现</p>
+<h2 id="二叉树的遍历">二叉树的遍历</h2>
+<h3 id="层次遍历宽度优先遍历">层次遍历（宽度优先遍历）</h3>
+<p>顾名思义，即按从上到下、从左到右的顺序遍历结点
+以上图为例，遍历的顺序为<code>1～15</code>
+这种方法叫 <strong>宽度优先遍历（Breadth-First Search, BFS）</strong></p>
+<h3 id="递归遍历深度优先遍历">递归遍历（深度优先遍历）</h3>
+<p>博主认为二叉树的递归遍历是<em>最为精彩</em>的部分。理解其三种递归遍历方式，能一窥二叉树的结构之美</p>
+<blockquote>
+<p>对于一棵二叉树 T ，可以递归定义它的先序遍历、中序遍历和后序遍历，如下所示：</p>
+</blockquote>
+<ul>
+<li>PreOrder(T) = T的根结点 + PreOrder(T的左子树) + PreOrder(T的右子树)</li>
+<li>InOrder(T) = InOrder(T的左子树) + T的根结点 + InOrder(T的右结点)</li>
+<li>PostOrder(T) = PostOrder(T的左子树) + PostOrder(T的右子树) + T的根结点
+这三种遍历都属于递归遍历，或者说 <strong>深度优先遍历（Depth-First Search, DFS）</strong> ，因为它总是优先往深处访问
+——From 刘汝佳《算法竞赛入门经典（第2版）》</li>
+</ul>
+<p>还是以上图为例，来讲一下如何递归遍历：
+要遍历整棵二叉树，首先把<code>1,2,3</code>看作一棵小二叉树来遍历，其中<code>1</code>为根，<code>2,3</code>为结点。遍历结点<code>2</code>或<code>3</code>时，再分别把<code>2,4,5</code>或<code>3,6,7</code>看作小二叉树来遍历，依次类推。具体遍历顺序由遍历的方式而定</p>
+<p>是不是很简单？在看下面的答案前，先试着写一下这三种遍历方式的顺序吧</p>
+<blockquote>
+<p>注：“根”——根结点，“左”——左子树，“右”——右子树
+还是上图的例子：</p>
+</blockquote>
+<h4 id="先序遍历">先序遍历</h4>
+<p>顺序：<code>根--&gt;左--&gt;右</code>
+<code>1 2 4 8 9 5 10 11 3 6 12 13 7 14 15</code></p>
+<h4 id="中序遍历">中序遍历</h4>
+<p>顺序：<code>左--&gt;根--&gt;右</code>
+<code>8 4 9 2 10 5 11 1 12 6 13 3 14 7 15</code></p>
+<h4 id="后序遍历">后序遍历</h4>
+<p>顺序：<code>左--&gt;右--&gt;根</code>
+<code>8 9 4 10 11 5 2 12 13 6 14 15 7 3 1</code></p>
+<h4 id="实例推导先序遍历">实例：推导先序遍历</h4>
+<blockquote>
+<p>已知二叉树的中序遍历和后续遍历，如何推出这棵二叉树，以写出它的先序遍历？</p>
+</blockquote>
+<p>用Python风格伪代码来表示,<code>[]</code>代表列表（有序），<code>{}</code>代表集合（无序）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>InOrder   <span style="color:#f92672">=</span> [<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">18</span>]
+</span></span><span style="display:flex;"><span>PostOrder <span style="color:#f92672">=</span> [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">5</span>]
+</span></span></code></pre></div><p>由后序遍历的特点可知，最后一个字符<code>5</code>就是根，在中序遍历中找到<code>5</code>，把<code>{7, 8, 11, 3}</code>看作左子树，<code>{16, 12, 18}</code>看作右子树，构建一棵二叉树：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>              5
+</span></span><span style="display:flex;"><span>             / \
+</span></span><span style="display:flex;"><span>{7, 8, 11, 3}   {16, 12, 18}
+</span></span></code></pre></div><p>接着再来看后序遍历，分别在<code>[8, 3, 11, 7]</code> , <code>[16, 18, 12]</code>中找出根，同理分别构建小二叉树：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>              5
+</span></span><span style="display:flex;"><span>             / \
+</span></span><span style="display:flex;"><span>            7   12
+</span></span><span style="display:flex;"><span>            \   / \
+</span></span><span style="display:flex;"><span>    {8, 11, 3} 16 18
+</span></span></code></pre></div><p>最后一步：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>              5
+</span></span><span style="display:flex;"><span>             / \
+</span></span><span style="display:flex;"><span>            7   12
+</span></span><span style="display:flex;"><span>            \   / \
+</span></span><span style="display:flex;"><span>            11 16 18
+</span></span><span style="display:flex;"><span>            /\
+</span></span><span style="display:flex;"><span>           8  3
+</span></span></code></pre></div><p>于是我们可以得到它的先序遍历：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>PreOrder <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">18</span>]
+</span></span></code></pre></div><h3 id="几道例题">几道例题</h3>
+<h4 id="推导先序遍历">推导先序遍历</h4>
+<p>即上面例子的代码实现
+类似的题目：<a href="https://ac.nowcoder.com/acm/problem/244280">天依出去玩</a>，以及<a href="https://ac.nowcoder.com/acm/contest/view-submission?submissionId=55005430&amp;returnHomeType=1&amp;uid=807489743">参考答案</a></p>
+<blockquote>
+<p>pre_order.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>pre_order, in_order, post_order <span style="color:#f92672">=</span> [], <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">read_list</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> pre_order, in_order, post_order
+</span></span><span style="display:flex;"><span>    in_order <span style="color:#f92672">=</span> input()
+</span></span><span style="display:flex;"><span>    post_order <span style="color:#f92672">=</span> input()
+</span></span><span style="display:flex;"><span>    pre_order <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    in_order <span style="color:#f92672">=</span> list(map(int, in_order<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    post_order <span style="color:#f92672">=</span> list(map(int, post_order<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_pre</span>(in_order, post_order):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;递归构建二叉树的先序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> pre_order
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 直观地看到递归的步骤</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;in_order   = &#34;</span>, in_order)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;post_order = &#34;</span>, post_order)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;pre_order  = &#34;</span>, pre_order, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    root <span style="color:#f92672">=</span> post_order[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    pre_order<span style="color:#f92672">.</span>append(root)  <span style="color:#75715e"># 所谓先序遍历，只需在构建子树时记录下根节点即可</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    root_in_order <span style="color:#f92672">=</span> in_order<span style="color:#f92672">.</span>index(root)
+</span></span><span style="display:flex;"><span>    in_left <span style="color:#f92672">=</span> in_order[:root_in_order]
+</span></span><span style="display:flex;"><span>    in_right <span style="color:#f92672">=</span> in_order[root_in_order<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> : len(in_order)]
+</span></span><span style="display:flex;"><span>    post_left <span style="color:#f92672">=</span> post_order[:len(in_left)]
+</span></span><span style="display:flex;"><span>    post_right <span style="color:#f92672">=</span> post_order[len(in_left) : <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(post_left):
+</span></span><span style="display:flex;"><span>        build_pre(in_left, post_left)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(post_right):
+</span></span><span style="display:flex;"><span>        build_pre(in_right, post_right)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        read_list()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>    build_pre(in_order, post_order)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;PreOrder: &#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> pre_order:
+</span></span><span style="display:flex;"><span>        print(i, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><blockquote>
+<p>输出示例：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">7</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">18</span>  <span style="color:#75715e"># 中序遍历</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">5</span>  <span style="color:#75715e"># 后序遍历</span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">18</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  []  <span style="color:#75715e"># 读入数据</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">7</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>]  <span style="color:#75715e"># 递归第一步，添加根节点5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">11</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]  <span style="color:#75715e"># 递归第二步，添加根节点7</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">18</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">12</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">16</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">16</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">12</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>in_order   <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">18</span>]
+</span></span><span style="display:flex;"><span>post_order <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">18</span>]
+</span></span><span style="display:flex;"><span>pre_order  <span style="color:#f92672">=</span>  [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">16</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PreOrder: <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">18</span>
+</span></span></code></pre></div><h4 id="树的层次遍历trees-on-the-level-uva-122">树的层次遍历（Trees on the level, UVa 122）</h4>
+<p>题目：</p>
+<ul>
+<li><a href="https://vjudge.net/problem/UVA-122">vjudge</a></li>
+<li><a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_6/uva122.pdf">PDF</a></li>
+</ul>
+<p>分析：采用动态结构建树。代码出自紫书：</p>
+<blockquote>
+<p>trees_on_the_level.cpp</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include&lt;cstdio&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include&lt;cstdlib&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include&lt;cstring&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include&lt;vector&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include&lt;queue&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 节点类型
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Node</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> have_value;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v;  <span style="color:#75715e">// 节点值
+</span></span></span><span style="display:flex;"><span>    Node <span style="color:#f92672">*</span>left, <span style="color:#f92672">*</span>right;
+</span></span><span style="display:flex;"><span>    Node() <span style="color:#f92672">:</span> have_value(false), left(NULL), right(NULL){}  <span style="color:#75715e">// 构造函数
+</span></span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node <span style="color:#f92672">*</span>root;  <span style="color:#75715e">// 二叉树的根节点
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node <span style="color:#f92672">*</span><span style="color:#a6e22e">newnode</span>() { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Node(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> failed;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addnode</span>(<span style="color:#66d9ef">int</span> v, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> strlen(s);
+</span></span><span style="display:flex;"><span>    Node <span style="color:#f92672">*</span>u <span style="color:#f92672">=</span> root;  <span style="color:#75715e">// 从根节点往下走
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;L&#39;</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (u<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">==</span> NULL) u<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> newnode();  <span style="color:#75715e">// 节点不存在，建立新节点
+</span></span></span><span style="display:flex;"><span>            u <span style="color:#f92672">=</span> u<span style="color:#f92672">-&gt;</span>left;                               <span style="color:#75715e">// 往右走
+</span></span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;R&#39;</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (u<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">==</span> NULL) u<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> newnode();
+</span></span><span style="display:flex;"><span>            u <span style="color:#f92672">=</span> u<span style="color:#f92672">-&gt;</span>right;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (u<span style="color:#f92672">-&gt;</span>have_value) failed <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    u<span style="color:#f92672">-&gt;</span>v <span style="color:#f92672">=</span> v;
+</span></span><span style="display:flex;"><span>    u<span style="color:#f92672">-&gt;</span>have_value <span style="color:#f92672">=</span> true;  <span style="color:#75715e">// 别忘了做标记
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">remove_tree</span>(Node <span style="color:#f92672">*</span>u)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (u <span style="color:#f92672">==</span> NULL) <span style="color:#66d9ef">return</span>;  <span style="color:#75715e">// 提前判断比较稳妥
+</span></span></span><span style="display:flex;"><span>    remove_tree(u<span style="color:#f92672">-&gt;</span>left);   <span style="color:#75715e">// 递归释放左子树空间
+</span></span></span><span style="display:flex;"><span>    remove_tree(u<span style="color:#f92672">-&gt;</span>right);  <span style="color:#75715e">// 递归释放右子树空间
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">delete</span> u;  <span style="color:#75715e">// 调用u的析构函数并释放u节点本身的内存
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> s[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">read_input</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    failed <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>    remove_tree(root);  <span style="color:#75715e">// 释放上一棵二叉树的内存
+</span></span></span><span style="display:flex;"><span>    root <span style="color:#f92672">=</span> newnode();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (;;)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (scanf(<span style="color:#e6db74">&#34;%s&#34;</span>, s) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>strcmp(s, <span style="color:#e6db74">&#34;()&#34;</span>)) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> v;
+</span></span><span style="display:flex;"><span>        sscanf(<span style="color:#f92672">&amp;</span>s[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>v);
+</span></span><span style="display:flex;"><span>        addnode(v, strchr(s, <span style="color:#e6db74">&#39;,&#39;</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">bfs</span>(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>ans)  <span style="color:#75715e">// 宽度优先遍历(Breadth-First Search, BFS)
+</span></span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    queue<span style="color:#f92672">&lt;</span>Node<span style="color:#f92672">*&gt;</span> q;
+</span></span><span style="display:flex;"><span>    ans.clear();
+</span></span><span style="display:flex;"><span>    q.push(root);  <span style="color:#75715e">// 初始时只有一个根节点
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>q.empty())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Node <span style="color:#f92672">*</span>u <span style="color:#f92672">=</span> q.front(); q.pop();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>u<span style="color:#f92672">-&gt;</span>have_value) <span style="color:#66d9ef">return</span> false;  <span style="color:#75715e">// 有节点没有被赋值过，表明输入有误
+</span></span></span><span style="display:flex;"><span>        ans.push_back(u<span style="color:#f92672">-&gt;</span>v);  <span style="color:#75715e">// 增加到输出序列尾部
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (u<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">!=</span> NULL) q.push(u<span style="color:#f92672">-&gt;</span>left);  <span style="color:#75715e">// 把左子节点（如果有）放进队列
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (u<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">!=</span> NULL) q.push(u<span style="color:#f92672">-&gt;</span>right);  <span style="color:#75715e">// 把右子节点（如果有）放进队列
+</span></span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;  <span style="color:#75715e">// 输入正确
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ans;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(read_input())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>bfs(ans)) failed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(failed) printf(<span style="color:#e6db74">&#34;not complete</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> ans.size(); i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(i <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) printf(<span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;%d&#34;</span>, ans[i]);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>小结：用<code>结构体 + 指针</code>实现二叉树。当然也可以用<code>数组 + 下标</code>来实现，但仍需具体情况具体分析</p>
+<h4 id="二叉树的递归遍历trees-uva548">二叉树的递归遍历（Trees, UVa548)</h4>
+<p>题目：</p>
+<ul>
+<li><a href="https://vjudge.net/problem/UVA-548">vjudge</a></li>
+<li><a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_6/uva548.pdf">PDF</a></li>
+</ul>
+<p>分析：即已知二叉树的中序遍历和后序遍历，推出先序遍历。还是紫书：</p>
+<blockquote>
+<p>trees.cpp</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sstream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxv <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> in_order[maxv], post_order[maxv], lch[maxv], rch[maxv];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 因为各个结点的权值各不相同且都是正整数，直接用权值作为结点编号
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">read_list</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>a)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string line;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>getline(cin, line)) <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    stringstream ss(line);
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (ss <span style="color:#f92672">&gt;&gt;</span> x) a[n<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 把in_order[L1..R1]和post_order[L2..R2]建成一棵二叉树，返回树根
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">build</span>(<span style="color:#66d9ef">int</span> L1, <span style="color:#66d9ef">int</span> R1, <span style="color:#66d9ef">int</span> L2, <span style="color:#66d9ef">int</span> R2)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (L1 <span style="color:#f92672">&gt;</span> R1) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;  <span style="color:#75715e">// 空树
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> root <span style="color:#f92672">=</span> post_order[R2];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> L1;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (in_order[p] <span style="color:#f92672">!=</span> root) p<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> p <span style="color:#f92672">-</span> L1;  <span style="color:#75715e">// 左子树的结点个数
+</span></span></span><span style="display:flex;"><span>    lch[root] <span style="color:#f92672">=</span> build(L1, p<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, L2, L2<span style="color:#f92672">+</span>cnt<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    rch[root] <span style="color:#f92672">=</span> build(p<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, R1, L2<span style="color:#f92672">+</span>cnt, R2<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> root;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> best, best_sum;  <span style="color:#75715e">// 目前为止的最优解和对应的权和
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> sum)  <span style="color:#75715e">// Deep First Search
+</span></span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> u;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>lch[u] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>rch[u])  <span style="color:#75715e">// 叶子
+</span></span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (sum <span style="color:#f92672">&lt;</span> best_sum <span style="color:#f92672">||</span> (sum <span style="color:#f92672">==</span> best_sum <span style="color:#f92672">&amp;&amp;</span> u <span style="color:#f92672">&lt;</span> best))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            { best <span style="color:#f92672">=</span> u; best_sum <span style="color:#f92672">=</span> sum; }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (lch[u]) dfs(lch[u], sum);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (rch[u]) dfs(rch[u], sum);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (read_list(in_order))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        read_list(post_order);
+</span></span><span style="display:flex;"><span>        build(<span style="color:#ae81ff">0</span>, n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        best_sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000</span>;
+</span></span><span style="display:flex;"><span>        dfs(post_order[n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> best <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>小结：难点在于理解利用数组<code>lch</code>和<code>rch</code>来储存节点的左右子树以及建树的过程。
+建议自己画一下示意图帮助理解</p>
+<h4 id="天平not-so-mobile-uva-839">天平（Not so Mobile, UVa 839）</h4>
+<p>题目： <a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_6/uva839.pdf">PDF</a>
+分析：递归定义二叉树。还是紫书，代码相当精简、巧妙，值得一学：</p>
+<blockquote>
+<p>not_so_mobile.cpp</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 输入一个子天平，返回子天平是否平衡，参数W修改为子天平的总重量
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">solve</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>W)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> W1, D1, W2, D2;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> b1 <span style="color:#f92672">=</span> true, b2 <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> W1 <span style="color:#f92672">&gt;&gt;</span> D1 <span style="color:#f92672">&gt;&gt;</span> W2 <span style="color:#f92672">&gt;&gt;</span> D2;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>W1) b1 <span style="color:#f92672">=</span> solve(W1);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>W2) b2 <span style="color:#f92672">=</span> solve(W2);
+</span></span><span style="display:flex;"><span>    W <span style="color:#f92672">=</span> W1 <span style="color:#f92672">+</span> W2;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> b1 <span style="color:#f92672">&amp;&amp;</span> b2 <span style="color:#f92672">&amp;&amp;</span> (W1 <span style="color:#f92672">*</span> D1 <span style="color:#f92672">==</span> W2 <span style="color:#f92672">*</span> D2);  <span style="color:#75715e">// b1:左 b2:右
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> T, W;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> T;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (T<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (solve(W)) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;YES</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;NO</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (T) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>not_so_mobile.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>(W):
+</span></span><span style="display:flex;"><span>    b1, b2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    W1, D1, W2, D2 <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> W1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        b1 <span style="color:#f92672">=</span> solve(W1)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> W2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        b2 <span style="color:#f92672">=</span> solve(W2)
+</span></span><span style="display:flex;"><span>    W <span style="color:#f92672">=</span> W1 <span style="color:#f92672">+</span> W2
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> b1 <span style="color:#f92672">and</span> b2 <span style="color:#f92672">and</span> (W1<span style="color:#f92672">*</span>D1 <span style="color:#f92672">==</span> W2<span style="color:#f92672">*</span>D2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>W <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>T <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> T <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    T <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;YES&#34;</span>) <span style="color:#66d9ef">if</span> solve(W) <span style="color:#66d9ef">else</span> print(<span style="color:#e6db74">&#34;No&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> T: print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p><del>似乎翻译成 Python 后可读性更强（</del></p>
+<h2 id="python类实现二叉树">Python类实现二叉树</h2>
+<p>面向对象真的很有意思，从无到有搓出一个功能完善的类 <del>，其兴奋感不亚于在mc中造出一台生电机器（</del></p>
+<blockquote>
+<p>tree.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>(object):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;节点类&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, data<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, left_child<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, right_child<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>left_child <span style="color:#f92672">=</span> left_child
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>right_child <span style="color:#f92672">=</span> right_child
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tree</span>(object):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> Node()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rec_pre_order</span>(self, node<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;递归实现前序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> node:
+</span></span><span style="display:flex;"><span>            print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>rec_pre_order(node<span style="color:#f92672">.</span>left_child)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>rec_pre_order(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pre_order</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;非递归实现前序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>root:
+</span></span><span style="display:flex;"><span>            ls <span style="color:#f92672">=</span> [self<span style="color:#f92672">.</span>root]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> ls:
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> ls<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>            print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>right_child:
+</span></span><span style="display:flex;"><span>                ls<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>left_child:
+</span></span><span style="display:flex;"><span>                ls<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>left_child)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pre_order2</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;非递归实现前序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        stack <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">or</span> stack:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> node:
+</span></span><span style="display:flex;"><span>                print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                stack<span style="color:#f92672">.</span>append(node)
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>left_child
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> stack:
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right_child
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rec_in_order</span>(self, node):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;递归实现中序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> node:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>rec_in_order(node<span style="color:#f92672">.</span>left_child)
+</span></span><span style="display:flex;"><span>            print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>rec_in_order(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">in_order</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;非递归实现中序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        ls <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">or</span> len(ls):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> node:
+</span></span><span style="display:flex;"><span>                ls<span style="color:#f92672">.</span>append(node)
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>left_child
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(ls):
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> ls<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>                print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right_child
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">in_order2</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;非递归实现中序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        stack <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> node:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> node:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>right_child:
+</span></span><span style="display:flex;"><span>                    stack<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>                stack<span style="color:#f92672">.</span>append(node)
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>left_child
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> stack <span style="color:#f92672">and</span> (<span style="color:#f92672">not</span> node<span style="color:#f92672">.</span>right_child):
+</span></span><span style="display:flex;"><span>                print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>            print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> stack:
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rec_post_order</span>(self, node):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;递归实现后序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> node:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>rec_post_order(node<span style="color:#f92672">.</span>left_child)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>rec_post_order(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>            print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">post_order</span>(self, node):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;非递归实现后序遍历&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        q <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>        ls <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> node:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> node<span style="color:#f92672">.</span>left_child:
+</span></span><span style="display:flex;"><span>                ls<span style="color:#f92672">.</span>append(node)
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>left_child
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> node <span style="color:#f92672">and</span> (node<span style="color:#f92672">.</span>right_child <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> node<span style="color:#f92672">.</span>right_child <span style="color:#f92672">==</span> q):
+</span></span><span style="display:flex;"><span>                print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                q <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> ls:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> ls<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>            ls<span style="color:#f92672">.</span>append(node)
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right_child
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_depth</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;计算树的深度，递归树的左右节点,取值大的深度&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_depth</span>(node):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> node:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                left_depth <span style="color:#f92672">=</span> _depth(node<span style="color:#f92672">.</span>left_child)
+</span></span><span style="display:flex;"><span>                right_depth <span style="color:#f92672">=</span> _depth(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> left_depth <span style="color:#f92672">&gt;</span> right_depth:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> left_depth <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> right_depth <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _depth(self<span style="color:#f92672">.</span>root)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_leaves</span>(self, node):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;递归输出所有叶子节点&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> node:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> node<span style="color:#f92672">.</span>left_child <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> node<span style="color:#f92672">.</span>right_child:
+</span></span><span style="display:flex;"><span>                print(node<span style="color:#f92672">.</span>data, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>get_leaves(node<span style="color:#f92672">.</span>left_child)
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>get_leaves(node<span style="color:#f92672">.</span>right_child)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    tree <span style="color:#f92672">=</span> Tree()
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;A&#39;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>left_child <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;B&#39;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>right_child <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;C&#39;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>left_child<span style="color:#f92672">.</span>left_child <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;D&#39;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>left_child<span style="color:#f92672">.</span>right_child <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;E&#39;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>left_child<span style="color:#f92672">.</span>right_child<span style="color:#f92672">.</span>right_child <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;F&#39;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>left_child<span style="color:#f92672">.</span>left_child<span style="color:#f92672">.</span>right_child <span style="color:#f92672">=</span> Node(<span style="color:#e6db74">&#39;G&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                 A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                 |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           -------------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           |           |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           B           C
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     -------------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     |           |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     D           E
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     |           |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  -------     -------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  |     |     |     |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">(None)  G   (None)  F
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;#先序遍历&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;递归：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>rec_pre_order(tree<span style="color:#f92672">.</span>root)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">非递归1：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>pre_order()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">非递归2：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>pre_order2()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">#中序遍历&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;递归：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>rec_in_order(tree<span style="color:#f92672">.</span>root)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">非递归1：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>in_order()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">非递归2：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>in_order2()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">#后序遍历&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;递归：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>rec_post_order(tree<span style="color:#f92672">.</span>root)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">非递归：&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>post_order(tree<span style="color:#f92672">.</span>root)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">二叉树的深度为：&#34;</span>, tree<span style="color:#f92672">.</span>get_depth())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">叶子节点：&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    tree<span style="color:#f92672">.</span>get_leaves(tree<span style="color:#f92672">.</span>root)
+</span></span></code></pre></div><h2 id="二叉查找树">二叉查找树</h2>
+<p><del>（先挖个坑，以后回来更新）</del></p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/640.jpg"
+  alt="640"
+  
+  loading="lazy"
+/>
+</p>
+<h2 id="参考文献">参考文献</h2>
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91">中文维基百科·二叉树</a></li>
+<li>刘汝佳《算法竞赛入门经典（第2版）</li>
+</ol>
+</div>
+<footer class="content__footer">
+  
+   
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  crossorigin="anonymous"
+  onload="
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+      ],
+    })
+  "
+></script>
+
+
+<style>
+   
+  .katex {
+    font-size: 1.05em;
+  }
+
+   
+  .katex-display {
+    font-size: 1.15em;
+    margin: 1em 0;
+  }
+</style>
+  <script
+  src="https://giscus.app/client.js"
+  data-repo="AllenWu233/lunarithm-comments"
+  data-repo-id="R_kgDOTkgvVw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOTkgvV84DCC0y"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="catppuccin_mocha"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+
+</footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    
+    <img class="about__logo" src="https://lunarithm.space/favicon.ico" alt="Logo">
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码凝魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>最近看什么都像二叉树（</p>
+ 
+<p>
+   2022-11-06
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言---二叉树是什么">引言 - 二叉树是什么</a></li>
+    <li><a href="#二叉树的遍历">二叉树的遍历</a>
+      <ol>
+        <li><a href="#层次遍历宽度优先遍历">层次遍历（宽度优先遍历）</a></li>
+        <li><a href="#递归遍历深度优先遍历">递归遍历（深度优先遍历）</a></li>
+        <li><a href="#几道例题">几道例题</a></li>
+      </ol>
+    </li>
+    <li><a href="#python类实现二叉树">Python类实现二叉树</a></li>
+    <li><a href="#二叉查找树">二叉查找树</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer">
+<p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

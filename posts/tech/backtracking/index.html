@@ -33,7 +33,7 @@
 <meta property="og:title" content="生成和检查的有机结合-回溯法 &ndash; 冰轮韵" />
 <meta property="og:url" content="https://lunarithm.space/posts/tech/backtracking/" />
 
-  <meta property="og:description" content="减少不必要的枚举 &ndash; "/> 
+  <meta property="og:description" content="DFS 入门必学：以N皇后问题为例，详解递归剪枝的核心思想与优化技巧。 &ndash; "/> 
 
 <meta property="og:locale" content="zh-cn" />
 <meta property="og:image" content="https://lunarithm.space/favicon.ico" /></head>
@@ -87,7 +87,14 @@
 <header class="content__header">
   <h1>生成和检查的有机结合-回溯法</h1>
 </header>
-<div class="content__body"><h2 id="引言">引言</h2>
+<div class="content__body"><p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/backtracking_cover.jpg"
+  alt=""
+  
+  loading="lazy"
+/>
+</p>
+<h2 id="引言">引言</h2>
 <p><strong>暴力搜索法</strong>（又称 <strong>穷举搜索</strong>，在计算机科学中也称<strong>生成与测试</strong>）是一种“简单粗暴地”处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案</p>
 <p>但有时候直接枚举会带来问题：枚举量过大而存在大量不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？</p>
 <blockquote>
@@ -429,15 +436,11 @@
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;解的个数：</span><span style="color:#e6db74">{</span>tot<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;递归次数：</span><span style="color:#e6db74">{</span>nc<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </span></span></code></pre></div><p>效率飞一般的提升！快去试试吧！</p>
-<p>(To be continue&hellip;)</p>
+<p>(To be continued&hellip;)</p>
 <p>更新了一些数学公式（终于会用Latex了）——2023/01/12</p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/img/71105196_p0_master1200.jpg"
-  alt="Rumia_pid71105196"
-  
-  loading="lazy"
-/>
-</p>
+<div style="text-align: center;">
+  <img src="/images/71105196_p0_master1200.jpg" alt="Rumia_pid71105196" width="40%">
+</div>
 <h2 id="附录">附录</h2>
 <h3 id="参考文献">参考文献</h3>
 <ol>
@@ -549,7 +552,7 @@
 </div>
                 <hr>
                 <div class="aside__content"> 
-<p>减少不必要的枚举</p>
+<p>DFS 入门必学：以N皇后问题为例，详解递归剪枝的核心思想与优化技巧。</p>
  
 <p>
    2022-12-03
