@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>红米Note 12 Turbo刷机小记 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="红米Note 12 Turbo刷机小记 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/tech/redmi-note-12-trubo-flash/" />
+
+  <meta property="og:description" content="生命在于折腾。 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>红米Note 12 Turbo刷机小记</h1>
+</header>
+<div class="content__body"><h2 id="引言">引言</h2>
+<p>无法忍受日渐卡顿和GPS定位出问题的<code>Honor Play</code>，我换上了<code>Redmi Note 12 Turbo</code>，而前者也终于结束了它将近五年的服役</p>
+<p>正是看中了 <strong>易刷机</strong> 和 <strong>性价比高</strong> 的特点，我才选了这款手机。于是，搁置多年的玩（折）机（腾）之旅又将继续（</p>
+<p>自然得玩玩类原生系统了。我选择刷入<a href="https://lineageos.org/">LineageOS</a>，已经有大佬上传了非官方的ROM，非常方便</p>
+<h2 id="刷机">刷机</h2>
+<h3 id="解锁bootloader">解锁Bootloader</h3>
+<p>可以看看这篇教程<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h4 id="绑定小米账号">绑定小米账号</h4>
+<p>一般新机需要绑定小米账号并插入SIM卡 <strong>168小时（一周）</strong> 后才能解锁Bootloader。绑定步骤如下：</p>
+<ul>
+<li>一、开启 开发者选项：1.我的设备 – 2.全部参数 – 3.连击MIUI版本</li>
+<li>二、1.更多设置 – 2.开发者选项 – 3.设备解锁状态 – 4.绑定账号和设备（需要插入SIM卡）
+等待一周后进入下一步</li>
+</ul>
+<h4 id="解锁bl">解锁BL</h4>
+<p>这一步最好是在Windows系统下完成，虚拟机或wine可能会出现问题</p>
+<p>去<a href="https://www.miui.com/unlock/download.html">小米官网</a>下载解锁软件，
+解压后运行 <strong>MiUsbDriver.exe</strong> ，登录后连接手机，按提示进入<code>Fastboot</code>模式（关机状态下按<code>电源键</code>+<code>音量下键</code>）操作即可</p>
+<h3 id="刷入lineageos">刷入LineageOS</h3>
+<p>建议优先参考ROM提供者的教程<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h4 id="下载">下载</h4>
+<p>下载<a href="https://miracle.girlswithout.top/adrian/lineage-21/marble/">此页面</a>中除<code>lineage-21.0-20240306-UNOFFICIAL-marble.zip.sha256sum</code>外的所有文件，即：</p>
+<blockquote>
+<ul>
+<li>*-marble-boot.img</li>
+<li>*-marble-dtbo.img</li>
+<li>*-marble-recover.img</li>
+<li>*-marble-vendor_boot.img</li>
+<li>*-marble.zip</li>
+</ul>
+</blockquote>
+<h4 id="刷入">刷入</h4>
+<p>需要有基本的<a href="https://en.wikipedia.org/wiki/Fastboot">fastboot</a>和<a href="https://en.wikipedia.org/wiki/Android_Debug_Bridge">adb</a>相关知识</p>
+<p>在Arch Linux下安装fastboot和adb：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>paru -S android-tools
+</span></span></code></pre></div><p>将手机连接到PC，手机进入fastboot模式，然后依次刷入下面四个img：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fastboot flash boot &lt;boot&gt;.img
+</span></span><span style="display:flex;"><span>fastboot flash dtbo &lt;dtbo&gt;.img
+</span></span><span style="display:flex;"><span>fastboot flash vendor_boot &lt;vendor_boot&gt;.img
+</span></span><span style="display:flex;"><span>fastboot flash recovery &lt;recovery_filename&gt;.img
+</span></span></code></pre></div><p>这里的<code>&lt;boot&gt;.img</code>代表你所下载的 <code>*-marble-boot.img</code>，其他几个同理</p>
+<p>重启到<code>recovery</code>模式。可以用命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fastboot reboot recovery
+</span></span></code></pre></div><p>也可以关机状态按<code>电源键</code>+<code>音量上键</code>进入</p>
+<p>在recovery界面按：
+<strong>Factory Reset</strong> - <strong>Format data / factory reset</strong> 以格式化</p>
+<p>返回主菜单，按 <strong>Apply Update</strong> - <strong>Apply from ADB</strong></p>
+<p>在PC上运行命令以刷入<code>LineageOS</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb sideload &lt;filename&gt;.zip
+</span></span></code></pre></div><p>根据ROM提供者的提示，PC终端上显示安装进度可能会卡在47%，然而手机提示已完成安装，是否需要安装额外的包。不用担心，其实系统已经成功安装了，此时点 <strong>No</strong>，然后重启到正常的系统即可</p>
+<blockquote>
+<p><strong>Tip</strong>: Normally, adb will report Total xfer: 1.00x, but in some cases,
+even if the process succeeds the output will stop at 47% and report adb:
+failed to read command: Success. In some cases it will report adb:
+failed to read command: No error or adb: failed to read command:
+Undefined error: 0 which is also fine.</p>
+</blockquote>
+<p>以后更新系统直接在recovery刷入ROM即可</p>
+<blockquote>
+<p>⚠️ <strong>第一次进系统时建议先不要插入SIM卡，以免出现奇奇怪怪的问题</strong></p>
+</blockquote>
+<h2 id="root">Root</h2>
+<p>折腾手机自然少不了Root啦。我使用的是安装过程简便的<a href="https://github.com/topjohnwu/Magisk">Magisk</a></p>
+<h3 id="安装magisk">安装Magisk</h3>
+<p>推荐阅读<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>先在手机上安装<a href="https://github.com/topjohnwu/Magisk/releases">Magisk app</a>，
+然后将前面下载的<code>&lt;boot&gt;.img</code>拷到手机上，打开Magisk， <strong>安装</strong> - <strong>选择并修补一个文件</strong>，
+选中刚刚拷的文件，修补后拷回电脑</p>
+<p>手机上允许adb调试。重启到fastboot模式并刷入修补后的镜像：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb reboot fastboot
+</span></span><span style="display:flex;"><span>fastboot flash boot &lt;magisk_patch-filename&gt;.img
+</span></span></code></pre></div><p>重启，尽享root后的世界吧！</p>
+<p>更新系统后Magisk会失效，可以重新执行此步骤修补镜像并刷入</p>
+<h3 id="安装magisk-modules">安装Magisk modules</h3>
+<p>先在Magisk的设置里开启<strong>Zygisk</strong></p>
+<p>推荐几个好用的模块：</p>
+<table>
+	<thead>
+			<tr>
+					<th>Module Name</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://github.com/AdguardTeam/AdGuardHome">AdGuardHome</a></td>
+					<td>屏蔽大多数应用的广告，强烈安利</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/topjohnwu/Magisk/releases">Sui</a></td>
+					<td>使Magisk管理应用的逻辑更现代化，依赖Zygisk</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/LSPosed/LSPosed.github.io/releases">Shamiko</a><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></td>
+					<td>向应用隐藏Root，强烈安利</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/LSPosed/LSPosed/releases">LSPosed</a></td>
+					<td>类似Xposed框架，可安装许多插件</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/yc9559/uperf">uperf</a></td>
+					<td>用户态性能控制器，实现大部分内核态升频功能。可配合子模块<a href="https://github.com/yc9559/uperf/releases">SfAnalysis</a>和<a href="https://github.com/yc9559/uperf/releases">SsAnalysis</a></td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/eritpchy/FingerprintPay">FingerprintPay</a></td>
+					<td>让微信、QQ、支付宝、淘宝、云闪付支持使用指纹支付</td>
+			</tr>
+	</tbody>
+</table>
+<p>安装方式：<strong>模块</strong> - <strong>从本地安装</strong>
+安装成功后重启即可</p>
+<h3 id="shamiko-白名单模式">Shamiko 白名单模式</h3>
+<p>创建空文件 <code>/data/adb/shamiko/whitelist</code> ，重启即可。需使用能获取 Root 权限来修改根目录的文件管理器（如质感文件、MT 管理器等）</p>
+<blockquote>
+<p>白名单比黑名单有什么优势？[^5]</p>
+</blockquote>
+<ul>
+<li>全局隐藏，更彻底，也不用设置排除列表</li>
+<li>所有 app 都检测不到 root，已授权 root 的 app 可以正常使用 root 权限。</li>
+<li>需要授权 root，关闭 Shamiko 模块重启手机，授权完再启用 shamiko 模块重启手机即可。</li>
+</ul>
+<h2 id="apps推荐">Apps推荐</h2>
+<table>
+	<thead>
+			<tr>
+					<th>App Name</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://f-droid.org">F-Droid</a></td>
+					<td>自由开源软件下载</td>
+			</tr>
+			<tr>
+					<td><a href="https://f-droid.org/packages/com.aurora.store/">Aurora Store</a></td>
+					<td>Google Play的非官方自由/开源软件客户端</td>
+			</tr>
+			<tr>
+					<td><a href="https://iceboxdoc.catchingnow.com/">冰箱 Ice Box</a></td>
+					<td>把暂时不用或者不需常驻后台的应用“冻结”起来</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/helloklf/vtools">Scene</a></td>
+					<td>一个集高级重启、应用安装自动点击、CPU调频等多项功能于一体的工具箱</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="已知问题">已知问题</h2>
+<h3 id="重启后无法接收短信">重启后无法接收短信</h3>
+<p>可能是LineageOS的问题。根据<a href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/page-4#post-89404995">用户<strong>aqwgtj</strong>的回复</a>，在设置里面禁用再启用SIM卡就能正常接收短信了：
+<strong>设置</strong> - <strong>网络和互联网</strong> - <strong>SIM卡</strong> - &lt;选择SIM卡&gt; - 重新开关<strong>使用SIM卡</strong></p>
+<blockquote>
+<p>aqwgtj: make sure to SMS normal must be to disable your SIM and re-enable it
+after restarting machine eachtime, either no SMS can see.</p>
+</blockquote>
+<p>目前还没有找到根治的办法，只好每次重启都重开一次😕</p>
+<blockquote>
+<p>2024-04-02 更新</p>
+</blockquote>
+<p>ROM提供者已提供更新，优化UI的同时还修复了SMS的问题，添加老化保护（burn-in protection），并重新加入充电控制功能</p>
+<p><a href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/post-89434291">https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/post-89434291</a></p>
+<h2 id="20240402-更新">2024.04.02 更新</h2>
+<p>更新系统。直接通过adb线刷完整系统包即可，但是Magisk的修复就要注意了。起初我不假思索的刷入之前magisk修复的包，结果直接进不了系统……</p>
+<h3 id="正确姿势">正确姿势</h3>
+<p>使用<a href="https://github.com/ssut/payload-dumper-go">payload-dumper-go</a>提取新版本系统包的<code>boot.img</code>，再在<code>Magisk</code>里修补镜像，重新刷入修补后的镜像</p>
+<p>安装<code>payload-dumper-go-bin</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>paru -S payload-dumper-go-bin
+</span></span></code></pre></div><p>解压系统包，要用到的是<code>payload.bin</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>unzip &lt;system_package&gt;.zip payload.bin
+</span></span></code></pre></div><p>提取<code>boot.img</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>payload-dumper-go -p boot payload.bin
+</span></span></code></pre></div><p>通过fastboot刷入经<code>Magisk</code>修补后的镜像即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fastboot flash boot boot.img
+</span></span></code></pre></div><h3 id="关于zygisk">关于Zygisk</h3>
+<p>重刷后关闭所有zygisk模块，重启，然后再启用zygisk模块，再重启</p>
+<h2 id="养老20251205-更新">养老：2025.12.05 更新</h2>
+<p>刷回了 HyperOS 2。类原生爽是爽，但缺点也不少：耗电快、国产应用不兼容、MicroG 不能完美替代 Google 服务等。好在解了 BL，顺手就能 Root，体验差强人意。</p>
+<p>或许是最后一台折腾的手机了，自从小米解 BL 难度大大提高后，又少了一个适合玩机的品牌。</p>
+<p>第二天又刷了 <a href="https://h5.cloud.189.cn/share.html#/t/6fiEFjR7NVra">YiHan 的 MIUI 14.0.27 官改包</a>，决定在这个包<a href="https://www.bilibili.com/video/BV1NK8UzBEZk?t=0">养老</a>了。</p>
+<h2 id="附录">附录</h2>
+<p>[^5] <a href="https://magiskcn.com/shamiko-whitelist.html">Shamiko 白名单模式</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://magiskcn.com/xiaomi-unlock">小米手机解锁Bootloader（Xiaomi手机解BL锁）</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/">[ROM][14][UNOFFICIAL] LineageOS 21 for Xiaomi POCO F5 / Redmi Note 12 Turbo</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://magiskcn.com/?utm_source=pocket_saves">Magisk安装教程</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://magiskcn.com/shamiko-install">Shamiko安装（Shamiko install）</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>生命在于折腾。</p>
+ 
+<p>
+   2024-03-26
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#刷机">刷机</a>
+      <ol>
+        <li><a href="#解锁bootloader">解锁Bootloader</a></li>
+        <li><a href="#刷入lineageos">刷入LineageOS</a></li>
+      </ol>
+    </li>
+    <li><a href="#root">Root</a>
+      <ol>
+        <li><a href="#安装magisk">安装Magisk</a></li>
+        <li><a href="#安装magisk-modules">安装Magisk modules</a></li>
+        <li><a href="#shamiko-白名单模式">Shamiko 白名单模式</a></li>
+      </ol>
+    </li>
+    <li><a href="#apps推荐">Apps推荐</a></li>
+    <li><a href="#已知问题">已知问题</a>
+      <ol>
+        <li><a href="#重启后无法接收短信">重启后无法接收短信</a></li>
+      </ol>
+    </li>
+    <li><a href="#20240402-更新">2024.04.02 更新</a>
+      <ol>
+        <li><a href="#正确姿势">正确姿势</a></li>
+        <li><a href="#关于zygisk">关于Zygisk</a></li>
+      </ol>
+    </li>
+    <li><a href="#养老20251205-更新">养老：2025.12.05 更新</a></li>
+    <li><a href="#附录">附录</a></li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

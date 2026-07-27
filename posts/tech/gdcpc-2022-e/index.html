@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>GDCPC 2022 E 黑白大陆 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="GDCPC 2022 E 黑白大陆 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/tech/gdcpc-2022-e/" />
+
+  <meta property="og:description" content="DFS、BFS与最短路的碰撞 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>GDCPC 2022 E 黑白大陆</h1>
+</header>
+<div class="content__body"><h2 id="题目">题目</h2>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/E.jpg"
+  alt=""
+  
+  loading="lazy"
+/>
+</p>
+<h2 id="分析">分析</h2>
+<blockquote>
+<p>题意：给出一个 $ m \times n $ 的布尔矩阵，每次可以进行一下两种操作之一：</p>
+<ul>
+<li>选择一个元素 $(i,j)$ ，如果：
+<ul>
+<li>$ a_{i,j} = 1 $：将该点和与其相邻的所有$1$都变成$0$</li>
+<li>$ a_{i,j} = 0 $：将该点和与其相邻的所有$0$都变成$1$
+求把整个矩阵都变为$0$所需的最少步数</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>显然，我们需要用DFS来判断连通块。可以写两个DFS分别判断黑色（1）和白色（0）连通块，把连通块看作结点，判连通块的同时根据连通块之间的接壤关系组织成图。如果<code>a[i][j] == 1</code>，则<code>vis[i][j] = idx</code>，否则<code>vis[i][j] = -idx</code>，idx为结点编号</p>
+<p>求从某一个点开始操作，把整个图都变为$0$的步数，即求从该点出发遍历整个图的步数。也就是说，我们可以用BFS求出该点到所有点的<em><strong>最短路</strong></em>（<strong>特别的，如果最短路终点的值为 $1$ ，则最短路的长度要 $+1$ ，因为把整条路径都变为 $0$ 需要再多加一步</strong>），取最短路的最大值为 $t$ ，然后对每个结点都做一次BFS，$min\{t\}$ 即为答案</p>
+<p>结点数不大于 $50 \times 50 = 2500$ 个，用邻接表存图比较方便，且不会超时</p>
+<p>注意到重边不会影响BFS（结点一入队就被打上访问标记），因此存图时不用判重，省下了 $O(\sum_{u=1}^{idx} d^{+}(u-1)!)$ （$idx$为结点编号最大值） 的时间复杂度，也就是“用空间换时间”<br>
+<del>（事实上，本题加上判重操作也能AC,不差这点时间复杂度）</del></p>
+<p>总时间复杂度为：DFS + BFS<br>
+$O(nm)$ + $O((n + m) \times (n + m + \sum_{u=1}^{n + m} d^{+}(u)))$</p>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> dx[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> dy[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> INF <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x3f3f3f3f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m, a[N][N], vis[N][N], c[N<span style="color:#f92672">*</span>N], idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, ans <span style="color:#f92672">=</span> INF;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// a存储输入，vis存储连同块（结点）编号，c存储结点颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> bvis[N<span style="color:#f92672">*</span>N];  <span style="color:#75715e">// 用于BFS判断结点是否已访问
+</span></span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> G;  <span style="color:#75715e">// 邻接表
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Node</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> idx, step;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 检查是否在界线内
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">check</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> x <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;=</span> n <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> y <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&lt;=</span> m;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 判断黑连通块并建图
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">dfs1</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (vis[x][y] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> false;  <span style="color:#75715e">// 不是黑连通块
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 与白连通块接壤，建边
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a[x][y] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vis[x][y] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {  <span style="color:#75715e">// 重边不影响BFS,不用判重
+</span></span></span><span style="display:flex;"><span>            G[idx].push_back(<span style="color:#f92672">-</span>vis[x][y]);
+</span></span><span style="display:flex;"><span>            G[<span style="color:#f92672">-</span>vis[x][y]].push_back(idx);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vis[x][y] <span style="color:#f92672">=</span> idx;  <span style="color:#75715e">// 访问标记，也是结点编号
+</span></span></span><span style="display:flex;"><span>    c[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">// 结点颜色为黑（1）
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 继续DFS
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> nx <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> dx[i], ny <span style="color:#f92672">=</span> y <span style="color:#f92672">+</span> dy[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (check(nx, ny) <span style="color:#f92672">&amp;&amp;</span> vis[nx][ny] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) dfs1(nx, ny);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;  <span style="color:#75715e">// 是黑连通块
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 判断白连通块并建图
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">dfs0</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (vis[x][y] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 与黑连通块接壤，建边
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a[x][y] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {  <span style="color:#75715e">// 重边不影响BFS,不用判重
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vis[x][y] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            G[idx].push_back(vis[x][y]);
+</span></span><span style="display:flex;"><span>            G[vis[x][y]].push_back(idx);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vis[x][y] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>idx;  <span style="color:#75715e">// 访问标记，也是结点编号
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 结点颜色为白（0）。不做操作，因为 c 初始值为 0
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 继续DFS
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> nx <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> dx[i], ny <span style="color:#f92672">=</span> y <span style="color:#f92672">+</span> dy[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (check(nx, ny) <span style="color:#f92672">&amp;&amp;</span> vis[nx][ny] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>) dfs0(nx, ny);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 求无权图上的最短路
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bfs</span>(<span style="color:#66d9ef">int</span> k) {
+</span></span><span style="display:flex;"><span>    memset(bvis, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(bvis));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>INF;  <span style="color:#75715e">// 存储到各个结点的最短路的最大值
+</span></span></span><span style="display:flex;"><span>    Node tmp;
+</span></span><span style="display:flex;"><span>    queue<span style="color:#f92672">&lt;</span>Node<span style="color:#f92672">&gt;</span> q;
+</span></span><span style="display:flex;"><span>    q.push({k, <span style="color:#ae81ff">0</span>});
+</span></span><span style="display:flex;"><span>    bvis[k] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>q.empty()) {
+</span></span><span style="display:flex;"><span>        tmp <span style="color:#f92672">=</span> q.front();
+</span></span><span style="display:flex;"><span>        q.pop();
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> max(t, (c[tmp.idx] <span style="color:#f92672">?</span> tmp.step<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> tmp.step));  <span style="color:#75715e">// 如果最短路终点为黑色（1），则步数+1
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> i : G[tmp.idx]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>bvis[i] <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">!=</span> idx) {
+</span></span><span style="display:flex;"><span>                q.push({i, tmp.step<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>});
+</span></span><span style="display:flex;"><span>                bvis[i] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> min(ans, t);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 求出从各点出发到所有点的最短路的最大值的最小值
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> idx; i<span style="color:#f92672">++</span>) bfs(i);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 读入数据并建图
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i][j];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    G.resize(<span style="color:#ae81ff">2500</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (a[i][j]) <span style="color:#66d9ef">if</span> (dfs1(i, j)) idx<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>a[i][j]) <span style="color:#66d9ef">if</span> (dfs0(i, j)) idx<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef LOCAL
+</span></span></span><span style="display:flex;"><span>    freopen(<span style="color:#e6db74">&#34;E_2.in&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>, stdin);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span>    IOS
+</span></span><span style="display:flex;"><span>    init();
+</span></span><span style="display:flex;"><span>    solve();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 遍历结点颜色
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// for (int i = 1; i &lt; idx; i++) cout &lt;&lt; c[i] &lt;&lt; &#39; &#39;;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// cout &lt;&lt; endl &lt;&lt; endl;
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 遍历访问数组
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// for (int i = 1; i &lt;= n; i++) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     for (int j = 1; j &lt;= m; j++) cout &lt;&lt; vis[i][j] &lt;&lt; &#39; &#39;;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     cout &lt;&lt; endl;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// } cout &lt;&lt; endl;
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 遍历邻接表
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// for (int i = 1; i &lt; idx; i++) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     cout &lt;&lt; i &lt;&lt; &#34;: &#34;;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     for (auto j : G[i]) cout &lt;&lt; j &lt;&lt; &#39; &#39;;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     cout &lt;&lt; endl;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="数据生成器">数据生成器</h2>
+<p>附赠数据生成器</p>
+<blockquote>
+<p>E_in.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</span> open(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;E_2.in&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># n = randint(1, 50)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># m = randint(1, 50)</span>
+</span></span><span style="display:flex;"><span>n, m <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(n, m)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>        print(randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>), end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>    print()
+</span></span></code></pre></div><h2 id="总结">总结</h2>
+<p>上周末打的虚拟赛，我负责E题。虽然一上来就想到了DFS建图，然而还不熟练，错漏百出：邻接表建图出错、BFS漏写访问标记，<del>以至于全程挂机（bushi）</del>。还要加强训练，<del>我也是加把劲ACMer</del></p>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>DFS、BFS与最短路的碰撞</p>
+ 
+<p>
+   2023-04-11
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#题目">题目</a></li>
+    <li><a href="#分析">分析</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#数据生成器">数据生成器</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

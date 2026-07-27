@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>生成和检查的有机结合-回溯法 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="生成和检查的有机结合-回溯法 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/tech/backtracking/" />
+
+  <meta property="og:description" content="减少不必要的枚举 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>生成和检查的有机结合-回溯法</h1>
+</header>
+<div class="content__body"><h2 id="引言">引言</h2>
+<p><strong>暴力搜索法</strong>（又称 <strong>穷举搜索</strong>，在计算机科学中也称<strong>生成与测试</strong>）是一种“简单粗暴地”处理问题的方法，通过枚举所有的可能并判断是否符合题意，以得出答案</p>
+<p>但有时候直接枚举会带来问题：枚举量过大而存在大量不必要的枚举，导致算法时间复杂度过大（太低效了）。有没有更好的方法呢？</p>
+<blockquote>
+<p><strong>回溯法（backtracking）</strong> 是<strong>暴力搜索法</strong>的一种，可在递归构造中把搜索和检查有机地结合起来，从而减小枚举量</p>
+</blockquote>
+<p>让我们通过几道经典的题目来感受一下回溯法的魅力吧～</p>
+<h2 id="八皇后问题">八皇后问题</h2>
+<p>可以说是最经典的题目之一了。甚至常被作为“判断有没有学过回溯法”的依据 <del>（刘老师如是说）</del></p>
+<blockquote>
+<p>如何能够在8×8的国际象棋棋盘上放置八个皇后，使得任何一个皇后都无法直接吃掉其他的皇后？为了达到此目的，任两个皇后都不能处于同一条横行、纵行或斜线上。
+八皇后问题可以推广为更一般的n皇后摆放问题：这时棋盘的大小变为n×n，而皇后个数也变成n。当且仅当n = 1或n ≥ 4时问题有解。——From <a href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98">维基百科·八皇后问题</a></p>
+</blockquote>
+<p>而我们要解决的，正是推广后的n皇后问题。但为了方便描述，下面的分析还是以八皇后问题为例</p>
+<h3 id="思路一组合生成">思路一：组合生成</h3>
+<p>枚举出所有可能的棋局，再来判断是否符合题目要求。</p>
+<p>问题可以转换为：从 $ 8 \times 8 = 64 $ 个格子里选出 $8$ 个（即组合生成），保证任两个格子都不能处于同一条横行、纵行或斜线上</p>
+<p>根据排列组合，我们知道共有$ C_{64}^{8} = 4.426 \times 10^9 $种方案，显然是太复杂了。</p>
+<h3 id="思路二全排列生成">思路二：全排列生成</h3>
+<p>稍加思考，我们可以改进策略：恰好每行每列各选一个格子，保证任两个格子都在同一斜线上。如此转化为全排列生成的问题，方案数降为$ 8! = 40320 $种，肉眼可见的效率提升啊（笑）</p>
+<p>我们可以用C[x]表示第x行皇后的列编号。难点之一是如何判断皇后间是否斜向攻击。</p>
+<p>把棋盘看作一个以左上角为原点、往下为x轴、往右为y轴的平面直角坐标系，于是棋盘的<strong>主对角线</strong>就是 $ y = x $ ，于是对于格子$ (x,y) $， $ y-x $ 的值就标识了主对角线（确保你理解了这一点！）。同理，副对角线为 $ y = -x $ ， $ x+y $ 的值标记了副对角线。如下图所示：</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/y-x.jpg"
+  alt="y-x"
+  
+  loading="lazy"
+/>
+ <img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/x&#43;y.jpg"
+  alt="x&#43;y"
+  
+  loading="lazy"
+/>
+</p>
+<h3 id="回溯法">回溯法</h3>
+<p>接下来，就要用到回溯法了：</p>
+<blockquote>
+<p>所谓<strong>回溯（backtracking）</strong>，就是指在递归求解问题时，如果当前步骤没有合法选择，则函数返回上一级递归调用</p>
+</blockquote>
+<p>简单来说，就是把问题分成若干个步骤递归求解，当某一步不合题意时停止，返回上一步。这样可以大大减少运算量</p>
+<p>来看看代码吧～</p>
+<h4 id="普通回溯法">普通回溯法</h4>
+<blockquote>
+<p>nqueens_1.cpp</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">// n皇后问题：在n*n棋盘上放置n个皇后，使得它们互不攻击，找出所有解
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> C[<span style="color:#ae81ff">50</span>], tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, n <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>, nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// C[x]表示第x行皇后的列编号
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">search</span>(<span style="color:#66d9ef">int</span> cur)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    nc<span style="color:#f92672">++</span>;  <span style="color:#75715e">// 递归次数
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (cur <span style="color:#f92672">==</span> n) tot<span style="color:#f92672">++</span>;  <span style="color:#75715e">// 递归边界。只要走到了这里，所有皇后必然不冲突
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// if (cur == n)  // 打印解
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     printf(&#34;解%d: &#34;, tot);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     for (int i = 0; i &lt; n; i++)
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//         printf(&#34;(%d,%d) &#34;, i, C[i]);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     printf(&#34;\n&#34;);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        C[cur] <span style="color:#f92672">=</span> i;  <span style="color:#75715e">// 尝试把第cur行的皇后放在第i列
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> cur; j<span style="color:#f92672">++</span>)  <span style="color:#75715e">// 检查是否和前面的皇后冲突
+</span></span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 对于(x,y),y-x值为主对角线，y+x值为副对角线
+</span></span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (C[cur] <span style="color:#f92672">==</span> C[j] <span style="color:#f92672">||</span> cur<span style="color:#f92672">-</span>C[cur] <span style="color:#f92672">==</span> j<span style="color:#f92672">-</span>C[j] <span style="color:#f92672">||</span> cur<span style="color:#f92672">+</span>C[cur] <span style="color:#f92672">==</span> j<span style="color:#f92672">+</span>C[j])
+</span></span><span style="display:flex;"><span>                { ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">break</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ok) search(cur<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);  <span style="color:#75715e">// 如果合法，则继续递归
+</span></span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (cin <span style="color:#f92672">&gt;&gt;</span> n)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        search(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;解的个数: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> tot <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;递归次数: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> nc <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; memset(C, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(C));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这样就解决了这个问题。结点数似乎很难再减少了，但效率还可以提高！</p>
+<h4 id="优化的回溯法">优化的回溯法</h4>
+<p>利用二维数组<code>vis[2][]</code>存储状态，来直接判断当前尝试的皇后所在的列和两个对角线是否已有其他皇后。因为$ y-x $可能为负，存储时要加上<code>n</code>（数组下标不能为负）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> C[<span style="color:#ae81ff">50</span>], vis[<span style="color:#ae81ff">3</span>][<span style="color:#ae81ff">50</span>], tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, n <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>, nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 利用二维数组vis[2][]直接判断当前尝试的皇后所在的列和两个对角线是否已有其他皇后
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">search</span>(<span style="color:#66d9ef">int</span> cur)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i;
+</span></span><span style="display:flex;"><span>    nc<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (cur <span style="color:#f92672">==</span> n) tot<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// if(cur == n)
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     printf(&#34;解%d: &#34;, tot);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     for (int i = 0; i &lt; n; i++)
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//         printf(&#34;(%d,%d) &#34;, i, C[i]);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">//     printf(&#34;\n&#34;);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>vis[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>vis[<span style="color:#ae81ff">1</span>][cur<span style="color:#f92672">+</span>i] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>vis[<span style="color:#ae81ff">2</span>][cur<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span>n])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            C[cur] <span style="color:#f92672">=</span> i;  <span style="color:#75715e">// 如果不用打印解，整个C数组都可以省略
+</span></span></span><span style="display:flex;"><span>            vis[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">=</span> vis[<span style="color:#ae81ff">1</span>][cur<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> vis[<span style="color:#ae81ff">2</span>][cur<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span>n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">// 访问标记
+</span></span></span><span style="display:flex;"><span>            search(cur<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>            vis[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">=</span> vis[<span style="color:#ae81ff">1</span>][cur<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> vis[<span style="color:#ae81ff">2</span>][cur<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span>n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;  <span style="color:#75715e">// 及时改回来！
+</span></span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (cin <span style="color:#f92672">&gt;&gt;</span> n)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        memset(vis, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(vis));
+</span></span><span style="display:flex;"><span>        search(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;解的个数: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> tot <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;递归次数: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> nc <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>注意访问标记的设置，即对辅助全局变量（数组vis）的修改，并且在结束访问后即使修改回来！</p>
+<h4 id="生成---测试法">生成 - 测试法</h4>
+<p>作为比较，我们看看生成 - 测试法的效率如何</p>
+<blockquote>
+<p>nqueens_3.cpp</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> C[<span style="color:#ae81ff">50</span>], tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, n <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 先生成棋面，再判断
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">search</span>(<span style="color:#66d9ef">int</span> cur)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i, j;
+</span></span><span style="display:flex;"><span>    nc<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(cur <span style="color:#f92672">==</span> n)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;</span> n; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(C[i] <span style="color:#f92672">==</span> C[j] <span style="color:#f92672">||</span> i<span style="color:#f92672">-</span>C[i] <span style="color:#f92672">==</span> j<span style="color:#f92672">-</span>C[j] <span style="color:#f92672">||</span> i<span style="color:#f92672">+</span>C[i] <span style="color:#f92672">==</span> j<span style="color:#f92672">+</span>C[j]) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>        tot<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        C[cur] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>        search(cur<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (cin <span style="color:#f92672">&gt;&gt;</span> n)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        memset(C, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(C));
+</span></span><span style="display:flex;"><span>        search(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;解的个数: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> tot <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;递归次数: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> nc <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>我们来对比一下这几个程序的效率（测试设备CPU为i9-12900H）</p>
+<blockquote>
+<p>递归次数</p>
+</blockquote>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: center">程序 \ n</th>
+					<th style="text-align: center">8</th>
+					<th style="text-align: center">9</th>
+					<th style="text-align: center">10</th>
+					<th style="text-align: center">11</th>
+					<th style="text-align: center">12</th>
+					<th style="text-align: center">13</th>
+					<th style="text-align: center">14</th>
+					<th style="text-align: center">15</th>
+					<th style="text-align: center">16</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center">nqueen_1.cpp</td>
+					<td style="text-align: center">2057</td>
+					<td style="text-align: center">8394</td>
+					<td style="text-align: center">35539</td>
+					<td style="text-align: center">166926</td>
+					<td style="text-align: center">856189</td>
+					<td style="text-align: center">4674890</td>
+					<td style="text-align: center">27358553</td>
+					<td style="text-align: center">171129072</td>
+					<td style="text-align: center">1141190303</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">nqueen_2.cpp</td>
+					<td style="text-align: center">2057</td>
+					<td style="text-align: center">8394</td>
+					<td style="text-align: center">35539</td>
+					<td style="text-align: center">166926</td>
+					<td style="text-align: center">856189</td>
+					<td style="text-align: center">4674890</td>
+					<td style="text-align: center">27358553</td>
+					<td style="text-align: center">171129072</td>
+					<td style="text-align: center">1141190303</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">nqueen_3.cpp</td>
+					<td style="text-align: center">19173961</td>
+					<td style="text-align: center">435848050</td>
+					<td style="text-align: center">11111111111</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>耗时（单位：s）</p>
+</blockquote>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: center">程序 \ n</th>
+					<th style="text-align: center">8</th>
+					<th style="text-align: center">9</th>
+					<th style="text-align: center">10</th>
+					<th style="text-align: center">11</th>
+					<th style="text-align: center">12</th>
+					<th style="text-align: center">13</th>
+					<th style="text-align: center">14</th>
+					<th style="text-align: center">15</th>
+					<th style="text-align: center">16</th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center">nqueen_1.cpp</td>
+					<td style="text-align: center">0.001</td>
+					<td style="text-align: center">0.002</td>
+					<td style="text-align: center">0.006</td>
+					<td style="text-align: center">0.028</td>
+					<td style="text-align: center">0.147</td>
+					<td style="text-align: center">0.877</td>
+					<td style="text-align: center">5.582</td>
+					<td style="text-align: center">38.462</td>
+					<td style="text-align: center">284.097</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td style="text-align: center">nqueen_2.cpp</td>
+					<td style="text-align: center">0.001</td>
+					<td style="text-align: center">0.002</td>
+					<td style="text-align: center">0.003</td>
+					<td style="text-align: center">0.012</td>
+					<td style="text-align: center">0.056</td>
+					<td style="text-align: center">0.298</td>
+					<td style="text-align: center">1.828</td>
+					<td style="text-align: center">11.761</td>
+					<td style="text-align: center">80.594</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td style="text-align: center">nqueen_3.cpp</td>
+					<td style="text-align: center">0.124</td>
+					<td style="text-align: center">3.2</td>
+					<td style="text-align: center">91.716</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td></td>
+			</tr>
+	</tbody>
+</table>
+<p>当 $ n \leq 13 $ 时，回溯法和优化后的回溯法有不错的效率；当 $ n &gt; 13 $ 时，优化后回溯法的效率明显更高</p>
+<p>而生成-测试法的复杂度明显高得多，$ n = 10 $ 时耗时长达约一分半，递归次数也远超出INT类型的范围</p>
+<h4 id="python代码">Python代码</h4>
+<blockquote>
+<p>nqueen.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_solve</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> tot, n, C
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;解：</span><span style="color:#e6db74">{</span>tot<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;(</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{</span>C[i]<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>    print()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(cur):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> C, vis, tot, n, nc
+</span></span><span style="display:flex;"><span>    nc <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> cur <span style="color:#f92672">==</span> n:
+</span></span><span style="display:flex;"><span>        tot <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> cur <span style="color:#f92672">==</span> n:
+</span></span><span style="display:flex;"><span>            print_solve()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> vis[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> vis[<span style="color:#ae81ff">1</span>][cur<span style="color:#f92672">+</span>i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> vis[<span style="color:#ae81ff">2</span>][cur<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span>n] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                C[cur] <span style="color:#f92672">=</span> i
+</span></span><span style="display:flex;"><span>                vis[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                vis[<span style="color:#ae81ff">1</span>][cur<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                vis[<span style="color:#ae81ff">2</span>][cur<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span>n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                search(cur<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                vis[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                vis[<span style="color:#ae81ff">1</span>][cur<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                vis[<span style="color:#ae81ff">2</span>][cur<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span>n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    C <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>    vis <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">30</span> <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>)]
+</span></span><span style="display:flex;"><span>    tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    nc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;error.&#34;</span>)
+</span></span><span style="display:flex;"><span>    search(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;解的个数：</span><span style="color:#e6db74">{</span>tot<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;递归次数：</span><span style="color:#e6db74">{</span>nc<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>效率飞一般的提升！快去试试吧！</p>
+<p>(To be continue&hellip;)</p>
+<p>更新了一些数学公式（终于会用Latex了）——2023/01/12</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/img/71105196_p0_master1200.jpg"
+  alt="Rumia_pid71105196"
+  
+  loading="lazy"
+/>
+</p>
+<h2 id="附录">附录</h2>
+<h3 id="参考文献">参考文献</h3>
+<ol>
+<li>刘汝佳《算法竞赛入门经典（第2版）》</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%9A%B4%E5%8A%9B%E6%90%9C%E7%B4%A2">维基百科·暴力搜索</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%9B%9E%E6%BA%AF%E6%B3%95">维基百科·回溯法</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98">维基百科·八皇后问题</a></li>
+</ol>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>减少不必要的枚举</p>
+ 
+<p>
+   2022-12-03
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#八皇后问题">八皇后问题</a>
+      <ol>
+        <li><a href="#思路一组合生成">思路一：组合生成</a></li>
+        <li><a href="#思路二全排列生成">思路二：全排列生成</a></li>
+        <li><a href="#回溯法">回溯法</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>Codeforces Round 867 (Div. 3) 题解 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码淬魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="Codeforces Round 867 (Div. 3) 题解 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/tech/contest-1822/" />
+
+  <meta property="og:description" content="第一篇CF题解。 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>Codeforces Round 867 (Div. 3) 题解</h1>
+</header>
+<div class="content__body"><h2 id="前言">前言</h2>
+<p>题目链接：<a href="https://codeforces.com/contest/1822">Codeforces Round 867 (Div. 3)</a></p>
+<p>入坑以来打的最好的一次。特写此题解，记录一下心得</p>
+<p>A 题为完整代码，其他题目只有核心代码（省略了模板）</p>
+<h2 id="正文">正文</h2>
+<h3 id="a-tubetube-feed">A. TubeTube Feed</h3>
+<blockquote>
+<p>题意：给出数组<code>a[]</code>（代表视频长度，单位：s）和<code>b[]</code>（代表视频的“entertainment value”，我们用变量<code>fun</code>来存储其最大值），整数<code>t</code>（午餐时长）。对于一个视频，可以跳过（消耗1s）,也可以决定就看这个视频，但要保证消耗的时间和视频时长之和不超过<code>t</code>。求选择观看哪一个视频（求出<code>a[]</code>的下标），使得<code>fun</code>最大</p>
+</blockquote>
+<p>根据题意模拟即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define _all(x) (x).begin(), (x).end()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define _abs(x) ((x &gt;= 0) ? (x) : (-x))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PII pair&lt;int, int&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PLL pair&lt;LL, LL&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PDD pair&lt;double, double&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define fi first
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define se second
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> LL;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">double</span> LD;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> ULL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> INF <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x3f3f3f3f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">double</span> PI <span style="color:#f92672">=</span> acos(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, t, a[N], b[N];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> t;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> b[i];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, fun <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (a[i] <span style="color:#f92672">&lt;=</span> t)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (fun <span style="color:#f92672">&lt;</span> b[i]) {
+</span></span><span style="display:flex;"><span>                ans <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>                fun <span style="color:#f92672">=</span> b[i];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    IOS
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> test_case;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> test_case;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (test_case<span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>        init();
+</span></span><span style="display:flex;"><span>        solve();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="b-karina-and-array">B. Karina and Array</h3>
+<blockquote>
+<p>题意：给出一个数组，找到两个数，使得这两个数的积最大</p>
+</blockquote>
+<p>排序，比较 <code>最大数</code>与<code>次大数</code>之积、<code>最小数</code>与<code>次小数</code>之积的大小即可</p>
+<p>注意中间变量要用<code>long long</code>存储</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">2e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, a[N];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+</span></span><span style="display:flex;"><span>    sort(a, a<span style="color:#f92672">+</span>n);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> max(((LL)a[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (LL)a[<span style="color:#ae81ff">1</span>]), ((LL)a[n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> (LL)a[n<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>])) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="c-bun-lover">C. Bun Lover</h3>
+<blockquote>
+<p>题意：两个面包卷以螺旋状盘成一个边长为$ n $正方形（蚊香？），每个面包卷的内外都涂有巧克力酱。给出任意的 $ n $ ，求巧克力酱线段的总长</p>
+</blockquote>
+<p>容易找到规律：<br>
+$ ans = 4n + (n - 1) + 2(n - 2) + 2(n - 3) + &hellip; + 2 \times 2 + 1 \times 3 = 5n + \frac{(1+n-2)(n-2)}{2} \times 2 = n^2 + 2n + 2 $</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>LL n;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> n<span style="color:#f92672">*</span>n <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>n <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="d-super-permutation">D. Super-Permutation</h3>
+<blockquote>
+<p>题意：构造一个n排列，使得其前缀和数组各元素 $ (\mod n\ ) + 1 $ 后也是一个n排列</p>
+</blockquote>
+<p>构造题。容易看出前缀和数组各元素模上n后为<code>0 ~ n-1</code>，根据模运算的性质：<br>
+$ (a+b) \mod n = a \mod n + b \mod n $ <br>
+我们可以直接对取模后的余数进行加法操作</p>
+<p>以$ n = 6$为例。构造出<code>6 5 2 3 4 1</code>，其余数数组为<code>0 5 2 3 4 1</code>，则前缀和模n数组为<code>0 5 1 4 2 3</code>
+比较一下构造出来的数列和前缀和数组模n:</p>
+<pre tabindex="0"><code>6 5 2 3 4 1
+0 5 1 4 2 3
+</code></pre><p>发现规律了吗？</p>
+<p>对于任意的n，两个两个地构造前缀和模n数组：</p>
+<pre tabindex="0"><code>b = [0, n-1, 1, n-2, 2, n-3, ......]
+</code></pre><p>即可。不过我们不需要构造出这个数组再来构造n排列，直接计算就行（具体细节参考代码）</p>
+<h4 id="关于正确性的分析">关于正确性的分析</h4>
+<p>先来构造前缀和模n数组。首先考虑0。0必须放在首位，否则会出现两个相同的元素</p>
+<p>其次，n为奇数一定无解，反之一定有解。</p>
+<p>对于该数组，$ sum = \frac{(1 + n)n}{2} $，令 $ k = \frac{1 + n}{2} $ ，则 $ sum = kn $</p>
+<p>当 $ n $ 为奇数时，$ k $为整数，则 $ sum \mod n = 0 $ ，与已存在的 0 相矛盾</p>
+<p>当 $ n $ 为偶数时，$ k $不为整数，且 $ sum \mod n = \frac{n}{2} $ ，不存在矛盾</p>
+<h4 id="代码">代码</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">return</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ((n <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> n <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">&lt;&lt;</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">&lt;&lt;</span> n <span style="color:#f92672">-</span> i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="e-making-anti-palindromes">E. Making Anti-Palindromes</h3>
+<h3 id="f-gardening-friends">F. Gardening Friends</h3>
+<h3 id="g1-magic-triples-easy-version">G1. Magic Triples (Easy Version)</h3>
+<h3 id="g2-magic-triples-hard-version">G2. Magic Triples (Hard Version)</h3>
+<p>(To be continued&hellip;)</p>
+</div>
+<footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <span class="about__logo" role="img">🌔</span>&nbsp;
+    
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码淬魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>第一篇CF题解。</p>
+ 
+<p>
+   2023-04-25
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#正文">正文</a>
+      <ol>
+        <li><a href="#a-tubetube-feed">A. TubeTube Feed</a></li>
+        <li><a href="#b-karina-and-array">B. Karina and Array</a></li>
+        <li><a href="#c-bun-lover">C. Bun Lover</a></li>
+        <li><a href="#d-super-permutation">D. Super-Permutation</a></li>
+        <li><a href="#e-making-anti-palindromes">E. Making Anti-Palindromes</a></li>
+        <li><a href="#f-gardening-friends">F. Gardening Friends</a></li>
+        <li><a href="#g1-magic-triples-easy-version">G1. Magic Triples (Easy Version)</a></li>
+        <li><a href="#g2-magic-triples-hard-version">G2. Magic Triples (Hard Version)</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>
