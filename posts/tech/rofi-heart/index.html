@@ -283,9 +283,11 @@
 </span></span></code></pre></div><h3 id="第三世庖丁解牛">第三世：庖丁解牛</h3>
 <p>虽然 2.0 解决了维护不便的问题，但是引入了许多“黑魔法”——地道、优雅且高级的现代 Bash 技巧。
 <del>对于并不精通 Bash 的我，脚本写完后今天还能看懂，几周后只有上帝和 AI 能看懂了 XD。</del></p>
-<p>换言之，语法过于高级和精简、逻辑复杂的代码，维护起来是地狱级难度——比如哪天想换成 Fuzzel 或 Wofi 作为 dmenu 后端，就要先把之前的代码都捋一遍。即使是精通 Shell 的高手，也得皱着眉头看半天吧。</p>
+<p>换言之，语法过于高级和精简、逻辑复杂的代码，维护起来是地狱级难度——
+比如哪天想换成 Fuzzel 或 Wofi 作为 dmenu 后端，就要先把之前的代码都捋一遍。即使是精通 Shell 的高手，也得皱着眉头看半天吧。</p>
 <p>正处踌躇之际，我突然想起我的白月光——Python！复杂脚本就应该交给脚本语言！</p>
-<p>没有什么比抽象成类更合适的了。Python 中开启了 <code>slots=True, frozen=True</code> 的 <code>dataclass</code>，简直就是 Rust 界的 <code>#[derive(Debug, PartialEq)] struct</code> ，既消除了样板代码，又保证了只读与紧凑的内存布局：</p>
+<p>没有什么比抽象成类更合适的了。Python 中开启了 <code>slots=True, frozen=True</code> 的 <code>dataclass</code>，
+简直就是 Rust 界的 <code>#[derive(Debug, PartialEq)] struct</code>，既消除了样板代码，又保证了只读与紧凑的内存布局：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Immutable, memory-optimized data container for menu items.</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>(slots<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, frozen<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Item</span>:
