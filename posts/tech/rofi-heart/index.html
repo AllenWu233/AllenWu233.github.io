@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head><title>给i3wm装颗“心脏”——一个Rofi菜单的三生三世 &ndash; 冰轮韵</title>
+<meta name="description" content="冰轮舞韵，代码凝魂。&lt;br&gt;天地与我并生，而万物与我为一。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
+
+
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+
+
+
+
+
+<meta property="og:title" content="给i3wm装颗“心脏”——一个Rofi菜单的三生三世 &ndash; 冰轮韵" />
+<meta property="og:url" content="https://lunarithm.space/posts/tech/rofi-heart/" />
+
+  <meta property="og:description" content="Arch Linux &#43; i3wm 下的 Rofi 脚本选择器 &ndash; "/> 
+
+<meta property="og:locale" content="zh-cn" />
+<meta property="og:image" content="https://lunarithm.space/favicon.ico" /></head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+      
+      <li class="nomarker avatar-container">
+        <a href="https://lunarithm.space/" class="avatar-link">
+          <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
+        </a>
+      </li>
+
+      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
+    
+    </ul>
+</nav>
+
+<style>
+   
+  .site-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    <!-- transition: transform 0.2s ease-in-out; -->
+  }
+  
+   
+  .site-avatar:hover {
+    transform: scale(1.05);
+  }
+</style>
+</header>
+
+            <section class="page__body">
+<header class="content__header">
+  <h1>给i3wm装颗“心脏”——一个Rofi菜单的三生三世</h1>
+</header>
+<div class="content__body"><h2 id="引言">引言</h2>
+<h3 id="什么是-wm">什么是 WM</h3>
+<p>作为一名 <a href="https://en.wikipedia.org/wiki/KISS_principle">K.I.S.S 主义</a> 的 Arch Linuxer，桌面环境也是我极（折）简（腾）的一部分——由 <a href="https://wiki.archlinux.org/title/Desktop_environment">DE (Desktop Environment)</a> 走向 <a href="https://wiki.archlinux.org/title/Window_manager">WM (Window Manager)</a> 是自然的<del>归宿</del>结果。</p>
+<p>不同于捆绑了工具栏、桌面小部件等一系列应用的 DE (桌面环境)，<strong>WM (窗口管理器)</strong> 只提供基础的窗口绘制功能，管理窗口的大小、位置、边框等。一些 WM 是 DE 的一部分，如 Windows 的 <a href="https://learn.microsoft.com/en-us/windows/win32/dwm/dwm-overview">dwm</a>（不要与 Linux 上的 <a href="https://wiki.archlinux.org/title/Dwm">dwm</a> 混淆）、KDE 的 <a href="https://en.wikipedia.org/wiki/KWin">KWin</a>、Gnome 的 <a href="https://en.wikipedia.org/wiki/Mutter_(window_manager)">Mutter</a> 等；而另一些 WM 被设计为独立使用，用户可根据喜好选择其他应用（如状态栏、壁纸管理器），组合成更轻量的专属桌面环境。</p>
+<p>WM 的窗口管理类型是其特色：</p>
+<ul>
+<li><strong>堆叠（悬浮）</strong>：就像 KDE、Windows 下的窗口管理，用鼠标调整窗口大小、拖拽位置，不同窗口能像桌上的纸张一样部分重叠放置。</li>
+<li><strong>平铺</strong>：窗口之间不重叠，大小、位置能被自动或手动调整，以占满整个屏幕——例如，只有一个窗口时，几乎全屏；有两个窗口时，左右各一半铺满屏幕。另外广泛地使用键绑定，可以完全不用鼠标来管理和定位窗口（Vimer 狂喜）。</li>
+<li><strong>动态</strong>：可在堆叠和平铺之间切换。</li>
+</ul>
+<p>我用的是 <a href="https://i3wm.org">i3wm</a>——平铺式，轻量、配置清晰、功能丰富而恰到好处。相关配置可查阅 <a href="https://github.com/AllenWu233/dotfiles">AllenWu233/dotfiles</a>。如下图所示：</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-fastfetch.png"
+  alt="i3wm"
+  
+  loading="lazy"
+/>
+</p>
+<h3 id="为什么-i3wm-要装颗心脏">为什么 i3wm 要装颗“心脏”</h3>
+<p>i3wm 虽好，但毕竟只是 WM，<del>想要桌面环境般的体验，还得自己拼</del>。程序启动器就是一个：在 Windows、KDE 和 Gnome 等 DE 下启动应用程序，一般通过桌面快捷方式或按 Win (Meta) 键弹出的启动菜单。而 i3 没有桌面快捷方式——从上图能看出我的桌面只有一张壁纸（笑），也没有内置启动菜单，于是只能用专用的应用启动器——<a href="https://wiki.archlinux.org/title/Dmenu">dmenu</a> 或是类 dmenu 软件，通过快捷键唤出应用菜单，输入应用名或移动光标选项来启动。如下图：</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-apps.jpg"
+  alt="rofi"
+  
+  loading="lazy"
+/>
+</p>
+<p>这类软件不仅能用作应用启动器，还能作为脚本选择器：将脚本菜单文本作为管道输入，显示为 dmenu-like 菜单来让用户选择。我用的是 <a href="https://wiki.archlinux.org/title/Rofi">Rofi</a>，除了基础的文本过滤选择，还支持绑定键位到选项上，一键选择，省去输入脚本名和按回车。</p>
+<p>i3 我也用了三年了，积累了一些 dmenu-like 脚本，如管理 dotfiles、管理多显示器、电源菜单、剪贴板菜单、Emoji 选择器等等。每个脚本都绑定一个 i3 快捷键，既麻烦又浪费键位。如果用一个 Rofi 菜单统一管理这些脚本，不就只用一个键位就能打开指定脚本了？于是就有了 <strong>rofi-heart</strong>。</p>
+<h2 id="rofi-heart-的三生三世">rofi-heart 的三生三世</h2>
+<p>rofi-heart 的设计很简单：呈现一个菜单，通过快捷键或输入文本来选择选项，再执行相应命令或脚本。</p>
+<h3 id="第一世混沌初开">第一世：混沌初开</h3>
+<p>先从 Rofi 的基本语法开始：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[a] Item 1\n[b] Item 2&#34;</span> | rofi -dmenu -i -p <span style="color:#e6db74">&#34;Selection&#34;</span> -kb-custom-1 <span style="color:#e6db74">&#34;a&#34;</span> -kb-custom-2 <span style="color:#e6db74">&#34;b&#34;</span>
+</span></span></code></pre></div><p>管道符左边是菜单文本。来看右边的 Rofi 主命令：</p>
+<ul>
+<li><code>-dmenu</code>: 启用 dmenu 模式。</li>
+<li><code>-i</code>: 输入文本搜索时大小写不敏感。</li>
+<li><code>-p [string]</code>: Prompt，即输入框左侧的提示符。</li>
+<li><code>-kb-custom-x [string]</code>: 绑定按键到选项上，x 为 1-19。</li>
+</ul>
+<blockquote>
+<p>[!NOTE] 选择选项后，Rofi 会打印<strong>光标处</strong>的文本，并返回进程的返回值。
+如果通过搜索文本或移动光标，按回车来选择，返回的文本是期望的结果，且返回值为 0；
+如果直接用快捷键选择，返回的文本是光标处的结果（往往不是想要的结果），此时应以返回值（10-28，如 <code>-kb-custom-1</code> 对应返回值 10）为准</p>
+</blockquote>
+<blockquote>
+<p>完整的 rofi-heart-1.0 如下：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Rofi launcher with quick shortcut bindings</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BIN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.local/bin&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CLIPBOARD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clipcat-menu&#34;</span>
+</span></span><span style="display:flex;"><span>DOTFILES<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BIN<span style="color:#e6db74">/dmenu-dotfiles&#34;</span>
+</span></span><span style="display:flex;"><span>EMOJI<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rofi -show emoji&#34;</span>
+</span></span><span style="display:flex;"><span>WIKI<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BIN<span style="color:#e6db74">/dmenu-arch-wiki&#34;</span>
+</span></span><span style="display:flex;"><span>MONITOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BIN<span style="color:#e6db74">/dmenu-monitor&#34;</span>
+</span></span><span style="display:flex;"><span>POWER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BIN<span style="color:#e6db74">/dmenu-power&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define menu items</span>
+</span></span><span style="display:flex;"><span>items<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[c] Clipboard
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[d] Dotfiles
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[e] Emoji
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[w] Arch Wiki (en)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[z] Arch Wiki (zh-CN)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[m] Monitor
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[p] Power&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Prompt user selection</span>
+</span></span><span style="display:flex;"><span>choice<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>
+</span></span><span style="display:flex;"><span>    printf <span style="color:#e6db74">&#34;%s&#34;</span> <span style="color:#e6db74">&#34;</span>$items<span style="color:#e6db74">&#34;</span> | rofi -dmenu -i -p <span style="color:#e6db74">&#34;󰣐 Heart&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-1 <span style="color:#e6db74">&#34;c&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-2 <span style="color:#e6db74">&#34;d&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-3 <span style="color:#e6db74">&#34;e&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-4 <span style="color:#e6db74">&#34;w&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-5 <span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-6 <span style="color:#e6db74">&#34;m&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        -kb-custom-7 <span style="color:#e6db74">&#34;p&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>code<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Match key code or menu selection</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$code<span style="color:#e6db74">:</span>$choice<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>10:* | 0:*<span style="color:#e6db74">&#34;[c]&#34;</span>*<span style="color:#f92672">)</span> exec $CLIPBOARD ;;
+</span></span><span style="display:flex;"><span>11:* | 0:*<span style="color:#e6db74">&#34;[d]&#34;</span>*<span style="color:#f92672">)</span> exec $DOTFILES ;;
+</span></span><span style="display:flex;"><span>12:* | 0:*<span style="color:#e6db74">&#34;[e]&#34;</span>*<span style="color:#f92672">)</span> exec $EMOJI ;;
+</span></span><span style="display:flex;"><span>13:* | 0:*<span style="color:#e6db74">&#34;[w]&#34;</span>*<span style="color:#f92672">)</span> exec $WIKI ;;
+</span></span><span style="display:flex;"><span>14:* | 0:*<span style="color:#e6db74">&#34;[z]&#34;</span>*<span style="color:#f92672">)</span> exec $WIKI zh ;;
+</span></span><span style="display:flex;"><span>15:* | 0:*<span style="color:#e6db74">&#34;[m]&#34;</span>*<span style="color:#f92672">)</span> exec $MONITOR ;;
+</span></span><span style="display:flex;"><span>16:* | 0:*<span style="color:#e6db74">&#34;[p]&#34;</span>*<span style="color:#f92672">)</span> exec $POWER ;;
+</span></span><span style="display:flex;"><span>*<span style="color:#f92672">)</span> exit <span style="color:#ae81ff">0</span> ;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div><p>其中 <code>case</code> 中的 <code>10:* | 0:*&quot;[c]&quot;*) exec $CLIPBOARD ;;</code> 就实现了兼容搜索/光标选择和按键选择。</p>
+<p>效果图如下：</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-main.jpg"
+  alt="rofi-heart-main"
+  
+  loading="lazy"
+/>
+</p>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
+  alt="rofi-heart-emoji"
+  
+  loading="lazy"
+/>
+</p>
+<p>代码清晰易懂，像在 Shell 里输命令一样直白。但维护起来就很难受：修改一个脚本，就要同时改<code>items</code>、<code>choice</code>、<code>case</code> 三处，效率低下且易出错。</p>
+<p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不好用。</p>
+<h3 id="第二世束薪为栅">第二世：束薪为栅</h3>
+<p>第一版的 Shell 维护起来这么麻烦，有没有办法把所有相关配置放在开头呢？
+有的，朋友，有的——用 Bash 数组，以字符串存储的自定义的数据结构，再通过 <strong>IFS (Internal Field Separator，内部字段分隔符)</strong> 处理分隔符来解析变量。</p>
+<blockquote>
+<p>自定义数据结构：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e"># Menu items with format: key|label|command</span>
+</span></span><span style="display:flex;"><span>MENU_ITEMS<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;c|Clipboard|clipcat-menu&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;d|Dotfiles|</span>$BIN<span style="color:#e6db74">/dmenu-dotfiles&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><blockquote>
+<p>从自定义数据结构解析变量</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!MENU_ITEMS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Extract `key` and `label`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Set inline temporary environment variable (IFS) for this command only</span>
+</span></span><span style="display:flex;"><span>    IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span> read -r key label _ <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>MENU_ITEMS[i]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Use `key` and `label` here...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Extract `command` by stripping prefix</span>
+</span></span><span style="display:flex;"><span>cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>entry#*|*|<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>可以看出 <code>read</code> 的多变量赋值用法，跟 Python 的解包、Rust 的模式匹配有异曲同工之妙（假设下面 MENU_ITEMS 里存的是元组 <code>(key, label, command)</code>）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>key, label, _ <span style="color:#f92672">=</span> MENU_ITEMS[i]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> (key, label, _) <span style="color:#f92672">=</span> <span style="color:#66d9ef">MENU_ITEMS</span>[i];
+</span></span></code></pre></div><blockquote>
+<p>完整的 rofi-heart-2.0</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># @title: rofi-heart</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># @desc: Control heart for custom rofi actions and tools</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -euo pipefail
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BIN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.local/bin&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Menu items with format: key|label|command</span>
+</span></span><span style="display:flex;"><span>MENU_ITEMS<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;c|Clipboard|clipcat-menu&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;d|Dotfiles|</span>$BIN<span style="color:#e6db74">/dmenu-dotfiles&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;e|Emoji|rofi -show emoji&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;w|Arch Wiki (en)|</span>$BIN<span style="color:#e6db74">/dmenu-arch-wiki&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;z|Arch Wiki (zh-CN)|</span>$BIN<span style="color:#e6db74">/dmenu-arch-wiki zh&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;m|Monitor|</span>$BIN<span style="color:#e6db74">/dmenu-monitor&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;p|Power|</span>$BIN<span style="color:#e6db74">/dmenu-power&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>items<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>rofi_cmd<span style="color:#f92672">=(</span>rofi -dmenu -i -p <span style="color:#e6db74">&#34; Selection&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build rofi menu text and keybindings</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!MENU_ITEMS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span> read -r key label _ <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>MENU_ITEMS[i]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    items<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;[</span>$key<span style="color:#e6db74">] </span>$label<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$&#39;\n&#39;</span>
+</span></span><span style="display:flex;"><span>    rofi_cmd<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;-kb-custom-</span><span style="color:#66d9ef">$((</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$key<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Launch rofi and capture return code</span>
+</span></span><span style="display:flex;"><span>code<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>choice<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#34;%s&#34;</span> <span style="color:#e6db74">&#34;</span>$items<span style="color:#e6db74">&#34;</span> | <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>rofi_cmd[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> code<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run target command safely</span>
+</span></span><span style="display:flex;"><span>run_cmd<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local entry<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    local cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>entry#*|*|<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    exec bash -c <span style="color:#e6db74">&#34;</span>$cmd<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resolve custom hotkey selection</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span>code &gt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">&amp;&amp;</span> code &lt; <span style="color:#ae81ff">10</span> + <span style="color:#e6db74">${#</span>MENU_ITEMS[@]<span style="color:#e6db74">}</span><span style="color:#f92672">))</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    run_cmd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>MENU_ITEMS[code - 10]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resolve default Enter key selection</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">((</span>code <span style="color:#f92672">==</span> 0<span style="color:#f92672">))</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$choice<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> item in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>MENU_ITEMS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span> read -r key _ <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$item<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$choice<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;[</span>$key<span style="color:#e6db74">]&#34;</span>* <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            run_cmd <span style="color:#e6db74">&#34;</span>$item<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h3 id="第三世庖丁解牛">第三世：庖丁解牛</h3>
+<p>虽然 2.0 解决了维护不便的问题，但是引入了许多“黑魔法”——地道、优雅且高级的现代 Bash 技巧。
+<del>对于并不精通 Bash 的我，脚本写完后今天还能看懂，几周后只有上帝和 AI 能看懂了 XD。</del></p>
+<p>换言之，语法过于高级和精简、逻辑复杂的代码，维护起来是地狱级难度——比如哪天想换成 Fuzzel 或 Wofi 作为 dmenu 后端，就要先把之前的代码都捋一遍。即使是精通 Shell 的高手，也得皱着眉头看半天吧。</p>
+<p>正处踌躇之际，我突然想起我的白月光——Python！复杂脚本就应该交给脚本语言！</p>
+<p>没有什么比抽象成类更合适的了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>(slots<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, frozen<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Item</span>:
+</span></span><span style="display:flex;"><span>    key: str
+</span></span><span style="display:flex;"><span>    label: str
+</span></span><span style="display:flex;"><span>    cmd: str
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MENU_ITEMS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;Clipboard&#34;</span>, <span style="color:#e6db74">&#34;clipcat-menu&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;d&#34;</span>, <span style="color:#e6db74">&#34;Dotfiles&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>BIN<span style="color:#e6db74">}</span><span style="color:#e6db74">/dmenu-dotfiles&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>而且对于参数的字符串拼接更是降维打击：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>items_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[</span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>key<span style="color:#e6db74">}</span><span style="color:#e6db74">] </span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>label<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> menu_items)
+</span></span></code></pre></div><p>各种逻辑判断的简化更不用多说，请看下文：</p>
+<blockquote>
+<p>rofi-heart-3.0</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@title: rofi-heart
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@desc: Control heart for custom rofi actions and tools
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@usage: rofi-heart
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@deps: rofi, clipcat, dmenu-arch-wiki, autorandr
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@date: 2026
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@auth: Allen
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@insp: [Unixchad&#39;s heart script](https://github.com/gnuunixchad/dotfiles/blob/master/.local/bin/heart)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dataclasses <span style="color:#f92672">import</span> dataclass
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pathlib <span style="color:#f92672">import</span> Path
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> subprocess
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>(slots<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, frozen<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Item</span>:
+</span></span><span style="display:flex;"><span>    key: str
+</span></span><span style="display:flex;"><span>    label: str
+</span></span><span style="display:flex;"><span>    cmd: str
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HOME <span style="color:#f92672">=</span> Path<span style="color:#f92672">.</span>home()
+</span></span><span style="display:flex;"><span>BIN <span style="color:#f92672">=</span> HOME <span style="color:#f92672">/</span> <span style="color:#e6db74">&#34;.local&#34;</span> <span style="color:#f92672">/</span> <span style="color:#e6db74">&#34;bin&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MENU_ITEMS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;Clipboard&#34;</span>, <span style="color:#e6db74">&#34;clipcat-menu&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;d&#34;</span>, <span style="color:#e6db74">&#34;Dotfiles&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>BIN<span style="color:#e6db74">}</span><span style="color:#e6db74">/dmenu-dotfiles&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;e&#34;</span>, <span style="color:#e6db74">&#34;Emoji&#34;</span>, <span style="color:#e6db74">&#34;rofi -show emoji&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;w&#34;</span>, <span style="color:#e6db74">&#34;Arch Wiki (en)&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>BIN<span style="color:#e6db74">}</span><span style="color:#e6db74">/dmenu-arch-wiki&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;z&#34;</span>, <span style="color:#e6db74">&#34;Arch Wiki (zh-CN)&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>BIN<span style="color:#e6db74">}</span><span style="color:#e6db74">/dmenu-arch-wiki zh&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;m&#34;</span>, <span style="color:#e6db74">&#34;Monitor&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>BIN<span style="color:#e6db74">}</span><span style="color:#e6db74">/dmenu-monitor&#34;</span>),
+</span></span><span style="display:flex;"><span>    Item(<span style="color:#e6db74">&#34;p&#34;</span>, <span style="color:#e6db74">&#34;Power&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>BIN<span style="color:#e6db74">}</span><span style="color:#e6db74">/dmenu-power&#34;</span>),
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_selected_item</span>(menu_items: list[Item]) <span style="color:#f92672">-&gt;</span> Item <span style="color:#f92672">|</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Launch rofi menu and return the selected `Item` object.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    items_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[</span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>key<span style="color:#e6db74">}</span><span style="color:#e6db74">] </span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>label<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> menu_items)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rofi_cmd <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;rofi&#34;</span>, <span style="color:#e6db74">&#34;-dmenu&#34;</span>, <span style="color:#e6db74">&#34;-i&#34;</span>, <span style="color:#e6db74">&#34;-p&#34;</span>, <span style="color:#e6db74">&#34;󰣐 Heart&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, item <span style="color:#f92672">in</span> enumerate(menu_items, start<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        rofi_cmd<span style="color:#f92672">.</span>extend([<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;-kb-custom-</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, item<span style="color:#f92672">.</span>key])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Launch rofi and capture execution result</span>
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>run(rofi_cmd, input<span style="color:#f92672">=</span>items_text, text<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, capture_output<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    code <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>returncode
+</span></span><span style="display:flex;"><span>    choice <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Resolve selection by hotkey exit code (10, 11, 12...)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">&lt;=</span> code <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> len(menu_items):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> menu_items[code <span style="color:#f92672">-</span> <span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Resolve selection by Enter/Mouse choice (exit code 0)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> code <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> choice:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> menu_items:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> choice<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[</span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>key<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#34;</span>):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> item
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> target <span style="color:#f92672">:=</span> get_selected_item(MENU_ITEMS):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Replace Python process with Bash to execute the target command (POSIX execve)</span>
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>execlp(<span style="color:#e6db74">&#34;bash&#34;</span>, <span style="color:#e6db74">&#34;bash&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, target<span style="color:#f92672">.</span>cmd)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><h2 id="结语">结语</h2>
+<p>从第一世的硬编码 Shell 分支，到第二世充满现代 Bash 黑魔法的数组解析，再到第三世用 Python <code>dataclass</code> 构建的面向对象小工具，<code>rofi-heart</code> 走完了它的三生三世。看似是在为了几十行代码反复折腾，但折腾的终点从来不是堆砌语法糖或炫技，而是找到<strong>运行效率</strong>与<strong>维护难度</strong>之间的平衡。</p>
+<p>现在，我只需在 i3wm 里给 <code>rofi-heart</code> 绑定一个快捷键，就能通过这颗“心脏”瞬间唤醒所有的日常工作流，简单且优雅。</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">bindsym $mod+o exec ~/.local/bin/rofi-heart
+</code></pre><p>如果你也在用 WM，且苦于庞杂的快捷键配置与记忆，不妨也尝试写一个属于你自己的 <code>heart</code>，体验对操作系统触手可及的爽快感。</p>
+<h2 id="参考文献">参考文献</h2>
+<ol>
+<li><a href="https://wiki.archlinuxcn.org/wiki/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83">桌面环境 - Arch Linux 中文维基</a></li>
+<li><a href="https://wiki.archlinuxcn.org/wiki/%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8">窗口管理器 - Arch Linux 中文维基</a></li>
+<li><a href="https://wiki.archlinux.org/title/Rofi">Rofi - Arch Wiki</a></li>
+<li><a href="https://github.com/gnuunixchad/dotfiles/blob/master/.local/bin/heart">heart - gununixchad/dotfiles</a></li>
+</ol>
+<p><img
+  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/python-chan.jpg"
+  alt="python-chan"
+  
+  loading="lazy"
+/>
+</p>
+</div>
+<footer class="content__footer">
+  
+   
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  crossorigin="anonymous"
+  onload="
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+      ],
+    })
+  "
+></script>
+
+
+<style>
+   
+  .katex {
+    font-size: 1.05em;
+  }
+
+   
+  .katex-display {
+    font-size: 1.15em;
+    margin: 1em 0;
+  }
+</style>
+  <script
+  src="https://giscus.app/client.js"
+  data-repo="AllenWu233/lunarithm-comments"
+  data-repo-id="R_kgDOTkgvVw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOTkgvV84DCC0y"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="catppuccin_mocha"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+
+</footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    
+    <img class="about__logo" src="https://lunarithm.space/favicon.ico" alt="Logo">
+<h1 class="about__title">冰轮韵</h1>
+<p class="about__description">冰轮舞韵，代码凝魂。<br>天地与我并生，而万物与我为一。</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/AllenWu233/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/313610599" rel="me" aria-label="BiliBili" title="BiliBili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://ko-fi.com/allenwu233" rel="me" aria-label="Ko-fi" title="Ko-fi"><i class="fas fa-mug-hot" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:allenwu233@outlook.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="/index.xml" rel="me" aria-label="RSS" title="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content"> 
+<p>Arch Linux &#43; i3wm 下的 Rofi 脚本选择器</p>
+ 
+<p>
+   2026-08-06
+</p>
+    
+<hr />
+目录： <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a>
+      <ol>
+        <li><a href="#什么是-wm">什么是 WM</a></li>
+        <li><a href="#为什么-i3wm-要装颗心脏">为什么 i3wm 要装颗“心脏”</a></li>
+      </ol>
+    </li>
+    <li><a href="#rofi-heart-的三生三世">rofi-heart 的三生三世</a>
+      <ol>
+        <li><a href="#第一世混沌初开">第一世：混沌初开</a></li>
+        <li><a href="#第二世束薪为栅">第二世：束薪为栅</a></li>
+        <li><a href="#第三世庖丁解牛">第三世：庖丁解牛</a></li>
+      </ol>
+    </li>
+    <li><a href="#结语">结语</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ol>
+</nav>  
+                </div>
+            </section>
+
+            <footer class="page__footer">
+<p class="copyright">
+  &copy; 2022-2026
+  <a href="https://lunarithm.space/">冰轮韵</a>
+  ·
+  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
+    >萌ICP备20250495号</a
+  >
+</p>
+<p class="advertisement">
+  Powered by <a href="https://gohugo.io/">Hugo</a> and
+  <a href="https://github.com/joeroe/risotto">risotto</a>.
+</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>
