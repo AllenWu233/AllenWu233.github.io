@@ -100,7 +100,7 @@
 <p>我用的是 <a href="https://i3wm.org">i3wm</a>——平铺式，轻量、配置清晰、功能丰富而恰到好处。相关配置可查阅 <a href="https://github.com/AllenWu233/dotfiles">AllenWu233/dotfiles</a>。如下图所示：</p>
 <p><img
   src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-fastfetch.png"
-  alt="i3wm"
+  alt="i3wm Example"
   
   loading="lazy"
 />
@@ -109,7 +109,7 @@
 <p>i3wm 虽好，但毕竟只是 WM，<del>想要桌面环境般的体验，还得自己拼</del>。程序启动器就是一个：在 Windows、KDE 和 Gnome 等 DE 下启动应用程序，一般通过桌面快捷方式或按 Win (Meta) 键弹出的启动菜单。而 i3 没有桌面快捷方式——从上图能看出我的桌面只有一张壁纸（笑），也没有内置启动菜单，于是只能用专用的应用启动器——<a href="https://wiki.archlinux.org/title/Dmenu">dmenu</a> 或是类 dmenu 软件，通过快捷键唤出应用菜单，输入应用名或移动光标选项来启动。如下图：</p>
 <p><img
   src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-apps.jpg"
-  alt="rofi"
+  alt="Rofi Application Launcher Menu"
   
   loading="lazy"
 />
@@ -185,22 +185,22 @@
 <p>效果图如下：</p>
 <p><img
   src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-main.jpg"
-  alt="rofi-heart-main"
+  alt="rofi-heart Main Menu"
   
   loading="lazy"
 />
 </p>
 <p><img
   src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
-  alt="rofi-heart-emoji"
+  alt="rofi-heart Emoji Menu"
   
   loading="lazy"
 />
 </p>
 <p>代码清晰易懂，像在 Shell 里输命令一样直白。但维护起来就很难受：修改一个脚本，就要同时改<code>items</code>、<code>choice</code>、<code>case</code> 三处，效率低下且易出错。</p>
-<p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不好用。</p>
+<p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不太行。</p>
 <h3 id="第二世束薪为栅">第二世：束薪为栅</h3>
-<p>第一版的 Shell 维护起来这么麻烦，有没有办法把所有相关配置放在开头呢？
+<p>1.0 的 Shell 维护起来这么麻烦，有没有办法把所有相关配置放在开头呢？
 有的，朋友，有的——用 Bash 数组，以字符串存储的自定义的数据结构，再通过 <strong>IFS (Internal Field Separator，内部字段分隔符)</strong> 处理分隔符来解析变量。</p>
 <blockquote>
 <p>自定义数据结构：</p>
@@ -222,11 +222,15 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Extract `command` by stripping prefix</span>
 </span></span><span style="display:flex;"><span>cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>entry#*|*|<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span></code></pre></div><p>可以看出 <code>read</code> 的多变量赋值用法，跟 Python 的解包、Rust 的模式匹配有异曲同工之妙（假设下面 MENU_ITEMS 里存的是元组 <code>(key, label, command)</code>）：</p>
+</span></span></code></pre></div><p>此处配合 <code>&lt;&lt;&lt;</code>（Here-String）把数组元素传给 <code>read</code>，避免了管道符创建子 Shell 导致的变量作用域失效。</p>
+<p>可以看出 <code>read</code> 的多变量赋值用法，跟 Python 的解包、Rust 的模式匹配有异曲同工之妙（假设下面 MENU_ITEMS 里存的是元组 <code>(key, label, command)</code>）：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>key, label, _ <span style="color:#f92672">=</span> MENU_ITEMS[i]
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> (key, label, _) <span style="color:#f92672">=</span> <span style="color:#66d9ef">MENU_ITEMS</span>[i];
 </span></span></code></pre></div><blockquote>
 <p>完整的 rofi-heart-2.0</p>
+</blockquote>
+<blockquote>
+<p>[!NOTE] 此段代码只是为了展示“演进完整性”。如果你不熟悉 Shell 高级语法，完全可以直接跳过，不影响最终理解。</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"># @title: rofi-heart</span>
@@ -280,7 +284,20 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">done</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span></code></pre></div><h3 id="第三世庖丁解牛">第三世：庖丁解牛</h3>
+</span></span></code></pre></div><p>如果你有勇气读到这里，不妨来看看其中几个最有代表性的“黑魔法”：</p>
+<ol>
+<li><strong><code>${entry#*|*|}</code> (Parameter Expansion 模式匹配)</strong><br>
+利用 Bash 内置的参数展开删除前缀，非贪婪模式匹配到第二个 <code>|</code> 并将其连同左侧文本全部剔除，从而高效提取出末尾的 command。</li>
+<li><strong><code>rofi_cmd=(...)</code> 与 <code>&quot;${rofi_cmd[@]}&quot;</code> (动态命令数组)</strong><br>
+在 Shell 里动态构建带复杂参数的命令时，抛弃了危险的 <code>eval</code> 或易出错的字符串转义，而是将整个 Rofi 命令作为数组构建并展开执行，保证每个参数界限的安全。</li>
+<li><strong><code>${!MENU_ITEMS[@]}</code> (原生数组索引提取)</strong><br>
+不依赖外部的 <code>seq</code> 或 <code>expr</code> 命令，也不用 C 语言风格的 <code>for ((i=0;...))</code>，直接使用 <code>${!array[@]}</code> 提取数组的键名/索引进行循环，干脆利落。</li>
+<li><strong><code>[[ &quot;$choice&quot; == &quot;[$key]&quot;* ]]</code> (双方括号 Glob 前缀匹配)</strong><br>
+判断输入文本前缀时，不调用 <code>grep</code>、<code>sed</code> 或正则，直接利用 Bash <code>[[ ]]</code> 的原生 Glob 通配符匹配，完全在内存进程内部完成比对，零 Fork 性能开销。</li>
+<li><strong><code>choice=$(...) || code=$?</code> (巧解 <code>set -e</code> 机制)</strong><br>
+脚本开头开启了严格模式 <code>set -e</code>（遇到非 0 返回值立即退出）。但 Rofi 按快捷键选择时会故意返回 10~28 的非零退出码。用 <code>|| code=$?</code> 处理管道短路，一行代码兼顾了严格错误捕获与自定义状态码处理。</li>
+</ol>
+<h3 id="第三世庖丁解牛">第三世：庖丁解牛</h3>
 <p>虽然 2.0 解决了维护不便的问题，但是引入了许多“黑魔法”——地道、优雅且高级的现代 Bash 技巧。
 <del>对于并不精通 Bash 的我，脚本写完后今天还能看懂，几周后只有上帝和 AI 能看懂了 XD。</del></p>
 <p>换言之，语法过于高级和精简、逻辑复杂的代码，维护起来是地狱级难度——
@@ -379,7 +396,15 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    main()
-</span></span></code></pre></div><h2 id="结语">结语</h2>
+</span></span></code></pre></div><p>其中 <code>os.execlp(&quot;bash&quot;, &quot;bash&quot;, &quot;-c&quot;, target.cmd)</code> 用 <code>exec</code> 而不是 <code>subprocess.run</code>，
+区别在于<strong>进程替换</strong>与<strong>进程创建</strong>：</p>
+<ul>
+<li>前者（<code>os.execlp</code>）会用新的程序映像直接替换当前 Python 进程，PID 保持不变，原进程的内存空间被新程序接管。系统里始终只有一个进程在跑，不会额外留下一个 Python 进程空等。</li>
+<li>后者（<code>subprocess.run</code>）会 fork 出一个全新的子进程，父进程（Python）要么阻塞等待，要么继续驻留内存。对于 <code>rofi-heart</code> 这种“启动即退场”的 launcher 而言，父进程在子命令执行完毕后没有活能干了，留着它只会白白占用一份进程资源。</li>
+</ul>
+<p>因此，用 <code>exec</code> 直接“让位”给目标命令，既省去了进程间等待和通信的开销，也使资源占用降到了与纯 Shell 脚本相当的水平。</p>
+<p>其实在 Shell 脚本中，对于最后一行外部命令，如果无需处理返回的结果，用 <code>exec</code> 命令也是同理的——第二世中 <code>run_cmd()</code> 函数的实现就用到了。</p>
+<h2 id="结语">结语</h2>
 <p>从第一世的硬编码 Shell 分支，到第二世充满现代 Bash 黑魔法的数组解析，再到第三世用 Python <code>dataclass</code> 构建的面向对象小工具，<code>rofi-heart</code> 走完了它的三生三世。看似是在为了几十行代码反复折腾，但折腾的终点从来不是堆砌语法糖或炫技，而是找到<strong>运行效率</strong>与<strong>维护难度</strong>之间的平衡。</p>
 <p>现在，我只需在 i3wm 里给 <code>rofi-heart</code> 绑定一个快捷键，就能通过这颗“心脏”瞬间唤醒所有的日常工作流，简单且优雅。</p>
 <pre tabindex="0"><code class="language-conf" data-lang="conf">bindsym $mod+o exec ~/.local/bin/rofi-heart
@@ -389,7 +414,7 @@
 <li><a href="https://wiki.archlinuxcn.org/wiki/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83">桌面环境 - Arch Linux 中文维基</a></li>
 <li><a href="https://wiki.archlinuxcn.org/wiki/%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8">窗口管理器 - Arch Linux 中文维基</a></li>
 <li><a href="https://wiki.archlinux.org/title/Rofi">Rofi - Arch Wiki</a></li>
-<li><a href="https://github.com/gnuunixchad/dotfiles/blob/master/.local/bin/heart">heart - gununixchad/dotfiles</a></li>
+<li><a href="https://github.com/gnuunixchad/dotfiles/blob/master/.local/bin/heart">heart - gnuunixchad/dotfiles</a></li>
 </ol>
 <p><img
   src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/python-chan.jpg"
