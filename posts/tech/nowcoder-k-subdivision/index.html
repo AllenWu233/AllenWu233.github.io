@@ -20,23 +20,23 @@
       referrerpolicy="no-referrer" />
 
 <link rel="stylesheet"
-      href="/css/palettes/tokyo-night-dark.css">
-<link rel="stylesheet" href="/css/risotto.css">
+      href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.min.0edc024403b3cd81c8370488baef448c8282c6d6e4bfa4118d2abd65da5ea67a.css"
-      integrity="sha256-DtwCRAOzzYHINwSIuu9EjIKCxtbkv6QRjSq9Zdpepno=">
+      href="/css/custom.9471f14483224bbc1d79409dd180f64ddf00ecb5f8c959328115fcf0dc68fedd.css"
+      integrity="sha256-lHHxRIMiS7wdeUCd0YD2Td8A7LX4yVkygRX88Nxo/t0=">
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
 <link rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/favicon-32x32.png">
+      href="https://lunarithm.space/favicon-32x32.png">
 <link rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+      href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
 
 
 
@@ -161,11 +161,10 @@ Each of the next $m$ lines contains two integers $u$ and $v (1≤u,v≤n)$, indi
 <pre tabindex="0"><code>1
 </code></pre><h3 id="备注">备注:</h3>
 <p>Here is the illustration for the second example.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/https://uploadfiles.nowcoder.com/images/20230717/0_1689574090396/EDC585D199EEEC167C6B17F17085A1FA"
+<p><img src="https://uploadfiles.nowcoder.com/images/20230717/0_1689574090396/EDC585D199EEEC167C6B17F17085A1FA"
      alt=""
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <h2 id="题意">题意</h2>
 <p>给出一个边长为$ 1 $的<strong>无向图</strong>，其中每条边都可以插入数量任意的结点。求到结点$1$距离不大于$k$的结点数的最大值</p>
 <h2 id="分析">分析</h2>
@@ -173,16 +172,14 @@ Each of the next $m$ lines contains two integers $u$ and $v (1≤u,v≤n)$, indi
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/nowcoder-k-subdivision-graph_1.png"
      alt="样例2"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <p>显然，对于度数为1的结点（如结点2），可以在它和与其相关联的点之间插入任意个结点，而不影响其他的点。即：度数为1的结点所在的边最多贡献$k$个结点</p>
 <p>先从 $1$ 开始 BFS，同时求出每个点到 $1$ 的最短路</p>
 <p>画出BFS树，并标出各点的度数</p>
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/nowcoder-k-subdivision-graph_2.png"
      alt="红色数字即为结点度数"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <p>考虑选什么边来加点，两种情况：</p>
 <ul>
 <li>

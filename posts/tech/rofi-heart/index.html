@@ -20,23 +20,23 @@
       referrerpolicy="no-referrer" />
 
 <link rel="stylesheet"
-      href="/css/palettes/tokyo-night-dark.css">
-<link rel="stylesheet" href="/css/risotto.css">
+      href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.min.0edc024403b3cd81c8370488baef448c8282c6d6e4bfa4118d2abd65da5ea67a.css"
-      integrity="sha256-DtwCRAOzzYHINwSIuu9EjIKCxtbkv6QRjSq9Zdpepno=">
+      href="/css/custom.9471f14483224bbc1d79409dd180f64ddf00ecb5f8c959328115fcf0dc68fedd.css"
+      integrity="sha256-lHHxRIMiS7wdeUCd0YD2Td8A7LX4yVkygRX88Nxo/t0=">
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="https://lunarithm.space/favicon.ico">
 <link rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/favicon-32x32.png">
+      href="https://lunarithm.space/favicon-32x32.png">
 <link rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+      href="https://lunarithm.space/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
+<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
 
 
 
@@ -133,15 +133,13 @@
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-fastfetch.png"
      alt="i3wm Example"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <h3 id="为什么-i3wm-要装颗心脏">为什么 i3wm 要装颗“心脏”</h3>
 <p>i3wm 虽好，但毕竟只是 WM，<del>想要桌面环境般的体验，还得自己拼</del>。程序启动器就是一个：在 Windows、KDE 和 Gnome 等 DE 下启动应用程序，一般通过桌面快捷方式或按 Win (Meta) 键弹出的启动菜单。而 i3 没有桌面快捷方式——从上图能看出我的桌面只有一张壁纸（笑），也没有内置启动菜单，于是只能用专用的应用启动器——<a href="https://wiki.archlinux.org/title/Dmenu">dmenu</a> 或是类 dmenu 软件，通过快捷键唤出应用菜单，输入应用名或移动光标选项来启动。如下图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-apps.jpg"
      alt="Rofi Application Launcher Menu"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <p>这类软件不仅能用作应用启动器，还能作为脚本选择器：将脚本菜单文本作为管道输入，显示为 dmenu-like 菜单来让用户选择。我用的是 <a href="https://wiki.archlinux.org/title/Rofi">Rofi</a>，除了基础的文本过滤选择，还支持绑定键位到选项上，一键选择，省去输入脚本名和按回车。</p>
 <p>i3 我也用了三年了，积累了一些 dmenu-like 脚本，如管理 dotfiles、管理多显示器、电源菜单、剪贴板菜单、Emoji 选择器等等。每个脚本都绑定一个 i3 快捷键，既麻烦又浪费键位。如果用一个 Rofi 菜单统一管理这些脚本，不就只用一个键位就能打开指定脚本了？于是就有了 <strong>rofi-heart</strong>。</p>
 <h2 id="rofi-heart-的三生三世">rofi-heart 的三生三世</h2>
@@ -214,13 +212,11 @@
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-main.jpg"
      alt="rofi-heart Main Menu"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
      alt="rofi-heart Emoji Menu"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 <p>代码清晰易懂，像在 Shell 里输命令一样直白。但维护起来就很难受：修改一个脚本，就要同时改<code>items</code>、<code>choice</code>、<code>case</code> 三处，效率低下且易出错。</p>
 <p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不太行。</p>
 <h3 id="第二世束薪为栅">第二世：束薪为栅</h3>
@@ -443,8 +439,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/python-chan.jpg"
      alt="python-chan"
      
-     loading="lazy" />
-</p>
+     loading="lazy" /></p>
 </div>
 <footer class="content__footer">
     
