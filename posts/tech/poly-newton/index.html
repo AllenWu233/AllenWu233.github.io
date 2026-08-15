@@ -3,67 +3,99 @@
 
     <head><title>Python生成多项式与牛顿法 &ndash; 冰轮韵</title>
 <meta name="description" content="冰轮舞韵，代码凝魂。&lt;br&gt;天地与我并生，而万物与我为一。">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+      integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet"
+      href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
-<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
-
+<link rel="stylesheet"
+      href="/css/custom.min.cc272a874d7b6a0ccf82d7bbcbe9b41661506b37618671caa3f8adab94a03c39.css"
+      integrity="sha256-zCcqh017agzPgte7y&#43;m0FmFQazdhhnHKo/itq5SgPDk=">
 
 <link rel="icon" href="https://lunarithm.space/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://lunarithm.space/favicon-16x16.png">
 <link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
 <link rel="manifest" href="https://lunarithm.space/site.webmanifest">
 
 
 
-
-
-<meta property="og:title" content="Python生成多项式与牛顿法 &ndash; 冰轮韵" />
+<meta property="og:title"
+      content="Python生成多项式与牛顿法 &ndash; 冰轮韵" />
 <meta property="og:url" content="https://lunarithm.space/posts/tech/poly-newton/" />
 
-  <meta property="og:description" content="Python 与数学的碰撞 &ndash; "/> 
+<meta property="og:description"
+      content="Python 与数学的碰撞 &ndash; " />
 
 <meta property="og:locale" content="zh-cn" />
-<meta property="og:image" content="https://lunarithm.space/favicon.ico" /></head>
+<meta property="og:image"
+      content="https://lunarithm.space/favicon.ico" />
+</head>
 
     <body>
         <div class="page">
 
             <header class="page__header"><nav class="page__nav main-nav">
     <ul>
-      
-      <li class="nomarker avatar-container">
-        <a href="https://lunarithm.space/" class="avatar-link">
-          <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
-        </a>
-      </li>
-
-      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
-    
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
-    
+        
+        <li class="nomarker avatar-container">
+            <a href="https://lunarithm.space/" class="avatar-link">
+                <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
+            </a>
+        </li>
+        <li class="nomarker">
+            <h1 class="page__logo">
+                <a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a>
+            </h1>
+        </li>
+        
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/series/"
+               title="">月轨</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/categories/"
+               title="">月影</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/links/"
+               title="">月渡</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/about/"
+               title="">逍遥乡</a>
+        </li>
+        
     </ul>
 </nav>
-
 <style>
    
   .site-avatar {
@@ -75,7 +107,7 @@
     margin: 0 auto;
     <!-- transition: transform 0.2s ease-in-out; -->
   }
-  
+
    
   .site-avatar:hover {
     transform: scale(1.05);
@@ -85,17 +117,15 @@
 
             <section class="page__body">
 <header class="content__header">
-  <h1>Python生成多项式与牛顿法</h1>
+    <h1>Python生成多项式与牛顿法</h1>
 </header>
 <div class="content__body"><p>事情的起因还得从昨天说起：</p>
 <p>博主在刷几道简单的算法题，其中有一道是<a href="https://ac.nowcoder.com/acm/problem/16622">多项式输出</a>，看似简单决定首先AC，无奈博主 C 语言能力不足，转战Python。
 <del>结果还是眼高手低，这么简单的程序要这么多判断</del></p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/poly-newton-problem.jpg"
-  alt="简单的题目"
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/poly-newton-problem.jpg"
+     alt="简单的题目"
+     
+     loading="lazy" />
 </p>
 <h2 id="生成多项式">生成多项式</h2>
 <p>参考了原题，但是输入输出的格式稍有不同</p>
@@ -236,37 +266,30 @@
 <h2 id="源代码仓库">源代码仓库</h2>
 <p>感兴趣的话可以<a href="https://github.com/AllenWu233/newtons_method">star</a>一下（真的会有人star这么无聊的代码吗）</p>
 <p><a href="https://github.com/AllenWu233/newtons_method"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/AllenWu233/newtons_method.png" width="460px"></a></p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/poly-newton-cover.jpg"
-  alt="cirno"
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/poly-newton-cover.jpg"
+     alt="cirno"
+     
+     loading="lazy" />
 </p>
 <h2 id="参考文献">参考文献</h2>
 <p>[1]（美）阿德里安·班纳.普林斯顿微积分读本[M].北京：人民邮电出版社2016.</p>
 <p>[2] <a href="https://blog.csdn.net/weixin_48615832/article/details/109285701">牛顿迭代法（Newton’s Method）迭代求根的Python程序</a></p>
 </div>
 <footer class="content__footer">
-  
-   
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
-  crossorigin="anonymous"
-/>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
-  crossorigin="anonymous"
-></script>
+    
+    
+    
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+      crossorigin="anonymous" />
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+        crossorigin="anonymous"></script>
 
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
-  crossorigin="anonymous"
-  onload="
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+        crossorigin="anonymous"
+        onload="
     renderMathInElement(document.body, {
       delimiters: [
         { left: '$$', right: '$$', display: true },
@@ -275,9 +298,7 @@
         { left: '\\[', right: '\\]', display: true },
       ],
     })
-  "
-></script>
-
+  "></script>
 
 <style>
    
@@ -291,23 +312,23 @@
     margin: 1em 0;
   }
 </style>
-  <script
-  src="https://giscus.app/client.js"
-  data-repo="AllenWu233/lunarithm-comments"
-  data-repo-id="R_kgDOTkgvVw"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOTkgvV84DCC0y"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="catppuccin_mocha"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+
+    
+    <script src="https://giscus.app/client.js"
+        data-repo="AllenWu233/lunarithm-comments"
+        data-repo-id="R_kgDOTkgvVw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOTkgvV84DCC0y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="catppuccin_mocha"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async></script>
 
 </footer>
 
@@ -348,15 +369,23 @@
 </ul>
 </div>
                 <hr>
-                <div class="aside__content"> 
+                <div class="aside__content">
+
 <p>Python 与数学的碰撞</p>
- 
+
+
 <p>
-   2022-10-02
-</p>
     
+    2022-10-02
+</p>
+
+
+
+
+
 <hr />
-目录： <nav id="TableOfContents">
+目录：
+<nav id="TableOfContents">
   <ol>
     <li><a href="#生成多项式">生成多项式</a></li>
     <li><a href="#牛顿法求多项式近似根">牛顿法求多项式近似根</a>
@@ -369,22 +398,22 @@
     <li><a href="#源代码仓库">源代码仓库</a></li>
     <li><a href="#参考文献">参考文献</a></li>
   </ol>
-</nav>  
+</nav>
+
+
                 </div>
             </section>
 
             <footer class="page__footer">
 <p class="copyright">
-  &copy; 2022-2026
-  <a href="https://lunarithm.space/">冰轮韵</a>
-  ·
-  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
-    >萌ICP备20250495号</a
-  >
+    &copy; 2022-2026
+    <a href="https://lunarithm.space/">冰轮韵</a>
+    ·
+    <a href="https://icp.gov.moe/?keyword=20250495" target="_blank">萌ICP备20250495号</a>
 </p>
 <p class="advertisement">
-  Powered by <a href="https://gohugo.io/">Hugo</a> and
-  <a href="https://github.com/joeroe/risotto">risotto</a>.
+    Powered by <a href="https://gohugo.io/">Hugo</a> and
+    <a href="https://github.com/joeroe/risotto">risotto</a>.
 </p>
 </footer>
 

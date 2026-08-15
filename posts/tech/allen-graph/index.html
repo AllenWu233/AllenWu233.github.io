@@ -3,67 +3,99 @@
 
     <head><title>Allen的图论基础 &ndash; 冰轮韵</title>
 <meta name="description" content="冰轮舞韵，代码凝魂。&lt;br&gt;天地与我并生，而万物与我为一。">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+      integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet"
+      href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
-<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
-
+<link rel="stylesheet"
+      href="/css/custom.min.cc272a874d7b6a0ccf82d7bbcbe9b41661506b37618671caa3f8adab94a03c39.css"
+      integrity="sha256-zCcqh017agzPgte7y&#43;m0FmFQazdhhnHKo/itq5SgPDk=">
 
 <link rel="icon" href="https://lunarithm.space/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://lunarithm.space/favicon-16x16.png">
 <link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
 <link rel="manifest" href="https://lunarithm.space/site.webmanifest">
 
 
 
-
-
-<meta property="og:title" content="Allen的图论基础 &ndash; 冰轮韵" />
+<meta property="og:title"
+      content="Allen的图论基础 &ndash; 冰轮韵" />
 <meta property="og:url" content="https://lunarithm.space/posts/tech/allen-graph/" />
 
-  <meta property="og:description" content="比如……一笔画问题？ &ndash; "/> 
+<meta property="og:description"
+      content="比如……一笔画问题？ &ndash; " />
 
 <meta property="og:locale" content="zh-cn" />
-<meta property="og:image" content="https://lunarithm.space/favicon.ico" /></head>
+<meta property="og:image"
+      content="https://lunarithm.space/favicon.ico" />
+</head>
 
     <body>
         <div class="page">
 
             <header class="page__header"><nav class="page__nav main-nav">
     <ul>
-      
-      <li class="nomarker avatar-container">
-        <a href="https://lunarithm.space/" class="avatar-link">
-          <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
-        </a>
-      </li>
-
-      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
-    
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
-    
+        
+        <li class="nomarker avatar-container">
+            <a href="https://lunarithm.space/" class="avatar-link">
+                <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
+            </a>
+        </li>
+        <li class="nomarker">
+            <h1 class="page__logo">
+                <a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a>
+            </h1>
+        </li>
+        
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/series/"
+               title="">月轨</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/categories/"
+               title="">月影</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/links/"
+               title="">月渡</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/about/"
+               title="">逍遥乡</a>
+        </li>
+        
     </ul>
 </nav>
-
 <style>
    
   .site-avatar {
@@ -75,7 +107,7 @@
     margin: 0 auto;
     <!-- transition: transform 0.2s ease-in-out; -->
   }
-  
+
    
   .site-avatar:hover {
     transform: scale(1.05);
@@ -85,19 +117,17 @@
 
             <section class="page__body">
 <header class="content__header">
-  <h1>Allen的图论基础</h1>
+    <h1>Allen的图论基础</h1>
 </header>
 <div class="content__body"><h2 id="引言">引言</h2>
 <h3 id="什么是图论">什么是图论？</h3>
 <p><strong>图论</strong>是离散数学的一个十分有趣的分支，以 <strong>“图”</strong> 为主要研究对象，研究图的内在结构，探索其中的组合性质、代数性质和拓扑性质，找到满足条件的“好图”等。比如大名鼎鼎的七桥问题（欧拉回路）就属于图论的范畴</p>
 <h3 id="那么图又是什么呢">那么，图又是什么呢？</h3>
 <p>简单来说，<strong>图（Graph）</strong> 是由多个点以及连接这些点的线所构成的对象。具体定义详见<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)">维基百科·图</a>、<a href="https://oi-wiki.org/graph/concept/">OI Wiki·图论相关概念</a></p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-6n-graf.svg"
-  alt="图"
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-6n-graf.svg"
+     alt="图"
+     
+     loading="lazy" />
 </p>
 <p>在计算机中，图也是一种相当重要的数据结构，最短路、最小生成树、网络流等问题往往需要图来实现</p>
 <h2 id="图的存储">图的存储</h2>
@@ -181,12 +211,10 @@
 4: --&gt;a --&gt;d
 </code></pre><p>可以看出邻接表是一种链表，它是以任意顺序来存储边的。但在算法竞赛中，我们可以用数组或<code>vector</code>来模拟链表</p>
 <p>我们也可以存储边的终点，比如下图：</p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-graph_1.jpg"
-  alt=""
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-graph_1.jpg"
+     alt=""
+     
+     loading="lazy" />
 </p>
 <pre tabindex="0"><code>1: [2, 3, 5]
 2: [5]
@@ -386,12 +414,10 @@ add_edge(v, u);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
 </span></span></code></pre></div><p>比如下图：
-<img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-topo.svg"
-  alt=""
-  
-  loading="lazy"
-/>
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-topo.svg"
+     alt=""
+     
+     loading="lazy" />
 </p>
 <pre tabindex="0"><code># 它的拓扑序可以是：
 1 2 3 4 5
@@ -539,25 +565,20 @@ add_edge(v, u);
 <p>[5]<a href="https://blog.csdn.net/sugarbliss/article/details/86495945">链式前向星&ndash;最通俗易懂的讲解</a></p>
 </div>
 <footer class="content__footer">
-  
-   
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
-  crossorigin="anonymous"
-/>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
-  crossorigin="anonymous"
-></script>
+    
+    
+    
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+      crossorigin="anonymous" />
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+        crossorigin="anonymous"></script>
 
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
-  crossorigin="anonymous"
-  onload="
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+        crossorigin="anonymous"
+        onload="
     renderMathInElement(document.body, {
       delimiters: [
         { left: '$$', right: '$$', display: true },
@@ -566,9 +587,7 @@ add_edge(v, u);
         { left: '\\[', right: '\\]', display: true },
       ],
     })
-  "
-></script>
-
+  "></script>
 
 <style>
    
@@ -582,23 +601,23 @@ add_edge(v, u);
     margin: 1em 0;
   }
 </style>
-  <script
-  src="https://giscus.app/client.js"
-  data-repo="AllenWu233/lunarithm-comments"
-  data-repo-id="R_kgDOTkgvVw"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOTkgvV84DCC0y"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="catppuccin_mocha"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+
+    
+    <script src="https://giscus.app/client.js"
+        data-repo="AllenWu233/lunarithm-comments"
+        data-repo-id="R_kgDOTkgvVw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOTkgvV84DCC0y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="catppuccin_mocha"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async></script>
 
 </footer>
 
@@ -639,15 +658,23 @@ add_edge(v, u);
 </ul>
 </div>
                 <hr>
-                <div class="aside__content"> 
+                <div class="aside__content">
+
 <p>比如……一笔画问题？</p>
- 
+
+
 <p>
-   2023-02-26
-</p>
     
+    2023-02-26
+</p>
+
+
+
+
+
 <hr />
-目录： <nav id="TableOfContents">
+目录：
+<nav id="TableOfContents">
   <ol>
     <li><a href="#引言">引言</a>
       <ol>
@@ -675,22 +702,22 @@ add_edge(v, u);
       </ol>
     </li>
   </ol>
-</nav>  
+</nav>
+
+
                 </div>
             </section>
 
             <footer class="page__footer">
 <p class="copyright">
-  &copy; 2022-2026
-  <a href="https://lunarithm.space/">冰轮韵</a>
-  ·
-  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
-    >萌ICP备20250495号</a
-  >
+    &copy; 2022-2026
+    <a href="https://lunarithm.space/">冰轮韵</a>
+    ·
+    <a href="https://icp.gov.moe/?keyword=20250495" target="_blank">萌ICP备20250495号</a>
 </p>
 <p class="advertisement">
-  Powered by <a href="https://gohugo.io/">Hugo</a> and
-  <a href="https://github.com/joeroe/risotto">risotto</a>.
+    Powered by <a href="https://gohugo.io/">Hugo</a> and
+    <a href="https://github.com/joeroe/risotto">risotto</a>.
 </p>
 </footer>
 

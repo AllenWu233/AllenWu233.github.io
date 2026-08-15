@@ -3,67 +3,99 @@
 
     <head><title>最“简单”的算法——贪心算法 &ndash; 冰轮韵</title>
 <meta name="description" content="冰轮舞韵，代码凝魂。&lt;br&gt;天地与我并生，而万物与我为一。">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+      integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-<link rel="stylesheet" href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet"
+      href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
-<link rel="stylesheet" href="https://lunarithm.space/css/custom.css">
-
+<link rel="stylesheet"
+      href="/css/custom.min.cc272a874d7b6a0ccf82d7bbcbe9b41661506b37618671caa3f8adab94a03c39.css"
+      integrity="sha256-zCcqh017agzPgte7y&#43;m0FmFQazdhhnHKo/itq5SgPDk=">
 
 <link rel="icon" href="https://lunarithm.space/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunarithm.space/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunarithm.space/favicon-16x16.png">
+<link rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://lunarithm.space/favicon-32x32.png">
+<link rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://lunarithm.space/favicon-16x16.png">
 <link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
 <link rel="manifest" href="https://lunarithm.space/site.webmanifest">
 
 
 
-
-
-<meta property="og:title" content="最“简单”的算法——贪心算法 &ndash; 冰轮韵" />
+<meta property="og:title"
+      content="最“简单”的算法——贪心算法 &ndash; 冰轮韵" />
 <meta property="og:url" content="https://lunarithm.space/posts/tech/greedy-algorithm/" />
 
-  <meta property="og:description" content="这破题我写了三天.jpg &ndash; "/> 
+<meta property="og:description"
+      content="这破题我写了三天.jpg &ndash; " />
 
 <meta property="og:locale" content="zh-cn" />
-<meta property="og:image" content="https://lunarithm.space/favicon.ico" /></head>
+<meta property="og:image"
+      content="https://lunarithm.space/favicon.ico" />
+</head>
 
     <body>
         <div class="page">
 
             <header class="page__header"><nav class="page__nav main-nav">
     <ul>
-      
-      <li class="nomarker avatar-container">
-        <a href="https://lunarithm.space/" class="avatar-link">
-          <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
-        </a>
-      </li>
-
-      <li class="nomarker"><h1 class="page__logo"><a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a></h1></li>
-    
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/series/" title="">月轨</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/categories/" title="">月影</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/links/" title="">月渡</a></li>
-    
-    <li class="main-nav__item"><a class="nav-main-item" href="https://lunarithm.space/about/" title="">逍遥乡</a></li>
-    
+        
+        <li class="nomarker avatar-container">
+            <a href="https://lunarithm.space/" class="avatar-link">
+                <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
+            </a>
+        </li>
+        <li class="nomarker">
+            <h1 class="page__logo">
+                <a href="https://lunarithm.space/" class="page__logo-inner">Allen@lunarithm</a>
+            </h1>
+        </li>
+        
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/series/"
+               title="">月轨</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/categories/"
+               title="">月影</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/links/"
+               title="">月渡</a>
+        </li>
+        
+        <li class="main-nav__item">
+            <a class="nav-main-item"
+               href="https://lunarithm.space/about/"
+               title="">逍遥乡</a>
+        </li>
+        
     </ul>
 </nav>
-
 <style>
    
   .site-avatar {
@@ -75,7 +107,7 @@
     margin: 0 auto;
     <!-- transition: transform 0.2s ease-in-out; -->
   }
-  
+
    
   .site-avatar:hover {
     transform: scale(1.05);
@@ -85,7 +117,7 @@
 
             <section class="page__body">
 <header class="content__header">
-  <h1>最“简单”的算法——贪心算法</h1>
+    <h1>最“简单”的算法——贪心算法</h1>
 </header>
 <div class="content__body"><blockquote>
 <p>“有人说<strong>贪心算法</strong>是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，那轮到你我的份？”</p>
@@ -161,12 +193,10 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </span></span></code></pre></div><blockquote>
 <p><strong>说明</strong></p>
 </blockquote>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/cut_bug.jpg"
-  alt="bug"
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/cut_bug.jpg"
+     alt="bug"
+     
+     loading="lazy" />
 </p>
 <p>上图中用符号*、※、+ 标出了3对会交头接耳的学生的位置，图中3条粗线的位置表示通道，图示的通道划分方案是唯一的最佳方案。</p>
 <h3 id="分析">分析</h3>
@@ -299,12 +329,10 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 <h2 id="总结">总结</h2>
 <p>算法不愧是编程的灵魂……</p>
 <p>这才是编程的浪漫啊！<del>（因解题时间过长理智丧失ing&hellip;）</del></p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/%e5%a6%b9%e7%ba%a2%e6%95%b2%e4%bb%a3%e7%a0%81.jpg"
-  alt="妹红敲代码"
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/%e5%a6%b9%e7%ba%a2%e6%95%b2%e4%bb%a3%e7%a0%81.jpg"
+     alt="妹红敲代码"
+     
+     loading="lazy" />
 </p>
 <h2 id="参考文献">参考文献</h2>
 <ol>
@@ -313,34 +341,27 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </ol>
 <h2 id="to-be-continue">To Be Continue</h2>
 <p>关于贪心算法，我只是学了点皮毛而已，以后还会在这里更新更加<code>deep♂dark</code>的用法</p>
-<p><img
-  src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/greedy-algorithm.jpg"
-  alt="饕餮尤魔"
-  
-  loading="lazy"
-/>
+<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/greedy-algorithm.jpg"
+     alt="饕餮尤魔"
+     
+     loading="lazy" />
 </p>
 </div>
 <footer class="content__footer">
-  
-   
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
-  crossorigin="anonymous"
-/>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
-  crossorigin="anonymous"
-></script>
+    
+    
+    
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+      crossorigin="anonymous" />
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+        crossorigin="anonymous"></script>
 
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
-  crossorigin="anonymous"
-  onload="
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+        crossorigin="anonymous"
+        onload="
     renderMathInElement(document.body, {
       delimiters: [
         { left: '$$', right: '$$', display: true },
@@ -349,9 +370,7 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
         { left: '\\[', right: '\\]', display: true },
       ],
     })
-  "
-></script>
-
+  "></script>
 
 <style>
    
@@ -365,23 +384,23 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
     margin: 1em 0;
   }
 </style>
-  <script
-  src="https://giscus.app/client.js"
-  data-repo="AllenWu233/lunarithm-comments"
-  data-repo-id="R_kgDOTkgvVw"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOTkgvV84DCC0y"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="catppuccin_mocha"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+
+    
+    <script src="https://giscus.app/client.js"
+        data-repo="AllenWu233/lunarithm-comments"
+        data-repo-id="R_kgDOTkgvVw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOTkgvV84DCC0y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="catppuccin_mocha"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async></script>
 
 </footer>
 
@@ -422,15 +441,23 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </ul>
 </div>
                 <hr>
-                <div class="aside__content"> 
+                <div class="aside__content">
+
 <p>这破题我写了三天.jpg</p>
- 
+
+
 <p>
-   2022-10-07
-</p>
     
+    2022-10-07
+</p>
+
+
+
+
+
 <hr />
-目录： <nav id="TableOfContents">
+目录：
+<nav id="TableOfContents">
   <ol>
     <li><a href="#简介">简介</a>
       <ol>
@@ -450,22 +477,22 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
     <li><a href="#参考文献">参考文献</a></li>
     <li><a href="#to-be-continue">To Be Continue</a></li>
   </ol>
-</nav>  
+</nav>
+
+
                 </div>
             </section>
 
             <footer class="page__footer">
 <p class="copyright">
-  &copy; 2022-2026
-  <a href="https://lunarithm.space/">冰轮韵</a>
-  ·
-  <a href="https://icp.gov.moe/?keyword=20250495" target="_blank"
-    >萌ICP备20250495号</a
-  >
+    &copy; 2022-2026
+    <a href="https://lunarithm.space/">冰轮韵</a>
+    ·
+    <a href="https://icp.gov.moe/?keyword=20250495" target="_blank">萌ICP备20250495号</a>
 </p>
 <p class="advertisement">
-  Powered by <a href="https://gohugo.io/">Hugo</a> and
-  <a href="https://github.com/joeroe/risotto">risotto</a>.
+    Powered by <a href="https://gohugo.io/">Hugo</a> and
+    <a href="https://github.com/joeroe/risotto">risotto</a>.
 </p>
 </footer>
 
