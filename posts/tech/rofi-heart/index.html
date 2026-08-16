@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.c3e6484b45518d2f5c847da3c666f3f8c929d12b2451e89a9fba46f20b9b8fdd.css"
-      integrity="sha256-w&#43;ZIS0VRjS9chH2jxmbz&#43;Mkp0SskUeian7pG8gubj90=">
+      href="/css/custom.057bfa6168f69e9e14383849596ce72015094e8209b1d177e33b2cc40799592c.css"
+      integrity="sha256-BXv6YWj2np4UODhJWWznIBUJToIJsdF34zssxAeZWSw=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -130,17 +130,23 @@
 <li><strong>动态</strong>：可在堆叠和平铺之间切换。</li>
 </ul>
 <p>我用的是 <a href="https://i3wm.org">i3wm</a>——默认平铺，但也支持一键切换为悬浮或标签页模式；轻量、配置清晰、功能丰富而恰到好处。相关配置可查阅 <a href="https://github.com/AllenWu233/dotfiles">AllenWu233/dotfiles</a>。如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-fastfetch.png"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-fastfetch.png"
      alt="i3wm Example"
      
      loading="lazy" />
+<figcaption class="image-caption">i3wm Example</figcaption>
+</figure>
 </p>
 <h3 id="为什么-i3wm-要装颗心脏">为什么 i3wm 要装颗“心脏”</h3>
 <p>i3wm 虽好，但毕竟只是 WM，<del>想要桌面环境般的体验，还得自己拼</del>。程序启动器就是一个：在 Windows、KDE 和 Gnome 等 DE 下启动应用程序，一般通过桌面快捷方式或按 Win (Meta) 键弹出的启动菜单。而 i3 没有桌面快捷方式——从上图能看出我的桌面只有一张壁纸（笑），也没有内置启动菜单，于是只能用专用的应用启动器——<a href="https://wiki.archlinux.org/title/Dmenu">dmenu</a> 或是类 dmenu 软件，通过快捷键唤出应用菜单，输入应用名或移动光标选项来启动。如下图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-apps.jpg"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-apps.jpg"
      alt="Rofi Application Launcher Menu"
      
      loading="lazy" />
+<figcaption class="image-caption">Rofi Application Launcher Menu</figcaption>
+</figure>
 </p>
 <p>这类软件不仅能用作应用启动器，还能作为脚本选择器：将脚本菜单文本作为管道输入，显示为 dmenu-like 菜单来让用户选择。我用的是 <a href="https://wiki.archlinux.org/title/Rofi">Rofi</a>，除了基础的文本过滤选择，还支持绑定键位到选项上，一键选择，省去输入脚本名和按回车。</p>
 <p>i3 我也用了三年了，积累了一些 dmenu-like 脚本，如管理 dotfiles、管理多显示器、电源菜单、剪贴板菜单、Emoji 选择器等等。每个脚本都绑定一个 i3 快捷键，既麻烦又浪费键位。如果用一个 Rofi 菜单统一管理这些脚本，不就只用一个键位就能打开指定脚本了？于是就有了 <strong>rofi-heart</strong>。</p>
@@ -211,15 +217,21 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
 </span></span></code></pre></div><p>其中 <code>case</code> 中的 <code>10:* | 0:*&quot;[c]&quot;*) exec $CLIPBOARD ;;</code> 就实现了兼容搜索/光标选择和按键选择。</p>
 <p>效果图如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-main.jpg"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-main.jpg"
      alt="rofi-heart Main Menu"
      
      loading="lazy" />
+<figcaption class="image-caption">rofi-heart Main Menu</figcaption>
+</figure>
 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
      alt="rofi-heart Emoji Menu"
      
      loading="lazy" />
+<figcaption class="image-caption">rofi-heart Emoji Menu</figcaption>
+</figure>
 </p>
 <p>代码清晰易懂，像在 Shell 里输命令一样直白。但维护起来就很难受：修改一个脚本，就要同时改<code>items</code>、<code>choice</code>、<code>case</code> 三处，效率低下且易出错。</p>
 <p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不太行。</p>
@@ -440,10 +452,13 @@
 <li><a href="https://wiki.archlinux.org/title/Rofi">Rofi - Arch Wiki</a></li>
 <li><a href="https://github.com/gnuunixchad/dotfiles/blob/master/.local/bin/heart">heart - gnuunixchad/dotfiles</a></li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/python-chan.jpg"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/python-chan.jpg"
      alt="Python-chan"
      
      loading="lazy" />
+<figcaption class="image-caption">Python-chan</figcaption>
+</figure>
 </p>
 </div>
 <footer class="content__footer">

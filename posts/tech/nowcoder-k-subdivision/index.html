@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.c3e6484b45518d2f5c847da3c666f3f8c929d12b2451e89a9fba46f20b9b8fdd.css"
-      integrity="sha256-w&#43;ZIS0VRjS9chH2jxmbz&#43;Mkp0SskUeian7pG8gubj90=">
+      href="/css/custom.057bfa6168f69e9e14383849596ce72015094e8209b1d177e33b2cc40799592c.css"
+      integrity="sha256-BXv6YWj2np4UODhJWWznIBUJToIJsdF34zssxAeZWSw=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -161,27 +161,35 @@ Each of the next $m$ lines contains two integers $u$ and $v (1≤u,v≤n)$, indi
 <pre tabindex="0"><code>1
 </code></pre><h3 id="备注">备注:</h3>
 <p>Here is the illustration for the second example.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/https://uploadfiles.nowcoder.com/images/20230717/0_1689574090396/EDC585D199EEEC167C6B17F17085A1FA"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/https://uploadfiles.nowcoder.com/images/20230717/0_1689574090396/EDC585D199EEEC167C6B17F17085A1FA"
      alt=""
      
      loading="lazy" />
+</figure>
 </p>
 <h2 id="题意">题意</h2>
 <p>给出一个边长为$ 1 $的<strong>无向图</strong>，其中每条边都可以插入数量任意的结点。求到结点$1$距离不大于$k$的结点数的最大值</p>
 <h2 id="分析">分析</h2>
 <p>以样例2为例：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/nowcoder-k-subdivision-graph_1.png"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/nowcoder-k-subdivision-graph_1.png"
      alt="样例2"
      
      loading="lazy" />
+<figcaption class="image-caption">样例2</figcaption>
+</figure>
 </p>
 <p>显然，对于度数为1的结点（如结点2），可以在它和与其相关联的点之间插入任意个结点，而不影响其他的点。即：度数为1的结点所在的边最多贡献$k$个结点</p>
 <p>先从 $1$ 开始 BFS，同时求出每个点到 $1$ 的最短路</p>
 <p>画出BFS树，并标出各点的度数</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/nowcoder-k-subdivision-graph_2.png"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/nowcoder-k-subdivision-graph_2.png"
      alt="红色数字即为结点度数"
      
      loading="lazy" />
+<figcaption class="image-caption">红色数字即为结点度数</figcaption>
+</figure>
 </p>
 <p>考虑选什么边来加点，两种情况：</p>
 <ul>

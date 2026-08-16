@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.c3e6484b45518d2f5c847da3c666f3f8c929d12b2451e89a9fba46f20b9b8fdd.css"
-      integrity="sha256-w&#43;ZIS0VRjS9chH2jxmbz&#43;Mkp0SskUeian7pG8gubj90=">
+      href="/css/custom.057bfa6168f69e9e14383849596ce72015094e8209b1d177e33b2cc40799592c.css"
+      integrity="sha256-BXv6YWj2np4UODhJWWznIBUJToIJsdF34zssxAeZWSw=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -124,10 +124,13 @@
 <p><strong>图论</strong>是离散数学的一个十分有趣的分支，以 <strong>“图”</strong> 为主要研究对象，研究图的内在结构，探索其中的组合性质、代数性质和拓扑性质，找到满足条件的“好图”等。比如大名鼎鼎的七桥问题（欧拉回路）就属于图论的范畴</p>
 <h3 id="那么图又是什么呢">那么，图又是什么呢？</h3>
 <p>简单来说，<strong>图（Graph）</strong> 是由多个点以及连接这些点的线所构成的对象。具体定义详见<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)">维基百科·图</a>、<a href="https://oi-wiki.org/graph/concept/">OI Wiki·图论相关概念</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-6n-graf.svg"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-6n-graf.svg"
      alt="图"
      
      loading="lazy" />
+<figcaption class="image-caption">图</figcaption>
+</figure>
 </p>
 <p>在计算机中，图也是一种相当重要的数据结构，最短路、最小生成树、网络流等问题往往需要图来实现</p>
 <h2 id="图的存储">图的存储</h2>
@@ -211,10 +214,12 @@
 4: --&gt;a --&gt;d
 </code></pre><p>可以看出邻接表是一种链表，它是以任意顺序来存储边的。但在算法竞赛中，我们可以用数组或<code>vector</code>来模拟链表</p>
 <p>我们也可以存储边的终点，比如下图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-graph_1.jpg"
+<p><figure class="image-figure">
+<img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-graph_1.jpg"
      alt=""
      
      loading="lazy" />
+</figure>
 </p>
 <pre tabindex="0"><code>1: [2, 3, 5]
 2: [5]
@@ -414,10 +419,12 @@ add_edge(v, u);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
 </span></span></code></pre></div><p>比如下图：
+<figure class="image-figure">
 <img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/Allen-graph-topo.svg"
      alt=""
      
      loading="lazy" />
+</figure>
 </p>
 <pre tabindex="0"><code># 它的拓扑序可以是：
 1 2 3 4 5
