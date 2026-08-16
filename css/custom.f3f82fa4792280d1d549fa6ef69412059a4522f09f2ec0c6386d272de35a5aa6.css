@@ -297,3 +297,22 @@ h1.page__logo {
   color: var(--link);
   border-color: var(--inner-bg);
 }
+/* Admonitions (callouts): [!KEYWORD] blockquotes */
+.admonition {
+  --admonition-color: var(--fg);
+  color: var(--admonition-color);
+}
+
+.admonition::before {
+  color: var(--admonition-color);
+}
+
+.admonition-title {
+  display: inline-block;
+  padding: 0rem 0.5rem;
+  line-height: 1.3;
+  margin-right: 0.5rem;
+  background-color: var(--admonition-color);
+  color: #000;
+  font-weight: 700;
+}

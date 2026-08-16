@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -121,43 +121,29 @@
     <h1>Allen的初等数论基础</h1>
 </header>
 <div class="content__body"><h2 id="引言">引言</h2>
-<blockquote>
-<p>**“数学是科学的皇后，数论是数学的皇后。”
+<blockquote><p>**“数学是科学的皇后，数论是数学的皇后。”
 ——卡尔·弗里德里希·高斯**</p>
-</blockquote>
-<blockquote>
-<p><del>“有哪些优秀的百合同人作品？”
+</blockquote><blockquote><p><del>“有哪些优秀的百合同人作品？”
 ——邓煜</del></p>
-</blockquote>
-<blockquote>
-<p><strong>数论（英语：Number theory）</strong> 是纯粹数学的分支之一，主要研究整数的性质。被誉为“最纯”的数学领域。</p>
+</blockquote><blockquote><p><strong>数论（英语：Number theory）</strong> 是纯粹数学的分支之一，主要研究整数的性质。被誉为“最纯”的数学领域。</p>
 <p>——From <a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E8%AE%BA">中文Wiki·数论</a></p>
-</blockquote>
-<blockquote>
-<p><strong>初等数论</strong>意指使用不超过高中程度的初等代数处理的数论问题，最主要的工具包括整数的整除性与同余。</p>
+</blockquote><blockquote><p><strong>初等数论</strong>意指使用不超过高中程度的初等代数处理的数论问题，最主要的工具包括整数的整除性与同余。</p>
 <p>——From <a href="https://zh.wikipedia.org/wiki/%E5%88%9D%E7%AD%89%E6%95%B8%E8%AB%96">中文Wiki·初等数论</a></p>
-</blockquote>
-<p>回顾小学、初中的学习，很多时候都是在与<strong>集合与在该集合上的运算</strong>打交道：</p>
+</blockquote><p>回顾小学、初中的学习，很多时候都是在与<strong>集合与在该集合上的运算</strong>打交道：</p>
 <ul>
 <li>小学：我们主要研究自然数集/有理数集和运算（加减乘除）</li>
 <li>中学：我们主要研究实数集中的各种运算（可把函数与映射等等单元操作或多元操作称为运算）</li>
 <li>甚至上到大学，我们学习的高数也是一样的</li>
 </ul>
-<blockquote>
-<p>初等数论是研究数的规律，特别是整数性质的数学分支。</p>
-</blockquote>
-<blockquote>
-<p>在计算机中没有真正实数存在，所以整数的研究在计算机中至关重要，有了初等数论的一些性质，我们就可以用更优秀的复杂度（经常是$ O(1) $）解决问题——By zm</p>
-</blockquote>
-<p>回想小学就接触到的思考题，很多都是研究集合内元素的规律和运算——也就是说，我们早就接触到数论了，只是没有以严格的数学定义来研究它。而现在，让我们来一窥数学皇后之美吧！</p>
+<blockquote><p>初等数论是研究数的规律，特别是整数性质的数学分支。</p>
+</blockquote><blockquote><p>在计算机中没有真正实数存在，所以整数的研究在计算机中至关重要，有了初等数论的一些性质，我们就可以用更优秀的复杂度（经常是$ O(1) $）解决问题——By zm</p>
+</blockquote><p>回想小学就接触到的思考题，很多都是研究集合内元素的规律和运算——也就是说，我们早就接触到数论了，只是没有以严格的数学定义来研究它。而现在，让我们来一窥数学皇后之美吧！</p>
 <h2 id="质数与质因数">质数与质因数</h2>
 <p>按照数论的定义，正整数可以分为质数（素数）和合数，其中质数的定义是：
 <strong>在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数</strong></p>
 <p>为什么是1呢？如果1是质数又会怎样呢？这要牵涉到<strong>唯一分解定理</strong>了：</p>
-<blockquote>
-<p>每个大于1的自然数，要么本身就是质数，要么可以写为2个或以上的质数的积，而且这些质因子按大小排列之后，写法仅有一种方式</p>
-</blockquote>
-<p>例如：</p>
+<blockquote><p>每个大于1的自然数，要么本身就是质数，要么可以写为2个或以上的质数的积，而且这些质因子按大小排列之后，写法仅有一种方式</p>
+</blockquote><p>例如：</p>
 <p>$ 24 = 2 \times 2 \times 2 \times 3 $</p>
 <p>$ 68 = 2 \times 2 \times 17 $</p>
 <p>假如1是质数，唯一分解定理就不成立了。这体现了数学定义的严谨性：<strong>公理给出制约，制约创造结构</strong></p>
@@ -166,10 +152,8 @@
 <p>$ gcd(24, 32) = 8 $， 可简记作 $ 8 = d(24, 32) $</p>
 <p>$ lcm(24, 32) = 96 $</p>
 <h4 id="欧几里得算法">欧几里得算法</h4>
-<blockquote>
-<p>gcd.cpp</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">// 欧几里得算法(Euclid algorithm)  最大公约数
+<blockquote><p>gcd.cpp</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">// 欧几里得算法(Euclid algorithm)  最大公约数
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">gcd</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) { <span style="color:#66d9ef">return</span> b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> a : gcd(b, a<span style="color:#f92672">%</span>b); }  <span style="color:#75715e">// 递归
 </span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
@@ -180,10 +164,8 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="欧几里得算法拓展">欧几里得算法拓展</h4>
 <h3 id="唯一分解定理">唯一分解定理</h3>
-<blockquote>
-<p>lcm.cpp</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">// 最小公倍数；先除后乘防溢出
+<blockquote><p>lcm.cpp</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">// 最小公倍数；先除后乘防溢出
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">lcm</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) { <span style="color:#66d9ef">return</span> a <span style="color:#f92672">/</span> gcd(a, b) <span style="color:#f92672">*</span> b; }
 </span></span></code></pre></div><h3 id="素数筛">素数筛</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> MAXN <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
@@ -200,10 +182,8 @@
 <p>$ 如果a是质数， \forall (a, p) \equiv 1, x^{p-1} \equiv 1 \pmod p $</p>
 <h2 id="群论">群论</h2>
 <h3 id="书单推荐">书单推荐</h3>
-<blockquote>
-<p>From zm</p>
-</blockquote>
-<ul>
+<blockquote><p>From zm</p>
+</blockquote><ul>
 <li>数学女孩1</li>
 <li>数学女孩2</li>
 <li>初等数论及其性质</li>

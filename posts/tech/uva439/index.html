@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -181,10 +181,8 @@
 <p>你应该注意到了，我采用了重定向输入输出，却没有在代码里定义LOCAL符号——其实我已经在编译选项里编译了</p>
 <p>这样做的好处是，在本地调试时默认为重定向输入输出，提交到oj时自动忽略编译重定向这段代码，方便且能避免出错</p>
 <p>只需在编译时加上<code>-DLOCAL</code>这条参数即可。我的做法是修改Sublime Text的编译系统文件：</p>
-<blockquote>
-<p>c++_acm.sublime-build</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<blockquote><p>c++_acm.sublime-build</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;shell_cmd&#34;</span>: <span style="color:#e6db74">&#34;g++ -finput-charset=UTF-8 -fexec-charset=GBK -Wall -DLOCAL \&#34;${file_name}\&#34; -o \&#34;${file_base_name}\&#34; &amp;&amp; ${file_base_name} &amp;&amp; echo Press ENTER to continue...&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;file_regex&#34;</span>: <span style="color:#e6db74">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;working_dir&#34;</span>: <span style="color:#e6db74">&#34;${file_path}&#34;</span>,

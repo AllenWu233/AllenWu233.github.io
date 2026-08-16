@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -121,16 +121,14 @@
     <h1>GDCPC 2022 E 黑白大陆</h1>
 </header>
 <div class="content__body"><h2 id="题目">题目</h2>
-<blockquote>
-<p><strong>代码长度限制</strong> 16 KB<br>
+<blockquote><p><strong>代码长度限制</strong> 16 KB<br>
 <strong>Java (javac)</strong><br>
 时间限制 2000 ms<br>
 内存限制 512 MB</p>
 <p><strong>其他编译器</strong><br>
 时间限制 1000 ms<br>
 内存限制 512 MB</p>
-</blockquote>
-<hr>
+</blockquote><hr>
 <p>毕业出了魔法学院的 YahAHa 回到了他的家乡&mdash;黑白大陆。</p>
 <p>黑白大陆是一块由 $n \times m$ 个格子组成的方形大陆，在每一个格子上标有黑色或白色，在黑白大陆上，不同颜色的相邻格子之间时常会发生战争。</p>
 <p>热爱和平的 YahAHa 想要把黑白大陆统一成象征和平的白色。</p>
@@ -150,8 +148,7 @@
 </span></span></code></pre></div><p><strong>输出样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>3
 </span></span></code></pre></div><h2 id="分析">分析</h2>
-<blockquote>
-<p>题意：给出一个 $ m \times n $ 的布尔矩阵，每次可以进行一下两种操作之一：</p>
+<blockquote><p>题意：给出一个 $ m \times n $ 的布尔矩阵，每次可以进行一下两种操作之一：</p>
 <ul>
 <li>选择一个元素 $(i,j)$ ，如果：
 <ul>
@@ -161,8 +158,7 @@
 </ul>
 </li>
 </ul>
-</blockquote>
-<p>显然，我们需要用DFS来判断连通块。可以写两个DFS分别判断黑色（1）和白色（0）连通块，把连通块看作结点，判连通块的同时根据连通块之间的接壤关系组织成图。如果<code>a[i][j] == 1</code>，则<code>vis[i][j] = idx</code>，否则<code>vis[i][j] = -idx</code>，idx为结点编号</p>
+</blockquote><p>显然，我们需要用DFS来判断连通块。可以写两个DFS分别判断黑色（1）和白色（0）连通块，把连通块看作结点，判连通块的同时根据连通块之间的接壤关系组织成图。如果<code>a[i][j] == 1</code>，则<code>vis[i][j] = idx</code>，否则<code>vis[i][j] = -idx</code>，idx为结点编号</p>
 <p>求从某一个点开始操作，把整个图都变为$0$的步数，即求从该点出发遍历整个图的步数。也就是说，我们可以用BFS求出该点到所有点的<em><strong>最短路</strong></em>（<strong>特别的，如果最短路终点的值为 $1$ ，则最短路的长度要 $+1$ ，因为把整条路径都变为 $0$ 需要再多加一步</strong>），取最短路的最大值为 $t$ ，然后对每个结点都做一次BFS，$min\{t\}$ 即为答案</p>
 <p>结点数不大于 $50 \times 50 = 2500$ 个，用邻接表存图比较方便，且不会超时</p>
 <p>注意到重边不会影响BFS（结点一入队就被打上访问标记），因此存图时不用判重，省下了 $O(\sum_{u=1}^{idx} d^{+}(u-1)!)$ （$idx$为结点编号最大值） 的时间复杂度，也就是“用空间换时间”<br>
@@ -405,10 +401,8 @@ $O(nm)$ + $O((n + m) \times (n + m + \sum_{u=1}^{n + m} d^{+}(u)))$</p>
 <p>如果硬要追求理论上的「更简单」，可以利用该图是<strong>二分图</strong>的性质：所有白点到黑点的距离为奇数，白点到白点为偶数。因此从白点出发的答案一定是偶数，从黑点出发一定是奇数。但这只是奇偶性观察，并不能直接推出一个 $O(1)$ 或 $O(V)$ 的闭式解来替代 BFS。</p>
 <p><strong>结论</strong>：算法框架已经是最简路径之一，不必再寻找更高层的抽象；但代码实现上完全可以写得更干净。</p>
 <h2 id="附赠数据生成器">附赠数据生成器</h2>
-<blockquote>
-<p>E_in.py</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<blockquote><p>E_in.py</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</span> open(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;E_2.in&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>)

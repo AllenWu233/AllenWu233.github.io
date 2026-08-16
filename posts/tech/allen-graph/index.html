@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -135,10 +135,8 @@
 </p>
 <p>在计算机中，图也是一种相当重要的数据结构，最短路、最小生成树、网络流等问题往往需要图来实现</p>
 <h2 id="图的存储">图的存储</h2>
-<blockquote>
-<p>本文约定用 $ n $ 代指图的点数，用 $ m $ 代指图的边数，用 $ d^+(u) $ 代指点 $ u $ 的出度，即以 $ u $ 为出发点的边数</p>
-</blockquote>
-<h3 id="邻接矩阵">邻接矩阵</h3>
+<blockquote><p>本文约定用 $ n $ 代指图的点数，用 $ m $ 代指图的边数，用 $ d^+(u) $ 代指点 $ u $ 的出度，即以 $ u $ 为出发点的边数</p>
+</blockquote><h3 id="邻接矩阵">邻接矩阵</h3>
 <h4 id="方法">方法</h4>
 <p>从图的概念我们知道，图由点集和边集组成。而我们可以用一个二维数组<code>G</code>来存边，<code>G[u][v] = 1</code>表示存在从<code>u</code>到<code>v</code>的边。如果边带权值<code>w</code>，可以令<code>G[u][v] = w</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
@@ -191,10 +189,8 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">3 4 3
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">5 2 7
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div><blockquote>
-<p>例题：<a href="https://www.luogu.com.cn/problem/P1359">P1359 租用游艇</a></p>
-</blockquote>
-<p>利用邻接矩阵来存储图，注意在本题中邻接矩阵为半矩阵（类似于上三角矩阵，但主对角线元素为0， 即<code>a[i][i] = 0</code>）。需要注意的是，单纯dfs会超时，需要剪枝</p>
+</span></span></code></pre></div><blockquote><p>例题：<a href="https://www.luogu.com.cn/problem/P1359">P1359 租用游艇</a></p>
+</blockquote><p>利用邻接矩阵来存储图，注意在本题中邻接矩阵为半矩阵（类似于上三角矩阵，但主对角线元素为0， 即<code>a[i][i] = 0</code>）。需要注意的是，单纯dfs会超时，需要剪枝</p>
 <p>动态规划也可以解，而且代码非常简洁（貌似本来是就动态规划的题，被我硬生生写成dfs😂）</p>
 <h4 id="复杂度">复杂度</h4>
 <p>查询是否存在某条边：$ O(1) $</p>
@@ -474,10 +470,8 @@ add_edge(v, u);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ((<span style="color:#66d9ef">int</span>)topo.size() <span style="color:#f92672">==</span> n);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="例题-1">例题</h4>
-<blockquote>
-<p><a href="https://codeforces.com/contest/1593/problem/E">Codeforces Round 748 (Div. 3) E.Gardener and Tree</a></p>
-</blockquote>
-<p>题意:给出一棵无根树，每次操作删除所有叶子结点，问k次操作后还剩几个结点</p>
+<blockquote><p><a href="https://codeforces.com/contest/1593/problem/E">Codeforces Round 748 (Div. 3) E.Gardener and Tree</a></p>
+</blockquote><p>题意:给出一棵无根树，每次操作删除所有叶子结点，问k次操作后还剩几个结点</p>
 <p>类比拓扑排序，每次操作选出度数为1的结点，遍历其终边并使终点度数减1,然后删除这些结点。注意：题目给出的树是无向的，因此不能直接用DFS（比如树为一条单链，DFS会直接从一头遍历到另一头），而BFS会更好写，代码也是类似的，唯一的区别是，要判断删点前其邻接点度数为1的情况（说明邻接点已经在队列里了）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span>

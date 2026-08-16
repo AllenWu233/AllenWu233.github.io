@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -126,10 +126,8 @@
 <p>A 题为完整代码，其他题目只有核心代码（省略了模板）</p>
 <h2 id="正文">正文</h2>
 <h3 id="a-tubetube-feed">A. TubeTube Feed</h3>
-<blockquote>
-<p>题意：给出数组<code>a[]</code>（代表视频长度，单位：s）和<code>b[]</code>（代表视频的“entertainment value”，我们用变量<code>fun</code>来存储其最大值），整数<code>t</code>（午餐时长）。对于一个视频，可以跳过（消耗1s）,也可以决定就看这个视频，但要保证消耗的时间和视频时长之和不超过<code>t</code>。求选择观看哪一个视频（求出<code>a[]</code>的下标），使得<code>fun</code>最大</p>
-</blockquote>
-<p>根据题意模拟即可</p>
+<blockquote><p>题意：给出数组<code>a[]</code>（代表视频长度，单位：s）和<code>b[]</code>（代表视频的“entertainment value”，我们用变量<code>fun</code>来存储其最大值），整数<code>t</code>（午餐时长）。对于一个视频，可以跳过（消耗1s）,也可以决定就看这个视频，但要保证消耗的时间和视频时长之和不超过<code>t</code>。求选择观看哪一个视频（求出<code>a[]</code>的下标），使得<code>fun</code>最大</p>
+</blockquote><p>根据题意模拟即可</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
@@ -184,10 +182,8 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="b-karina-and-array">B. Karina and Array</h3>
-<blockquote>
-<p>题意：给出一个数组，找到两个数，使得这两个数的积最大</p>
-</blockquote>
-<p>排序，比较 <code>最大数</code>与<code>次大数</code>之积、<code>最小数</code>与<code>次小数</code>之积的大小即可</p>
+<blockquote><p>题意：给出一个数组，找到两个数，使得这两个数的积最大</p>
+</blockquote><p>排序，比较 <code>最大数</code>与<code>次大数</code>之积、<code>最小数</code>与<code>次小数</code>之积的大小即可</p>
 <p>注意中间变量要用<code>long long</code>存储</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">2e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">20</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, a[N];
@@ -200,10 +196,8 @@
 </span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> max(((LL)a[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (LL)a[<span style="color:#ae81ff">1</span>]), ((LL)a[n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> (LL)a[n<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>])) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="c-bun-lover">C. Bun Lover</h3>
-<blockquote>
-<p>题意：两个面包卷以螺旋状盘成一个边长为$ n $正方形（蚊香？），每个面包卷的内外都涂有巧克力酱。给出任意的 $ n $ ，求巧克力酱线段的总长</p>
-</blockquote>
-<p>容易找到规律：<br>
+<blockquote><p>题意：两个面包卷以螺旋状盘成一个边长为$ n $正方形（蚊香？），每个面包卷的内外都涂有巧克力酱。给出任意的 $ n $ ，求巧克力酱线段的总长</p>
+</blockquote><p>容易找到规律：<br>
 $ ans = 4n + (n - 1) + 2(n - 2) + 2(n - 3) + &hellip; + 2 \times 2 + 1 \times 3 = 5n + \frac{(1+n-2)(n-2)}{2} \times 2 = n^2 + 2n + 2 $</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>LL n;
 </span></span><span style="display:flex;"><span>
@@ -212,10 +206,8 @@ $ ans = 4n + (n - 1) + 2(n - 2) + 2(n - 3) + &hellip; + 2 \times 2 + 1 \times 3 
 </span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> n<span style="color:#f92672">*</span>n <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>n <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="d-super-permutation">D. Super-Permutation</h3>
-<blockquote>
-<p>题意：构造一个n排列，使得其前缀和数组各元素 $ (\mod n\ ) + 1 $ 后也是一个n排列</p>
-</blockquote>
-<p>构造题。容易看出前缀和数组各元素模上n后为<code>0 ~ n-1</code>，根据模运算的性质：<br>
+<blockquote><p>题意：构造一个n排列，使得其前缀和数组各元素 $ (\mod n\ ) + 1 $ 后也是一个n排列</p>
+</blockquote><p>构造题。容易看出前缀和数组各元素模上n后为<code>0 ~ n-1</code>，根据模运算的性质：<br>
 $ (a+b) \mod n = a \mod n + b \mod n $ <br>
 我们可以直接对取模后的余数进行加法操作</p>
 <p>以$ n = 6$为例。构造出<code>6 5 2 3 4 1</code>，其余数数组为<code>0 5 2 3 4 1</code>，则前缀和模n数组为<code>0 5 1 4 2 3</code>

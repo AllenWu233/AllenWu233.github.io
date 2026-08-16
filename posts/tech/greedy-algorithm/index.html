@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -120,18 +120,14 @@
 <header class="content__header">
     <h1>最“简单”的算法——贪心算法</h1>
 </header>
-<div class="content__body"><blockquote>
-<p>“有人说<strong>贪心算法</strong>是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，那轮到你我的份？”</p>
+<div class="content__body"><blockquote><p>“有人说<strong>贪心算法</strong>是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，那轮到你我的份？”</p>
 <p>——By <a href="https://blog.csdn.net/effective_coder?type=blog">CSDN@lloil</a></p>
-</blockquote>
-<h2 id="简介">简介</h2>
+</blockquote><h2 id="简介">简介</h2>
 <h3 id="什么是贪心算法">什么是贪心算法</h3>
-<blockquote>
-<p><strong>贪心算法（greedy algorithm，又称贪婪算法）</strong> 是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，算法得到的是在某种意义上的局部最优解。
+<blockquote><p><strong>贪心算法（greedy algorithm，又称贪婪算法）</strong> 是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，算法得到的是在某种意义上的局部最优解。
 贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择。</p>
 <p>——By <a href="https://baike.baidu.com/item/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/5411800">百度百科·贪心算法</a></p>
-</blockquote>
-<h3 id="基本要素">基本要素</h3>
+</blockquote><h3 id="基本要素">基本要素</h3>
 <h4 id="1贪心选择性质">1.贪心选择性质</h4>
 <p>一个问题的整体最优解可通过一系列局部的最优解的选择，即贪心选择达到，并且每次的选择可以依赖以前作出的选择，但不依赖于后面要作出的选择。这就是贪心选择性质。
 对于一个具体问题，要确定它<strong>是否具有贪心选择性质</strong>，<strong>必须证明每一步所作的贪心选择最终导致问题的整体最优解</strong></p>
@@ -153,37 +149,29 @@
 </span></span></code></pre></div><h2 id="一道简单的例题">一道简单的例题</h2>
 <h3 id="题目">题目</h3>
 <p>原题：<a href="https://ac.nowcoder.com/acm/problem/16618">拼座椅</a></p>
-<blockquote>
-<p><strong>题目描述</strong></p>
-</blockquote>
-<p>上课的时候总有一些同学和前后左右的人交头接耳，这是令小学班主任十分头疼的一件事情。
+<blockquote><p><strong>题目描述</strong></p>
+</blockquote><p>上课的时候总有一些同学和前后左右的人交头接耳，这是令小学班主任十分头疼的一件事情。
 不过，班主任小雪发现了一些有趣的现象，当同学们的座次确定下来之后，只有有限的$D$对同学上课时会交头接耳。</p>
 <p>同学们在教室中坐成了 $M$ 行 $N$ 列，坐在第 $i$ 行第 $j$ 列的同学的位置是$(i，j)$，为了方便同学们进出，
 在教室中设置了 $K$ 条横向的通道，$L$条纵向的通道。
 于是，聪明的小雪想到了一个办法，或许可以减少上课时学生交头接耳的问题：
 她打算重新摆放桌椅，改变同学们桌椅间通道的位置，因为如果一条通道隔开了两个会交头接耳的同学，那么他们就不会交头接耳了。</p>
 <p>请你帮忙给小雪编写一个程序，给出最好的通道划分方案。在该方案下，上课时交头接耳的学生对数最少。</p>
-<blockquote>
-<p><strong>输入描述</strong>:</p>
-</blockquote>
-<p>第一行，有 5 个用空格隔开的整数，分别是
+<blockquote><p><strong>输入描述</strong>:</p>
+</blockquote><p>第一行，有 5 个用空格隔开的整数，分别是
 $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N，D \leq 2000）$。</p>
 <p>接下来 D 行，每行有 4 个用空格隔开的整数，第 i 行的 4 个整数 $X_i$，$Y_i$，$P_i$，$Q_i$，
 表示坐在位置 $(X_i, Y_i)$ 与 $(P_i, Q_i)$ 的两个同学会交头接耳（输入保证他们前后相邻或者左右相邻）。</p>
 <p>输入数据保证最优方案的唯一性。</p>
-<blockquote>
-<p><strong>输出描述</strong></p>
-</blockquote>
-<p>共两行：</p>
+<blockquote><p><strong>输出描述</strong></p>
+</blockquote><p>共两行：</p>
 <p>第一行包含 $K$ 个整数， $a_1, a_2, \dots, a_k$，
 表示第 $a_1$ 行和 $a_1 + 1$ 行之间、第 $a_2$ 行和第 $a_2 + 1$ 行之间、&hellip;、第 $a_k$ 行和
 第 $a_k + 1$ 行之间要开辟通道，其中 $a_i &lt; a_i + 1$ ，每两个整数之间用空格隔开（行尾没有空格）。</p>
 <p>第二行包含 $L$ 个整数， $b_1, b_2, \dots, b_k$，表示第 $b_1$ 列和 $b_1 + 1$ 行之间、
 第 $b_2$ 行和第 $b_2 + 1$ 行之间、&hellip;、第 $b_l$ 行和第 $b_l + 1$ 行之间要开辟通道，其中 $b_l &lt; b_l + 1$，每两个整数之间用空格隔开（行尾没有空格）。</p>
-<blockquote>
-<p><strong>示例</strong></p>
-</blockquote>
-<p>输入</p>
+<blockquote><p><strong>示例</strong></p>
+</blockquote><p>输入</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>4 5 1 2 3
 </span></span><span style="display:flex;"><span>4 2 4 3
 </span></span><span style="display:flex;"><span>2 3 3 3
@@ -191,10 +179,8 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </span></span></code></pre></div><p>输出</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>2
 </span></span><span style="display:flex;"><span>2 4
-</span></span></code></pre></div><blockquote>
-<p><strong>说明</strong></p>
-</blockquote>
-<p><figure class="image-figure">
+</span></span></code></pre></div><blockquote><p><strong>说明</strong></p>
+</blockquote><p><figure class="image-figure">
 <img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/cut_bug.jpg"
      alt="bug"
      
@@ -215,10 +201,8 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </ul>
 <h4 id="关于第三点的说明">关于第三点的说明</h4>
 <p>如：求<code>int arr[] = {1, 7, 6, 8, 32}</code>中第一大的值、第二大的值、第三大的值&hellip;&hellip;</p>
-<blockquote>
-<p><strong>方法：</strong></p>
-</blockquote>
-<ol>
+<blockquote><p><strong>方法：</strong></p>
+</blockquote><ol>
 <li>在外面定义<code>int max_num = 0</code>，然后遍历数组，比<code>max_num</code>大的值就将它赋给<code>max_num</code>，即获取最大值</li>
 <li>再次遍历数组，将第一个数组值等于<code>max_num</code>的值置为<code>-1</code>，这样下一次求得的是第二大的值</li>
 <li>重复步骤1、2，直至求得所有待求值</li>
@@ -302,10 +286,8 @@ $M，N，K，L，D（2 \leq N，M \leq 1000，0 \leq K &lt; M，0 \leq L &lt; N�
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="python">Python</h4>
-<blockquote>
-<p>参考：<a href="https://ac.nowcoder.com/acm/contest/view-submission?submissionId=53844472">@comter</a></p>
-</blockquote>
-<p>Python 的<code>map()</code>、<code>count()</code>和<code>sort()</code>等函数可以省不少功夫
+<blockquote><p>参考：<a href="https://ac.nowcoder.com/acm/contest/view-submission?submissionId=53844472">@comter</a></p>
+</blockquote><p>Python 的<code>map()</code>、<code>count()</code>和<code>sort()</code>等函数可以省不少功夫
 这就是我更喜欢 Python 的原因之一（笑）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_result</span>(lis, q):
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;冒泡排序&#34;&#34;&#34;</span>

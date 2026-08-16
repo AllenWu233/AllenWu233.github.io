@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -129,19 +129,15 @@
 </p>
 <h2 id="题目">题目</h2>
 <p>玩过华容道吧？或者是Win7自带小挂件的数字滑块游戏？八数码问题就是从这个游戏引申出来的：</p>
-<blockquote>
-<p>给定编号为1～8的正方形滑块，排成 $ 3 \times 3 $ ，其中有一个格子留空。每次操作可以把一个与空格相邻滑块移动到空格内。给定初始局面和目标局面（空格用0表示），求最少移动步数，若无法到达目标局面，则输出<code>-1</code></p>
-</blockquote>
-<h2 id="分析">分析</h2>
+<blockquote><p>给定编号为1～8的正方形滑块，排成 $ 3 \times 3 $ ，其中有一个格子留空。每次操作可以把一个与空格相邻滑块移动到空格内。给定初始局面和目标局面（空格用0表示），求最少移动步数，若无法到达目标局面，则输出<code>-1</code></p>
+</blockquote><h2 id="分析">分析</h2>
 <p>可以看出，这也是BFS求最短路。但要注意判重，即<strong>避免同一个访问多次</strong>，否则会相当浪费时间和空间</p>
 <p>对于本题， <strong>哈希（Hash）</strong> 是一种可行而高效的方法。简单来说，就是设计一个函数 $ h(x) $ ，把任意结点$ x $映射到 $ [0, M-1] $ 内的整数即可，其中$ M $根据可用内存大小自选。在理想情况下，只需开一个大小为$ M $的数组就能判重。但有时候不同结点的哈希值可能相同，就需要把哈希值相同的状态组织成链表</p>
 <h2 id="代码">代码</h2>
 <p>出自紫书</p>
 <p>有几处值得学习的小技巧，比如定义“状态”类型、用两个数组来模拟单向链表、用“引用”简化代码等</p>
-<blockquote>
-<p>eight_nums.cpp</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<blockquote><p>eight_nums.cpp</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span><span style="display:flex;"><span>

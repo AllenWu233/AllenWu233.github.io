@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -122,10 +122,8 @@
 </header>
 <div class="content__body"><p>题目：<a href="https://www.luogu.com.cn/problem/UVA12166">洛谷·UVa 12166</a></p>
 <h2 id="题意">题意</h2>
-<blockquote>
-<p>给一个深度不超过16的二叉树，代表一个天平。每根杆都悬挂在中央，每个秤砣的重量已知。至少修改多少个秤砣的重量才能让天平平衡？<br>——刘汝佳《算法竞赛入门基础》</p>
-</blockquote>
-<h2 id="分析">分析</h2>
+<blockquote><p>给一个深度不超过16的二叉树，代表一个天平。每根杆都悬挂在中央，每个秤砣的重量已知。至少修改多少个秤砣的重量才能让天平平衡？<br>——刘汝佳《算法竞赛入门基础》</p>
+</blockquote><h2 id="分析">分析</h2>
 <p>乍一看似乎无从下手，我们可以先来研究一下平衡的天平具有什么性质</p>
 <p>把每一个子天平都看作一个秤砣，若天平平衡，则其总重量等于其中一个秤砣的重量乘以2</p>
 <p>设天平的深度为$ depth $。通过下图我们发现：</p>
@@ -136,14 +134,10 @@
      loading="lazy" />
 </figure>
 </p>
-<blockquote>
-<p>$ 天平的总重量 = 任意一个秤砣的重量（包括把子天平看作秤砣） \times 2^{depth} $</p>
-</blockquote>
-<p>于是只要读入天平，记录 $ num \times 2^{depth} $ （<code>num</code>为秤砣的重量）重复的次数，结果为：</p>
-<blockquote>
-<p>$ 最少修改数 = 结点总数 - max(num \times 2^{depth}重复的次数) $</p>
-</blockquote>
-<p>利用STL的map映射可以很方便地解决本题</p>
+<blockquote><p>$ 天平的总重量 = 任意一个秤砣的重量（包括把子天平看作秤砣） \times 2^{depth} $</p>
+</blockquote><p>于是只要读入天平，记录 $ num \times 2^{depth} $ （<code>num</code>为秤砣的重量）重复的次数，结果为：</p>
+<blockquote><p>$ 最少修改数 = 结点总数 - max(num \times 2^{depth}重复的次数) $</p>
+</blockquote><p>利用STL的map映射可以很方便地解决本题</p>
 <h2 id="代码">代码</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define LL long long

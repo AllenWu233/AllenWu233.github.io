@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -129,12 +129,10 @@
 <p>易知当 $ p_1 = n $ 时，$ r $ 应选取 $ n-1 $，否则选取 $ n $</p>
 <p>确定 $ r $ 后再来看 $ l $，这里有个技巧：先输出<code>a[r+1 : ] + a[r]</code>，再从<code>a[r-1]</code>开始往前遍历，只要 <code>a[i] &lt; a[1]</code>（说明如果 $ l $ 选 $ i $ 的话，操作之后字典序反而变小，所以 $ l $ 选 $ i+1 $），就马上输出 <code>a[1 : i+1]</code> (注意这里还是左闭右开区间)</p>
 <p>这是 CF 上的题解：</p>
-<blockquote>
-<p>In these constraints we could solve the problem for $ O(n^2) $. Let us note that there can be no more than two candidates for the value $r$. Since the first number in the permutation will be either $p_r+1$ if $r&lt;n$, or $p_r$ if $r=n$. Then let&rsquo;s go through the value of $r$ and choose the one in which the first number in the resulting permutation is as large as possible. Next, if $p_n=n$, then we can have two candidates for $r$ is $n$,$n−1$, but note that it is always advantageous to put $r=n$ in that case, since it will not spoil the answer. Then we can go through $l$, and get the solution by the square, but we can do something smarter.</p>
+<blockquote><p>In these constraints we could solve the problem for $ O(n^2) $. Let us note that there can be no more than two candidates for the value $r$. Since the first number in the permutation will be either $p_r+1$ if $r&lt;n$, or $p_r$ if $r=n$. Then let&rsquo;s go through the value of $r$ and choose the one in which the first number in the resulting permutation is as large as possible. Next, if $p_n=n$, then we can have two candidates for $r$ is $n$,$n−1$, but note that it is always advantageous to put $r=n$ in that case, since it will not spoil the answer. Then we can go through $l$, and get the solution by the square, but we can do something smarter.</p>
 <p>Notice now that the answer already contains all the numbers $p_i$
 where $i&gt;r$. And then we write $p_r$, $p_r−1$, …, $p_l$ where $l$ is still unknown, and then $p_1$, $p_2$, …, $p_l−1$. In that case, let&rsquo;s write pr as $l≤r$ and then write $p_r−1$, $p_r−2$, … as long as they are larger than $p_1$. Otherwise, we immediately determine the value of $l$ and finish the answer to the end. Thus, constructively we construct the maximal permutation.</p>
-</blockquote>
-<h2 id="代码">代码</h2>
+</blockquote><h2 id="代码">代码</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);

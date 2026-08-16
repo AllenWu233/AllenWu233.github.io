@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -163,15 +163,12 @@
 <li><code>-p [string]</code>: Prompt，即输入框左侧的提示符。</li>
 <li><code>-kb-custom-x [string]</code>: 绑定按键到选项上，x 为 1-19。</li>
 </ul>
-<blockquote>
-<p>[!NOTE] 选择选项后，Rofi 会打印<strong>光标处</strong>的文本，并返回进程的返回值。
-如果通过搜索文本或移动光标，按回车来选择，返回的文本是期望的结果，且返回值为 0；
+<blockquote class="admonition" style="--admonition-color: #10B981;">
+    <span class="admonition-title">NOTE</span><span class="admonition-title-text">选择选项后，Rofi 会打印<strong>光标处</strong>的文本，并返回进程的返回值。</span>
+    <p>如果通过搜索文本或移动光标，按回车来选择，返回的文本是期望的结果，且返回值为 0；
 如果直接用快捷键选择，返回的文本是光标处的结果（往往不是想要的结果），此时应以返回值（10-28，如 <code>-kb-custom-1</code> 对应返回值 10）为准</p>
-</blockquote>
-<blockquote>
-<p>完整的 rofi-heart-1.0 如下：</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+  </blockquote><blockquote><p>完整的 rofi-heart-1.0 如下：</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Rofi launcher with quick shortcut bindings</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>BIN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.local/bin&#34;</span>
@@ -239,18 +236,14 @@
 <h3 id="第二世束薪为栅">第二世：束薪为栅</h3>
 <p>1.0 的 Shell 维护起来这么麻烦，有没有办法把所有相关配置放在开头呢？
 有的，朋友，有的——用 Bash 数组，以字符串存储的自定义的数据结构，再通过 <strong>IFS (Internal Field Separator，内部字段分隔符)</strong> 处理分隔符来解析变量。</p>
-<blockquote>
-<p>自定义数据结构：</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e"># Menu items with format: key|label|command</span>
+<blockquote><p>自定义数据结构：</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e"># Menu items with format: key|label|command</span>
 </span></span><span style="display:flex;"><span>MENU_ITEMS<span style="color:#f92672">=(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;c|Clipboard|clipcat-menu&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;d|Dotfiles|</span>$BIN<span style="color:#e6db74">/dmenu-dotfiles&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
-</span></span></code></pre></div><blockquote>
-<p>从自定义数据结构解析变量</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!MENU_ITEMS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span></code></pre></div><blockquote><p>从自定义数据结构解析变量</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!MENU_ITEMS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Extract `key` and `label`</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Set inline temporary environment variable (IFS) for this command only</span>
 </span></span><span style="display:flex;"><span>    IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span> read -r key label _ <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>MENU_ITEMS[i]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
@@ -263,13 +256,11 @@
 <p>可以看出 <code>read</code> 的多变量赋值用法，跟 Python 的解包、Rust 的模式匹配有异曲同工之妙（假设下面 MENU_ITEMS 里存的是元组 <code>(key, label, command)</code>）：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>key, label, _ <span style="color:#f92672">=</span> MENU_ITEMS[i]
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> (key, label, _) <span style="color:#f92672">=</span> <span style="color:#66d9ef">MENU_ITEMS</span>[i];
-</span></span></code></pre></div><blockquote>
-<p>完整的 rofi-heart-2.0</p>
-</blockquote>
-<blockquote>
-<p>[!NOTE] 此段代码只是为了展示“演进完整性”。如果你不熟悉 Shell 高级语法，完全可以直接跳过，不影响最终理解。</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></code></pre></div><blockquote><p>完整的 rofi-heart-2.0</p>
+</blockquote><blockquote class="admonition" style="--admonition-color: #10B981;">
+    <span class="admonition-title">NOTE</span><span class="admonition-title-text">此段代码只是为了展示“演进完整性”。如果你不熟悉 Shell 高级语法，完全可以直接跳过，不影响最终理解。</span>
+    
+  </blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"># @title: rofi-heart</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># @desc: Control heart for custom rofi actions and tools</span>
 </span></span><span style="display:flex;"><span>
@@ -358,10 +349,8 @@
 </span></span></code></pre></div><p>而且对于参数的字符串拼接更是降维打击：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>items_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[</span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>key<span style="color:#e6db74">}</span><span style="color:#e6db74">] </span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>label<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> menu_items)
 </span></span></code></pre></div><p>各种逻辑判断的简化更不用多说，请看下文：</p>
-<blockquote>
-<p>rofi-heart-3.0</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+<blockquote><p>rofi-heart-3.0</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@title: rofi-heart
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">@desc: Control heart for custom rofi actions and tools

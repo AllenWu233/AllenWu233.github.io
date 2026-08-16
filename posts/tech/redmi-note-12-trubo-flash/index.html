@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -149,16 +149,14 @@
 <p>建议优先参考ROM提供者的教程<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
 <h4 id="下载">下载</h4>
 <p>下载<a href="https://miracle.girlswithout.top/adrian/lineage-21/marble/">此页面</a>中除<code>lineage-21.0-20240306-UNOFFICIAL-marble.zip.sha256sum</code>外的所有文件，即：</p>
-<blockquote>
-<ul>
+<blockquote><ul>
 <li>*-marble-boot.img</li>
 <li>*-marble-dtbo.img</li>
 <li>*-marble-recover.img</li>
 <li>*-marble-vendor_boot.img</li>
 <li>*-marble.zip</li>
 </ul>
-</blockquote>
-<h4 id="刷入">刷入</h4>
+</blockquote><h4 id="刷入">刷入</h4>
 <p>需要有基本的<a href="https://en.wikipedia.org/wiki/Fastboot">fastboot</a>和<a href="https://en.wikipedia.org/wiki/Android_Debug_Bridge">adb</a>相关知识</p>
 <p>在Arch Linux下安装fastboot和adb：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>paru -S android-tools
@@ -177,18 +175,14 @@
 <p>在PC上运行命令以刷入<code>LineageOS</code>：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb sideload &lt;filename&gt;.zip
 </span></span></code></pre></div><p>根据ROM提供者的提示，PC终端上显示安装进度可能会卡在47%，然而手机提示已完成安装，是否需要安装额外的包。不用担心，其实系统已经成功安装了，此时点 <strong>No</strong>，然后重启到正常的系统即可</p>
-<blockquote>
-<p><strong>Tip</strong>: Normally, adb will report Total xfer: 1.00x, but in some cases,
+<blockquote><p><strong>Tip</strong>: Normally, adb will report Total xfer: 1.00x, but in some cases,
 even if the process succeeds the output will stop at 47% and report adb:
 failed to read command: Success. In some cases it will report adb:
 failed to read command: No error or adb: failed to read command:
 Undefined error: 0 which is also fine.</p>
-</blockquote>
-<p>以后更新系统直接在recovery刷入ROM即可</p>
-<blockquote>
-<p>⚠️ <strong>第一次进系统时建议先不要插入SIM卡，以免出现奇奇怪怪的问题</strong></p>
-</blockquote>
-<h2 id="root">Root</h2>
+</blockquote><p>以后更新系统直接在recovery刷入ROM即可</p>
+<blockquote><p>⚠️ <strong>第一次进系统时建议先不要插入SIM卡，以免出现奇奇怪怪的问题</strong></p>
+</blockquote><h2 id="root">Root</h2>
 <p>折腾手机自然少不了Root啦。我使用的是安装过程简便的<a href="https://github.com/topjohnwu/Magisk">Magisk</a></p>
 <h3 id="安装magisk">安装Magisk</h3>
 <p>推荐阅读<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
@@ -241,10 +235,8 @@ Undefined error: 0 which is also fine.</p>
 安装成功后重启即可</p>
 <h3 id="shamiko-白名单模式">Shamiko 白名单模式</h3>
 <p>创建空文件 <code>/data/adb/shamiko/whitelist</code> ，重启即可。需使用能获取 Root 权限来修改根目录的文件管理器（如质感文件、MT 管理器等）</p>
-<blockquote>
-<p>白名单比黑名单有什么优势？[^5]</p>
-</blockquote>
-<ul>
+<blockquote><p>白名单比黑名单有什么优势？[^5]</p>
+</blockquote><ul>
 <li>全局隐藏，更彻底，也不用设置排除列表</li>
 <li>所有 app 都检测不到 root，已授权 root 的 app 可以正常使用 root 权限。</li>
 <li>需要授权 root，关闭 Shamiko 模块重启手机，授权完再启用 shamiko 模块重启手机即可。</li>
@@ -280,15 +272,11 @@ Undefined error: 0 which is also fine.</p>
 <h3 id="重启后无法接收短信">重启后无法接收短信</h3>
 <p>可能是LineageOS的问题。根据<a href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/page-4#post-89404995">用户<strong>aqwgtj</strong>的回复</a>，在设置里面禁用再启用SIM卡就能正常接收短信了：
 <strong>设置</strong> - <strong>网络和互联网</strong> - <strong>SIM卡</strong> - &lt;选择SIM卡&gt; - 重新开关<strong>使用SIM卡</strong></p>
-<blockquote>
-<p>aqwgtj: make sure to SMS normal must be to disable your SIM and re-enable it
+<blockquote><p>aqwgtj: make sure to SMS normal must be to disable your SIM and re-enable it
 after restarting machine eachtime, either no SMS can see.</p>
-</blockquote>
-<p>目前还没有找到根治的办法，只好每次重启都重开一次😕</p>
-<blockquote>
-<p>2024-04-02 更新</p>
-</blockquote>
-<p>ROM提供者已提供更新，优化UI的同时还修复了SMS的问题，添加老化保护（burn-in protection），并重新加入充电控制功能</p>
+</blockquote><p>目前还没有找到根治的办法，只好每次重启都重开一次😕</p>
+<blockquote><p>2024-04-02 更新</p>
+</blockquote><p>ROM提供者已提供更新，优化UI的同时还修复了SMS的问题，添加老化保护（burn-in protection），并重新加入充电控制功能</p>
 <p><a href="https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/post-89434291">https://xdaforums.com/t/rom-14-unofficial-lineageos-21-for-xiaomi-poco-f5-redmi-note-12-turbo.4655286/post-89434291</a></p>
 <h2 id="20240402-更新">2024.04.02 更新</h2>
 <p>更新系统。直接通过adb线刷完整系统包即可，但是Magisk的修复就要注意了。起初我不假思索的刷入之前magisk修复的包，结果直接进不了系统……</p>

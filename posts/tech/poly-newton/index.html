@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -133,10 +133,8 @@
 </p>
 <h2 id="生成多项式">生成多项式</h2>
 <p>参考了原题，但是输入输出的格式稍有不同</p>
-<blockquote>
-<p>get_polynomial_feature.py</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_polynomial</span>(<span style="color:#f92672">*</span>n):
+<blockquote><p>get_polynomial_feature.py</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_polynomial</span>(<span style="color:#f92672">*</span>n):
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;生成多项式。第一个形参为次数，其他形参为系数&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    power, coefficients <span style="color:#f92672">=</span> n[<span style="color:#ae81ff">0</span>], {}
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(power<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
@@ -222,10 +220,8 @@
 则在很多情况下，$b$ 是个比 $a$ 更好的近似.</p>
 <p><del>暂时不考虑牛顿法失效的情况（详见《普林斯顿微积分读本》P260~262）</del></p>
 <h3 id="代码">代码</h3>
-<blockquote>
-<p>newtons_method.py</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sympy <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<blockquote><p>newtons_method.py</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sympy <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> get_polynomial_feature <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
@@ -257,10 +253,8 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>polynomial_feature<span style="color:#e6db74">}</span><span style="color:#e6db74"> 的根为 </span><span style="color:#e6db74">{</span>x_list[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-</span></span></code></pre></div><blockquote>
-<p>运行结果示例</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">迭代第</span> <span style="color:#ae81ff">7</span> <span style="color:#960050;background-color:#1e0010">次后，误差小于</span> <span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">^(</span><span style="color:#ae81ff">-6</span><span style="color:#960050;background-color:#1e0010">)，误差为</span> <span style="color:#ae81ff">4.12656549474007E-8</span>
+</span></span></code></pre></div><blockquote><p>运行结果示例</p>
+</blockquote><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">迭代第</span> <span style="color:#ae81ff">7</span> <span style="color:#960050;background-color:#1e0010">次后，误差小于</span> <span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">^(</span><span style="color:#ae81ff">-6</span><span style="color:#960050;background-color:#1e0010">)，误差为</span> <span style="color:#ae81ff">4.12656549474007E-8</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">*x**</span><span style="color:#ae81ff">3</span><span style="color:#960050;background-color:#1e0010">-x**</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">11</span> <span style="color:#960050;background-color:#1e0010">的根为</span> <span style="color:#ae81ff">-1.23722554155332</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">***Repl</span> <span style="color:#960050;background-color:#1e0010">Closed***</span>

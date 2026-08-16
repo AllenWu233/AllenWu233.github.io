@@ -23,8 +23,8 @@
       href="/css/palettes/tokyo-night-dark.css">
 <link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
-      href="/css/custom.ee0fdbca6cbed11ae8baaa483b2b1f259e0c45613c443df0260ca64f072474b7.css"
-      integrity="sha256-7g/bymy&#43;0RrouqpIOysfJZ4MRWE8RD3wJgymTwckdLc=">
+      href="/css/custom.f3f82fa4792280d1d549fa6ef69412059a4522f09f2ec0c6386d272de35a5aa6.css"
+      integrity="sha256-8/gvpHkigNHVSfpu9pQSBZpFIvCfLsDGOG0nLeNaWqY=">
 
 <link rel="icon" href="/favicon.ico">
 <link rel="icon"
@@ -120,10 +120,8 @@
 <header class="content__header">
     <h1>Allen的动态规划基础</h1>
 </header>
-<div class="content__body"><blockquote>
-<p>来点BGM</p>
-</blockquote>
-<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=28990792&auto=0&height=66"></iframe></center>
+<div class="content__body"><blockquote><p>来点BGM</p>
+</blockquote><center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=28990792&auto=0&height=66"></iframe></center>
 <h2 id="引言">引言</h2>
 <h3 id="概念">概念</h3>
 <p><strong>动态规划（英语：Dynamic programming，简称DP）</strong> 是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
@@ -146,16 +144,12 @@
 <h2 id="正文">正文</h2>
 <h3 id="状态和状态转移方程">状态和状态转移方程</h3>
 <p>动态规划的核心是<strong>状态</strong>和<strong>状态转移方程</strong></p>
-<blockquote>
-<p>动态规划中状态就是子问题的结果，而本阶段的状态往往是上一阶段状态和上一阶段决策的结果，描述这种前后阶段关系的方程，就是<strong>状态转移方程</strong></p>
-</blockquote>
-<p>如 $ f(i, j) = \max \{f(i, k) , f(k+1, j)+1\} $ 就是一个状态转移方程</p>
+<blockquote><p>动态规划中状态就是子问题的结果，而本阶段的状态往往是上一阶段状态和上一阶段决策的结果，描述这种前后阶段关系的方程，就是<strong>状态转移方程</strong></p>
+</blockquote><p>如 $ f(i, j) = \max \{f(i, k) , f(k+1, j)+1\} $ 就是一个状态转移方程</p>
 <p>来看看几道例题</p>
 <h3 id="数字三角形">数字三角形</h3>
-<blockquote>
-<p>题目：有一个由非负整数组成的三角形，第一行只有一个数。从第一行的数开始，每次可以往左下或右下走一格，直到走到最下行，把沿途经过的数加起来，求怎么走才能使得数字之和最大？</p>
-</blockquote>
-<p>数字三角形如下所示：</p>
+<blockquote><p>题目：有一个由非负整数组成的三角形，第一行只有一个数。从第一行的数开始，每次可以往左下或右下走一格，直到走到最下行，把沿途经过的数加起来，求怎么走才能使得数字之和最大？</p>
+</blockquote><p>数字三角形如下所示：</p>
 <pre tabindex="0"><code>      1
      / \
     3   2
@@ -208,11 +202,9 @@
 <p>相关月魂：<a href="https://blog-allenwu233.netlify.app/p/allen-graph/">Allen的图论基础</a></p>
 <p><strong>DAG（Directed Acyclic Graph，有向无环图）</strong>，即从任意顶点出发无法经过若干条边回到该点的有向图。</p>
 <h4 id="不固定终点的最长路和字典序">不固定终点的最长路和字典序</h4>
-<blockquote>
-<p>例题：嵌套矩形。
+<blockquote><p>例题：嵌套矩形。
 题意：给出若干个矩形，选出尽量多的矩形拍成一排，使得除了最后一个之外，每一个矩形都可以嵌套（矩形的长和宽必须严格小于下一个矩形的长和宽；矩形可以旋转）在下一个矩形内。如果有多解，矩形编号的字典序应尽量小</p>
-</blockquote>
-<p>可以看出，“嵌套”是一个二元关系，可以用图来表示。我们使用邻接矩阵来存图</p>
+</blockquote><p>可以看出，“嵌套”是一个二元关系，可以用图来表示。我们使用邻接矩阵来存图</p>
 <p>状态转移方程为：$ d(i) = max\{d(i), d(j)+1\} $</p>
 <p>代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
@@ -276,20 +268,14 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><blockquote>
-<p>EX: <a href="https://www.luogu.com.cn/problem/UVA437">UVa 437 The Tower of Babylon</a></p>
-</blockquote>
-<p>例题的升级版，只是多了一个维度，完全可以套用例题的模板</p>
+</span></span></code></pre></div><blockquote><p>EX: <a href="https://www.luogu.com.cn/problem/UVA437">UVa 437 The Tower of Babylon</a></p>
+</blockquote><p>例题的升级版，只是多了一个维度，完全可以套用例题的模板</p>
 <p><a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_9/uva437_the_tower_of_babylon.cpp">AC代码参考</a></p>
 <h4 id="固定终点的最长路和最短路">固定终点的最长路和最短路</h4>
-<blockquote>
-<p>例题：硬币问题。
+<blockquote><p>例题：硬币问题。
 有 n 种硬币，面值分别为 V1, V2, &hellip; , Vn, 每种都有无限多。</p>
-</blockquote>
-<blockquote>
-<p>EX: <a href="https://www.luogu.com.cn/problem/UVA1347">Uva 1347 Tour</a></p>
-</blockquote>
-<p>原题可转化为：两人从同一起点出发，每次其中一人走动，最后都走到终点</p>
+</blockquote><blockquote><p>EX: <a href="https://www.luogu.com.cn/problem/UVA1347">Uva 1347 Tour</a></p>
+</blockquote><p>原题可转化为：两人从同一起点出发，每次其中一人走动，最后都走到终点</p>
 <p><a href="https://github.com/AllenWu233/algorithm_study/blob/main/chapter_9/uva1347_tour.cpp">AC代码参考</a></p>
 <h2 id="附录">附录</h2>
 <h3 id="参考文献">参考文献</h3>
