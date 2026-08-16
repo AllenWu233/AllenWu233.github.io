@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>DP on 冰轮韵</title>
+		<link>https://lunarithm.space/tags/dp/</link>
+		<description>Recent content in DP on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 13 Mar 2023 21:58:57 +0800</lastBuildDate>
+		
+			<atom:link href="https://lunarithm.space/tags/dp/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Allen的动态规划基础</title>
+				<link>https://lunarithm.space/posts/tech/allen-dynamic-programming/</link>
+				<pubDate>Mon, 13 Mar 2023 21:58:57 +0800</pubDate>
+				<guid>https://lunarithm.space/posts/tech/allen-dynamic-programming/</guid>
+				<description>&lt;blockquote&gt;&lt;p&gt;来点BGM&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;center&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=400 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=28990792&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;&lt;/center&gt;&#xA;&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;h3 id=&#34;概念&#34;&gt;概念&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;动态规划（英语：Dynamic programming，简称DP）&lt;/strong&gt; 是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。&lt;/p&gt;&#xA;&lt;p&gt;动态规划常常适用于有&lt;strong&gt;重叠子问题&lt;/strong&gt;和&lt;strong&gt;最优子结构&lt;/strong&gt;性质的问题，动态规划方法所耗时间往往远少于朴素解法。&lt;/p&gt;&#xA;&lt;h3 id=&#34;适用情况&#34;&gt;适用情况&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;最优子结构性质&lt;/strong&gt;。&#xA;如果问题的最优解所包含的子问题的解也是最优的，我们就称该问题具有最优子结构性质（即满足最优化原理）。最优子结构性质为动态规划算法解决问题提供了重要线索。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;无后效性&lt;/strong&gt;。即子问题的解一旦确定，就不再改变，不受在这之后、包含它的更大的问题的求解决策影响。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;子问题重叠性质&lt;/strong&gt;。子问题重叠性质是指在用递归算法自顶向下对问题进行求解时，每次产生的子问题并不总是新问题，有些子问题会被重复计算多次。动态规划算法正是利用了这种子问题的重叠性质，对每一个子问题只计算一次，然后将其计算结果保存在一个表格中，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率，降低了时间复杂度。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;——From &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92&#34;&gt;维基百科·动态规划&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;动态规划其实不是一种具体的算法，而是解决问题的思想和方法。简单来说，动态规划就是把问题分解成一个个子问题，通过求子问题的最优解得到全局最优解（这就是所谓的&lt;strong&gt;最优子结构（optimal substructure）&lt;/strong&gt;）&lt;/p&gt;&#xA;&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;&#xA;&lt;h3 id=&#34;状态和状态转移方程&#34;&gt;状态和状态转移方程&lt;/h3&gt;&#xA;&lt;p&gt;动态规划的核心是&lt;strong&gt;状态&lt;/strong&gt;和&lt;strong&gt;状态转移方程&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;动态规划中状态就是子问题的结果，而本阶段的状态往往是上一阶段状态和上一阶段决策的结果，描述这种前后阶段关系的方程，就是&lt;strong&gt;状态转移方程&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;p&gt;如 $ f(i, j) = \max \{f(i, k) , f(k+1, j)+1\} $ 就是一个状态转移方程&lt;/p&gt;&#xA;&lt;p&gt;来看看几道例题&lt;/p&gt;&#xA;&lt;h3 id=&#34;数字三角形&#34;&gt;数字三角形&lt;/h3&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;题目：有一个由非负整数组成的三角形，第一行只有一个数。从第一行的数开始，每次可以往左下或右下走一格，直到走到最下行，把沿途经过的数加起来，求怎么走才能使得数字之和最大？&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;p&gt;数字三角形如下所示：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;      1&#xA;     / \&#xA;    3   2&#xA;   / \ / \&#xA;  4   10  1&#xA; / \ / \ / \&#xA;4   3   2   20&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;&#xA;&lt;h4 id=&#34;贪心法&#34;&gt;贪心法？&lt;/h4&gt;&#xA;&lt;p&gt;按照贪心法，求出的路径为：&lt;code&gt;1 --&amp;gt; 3 --&amp;gt; 10 --&amp;gt; 3&lt;/code&gt;&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

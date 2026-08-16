@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>数据结构 on 冰轮韵</title>
+		<link>https://lunarithm.space/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+		<description>Recent content in 数据结构 on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 25 Nov 2022 21:33:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://lunarithm.space/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>数据结构之美-二叉树</title>
+				<link>https://lunarithm.space/posts/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BE%8E-%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+				<pubDate>Sun, 06 Nov 2022 22:00:00 +0800</pubDate>
+				<guid>https://lunarithm.space/posts/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BE%8E-%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+				<description>&lt;p&gt;&lt;figure class=&#34;image-figure&#34;&gt;&#xA;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/binary_tree.png&#34;&#xA;     alt=&#34;&#34;&#xA;     &#xA;     loading=&#34;lazy&#34; /&gt;&#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;引言---二叉树是什么&#34;&gt;引言 - 二叉树是什么&lt;/h2&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;在计算机科学中， &lt;strong&gt;二叉树（Binary tree）&lt;/strong&gt; 是每个结点最多只有两个分支（即不存在分支度大于2的结点）的树结构。通常分支被称作“左子树”或“右子树”。二叉树的分支具有左右次序，不能随意颠倒。&#xA;与普通树不同，普通树的结点个数至少为1，而二叉树的结点个数可以为0；普通树结点的最大分支度没有限制，而二叉树结点的最大分支度为2；普通树的结点无左、右次序之分，而二叉树的结点有左、右次序之分。&#xA;——From &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91&#34;&gt;中文维基百科·二叉树&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;p&gt;二叉树是非常重要的数据结构，其独特的结构使得它在搜索和处理数据方面有相当不错的表现&lt;/p&gt;&#xA;&lt;h2 id=&#34;二叉树的遍历&#34;&gt;二叉树的遍历&lt;/h2&gt;&#xA;&lt;h3 id=&#34;层次遍历宽度优先遍历&#34;&gt;层次遍历（宽度优先遍历）&lt;/h3&gt;&#xA;&lt;p&gt;顾名思义，即按从上到下、从左到右的顺序遍历结点&#xA;以上图为例，遍历的顺序为&lt;code&gt;1～15&lt;/code&gt;&#xA;这种方法叫 &lt;strong&gt;宽度优先遍历（Breadth-First Search, BFS）&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;递归遍历深度优先遍历&#34;&gt;递归遍历（深度优先遍历）&lt;/h3&gt;&#xA;&lt;p&gt;博主认为二叉树的递归遍历是&lt;em&gt;最为精彩&lt;/em&gt;的部分。理解其三种递归遍历方式，能一窥二叉树的结构之美&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;对于一棵二叉树 T ，可以递归定义它的先序遍历、中序遍历和后序遍历，如下所示：&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;ul&gt;&#xA;&lt;li&gt;PreOrder(T) = T的根结点 + PreOrder(T的左子树) + PreOrder(T的右子树)&lt;/li&gt;&#xA;&lt;li&gt;InOrder(T) = InOrder(T的左子树) + T的根结点 + InOrder(T的右结点)&lt;/li&gt;&#xA;&lt;li&gt;PostOrder(T) = PostOrder(T的左子树) + PostOrder(T的右子树) + T的根结点&#xA;这三种遍历都属于递归遍历，或者说 &lt;strong&gt;深度优先遍历（Depth-First Search, DFS）&lt;/strong&gt; ，因为它总是优先往深处访问&#xA;——From 刘汝佳《算法竞赛入门经典（第2版）》&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;还是以上图为例，来讲一下如何递归遍历：&#xA;要遍历整棵二叉树，首先把&lt;code&gt;1,2,3&lt;/code&gt;看作一棵小二叉树来遍历，其中&lt;code&gt;1&lt;/code&gt;为根，&lt;code&gt;2,3&lt;/code&gt;为结点。遍历结点&lt;code&gt;2&lt;/code&gt;或&lt;code&gt;3&lt;/code&gt;时，再分别把&lt;code&gt;2,4,5&lt;/code&gt;或&lt;code&gt;3,6,7&lt;/code&gt;看作小二叉树来遍历，依次类推。具体遍历顺序由遍历的方式而定&lt;/p&gt;&#xA;&lt;p&gt;是不是很简单？在看下面的答案前，先试着写一下这三种遍历方式的顺序吧&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;注：“根”——根结点，“左”——左子树，“右”——右子树&#xA;还是上图的例子：&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;h4 id=&#34;先序遍历&#34;&gt;先序遍历&lt;/h4&gt;&#xA;&lt;p&gt;顺序：&lt;code&gt;根--&amp;gt;左--&amp;gt;右&lt;/code&gt;&#xA;&lt;code&gt;1 2 4 8 9 5 10 11 3 6 12 13 7 14 15&lt;/code&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>数据结构初见-栈</title>
+				<link>https://lunarithm.space/posts/tech/stack/</link>
+				<pubDate>Sun, 30 Oct 2022 14:00:00 +0800</pubDate>
+				<guid>https://lunarithm.space/posts/tech/stack/</guid>
+				<description>简单而又不简单</description>
+			</item>
+	</channel>
+</rss>

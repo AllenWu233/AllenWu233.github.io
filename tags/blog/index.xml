@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Blog on 冰轮韵</title>
+		<link>https://lunarithm.space/tags/blog/</link>
+		<description>Recent content in Blog on 冰轮韵</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 08 Apr 2025 21:05:44 +0800</lastBuildDate>
+		
+			<atom:link href="https://lunarithm.space/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>再度折腾博客</title>
+				<link>https://lunarithm.space/posts/tech/hugo-papermod/</link>
+				<pubDate>Tue, 08 Apr 2025 21:05:44 +0800</pubDate>
+				<guid>https://lunarithm.space/posts/tech/hugo-papermod/</guid>
+				<description>时隔一年的回归</description>
+			</item>
+			<item>
+				<title>World, Hello!</title>
+				<link>https://lunarithm.space/posts/tech/worldhello/</link>
+				<pubDate>Wed, 24 May 2023 22:51:26 +0800</pubDate>
+				<guid>https://lunarithm.space/posts/tech/worldhello/</guid>
+				<description>&lt;p&gt;正式拥有了属于自己的域名！&lt;/p&gt;&#xA;&lt;p&gt;有了域名后，博客的曝光率也会大一些了罢（大嘘）&lt;/p&gt;&#xA;&lt;p&gt;Anyway，在我的博客生涯中，这确实可以算是个有意义的节点&lt;/p&gt;&#xA;&lt;p&gt;于是&amp;hellip;&amp;hellip;&lt;/p&gt;&#xA;&lt;h3 id=&#34;world-hello&#34;&gt;World, hello&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-Rust&#34; data-lang=&#34;Rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greet_world&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; southern_germany &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Grüß Gott!&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; chinese &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;世界，你好&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; english &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;World, hello&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; japanese &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;世界よ、こんにちは&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; regions &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [southern_germany, chinese, english, japanese];&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; region &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; regions.iter() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;println!&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;region);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    greet_world();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;灵感来自：&lt;a href=&#34;https://course.rs/first-try/hello-world.html&#34;&gt;不仅仅是 Hello world&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;figure class=&#34;image-figure&#34;&gt;&#xA;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/world-hello.jpg&#34;&#xA;     alt=&#34;&#34;&#xA;     &#xA;     loading=&#34;lazy&#34; /&gt;&#xA;&lt;/figure&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hello World!</title>
+				<link>https://lunarithm.space/posts/tech/hello-world/</link>
+				<pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
+				<guid>https://lunarithm.space/posts/tech/hello-world/</guid>
+				<description>&lt;h2 id=&#34;hello-hugo-blog-world&#34;&gt;Hello Hugo Blog World&lt;/h2&gt;&#xA;&lt;p&gt;Python苦手不会用Django搭建博客，连夜转战hugo（迫真&lt;/p&gt;&#xA;&lt;p&gt;既然是第一篇博客，多写几个“hello world”的话会有好运气的吧（笑）&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;hello_world.py&lt;/p&gt;&#xA;&lt;/blockquote&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello world!&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class=&#34;image-figure&#34;&gt;&#xA;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/hello-world.jpg&#34;&#xA;     alt=&#34;Hina&#34;&#xA;     &#xA;     loading=&#34;lazy&#34; /&gt;&#xA;&lt;figcaption class=&#34;image-caption&#34;&gt;Hina&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
