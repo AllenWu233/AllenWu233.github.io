@@ -5,7 +5,10 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -14,7 +17,10 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -23,7 +29,9 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+2000-206F, U+3000-303F, U+3040-30FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+  unicode-range:
+    U+2000-206F, U+3000-303F, U+3040-30FF, U+3400-4DBF, U+4E00-9FFF,
+    U+F900-FAFF, U+FF00-FFEF;
 }
 
 /* Nerd Font icons in body text */
@@ -35,7 +43,8 @@
 }
 
 :root {
-  --font-monospace: "Fira Mono", "LXGW WenKai Mono GB Screen", "NerdFontIcons", monospace;
+  --font-monospace:
+    "Fira Mono", "LXGW WenKai Mono GB Screen", "NerdFontIcons", monospace;
 }
 
 /* Friend link cards */
@@ -214,4 +223,44 @@
   .friend-links {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* ------------------------------------------------------------------
+ * Markdown heading sizes (h1–h5)
+ * Patch layer: this file is loaded AFTER css/risotto.css (see
+ * layouts/partials/head.html), so these rules override the theme's
+ * uniform 1rem heading size without touching themes/risotto.
+ * ------------------------------------------------------------------ */
+h1 {
+  font-size: 1.35rem;
+}
+h2 {
+  font-size: 1.2rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+h4 {
+  font-size: 1.05rem;
+}
+h5 {
+  font-size: 1rem;
+}
+
+/* The theme fixes line-height to 1.5rem on <body>; give headings a
+   proportional line-height so the larger sizes don't overlap. */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.45;
+}
+
+/* Keep the header prompt (h1.page__logo in layouts/partials/header.html)
+   at the small terminal size — it must not inherit the enlarged h1
+   heading size above. */
+h1.page__logo {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
