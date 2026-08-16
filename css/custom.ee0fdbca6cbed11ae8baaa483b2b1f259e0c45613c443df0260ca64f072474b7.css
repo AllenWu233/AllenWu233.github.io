@@ -46,7 +46,6 @@
   --font-monospace:
     "Fira Mono", "LXGW WenKai Mono GB Screen", "NerdFontIcons", monospace;
 }
-
 /* Friend link cards */
 .friend-links {
   display: grid;
@@ -224,7 +223,6 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
-
 /* ------------------------------------------------------------------
  * Markdown heading sizes (h1–h5)
  * Patch layer: this file is loaded AFTER css/risotto.css (see
@@ -264,7 +262,6 @@ h1.page__logo {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-
 /* Image captions (render-image hook wraps markdown images in figure) */
 .image-figure {
   margin: 0 0 1.5rem 0;
@@ -276,7 +273,6 @@ h1.page__logo {
   color: var(--off-fg);
   text-align: center;
 }
-
 /* Code copy button */
 .highlight {
   position: relative;
