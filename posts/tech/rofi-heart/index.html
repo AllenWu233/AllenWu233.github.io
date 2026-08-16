@@ -20,23 +20,23 @@
       referrerpolicy="no-referrer" />
 
 <link rel="stylesheet"
-      href="https://lunarithm.space/css/palettes/tokyo-night-dark.css">
-<link rel="stylesheet" href="https://lunarithm.space/css/risotto.css">
+      href="/css/palettes/tokyo-night-dark.css">
+<link rel="stylesheet" href="/css/risotto.css">
 <link rel="stylesheet"
       href="/css/custom.9471f14483224bbc1d79409dd180f64ddf00ecb5f8c959328115fcf0dc68fedd.css"
       integrity="sha256-lHHxRIMiS7wdeUCd0YD2Td8A7LX4yVkygRX88Nxo/t0=">
 
-<link rel="icon" href="https://lunarithm.space/favicon.ico">
+<link rel="icon" href="/favicon.ico">
 <link rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://lunarithm.space/favicon-32x32.png">
+      href="/favicon-32x32.png">
 <link rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://lunarithm.space/favicon-16x16.png">
-<link rel="apple-touch-icon" href="https://lunarithm.space/apple-touch-icon.png">
-<link rel="manifest" href="https://lunarithm.space/site.webmanifest">
+      href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 
 
@@ -60,7 +60,7 @@
         
         <li class="nomarker avatar-container">
             <a href="/" class="avatar-link">
-                <img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/avatar.jpg" alt="Avatar" class="site-avatar" />
+                <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
             </a>
         </li>
         <li class="nomarker">
@@ -123,7 +123,7 @@
 <h3 id="什么是-wm">什么是 WM</h3>
 <p>作为一名 <a href="https://en.wikipedia.org/wiki/KISS_principle">K.I.S.S 主义</a> 的 Arch Linuxer，桌面环境也是我极（折）简（腾）的一部分——由 <a href="https://wiki.archlinux.org/title/Desktop_environment">DE (Desktop Environment)</a> 走向 <a href="https://wiki.archlinux.org/title/Window_manager">WM (Window Manager)</a> 是自然的<del>归宿</del>结果。</p>
 <p>不同于捆绑了工具栏、桌面小部件等一系列应用的 DE (桌面环境)，<strong>WM (窗口管理器)</strong> 只提供基础的窗口绘制功能，管理窗口的大小、位置、边框等。一些 WM 是 DE 的一部分，如 Windows 的 <a href="https://learn.microsoft.com/en-us/windows/win32/dwm/dwm-overview">dwm</a>（不要与 Linux 上的 <a href="https://wiki.archlinux.org/title/Dwm">dwm</a> 混淆）、KDE 的 <a href="https://en.wikipedia.org/wiki/KWin">KWin</a>、Gnome 的 <a href="https://en.wikipedia.org/wiki/Mutter_(window_manager)">Mutter</a> 等；而另一些 WM 被设计为独立使用，用户可根据喜好选择其他应用（如状态栏、壁纸管理器），组合成更轻量的专属桌面环境。</p>
-<p>WM 的窗口管理类型是其特色：</p>
+<p>窗口管理类型是 WM 的特色：</p>
 <ul>
 <li><strong>堆叠（悬浮）</strong>：就像 KDE、Windows 下的窗口管理，用鼠标调整窗口大小、拖拽位置，不同窗口能像桌上的纸张一样部分重叠放置。</li>
 <li><strong>平铺</strong>：窗口之间不重叠，大小、位置能被自动或手动调整，以占满整个屏幕——例如，只有一个窗口时，几乎全屏；有两个窗口时，左右各一半铺满屏幕。另外广泛地使用键绑定，可以完全不用鼠标来管理和定位窗口（Vimer 狂喜）。</li>
@@ -133,13 +133,15 @@
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-fastfetch.png"
      alt="i3wm Example"
      
-     loading="lazy" /></p>
+     loading="lazy" />
+</p>
 <h3 id="为什么-i3wm-要装颗心脏">为什么 i3wm 要装颗“心脏”</h3>
 <p>i3wm 虽好，但毕竟只是 WM，<del>想要桌面环境般的体验，还得自己拼</del>。程序启动器就是一个：在 Windows、KDE 和 Gnome 等 DE 下启动应用程序，一般通过桌面快捷方式或按 Win (Meta) 键弹出的启动菜单。而 i3 没有桌面快捷方式——从上图能看出我的桌面只有一张壁纸（笑），也没有内置启动菜单，于是只能用专用的应用启动器——<a href="https://wiki.archlinux.org/title/Dmenu">dmenu</a> 或是类 dmenu 软件，通过快捷键唤出应用菜单，输入应用名或移动光标选项来启动。如下图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-apps.jpg"
      alt="Rofi Application Launcher Menu"
      
-     loading="lazy" /></p>
+     loading="lazy" />
+</p>
 <p>这类软件不仅能用作应用启动器，还能作为脚本选择器：将脚本菜单文本作为管道输入，显示为 dmenu-like 菜单来让用户选择。我用的是 <a href="https://wiki.archlinux.org/title/Rofi">Rofi</a>，除了基础的文本过滤选择，还支持绑定键位到选项上，一键选择，省去输入脚本名和按回车。</p>
 <p>i3 我也用了三年了，积累了一些 dmenu-like 脚本，如管理 dotfiles、管理多显示器、电源菜单、剪贴板菜单、Emoji 选择器等等。每个脚本都绑定一个 i3 快捷键，既麻烦又浪费键位。如果用一个 Rofi 菜单统一管理这些脚本，不就只用一个键位就能打开指定脚本了？于是就有了 <strong>rofi-heart</strong>。</p>
 <h2 id="rofi-heart-的三生三世">rofi-heart 的三生三世</h2>
@@ -212,11 +214,13 @@
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-main.jpg"
      alt="rofi-heart Main Menu"
      
-     loading="lazy" /></p>
+     loading="lazy" />
+</p>
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
      alt="rofi-heart Emoji Menu"
      
-     loading="lazy" /></p>
+     loading="lazy" />
+</p>
 <p>代码清晰易懂，像在 Shell 里输命令一样直白。但维护起来就很难受：修改一个脚本，就要同时改<code>items</code>、<code>choice</code>、<code>case</code> 三处，效率低下且易出错。</p>
 <p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不太行。</p>
 <h3 id="第二世束薪为栅">第二世：束薪为栅</h3>
@@ -437,9 +441,10 @@
 <li><a href="https://github.com/gnuunixchad/dotfiles/blob/master/.local/bin/heart">heart - gnuunixchad/dotfiles</a></li>
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/python-chan.jpg"
-     alt="python-chan"
+     alt="Python-chan"
      
-     loading="lazy" /></p>
+     loading="lazy" />
+</p>
 </div>
 <footer class="content__footer">
     
@@ -544,7 +549,7 @@
 <p>发布日期：2026-08-06</p>
 
 
-<p>最后更新：2026-08-12</p>
+<p>最后更新：2026-08-16</p>
 
 
 
