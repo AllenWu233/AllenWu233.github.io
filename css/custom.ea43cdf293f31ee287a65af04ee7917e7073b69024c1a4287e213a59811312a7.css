@@ -262,6 +262,13 @@ h1.page__logo {
   font-size: 1rem;
   line-height: 1.5rem;
 }
+
+/* Article count next to category/section names */
+.term-count {
+  color: var(--muted);
+  font-size: 0.85em;
+  font-weight: 400;
+}
 /* Image captions (render-image hook wraps markdown images in figure) */
 .image-figure {
   margin: 0 0 1.5rem 0;
