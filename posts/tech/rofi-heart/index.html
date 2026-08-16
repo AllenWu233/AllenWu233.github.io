@@ -61,7 +61,7 @@
         
         <li class="nomarker avatar-container">
             <a href="/" class="avatar-link">
-                <img src="/avatar.jpg" alt="Avatar" class="site-avatar" />
+                <img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/avatar.jpg" alt="Avatar" class="site-avatar" />
             </a>
         </li>
         <li class="nomarker">
@@ -137,8 +137,7 @@
      
      loading="lazy" />
 <figcaption class="image-caption">i3wm Example</figcaption>
-</figure>
-</p>
+</figure></p>
 <h3 id="为什么-i3wm-要装颗心脏">为什么 i3wm 要装颗“心脏”</h3>
 <p>i3wm 虽好，但毕竟只是 WM，<del>想要桌面环境般的体验，还得自己拼</del>。程序启动器就是一个：在 Windows、KDE 和 Gnome 等 DE 下启动应用程序，一般通过桌面快捷方式或按 Win (Meta) 键弹出的启动菜单。而 i3 没有桌面快捷方式——从上图能看出我的桌面只有一张壁纸（笑），也没有内置启动菜单，于是只能用专用的应用启动器——<a href="https://wiki.archlinux.org/title/Dmenu">dmenu</a> 或是类 dmenu 软件，通过快捷键唤出应用菜单，输入应用名或移动光标选项来启动。如下图：</p>
 <p><figure class="image-figure">
@@ -147,8 +146,7 @@
      
      loading="lazy" />
 <figcaption class="image-caption">Rofi Application Launcher Menu</figcaption>
-</figure>
-</p>
+</figure></p>
 <p>这类软件不仅能用作应用启动器，还能作为脚本选择器：将脚本菜单文本作为管道输入，显示为 dmenu-like 菜单来让用户选择。我用的是 <a href="https://wiki.archlinux.org/title/Rofi">Rofi</a>，除了基础的文本过滤选择，还支持绑定键位到选项上，一键选择，省去输入脚本名和按回车。</p>
 <p>i3 我也用了三年了，积累了一些 dmenu-like 脚本，如管理 dotfiles、管理多显示器、电源菜单、剪贴板菜单、Emoji 选择器等等。每个脚本都绑定一个 i3 快捷键，既麻烦又浪费键位。如果用一个 Rofi 菜单统一管理这些脚本，不就只用一个键位就能打开指定脚本了？于是就有了 <strong>rofi-heart</strong>。</p>
 <h2 id="rofi-heart-的三生三世">rofi-heart 的三生三世</h2>
@@ -221,16 +219,14 @@
      
      loading="lazy" />
 <figcaption class="image-caption">rofi-heart Main Menu</figcaption>
-</figure>
-</p>
+</figure></p>
 <p><figure class="image-figure">
 <img src="https://cdn.jsdelivr.net/gh/AllenWu233/lunarithm@main/static/images/rofi-heart-emoji.jpg"
      alt="rofi-heart Emoji Menu"
      
      loading="lazy" />
 <figcaption class="image-caption">rofi-heart Emoji Menu</figcaption>
-</figure>
-</p>
+</figure></p>
 <p>代码清晰易懂，像在 Shell 里输命令一样直白。但维护起来就很难受：修改一个脚本，就要同时改<code>items</code>、<code>choice</code>、<code>case</code> 三处，效率低下且易出错。</p>
 <p>像电源菜单这样写好了就基本不改的脚本，这个版本很合适。但 rofi-heart 要频繁维护子脚本项，显然不太行。</p>
 <h3 id="第二世束薪为栅">第二世：束薪为栅</h3>
@@ -448,8 +444,7 @@
      
      loading="lazy" />
 <figcaption class="image-caption">Python-chan</figcaption>
-</figure>
-</p>
+</figure></p>
 </div>
 <footer class="content__footer">
     
